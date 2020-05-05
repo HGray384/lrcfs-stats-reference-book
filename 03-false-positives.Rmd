@@ -11,16 +11,16 @@ needPackages = function(...) {
   missingLibraries = requiredLibraries[requireResults==FALSE]; #Store the missing libraries where the results of the "require" method are false 
   if(length(missingLibraries > 0)) #If we have any missing libraries
   {
-    install.packages(missingLibraries); #Install the packages that are missing
+    install.packages(missingLibraries,repos="https://cloud.r-project.org/"); #Install the packages that are missing
     lapply(missingLibraries,library,character.only=TRUE) #Once installed then run the library function to register them
   }
 }
 
 # check and load the libraries
-needPackages(c("igraph",
+needPackages("igraph",
               "ggthemes",
               "kableExtra",
-              "tidyverse"))
+              "tidyverse")
 # configure some default parameters for plotting
 defMar <- par()$mar
 colPal <- colorblind_pal()(8)
