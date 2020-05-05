@@ -1,0 +1,6 @@
+book_filename: "stats-reference-book"
+delete_merged_file: true
+new_session: true
+language:
+  ui:
+    chapter_name: "Chapter "

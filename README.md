@@ -1,1 +1,2 @@
-# lrcfs-stats-reference-book
+# LRCFS stats reference book
+This is the repository for the reference book.
