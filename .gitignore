@@ -40,3 +40,15 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# book contents
+_book/
+
+# bookdown files
+_bookdown_files/
+
+# rds file
+stats-reference-book.rds
+
+# tex file
+stats-reference-book.tex
