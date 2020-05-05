@@ -2,6 +2,9 @@
 .Rhistory
 .Rapp.history
 
+# max ds_store
+.DS_Store
+
 # Session Data files
 .RData
 
