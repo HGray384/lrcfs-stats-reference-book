@@ -13,3 +13,4 @@ rmd_files: [
   "markdown/summary.Rmd",
   "markdown/references.Rmd"
 ]
+output_dir: "output"
