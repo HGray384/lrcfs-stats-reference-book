@@ -1,0 +1,7 @@
+# Probability conditioned on information {#conditional-probability}
+
+This Chapter introduces conditional probability.
+
+## What is conditional probability?
+
+## Why is it used?

@@ -1,0 +1,7 @@
+# Probability to describe uncertainty {#probability}
+
+This Chapter introduces probability
+
+## What is probability?
+
+## Why is it used?

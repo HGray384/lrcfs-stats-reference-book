@@ -1,0 +1,7 @@
+# Statistics for observations {#statistics}
+
+This Chapter introduces statistics
+
+## What is/are statistics?
+
+## Why is it/are they used?

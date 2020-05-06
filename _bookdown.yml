@@ -8,7 +8,12 @@ rmd_files: [
   "index.Rmd",
   "markdown/intro.Rmd",
   "markdown/uncertainty.Rmd",
+  "markdown/probability.Rmd",
+  "markdown/odds.Rmd",
+  "markdown/statistics.Rmd",
+  "markdown/conditional-probability.Rmd",
   "markdown/false-positives.Rmd",
+  "markdown/propositions.Rmd",
   "markdown/likelihood-ratio.Rmd",
   "markdown/summary.Rmd",
   "markdown/references.Rmd"

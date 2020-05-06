@@ -1,0 +1,7 @@
+# Bayes' theorem {#bayes}
+
+This Chapter introduces Bayes' theorem
+
+## What is Bayes' theorem?
+
+## Why is it used?

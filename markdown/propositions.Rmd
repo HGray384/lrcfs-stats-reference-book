@@ -1,0 +1,7 @@
+# Propositions for facts-in-issue {#propositions}
+
+This Chapter introduces propositions
+
+## What are propositions?
+
+## Why are they used?
