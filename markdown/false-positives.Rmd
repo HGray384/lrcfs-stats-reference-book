@@ -1,4 +1,4 @@
-# False positives and false negatives {#false-positives}
+# Mistakes in categorisation {#false-positives}
 
 ```{r package-load-false-positives, include=FALSE}
 source("./code/helper-functions.R")
