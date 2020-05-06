@@ -12,13 +12,13 @@ description: "This book is a learning resource for judges who would like to lear
 
 # Preface {-}
 
-This section will contain information about the book.
+This section contains information about the book.
 
-## What does this book contain? {-}
+## About this book {-}
 
-## When should it be used? {-}
+## About the authors {-}
 
-
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
 <!-- # Prerequisites -->
 
 <!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$. -->
@@ -35,9 +35,10 @@ This section will contain information about the book.
 
 <!-- To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>. -->
 
-<!-- ```{r include=FALSE} -->
-<!-- # automatically create a bib database for R packages -->
-<!-- knitr::write_bib(c( -->
-<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
-<!-- ), 'packages.bib') -->
-<!-- ``` -->
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'igraph',
+  'ggthemes', 'kableExtra', 'tidyverse'
+), 'bib/packages.bib')
+```
