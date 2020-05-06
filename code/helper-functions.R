@@ -1,5 +1,7 @@
+## a file containing useful helper functions
+
 #Clear all lists from memory to avoid unintentional errors
-#rm(list = ls())
+rm(list = ls())
 #Create helper function to check for package and install/load if necessary
 #https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
 needPackages = function(...) {
