@@ -1,5 +1,17 @@
 # Likelihood ratio {#Likelihood-ratio}
 
+```{r package-load-likelihood-ratio, include=FALSE}
+source("./code/helper-functions.R")
+# check and load the libraries
+needPackages("igraph",
+              "ggthemes",
+              "kableExtra",
+              "tidyverse")
+# configure some default parameters for plotting
+defMar <- par()$mar
+colPal <- colorblind_pal()(8)
+```
+
 This Chapter introduces the likelihood ratio
 
 ## What is the likelihood ratio?
