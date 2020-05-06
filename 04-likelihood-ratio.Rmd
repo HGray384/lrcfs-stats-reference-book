@@ -1,0 +1,13 @@
+# Likelihood ratio {#Likelihood-ratio}
+
+This Chapter introduces the likelihood ratio
+
+## What is the likelihood ratio?
+
+## Why is it used?
+
+## Example: doping
+
+## More information
+
+## Exercises
