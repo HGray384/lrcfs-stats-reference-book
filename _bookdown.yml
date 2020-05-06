@@ -1,6 +1,15 @@
 book_filename: "stats-reference-book"
-delete_merged_file: true
-new_session: true
+repo: https://github.com/LRCFS/lrcfs-stats-reference-book
+new_session: false
 language:
   ui:
     chapter_name: "Chapter "
+rmd_files: [
+  "index.Rmd",
+  "markdown/intro.Rmd",
+  "markdown/uncertainty.Rmd",
+  "markdown/false-positives.Rmd",
+  "markdown/likelihood-ratio.Rmd",
+  "markdown/summary.Rmd",
+  "markdown/references.Rmd"
+]
