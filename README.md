@@ -1,4 +1,4 @@
-# LRCFS stats reference book
+# LRCFS stats reference book for judges
 This is the repository for the reference book.
 
 ## Build instructions
