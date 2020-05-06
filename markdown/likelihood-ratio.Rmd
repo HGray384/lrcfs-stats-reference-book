@@ -7,9 +7,8 @@ needPackages("igraph",
               "ggthemes",
               "kableExtra",
               "tidyverse")
-# configure some default parameters for plotting
-defMar <- par()$mar
-colPal <- colorblind_pal()(8)
+# set some useful variables
+source("./code/useful-variables.R")
 ```
 
 This Chapter introduces the likelihood ratio
