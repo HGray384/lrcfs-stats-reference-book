@@ -42,10 +42,10 @@ vignettes/*.pdf
 .Renviron
 
 # book contents
-_book/
+_book/*
 
 # bookdown files
-_bookdown_files/
+_bookdown_files/*
 
 # rds file
 stats-reference-book.rds
