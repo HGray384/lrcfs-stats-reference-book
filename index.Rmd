@@ -4,7 +4,7 @@ author: "Harry Gray"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib, stats-book.bib]
+bibliography: [bib/book.bib, bib/packages.bib, bib/stats-book.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This book is a learning resource for judges who would like to learn more about probability and statistics."
