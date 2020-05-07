@@ -148,7 +148,7 @@ This example outlines some statistical concepts that can lead to great insight w
 
 [add in real example using rates from home-testing coronavirus tests]
 
-## Example: doping
+## Example: doping {#exm-doping}
 
 The following example has been adapted from (insert Primer citation).
 
