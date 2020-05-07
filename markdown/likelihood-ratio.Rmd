@@ -13,7 +13,41 @@ source("./code/useful-variables.R")
 
 This Chapter introduces the likelihood ratio
 
+## Definition and properties
+
+The likelihood ratio (LR) is just the probability of observing something conditioned on one proposition, divided by the probability of observing the same thing conditioned on a different proposition. 
+
+## Example: DNA match
+
+Suppose a full DNA profile is recovered from a blood stain at a crime scene. A suspect is detained and their DNA profile is taken. The suspect's reference DNA sample is found to 'match' the crime scene DNA profile. Consider the following competing source-level propositions:
+
+- the suspect is the source of the crime scene stain
+- someone other than the suspect is the source of the crime scene stain.
+
+In this situation, the DNA 'match' is our observation and so the LR is given by following expression
+
+$$\text{LR}=\frac{\text{probability of a match assuming the suspect is the source}}{\text{probability of a match assuming someone other than the suspect is the source}}.$$
+To obtain the LR, we need to obtain values for the above conditional probabilities. Let's consider the numerator first. 
+
+The probability of obtaining a match assuming that the suspect is the source is usually set to 1; it is considered to be certain that a match would be obtained if the suspect was the source. This is of course not true, as there is always the risk of a false positive or other laboratory and technical errors to occur, but it is assumed that the risks of these errors are negligible for full profiles. 
+
+The denominator, the probability of obtaining a match assuming that someone other than the suspect is the source, is more nuanced. This is known as the **random match probability** (RMP). The RMP depends upon how common the recovered profile is in the relevant population for the case. 
+
+It is calculated using observed frequencies of profiles from specific ethnic groups of people, since ethnic group is a large factor in determining genetic variation. 
+
+Since the process behind DNA evidence is highly discriminating, the RMP is usually very small (it can be in the order of 1 in 1 billion). This results in LRs in the order of millions or billions for source level propositions. 
+
+In the below interactive example, you can change the value for the RMP and see what affect that has on the LR.
+
+[Interactive example with RMP; display graph of LR as a function of the RMP, the user can highlight points on the graph or input values of the RMP to see what the corresponding LR is.]
+
+In the above discussion, we made things simplified by ignoring an important issue of relatedness. For example, if the suspect claims that the blood is their sibling's, then the second proposition changes. then the RMP is no longer 
+
 ## Updating odds
+
+The LR has a very clear interpretation from Bayes' theorem
+$$\text{posterior odds} = \text{LR} \times \text{prior odds}.$$
+It is the numerical factor by which we multiply odds before particular information (prior odds) in order to obtain odds conditioned on that information (posterior odds). It tells us how to update beliefs in light of information. 
 
 ## Example: doping (revisited)
 
@@ -79,7 +113,7 @@ All of these expressions comment on the relative probability of observing a posi
 
 To finish this example, let's take a look at the odds formulation of the question from Section \@ref(exm-doping): what are the odds of the athlete doping versus not doping given a positive result of the test?
 
-From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and expressed as odds of $1:48$, or 48 to 1 against doping.
+From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of a randomly selected athlete doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and expressed as odds of $1:48$, or 48 to 1 against doping.
 
 Now, using Bayes' theorem and the LR, we find the posterior odds to be
 \begin{align}
@@ -95,6 +129,15 @@ This illustrates the difference between a probability for a proposition versus a
 ## Probative value of evidence
 
 
+
+## Robustness
+
+
+[interactive example changing probability inputs to the LR]
+
+## Communication
+
+## Interpretation
 
 ## More information
 
