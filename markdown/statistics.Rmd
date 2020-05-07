@@ -2,6 +2,10 @@
 
 This Chapter introduces statistics
 
-## What is/are statistics?
+## Observations from populations
 
-## Why is it/are they used?
+## Describing observations
+
+## Inferring from observations
+
+## Relevant populations

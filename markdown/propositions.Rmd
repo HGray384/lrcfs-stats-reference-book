@@ -2,6 +2,10 @@
 
 This Chapter introduces propositions
 
-## What are propositions?
+## Issues
 
-## Why are they used?
+## Propositions
+
+## Probability conditioned on propositions
+
+## Competing propositions

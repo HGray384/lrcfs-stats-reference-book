@@ -2,6 +2,14 @@
 
 This Chapter introduces probability
 
-## What is probability?
+## Personal probabilities
 
-## Why is it used?
+## Example: coin toss
+
+## Rules of probability
+
+## Example: dice roll
+
+## More information
+
+## Exercises

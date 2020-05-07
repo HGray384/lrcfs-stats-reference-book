@@ -2,6 +2,8 @@
 
 This Chapter introduces conditional probability.
 
-## What is conditional probability?
+## Conditioning
 
-## Why is it used?
+## Probative information
+
+## Statistical independence

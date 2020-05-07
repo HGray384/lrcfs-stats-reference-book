@@ -2,6 +2,6 @@
 
 This Chapter introduces odds
 
-## What are the odds?
+## What are the odds
 
-## Why is it used?
+## Examples revisited
