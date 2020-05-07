@@ -13,17 +13,32 @@ source("./code/useful-variables.R")
 
 This Chapter introduces the likelihood ratio
 
-## What is the likelihood ratio?
+## Updating odds
 
-## Why is it used?
+## Example: doping (revisited)
 
-## Example: doping
+Recall the example of detecting doping athletes from Chapter \@ref(false-positives).
 
-Recall the example of detecting doping athletes from Chapter \@ref(false-positives). The test returns positive for 95 out of every 100 doping athletes. The test returns negative for 95 out of every 100 non-doping athletes. Assuming the base rate that 2 out of every 100 athletes are doping, we were able to deduce that only 28 out of every 100 athletes who receive a positive test are actually doping. Is the test bad?
+The test returns positive for 95 out of every 100 doping athletes. The test returns negative for 95 out of every 100 non-doping athletes. It was speculated that 2 out of every 100 athletes are doping. We used these numbers to work out the probability of an athlete doping given that they tested positive as around 28%.
 
-The likelihood ratio can help us think about this. One of the purposes of drugs testing Before testing, if we randomly selected an athlete then only 2 out of 100 of them would be doping. After testing, if we randomly selected from those with positive tests then about 28 out of every 100 would be doping. 
+A related question is this: How much more likely are we to see a positive test result when the athlete is doping compared to when the athlete is not doping? This question is important as it tells us how informative a positive test result is directly in relation to the information we're interested in: doping versus non-doping. And this is precisely the type of question that an LR addresses. 
 
-```{r freq-tree-lr-doping, echo=FALSE,fig.cap="Out of the 680 athletes who test positive (shown in bold font), 190 (~28%) are doping. ", out.width = '80%', fig.align = 'center'}
+First, let's break this question down into its implied competing propositions and the available evidence. 
+
+Competing propositions:
+
+- the athlete is doping
+- the athlete is not doping
+
+Evidence: 
+
+- a positive test result
+
+The likelihood ratio is given by
+$$\text{LR} = \frac{\text{probability of a positive test result assuming the athlete is doping}}{\text{probability of a positive test result assuming the athlete is not doping}}.$$
+
+Note how this is the ratio of the probabilities for the evidence having conditioned upon the competing propositions. The conditional probabilities which contribute to this LR can be extracted from Figure \@ref(fig:freq-tree-lr-doping), in which we assume a population of 10,000 athletes. 
+```{r freq-tree-lr-doping, echo=FALSE,fig.cap="The terms which contribute to the LR are shown in bold font. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000 \nathletes", "200\ndoping", "9,800\nnot doping", "190\npositive", "10\nnegative", "490\npositive", "9,310\nnegative")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -37,7 +52,7 @@ colPal <- colorblind_pal()(8)
 #                        colPal[7],
 #                        colPal[4])
 V(freqTree)$color <- c(rep(colPal[1], 7))
-V(freqTree)$label.font <- c(rep(1, 3), 2, 1, 2, 1)
+V(freqTree)$label.font <- c(1, 2, 2, 2, 1, 2, 1)
 par(mar = c(0, 0, 0, 0))
 plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
      vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
@@ -49,6 +64,37 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 #        pch=16)
 par(mar = defMar)
 ```
+
+For the numerator of the LR, "assuming that the athlete is doping"  means that we are only looking at the branches of the tree for the doping athletes. We can see that 190 out of these 200 doping athletes test positive, a probability of 0.95 (this is also the sensitivity in the original example).
+
+For the denominator of the LR, "assuming that the athlete is not doping" means that we only look at the branches of the tree for non-doping athletes. We can see that 490 out of the 9,800 non-doping athletes tested positive, a probability of 0.05 (this is 1 minus the specificity from the original example).
+
+The likelihood ratio is then $\frac{0.95}{0.05}=19$. The meaning of this can be expressed in a number of equivalent ways:
+
+- a positive test updates our prior odds that the athlete is doping, increasing them by a factor of 19,
+- a positive test is 19 times more likely to be observed from doping athletes than a positive result from non-doping athletes,
+- a positive test result provides 19 times more support for the proposition that the athlete is doping compared to not doping. 
+
+All of these expressions comment on the relative probability of observing a positive test result under the assumptions of the athlete doping and not doping. They do **not** state a value for the probabilities of the athlete doping or not, and they do **not** state that the athlete is 19 times more likley to be doping than not. To believe the latter would be to illegitimately transpose the conditional and commit the prosecutor's fallacy [insert section reference]. 
+
+To finish this example, let's take a look at the odds formulation of the question from Section \@ref(exm-doping): what are the odds of the athlete doping versus not doping given a positive result of the test?
+
+From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and expressed as odds of $1:48$, or 48 to 1 against doping.
+
+Now, using Bayes' theorem and the LR, we find the posterior odds to be
+\begin{align}
+  \text{posterior odds} &= \text{LR} \times \text{prior odds} \\
+  \frac{19}{49} &= 19 \times \frac{1}{49},
+\end{align}
+corresponding to posterior odds of $19:48$, or 48 to 19 against doping given a postive test result. Converting this back to probability gives $\frac{19}{19+48}=0.2835821$, about 28%. This is the same as the answer that we worked out in Section \@ref(exm-doping).
+
+Even though the likelihood ratio for a positive test gave support in favour of the athlete doping, the posterior probability for the proposition that the athlete is doping is still rather small. This is an important point; the likelihood ratio alone does not tell us anything about the absolute value of the posterior probability for a proposition, it only tells us the relative value compared to the prior probability. 
+
+This illustrates the difference between a probability for a proposition versus a probability for the evidence conditioned upon a proposition. 
+
+## Probative value of evidence
+
+
 
 ## More information
 
