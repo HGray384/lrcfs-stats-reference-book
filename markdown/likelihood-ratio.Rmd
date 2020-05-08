@@ -15,7 +15,34 @@ This Chapter introduces the likelihood ratio
 
 ## Definition and properties
 
-The likelihood ratio (LR) is just the probability of observing something conditioned on one proposition, divided by the probability of observing the same thing conditioned on a different proposition. 
+We're in a situation in which we have two competing propositions, A and B. We observe an event E, and wish to know whether E supports A or B more. The likelihood ratio (LR) quantifies this support.
+
+The LR consists of the probability of observing E conditioned on A being true, divided by the probability of observing E conditioned on B being true. As a formula it is written as
+$$\text{LR}=\frac{\text{probability of E assuming A is true}}{\text{probability of E assuming B is true}}.$$
+
+The trick here is that by assuming each proposition to be true in turn, we can see how much more likely the event was to occur in A's version of events compared to B's.
+
+Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support for A compared to B, since it means that the probability of E assuming that A is true is greater than the probability of E assuming B is true. Values of the LR which are less than 1 indicate relative support for b compared to A, since it means that the probability of E assuming that B is true is greater than the probability of E assuming A is true. This is shown in Figure
+
+```{r lr-bound, echo=FALSE, fig.cap="The LR is bounded between 0 and positive infinity. Very large values of the LR occur where the probability of E assuming B is true is very small.  ", out.width = '80%', fig.align = 'center'}
+gridVals <- 20
+prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1]
+vars <- expand.grid(prob1, prob2)
+lrDf <- tibble(prob1 = vars$Var1, prob2 = vars$Var2)%>%
+  mutate(lr = prob1/prob2)
+
+ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
+  geom_tile() +
+  xlab("probability of E assuming B is true") +
+  ylab("probability of E assuming A is true") +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_gradientn(colors = c(colPal[7],
+                                  "white",
+                                  colPal[6]),
+                       name="LR",
+                       values = c(0, 1/max(lrDf$lr), 1))
+```
 
 ## Example: DNA match
 
@@ -24,7 +51,7 @@ Suppose a high quality full DNA profile is recovered from a blood stain at a cri
 - the suspect is the source (of the questioned profile)
 - someone other than the suspect is the source (of the questioned profile).
 
-In this situation the DNA 'match' is the observation for which we would like a probability. The the LR is given by
+In this situation the DNA 'match' is the observation for which we would like a probability. The LR is given by
 
 $$\text{LR}=\frac{\text{probability of a match assuming the suspect is the source}}{\text{probability of a match assuming someone other than the suspect is the source}}.$$
 To obtain the LR, we need to obtain values for the above conditional probabilities. Let's consider the numerator first. 
@@ -156,7 +183,9 @@ This illustrates the difference between a probability for a proposition versus a
 
 ## Probative value of evidence
 
-The interpretation of 
+
+
+The interpretation of the LR as an update of the prior odds when conditioned on specific information
 
 ## Combining evidence
 
