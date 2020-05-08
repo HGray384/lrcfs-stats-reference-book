@@ -19,29 +19,57 @@ The likelihood ratio (LR) is just the probability of observing something conditi
 
 ## Example: DNA match
 
-Suppose a full DNA profile is recovered from a blood stain at a crime scene. A suspect is detained and their DNA profile is taken. The suspect's reference DNA sample is found to 'match' the crime scene DNA profile. Consider the following competing source-level propositions:
+Suppose a high quality full DNA profile is recovered from a blood stain at a crime scene. This is known as the **questioned profile**. The profile is analysed and is determined to contain only one person's DNA, making it a **single donor profile**. A suspect is detained and their DNA profile is taken. This is known as the **reference profile**. The reference profile is found to 'match' the questioned profile. Consider the following competing source-level propositions:
 
-- the suspect is the source of the crime scene stain
-- someone other than the suspect is the source of the crime scene stain.
+- the suspect is the source (of the questioned profile)
+- someone other than the suspect is the source (of the questioned profile).
 
-In this situation, the DNA 'match' is our observation and so the LR is given by following expression
+In this situation the DNA 'match' is the observation for which we would like a probability. The the LR is given by
 
 $$\text{LR}=\frac{\text{probability of a match assuming the suspect is the source}}{\text{probability of a match assuming someone other than the suspect is the source}}.$$
 To obtain the LR, we need to obtain values for the above conditional probabilities. Let's consider the numerator first. 
 
-The probability of obtaining a match assuming that the suspect is the source is usually set to 1; it is considered to be certain that a match would be obtained if the suspect was the source. This is of course not true, as there is always the risk of a false positive or other laboratory and technical errors to occur, but it is assumed that the risks of these errors are negligible for full profiles. 
+The probability of obtaining a match assuming that the suspect is the source is usually set to 1; it is considered to be certain that a match would be obtained if the suspect was the source. This is reasonable although it is not strictly true. There is always the risk of a false positive or other laboratory or technical errors occuring, but it is assumed that the risks of these errors are negligible, especially for high-quality full profiles. 
 
-The denominator, the probability of obtaining a match assuming that someone other than the suspect is the source, is more nuanced. This is known as the **random match probability** (RMP). The RMP depends upon how common the recovered profile is in the relevant population for the case. 
+The denominator, the probability of obtaining a match assuming that someone other than the suspect is the source, is more nuanced. This is known as the **random match probability** (RMP). The RMP reflects how common the recovered profile is in the relevant population for the case. The more common the profile, the higher the RMP and the lower the LR when the above formula is applied. The logic behind this is the following: the more common a characteristic is in a population, the worse that characteristic is at discriminating between propositions. Figure \@ref(fig:freq-tree-rmp) visualises an RMP of 1 in 40 million for a population of 40 million and 1 people, which also includes the guilty individual.
 
-It is calculated using observed frequencies of profiles from specific ethnic groups of people, since ethnic group is a large factor in determining genetic variation. 
+```{r freq-tree-rmp, echo=FALSE,fig.cap="Out of 40 million innocent people, 1 DNA profile matches. The RMP is 1 in 40 million. ", out.width = '80%', fig.align = 'center'}
+e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
+v <- c("40,000,001 \npeople", "1\nguilty", "40,000,000\ninnocent", "1\nmatch", "0\nno match", "1\nmatch", "39,999,999\nno match")
+freqTree <- graph(edges=e, n=7, directed=FALSE)
+V(freqTree)$name <- v
 
-Since the process behind DNA evidence is highly discriminating, the RMP is usually very small (it can be in the order of 1 in 1 billion). This results in LRs in the order of millions or billions for source level propositions. 
+# the commented code below complicates the point
+# V(freqTree)$color <- c(rep(colPal[1], 3), 
+#                        colPal[4], 
+#                        colPal[7],
+#                        colPal[7],
+#                        colPal[4])
+V(freqTree)$color <- c(rep(colPal[1], 7))
+V(freqTree)$label.font <- c(1, 1, 2, 1, 1, 2, 1)
+par(mar = c(0, 0, 0, 0))
+plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+     vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+     vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
+     layout=layout_as_tree(graph = freqTree, root = 1),
+     vertex.size=50)
+# legend("bottomright", legend=c("True", "False"),
+#        col=colPal[c(4,7)], bty = "n",
+#        pch=16)
+par(mar = defMar)
+```
+
+The RMP is calculated using known frequencies of profiles from specific ethnic groups of people, since ethnic group is a large factor in determining genetic variation. The genetics behind DNA evidence is highly discriminating between individuals, so the RMP is usually very small (it can be in the order of 1 in 1 billion). This results in LRs in the order of millions or billions for competing source level propositions for single donor full profiles. 
 
 In the below interactive example, you can change the value for the RMP and see what affect that has on the LR.
 
 [Interactive example with RMP; display graph of LR as a function of the RMP, the user can highlight points on the graph or input values of the RMP to see what the corresponding LR is.]
 
-In the above discussion, we made things simplified by ignoring an important issue of relatedness. For example, if the suspect claims that the blood is their sibling's, then the second proposition changes. then the RMP is no longer 
+In the above discussion, we made things simplified by ignoring an important issue of relatedness. For example, the degree of relatedness in a population affects the RMP. Our second proposition considered anyone other than the suspect. But if we considered close genetic relationships, such as siblings and parents of the suspect, then the RMP would not reflect the probability of a match. The genetic similarity between these individuals would mean the probability of a match is much higher than the RMP. For this reason, and when there is no reason to suspect close relatives of the suspect, the proposition advocating non-guilt is sometimes changed to
+
+- someone unrelated to the suspect is the source,
+
+and the RMP is used as usual. 
 
 ## Updating odds
 
@@ -57,7 +85,7 @@ The test returns positive for 95 out of every 100 doping athletes. The test retu
 
 A related question is this: How much more likely are we to see a positive test result when the athlete is doping compared to when the athlete is not doping? This question is important as it tells us how informative a positive test result is directly in relation to the information we're interested in: doping versus non-doping. And this is precisely the type of question that an LR addresses. 
 
-First, let's break this question down into its implied competing propositions and the available evidence. 
+In order to think about an LR, we need to break this question down into its implied competing propositions and the available evidence. 
 
 Competing propositions:
 
@@ -120,7 +148,7 @@ Now, using Bayes' theorem and the LR, we find the posterior odds to be
   \text{posterior odds} &= \text{LR} \times \text{prior odds} \\
   \frac{19}{49} &= 19 \times \frac{1}{49},
 \end{align}
-corresponding to posterior odds of $19:48$, or 48 to 19 against doping given a postive test result. Converting this back to probability gives $\frac{19}{19+48}=0.2835821$, about 28%. This is the same as the answer that we worked out in Section \@ref(exm-doping).
+corresponding to posterior odds of $19:48$, or 48 to 19 against doping given a positive test result. Converting this back to probability gives $\frac{19}{19+48}=0.2835821$, about 28%. This is the same as the answer that we worked out in Section \@ref(exm-doping).
 
 Even though the likelihood ratio for a positive test gave support in favour of the athlete doping, the posterior probability for the proposition that the athlete is doping is still rather small. This is an important point; the likelihood ratio alone does not tell us anything about the absolute value of the posterior probability for a proposition, it only tells us the relative value compared to the prior probability. 
 
@@ -128,14 +156,25 @@ This illustrates the difference between a probability for a proposition versus a
 
 ## Probative value of evidence
 
+The interpretation of 
+
+## Combining evidence
+
+
+## Example: DNA loci
 
 
 ## Robustness
+
+- [S] versus [E] in the primer
+- changes in assumptions/values
 
 
 [interactive example changing probability inputs to the LR]
 
 ## Communication
+
+[verbal scale]
 
 ## Interpretation
 
