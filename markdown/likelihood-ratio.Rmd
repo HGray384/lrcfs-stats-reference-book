@@ -13,19 +13,86 @@ source("./code/useful-variables.R")
 
 This Chapter introduces the likelihood ratio
 
-## Definition and properties
+## Relative support for competing propositions
 
-We're in a situation in which we have two competing propositions, A and B. We observe an event E, and wish to know whether E supports A or B more. The likelihood ratio (LR) quantifies this support.
+Suppose that we have two competing propositions, A and B, as in the previous chapter. We observe an event E, and wish to know whether E was more likely assuming A or B. If E is more likely assuming A was true, then we say that E provides more support for A than B, and vice versa if E is more likely assuming B to be true. The likelihood ratio (LR) quantifies this support.
 
 The LR consists of the probability of observing E conditioned on A being true, divided by the probability of observing E conditioned on B being true. As a formula it is written as
 $$\text{LR}=\frac{\text{probability of E assuming A is true}}{\text{probability of E assuming B is true}}.$$
 
-The trick here is that by assuming each proposition to be true in turn, we can see how much more likely the event was to occur in A's version of events compared to B's.
+The trick here is that by assuming each proposition to be true in turn, we can see how much more likely E was to occur in A's version of events compared to B's.
 
-Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support for A compared to B, since it means that the probability of E assuming that A is true is greater than the probability of E assuming B is true. Values of the LR which are less than 1 indicate relative support for b compared to A, since it means that the probability of E assuming that B is true is greater than the probability of E assuming A is true. This is shown in Figure
+Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support for A compared to B, since it means that the probability of E assuming that A is true is greater than the probability of E assuming B is true. Values of the LR which are less than 1 indicate relative support for B compared to A, since it means that the probability of E assuming that B is true is greater than the probability of E assuming A is true. Values of the LR which are equal to 1 indicate that E provides equal support for A and B when compared to each other. This is shown in Table \@ref(tab:lr-meaning-table).
 
-```{r lr-bound, echo=FALSE, fig.cap="The LR is bounded between 0 and positive infinity. Very large values of the LR occur where the probability of E assuming B is true is very small.  ", out.width = '80%', fig.align = 'center'}
-gridVals <- 20
+```{r lr-meaning-df, include=FALSE}
+lrDf <- tibble("LR" = c("less than 1",
+                        "equal to 1",
+                        "greater than 1"),
+                  "Meaning"=c("More support for B compared to A",
+                              "Equal support for both when compared to each other",
+                              "More support for A compared to B"))
+```
+
+```{r lr-meaning-table, echo=FALSE}
+options(kableExtra.html.bsTable = T)
+lrDf %>%
+  knitr::kable(booktabs = TRUE, escape = F, align = "c",
+             caption = 'Meaning of values of the LR for event E.') %>%
+  kable_styling(c("striped", "condensed"), 
+                latex_options = "striped")
+```
+
+## Strength of support
+
+The magnitude of the LR conveys the strength of the support which E provides for A or B when compared to each other. LRs of 1,000,000 and 10 both provide support for proposition A compared to B, but the LR of 1,000,000 provides much stronger support than the LR of 10 does. Similarly, LRs of 0.0000001 and 0.1 provide support for proposition B compared to A, but the LR of 0.0000001 provides much stronger support than the LR of 0.1 does. As the value of the LR gets further away from 1, the stronger the support is for proposition A or B (depending on whether the LR is greater or less than 1) when compared to its competitor.
+
+One method to convey the numerical strength of an LR is to place it into a category of verbal expressions based on its numerical magnitude. Multiple suggested categorisations exist, such as the example given below in Table \@ref(tab:verbal-scale-table).
+
+```{r verbal-scale-df, include=FALSE}
+strength <- c("weak",
+              "moderate",
+              "moderately strong",
+              "strong",
+              "very strong",
+              "extremely strong")
+strengthSup <- paste(strength, "support")
+props <- c("for A compared to B",
+           "for B compared to A")
+verbExpr <- c(paste(rev(strengthSup), props[2]),
+              "equal support for A and B",
+              paste(strengthSup, props[1]))
+lrRange <- c("less than 0.000001",
+             "at least 0.000001 but less than 0.0001",
+             "at least 0.0001 but less than 0.001",
+             "at least 0.001 but less than 0.01",
+             "at least 0.01 but less than 0.1",
+             "at least 0.1 but less than 1",
+             "1",
+             "at least 1 but less than 10",
+             "at least 10 but less than 100",
+             "at least 100 but less than 1000",
+             "at least 1000 but less than 10,000",
+             "at least 10,000 but less than 1,000,000",
+             "at least 1,000,000")
+vsDf <- dplyr::tibble("LR"=lrRange, "verbal expression"=verbExpr)
+```
+
+
+```{r verbal-scale-table, echo=FALSE}
+options(kableExtra.html.bsTable = T)
+vsDf %>%
+  knitr::kable(booktabs = TRUE, escape = F, align = "c",
+             caption = 'Verbal expressions to convey the strength of numerical LRs.') %>%
+  kable_styling(c("striped", "condensed"), 
+                latex_options = "striped")
+
+
+```
+
+The LR is determined by the values of the conditional probabilities which underly it. Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities.
+
+```{r lr-function, echo=FALSE, fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support for A compared to B, and orange is support for B compared to A. White is equal support for both.", out.width = '80%', fig.align = 'center'}
+gridVals <- 101
 prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1]
 vars <- expand.grid(prob1, prob2)
 lrDf <- tibble(prob1 = vars$Var1, prob2 = vars$Var2)%>%
@@ -38,11 +105,26 @@ ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
   scale_fill_gradientn(colors = c(colPal[7],
+                                  colPal[2],
                                   "white",
+                                  colPal[3],
                                   colPal[6]),
-                       name="LR",
-                       values = c(0, 1/max(lrDf$lr), 1))
+                       breaks = c(0.01, 0.1,
+                                  1,10, 100),
+                       labels=c(0.01, 0.1,
+                                  1,10, 100),
+                       name="LR", trans = "log"
+                       # values = c(0, 0.4, 
+                       #            0.5, 
+                       #            0.6, 1)
+  )
 ```
+
+Figure \@ref(fig:lr-function) highlights some important properties of the LR:
+
+- LR values close to 1 tell us nothing about the values of their conditional probabilities other than that they are roughly equal. So long as the probabilities are similar in size, extremely unlikely situations will be assigned the same LR as absolutely certain ones. This can be seen by the white strip across the diagonal of the figure.
+- Most values for the probabilities lead to LRs which are no more than "moderate support" for either proposition in light of Table \@ref(tab:verbal-scale-table). This is the consequence of the probabilities being less than 1; if the probability of E conditioned on B is 0.25, then we know the LR can have a maximum value 4, since the probability of E conditioned on A is at most 1.
+- Following on from the previous point, large or small LRs can only be obtained when one probability is small, i.e. when E is highly unlikely conditioned on one of the propositions. This can be seen by the block of darker colour for the smallest value of each of the probabilities. In order to see large or small LRs, we would really have to zoom into the areas of this plot where one probability is tiny, and this cannot be seen using the same scale of this current plot.
 
 ## Example: DNA match
 
