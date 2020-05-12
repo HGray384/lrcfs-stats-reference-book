@@ -186,17 +186,27 @@ There are also other corrective factors that are applied to calculate the condit
 
 ## Updating odds
 
-The LR has a very clear interpretation from Bayes' theorem
+The LR has a very clear interpretation from Bayes' theorem (Chapter ...)
 $$\text{posterior odds} = \text{LR} \times \text{prior odds}.$$
-It is the numerical factor by which we multiply odds before particular information (prior odds) in order to obtain odds conditioned on that information (posterior odds). It tells us how to update beliefs in light of information. 
+It is the numerical factor by which we multiply odds before particular information (prior odds) in order to obtain odds conditioned on that information (posterior odds); the LR tells us *how much* to update beliefs in light of information. 
+
+We saw in Table \@ref(tab:lr-meaning-table) that values of the LR equal to 1 meant that the event provided equal support for both propositions when compared to each other. Logically, if an event provides equal support for two competing propositions, then it should not update any beliefs we had prior to observing it. If we look at Bayes' theorem above and plug in an LR of 1, then this is exactly what happens. The prior odds between the propositions is equal to the posterior odds between them; observing the event did not change the odds. 
+
+We also saw that when the LR is greater than 1, then the event E provides more support for proposition A than proposition B. The intuition behind that statement is that, after observing E, we should update our prior belief to be more in favour of proposition A (than B) than it was. This is confirmed with Bayes' theorem above; when the LR is greater than 1, then the prior odds in favour of A *increases* to become the posterior odds. Observing the event E was found to be more probable assuming A than B, and so the odds were increased in favour of A by a specific factor, which is given by the LR.
+
+[example in which LR>1 and can be changed with fixed prior odds]
+
+We lastly discuss when the LR is less than 1. In this situation, the event provides more support for proposition B than proposition A. This tells us that we should update our prior belief to be more in favour of proposition B (than A) that it was. Looking at Bayes' theorem, this is exactly what happens; an LR less than 1 means that the prior odds in favour of A are *reduced* to become the posterior odds. Reducing the odds in favour of A means *increasing* the odds in favour of B and so our intuition is confirmed. Observing the event E was found to be more probable assuming B than A, and so the odds were reduced in favour of A (increased in favour of B) by a specific factor, which is given by the LR.
+
+[example with changable LR<1 with fixed prior odds]
 
 ## Example: doping (revisited)
 
-Recall the example of detecting doping athletes from Chapter \@ref(false-positives).
+Recall the example of detecting doping athletes from Chapter \@ref(exm-doping).
 
 The test returns positive for 95 out of every 100 doping athletes. The test returns negative for 95 out of every 100 non-doping athletes. It was speculated that 2 out of every 100 athletes are doping. We used these numbers to work out the probability of an athlete doping given that they tested positive as around 28%.
 
-A related question is this: How much more likely are we to see a positive test result when the athlete is doping compared to when the athlete is not doping? This question is important as it tells us how informative a positive test result is directly in relation to the information we're interested in: doping versus non-doping. And this is precisely the type of question that an LR addresses. 
+A related question is this: How much more likely are we to see a positive test result when the athlete is doping compared to when the athlete is not doping? This question is important as it tells us how informative a positive test result is directly in relation to the information we're interested in: doping versus non-doping. And this is precisely the type of question that an LR can be used to address. 
 
 In order to think about an LR, we need to break this question down into its implied competing propositions and the available evidence. 
 
@@ -205,7 +215,7 @@ Competing propositions:
 - the athlete is doping
 - the athlete is not doping
 
-Evidence: 
+Event: 
 
 - a positive test result
 
@@ -254,24 +264,22 @@ All of these expressions comment on the relative probability of observing a posi
 
 To finish this example, let's take a look at the odds formulation of the question from Section \@ref(exm-doping): what are the odds of the athlete doping versus not doping given a positive result of the test?
 
-From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of a randomly selected athlete doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and expressed as odds of $1:48$, or 48 to 1 against doping.
+From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of a randomly selected athlete doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and also expressed as odds of $1:49$, or 49 to 1 against doping.
 
 Now, using Bayes' theorem and the LR, we find the posterior odds to be
 \begin{align}
-  \text{posterior odds} &= \text{LR} \times \text{prior odds} \\
-  \frac{19}{49} &= 19 \times \frac{1}{49},
+  \text{posterior odds} &= \text{LR} \times \text{prior odds}, \\
+  \text{posterior odds} &= 19 \times \frac{1}{49}, \\
+  \text{posterior odds} &= \frac{19}{49},
 \end{align}
-corresponding to posterior odds of $19:48$, or 48 to 19 against doping given a positive test result. Converting this back to probability gives $\frac{19}{19+48}=0.2835821$, about 28%. This is the same as the answer that we worked out in Section \@ref(exm-doping).
+corresponding to posterior odds of $19:49$, or 49 to 19 against doping given a positive test result. Converting this back to probability gives $\frac{19}{19+49}=0.2794118$, about 28%. This is the same as the answer that we worked out in Section \@ref(exm-doping).
 
 Even though the likelihood ratio for a positive test gave support in favour of the athlete doping, the posterior probability for the proposition that the athlete is doping is still rather small. This is an important point; the likelihood ratio alone does not tell us anything about the absolute value of the posterior probability for a proposition, it only tells us the relative value compared to the prior probability. 
-
-This illustrates the difference between a probability for a proposition versus a probability for the evidence conditioned upon a proposition. 
 
 ## Probative value of evidence
 
 
 
-The interpretation of the LR as an update of the prior odds when conditioned on specific information
 
 ## Combining evidence
 
