@@ -298,17 +298,30 @@ LRs can also be used to consider the value of multiple pieces of evidence togeth
 
 ## Robustness
 
-Statistics are the subject of constant scrutiny in daily life, be it from experts or otherwise. Since they are used to inform very important decisions and policies (social, medical or otherwise), subjecting them to scrutiny allows .
+The LR is open to the same type of scrutiny as most other statistics. Two main reasons for this are:
 
-The LR is also open to the same type of scrutiny. Two main reasons for this are 1) it is formed using empirical observations where possible, which can change over time amongst other variables and 2) whether an opinion which leads to creating an LR is a widely-held belief within a field of expertise or not, an expert's opinion is always subjective. 
+1. The LR is formed using empirical observations where possible. These may be limited in their sample size and precision, they may contain bias, and they may also vary over time amongst other factors.
+2. LRs formed using an expert's opinion are always subjective. Even if an opinion is widely held within a particular community of expertise, it is still subjective (though it may be less subjective than a widely disputed belief).
 
-The robustness of an LR is only as good as the robustness of the probabilities from which it is formed. Any critical assessment of an LR is only a critical assessment of its underlying probabilities. It is not an assessment of the inherent properties that taking a ratio of two probabilities might give rise to.
+The degree to which an LR can withstand scrutiny due to the above reasons is termed its robustness. If an LR still seems reasonable and reliable after having assessed it from multiple perspectives (e.g. the sample size of a database which has been informed it, how appropriate that database was for the specific case circumstances, etc.) then it is robust. If an LR does not seem reasonable and reliable after this assessment process, then it is not robust. It is worth noting that an LR which is not robust might still be the best LR in the case circumstances, e.g. if there is a severe lack of data and expertise to inform the LR in the first place. 
 
-Assessing the robustness of an LR is aided by making a distinction between types of information that the expert uses when constructing conditional probabilities.
+An LR is only as robust as the probabilities from which it is formed. Any critical assessment of an LR is only a critical assessment of its underlying probabilities. It is not an assessment of the inherent properties that taking a ratio of two probabilities might give rise to. If an expert gives an LR as an order of magnitude, then the underlying order of magnitude assignments of the probabilities should be coherent with this. For example, if the LR is thought to be between 100-1000, then an order of magnitude assignment of the probability of $E$ assuming $H_d$ cannot be 0.01-0.1 as this would constrain the LR to be between 10-100.
 
-- [S] versus [E] in the primer
-- changes in assumptions/values
+Assessing the robustness of an LR is aided by making a distinction between types of information that the expert uses when constructing conditional probabilities. In the Primer (citation) this information is divided into two categories:
 
+-[S]: knowledge derived from robust systematic studies, ideally published, where the relevant features have been measured and studied statistically.
+
+-[E]: knowledge derived from personal experience, i.e. the expert's training and professional experience in the forensic specialism.
+
+Robustness of an LR informed by knowledge from the [S] category can be assessed by focussing on the quoted studies and data therein. The study design (observational, randomised controlled trial, etc.) and its limitations might be relevant, as well as its applicability to the present case's circumstances. The robustness of studies and databases can be affected by factors such as sample size, precision of measurements, sampling bias, etc.
+
+Robustness of an LR informed by knowledge from the [E] category can be assessed by focussing on the reliability of the expert's personal experience. This could involve the expert detailing their previous experience and its relevance. The reliability of an expert's personal experience may be informed, for example, by previous proficiency or calibration tests in which the expert has participated. The robustness of these tests may also be assessed, such as whether they were conducted blind and without knowledge that an assessment was taking place, how many times they were repeated, etc.
+
+The [E] category is also more likely to be where expert's dispute, since it contains more subjective knowledge than [S] does. Beliefs in this category may be fringe or generally accepted amongst certain subgroups within the field of expertise. Disagreements between experts may be reasonable and can be presented to the court for examination.
+
+The robustness of a particular LR can also be empirically assessed. This involves changing the input values of either the probabilities which determine the LR, or the values which themselves contribute to those probabilities, and inspecting how sensitive the LR is to these changes. This could also involve defining a set of reasonable values which could determine the LR, and then seeing the range of values the LR takes for this reasonable set. 
+
+If the LR is practically unaffected by reasonable changes, or has a small range within the set of reasonable input values, then it is robust. If the LR is highly affected by minor changes, or has a large range within the set of reasonable input values, then it not so robust. 
 
 [interactive example changing probability inputs to the LR]
 
