@@ -295,7 +295,16 @@ LRs can also be used to consider the value of multiple pieces of evidence togeth
 ## Example: DNA loci
 
 
+
 ## Robustness
+
+Statistics are the subject of constant scrutiny in daily life, be it from experts or otherwise. Since they are used to inform very important decisions and policies (social, medical or otherwise), subjecting them to scrutiny allows .
+
+The LR is also open to the same type of scrutiny. Two main reasons for this are 1) it is formed using empirical observations where possible, which can change over time amongst other variables and 2) whether an opinion which leads to creating an LR is a widely-held belief within a field of expertise or not, an expert's opinion is always subjective. 
+
+The robustness of an LR is only as good as the robustness of the probabilities from which it is formed. Any critical assessment of an LR is only a critical assessment of its underlying probabilities. It is not an assessment of the inherent properties that taking a ratio of two probabilities might give rise to.
+
+Assessing the robustness of an LR is aided by making a distinction between types of information that the expert uses when constructing conditional probabilities.
 
 - [S] versus [E] in the primer
 - changes in assumptions/values
@@ -305,7 +314,88 @@ LRs can also be used to consider the value of multiple pieces of evidence togeth
 
 ## Communication
 
-[verbal scale]
+We have looked at the calculation and conceptual meaning of the LR, as well as how to assess its robustness. We now turn our attention to communicating the LR to others. Whereas the previous stages of this chapter may be conducted before evidence is presented to the court, the communication of the LR is present within the courtroom itself and it is not left to the expert witness alone. 
+
+It cannot be stressed how important this communication stage is; even if it is agreed that the LR is the appropriate tool to convey the value of scientific evidence, its effectiveness is nothing without it being understood by those who have to use it to make decisions. This means that the LR needs to be effectively communicated **to** fact-finders and legal counsel, as well as effectively communicated **by** expert witnesses, legal counsel, and the judge if it is contained within their instructions to jurors for a particular case. It is a shared responsibility.
+
+As shown in this chapter, LRs can be communicated using a number of different strategies. We finish the chapter with a short recap of those strategies. [Would be nice to include some of the evidence supporting each of them too.]
+
+Suppose the following scenario:
+
+Evidence:
+
+- $E$: Blood-spatter pattern on the defendant's jeans. The blood has been accepted by both counsels as originating from the complainant. 
+
+Propositions:
+
+- $H_p$: the defendant kicked the complainant
+- $H_d$: the defendant did not kick the complainant but was present during the attack. The defendant claims to have been standing some distance from the attack.
+
+An expert witness has stated that the probability of $E$ assuming $H_p$ to be true is 0.1. The expert also stated that the probability of observing $E$ assuming $H_d$ to be true (and based on information such as where the defendant claims to have been standing during the attack) is 0.0001. This gives an LR of $\frac{0.1}{0.0001}=1000$. 
+
+The most raw form of communicating this LR is in its numerical format. Such a statement could read like this:
+
+> This pattern of blood-staining is 1000 times more likely to be seen if the defendant kicked the complainant, rather than if the defendant did not kick the complainant but was present during the attack and was standing in the location as described in their statement.
+
+Converting an LR of 1000 into a verbal statement using Table \@ref(tab:verbal-scale-table) could lead to a statement such as:
+
+> This pattern of blood-staining provides strong support for the defendant having kicked the complainant, rather than the defendant not having kicked the complainant but having been present during the attack and was standing in the location as described in their statement.
+
+Since the conditional probabilities which determine the LR are made explicit in this example (this is not common practice), then the LR can also be communicated visually using natural frequencies in Figure \@ref(fig:freq-tree-lr-kicking):
+
+```{r freq-tree-lr-kicking, echo=FALSE,fig.cap="The terms which contribute to the LR are shown in bold font. Since the populations we assumed are the same size, the LR is just 1000 divided by 1, or just 1000.", out.width = '80%', fig.align = 'center'}
+e <- c(1, 2, 1, 3)
+v <- c("10,000\nkickers", "10,000\nnon-kickers", "1000\nthis\npattern", "9000\nnot this\npattern", "1\nthis\npattern", "9999\nnot this\npattern")
+freqTreeKick <- graph(edges=e, n=3, directed=FALSE)
+freqTreeNonKick <- graph(edges=e, n=3, directed=FALSE)
+V(freqTreeKick)$name <- v[c(1, 3, 4)]
+V(freqTreeNonKick)$name <- v[c(2, 5, 6)]
+
+colPal <- colorblind_pal()(8)
+# the commented code below complicates the point
+# V(freqTree)$color <- c(rep(colPal[1], 3), 
+#                        colPal[4], 
+#                        colPal[7],
+#                        colPal[7],
+#                        colPal[4])
+treeCol <- c(rep(colPal[1], 3))
+V(freqTreeKick)$color <- treeCol
+V(freqTreeNonKick)$color <- treeCol
+treeFont <- c(2, 2, 1)
+V(freqTreeKick)$label.font <- treeFont
+V(freqTreeNonKick)$label.font <- treeFont
+par(mar = c(0, 0, 0, 0), mfrow=c(1, 2))
+plot(freqTreeKick, vertex.shape="none", vertex.label=V(freqTreeKick)$name,
+     vertex.label.color=V(freqTreeKick)$color, vertex.label.font=V(freqTreeKick)$label.font,
+     vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
+     layout=layout_as_tree(graph = freqTreeKick, root = 1),
+     vertex.size=50)
+# legend("bottomright", legend=c("True", "False"),
+#        col=colPal[c(4,7)], bty = "n",
+#        pch=16)
+plot(freqTreeNonKick, vertex.shape="none", vertex.label=V(freqTreeNonKick)$name,
+     vertex.label.color=V(freqTreeNonKick)$color, vertex.label.font=V(freqTreeNonKick)$label.font,
+     vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
+     layout=layout_as_tree(graph = freqTreeNonKick, root = 1),
+     vertex.size=50)
+par(mar = defMar, mfrow=c(1, 1))
+```
+
+```{r lr-pie-kick, echo=FALSE, fig.cap="Relative size of E given H_p versus E given H_d", out.width = '80%', fig.align = 'center'}
+df <- data.frame(prob=c("E given H_p", "E given H_d"), num=c(1000,1))
+bp<- ggplot(df, aes(x="", y=num, fill=prob))+
+geom_bar(width = 1, stat = "identity")
+pie <- bp + coord_polar("y", start=0) + scale_fill_manual(values=c(colPal[6], colPal[7])) + theme_minimal()
+pie
+```
+
+An accompanying verbal statement could be:
+
+> Out of 10,000 kickers in an equivalent situation to the defendant in the prosecution's version of events, this blood pattern would be found on 1000 of them. Out of 10,000 non-kickers in an equivalent situation to the defendant in the defence's version of events, this blood pattern would be found on 1 of them. 
+
+Notice how the expert did not specify a prior probability of being the kicker or not, and so we had to split the trees into two groups, one for the kickers, and one for the non-kickers.
+
+In expert reports, the currently endorsed approach by the Forensic Science Regulator is to communicate LRs using their numerical value possibly converted into the verbal statements given in Table \@ref(tab:verbal-scale-table). The effectiveness of this method of communicating the LR (as well as others) is an active area of scientific research, and has the potential to change as we gather a better understanding of how those communications are received and used by those within the courtroom.
 
 ## More information
 
