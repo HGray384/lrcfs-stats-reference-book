@@ -276,7 +276,7 @@ corresponding to posterior odds of $19:49$, or 49 to 19 against doping given a p
 
 Even though the likelihood ratio for a positive test gave support in favour of the athlete doping, the posterior probability for the proposition that the athlete is doping is still rather small. This is an important point; the likelihood ratio alone does not tell us anything about the absolute value of the posterior probability for a proposition, it only tells us the relative value compared to the prior probability. 
 
-## Probative value of evidence
+## Quantifying probative value
 
 So far we have considered a generic event E and propositions A and B. When we view this framework from the perspective of a forensic evaluation, the event E can be seen as a piece of evidence and the propositions A and B are the propositions put forward by the prosecution and defence, hereon referred to as $H_p$ and $H_d$. These can be thought of as the prosecution and defence's claimed version of events, the truth of which we are uncertain.
 
