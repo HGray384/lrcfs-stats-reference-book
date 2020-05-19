@@ -2,6 +2,10 @@
 
 This Chapter introduces Bayes' theorem
 
-## What is Bayes' theorem?
+## Prior and posterior
 
-## Why is it used?
+## Some controversies
+
+## More information
+
+## Exercises

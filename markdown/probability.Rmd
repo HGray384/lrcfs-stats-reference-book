@@ -8,7 +8,7 @@ This Chapter introduces probability
 
 [interactive app which performs simulated coin flips]
 
-## Rules of probability
+## Some properties
 
 ## Example: dice roll
 

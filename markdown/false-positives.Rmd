@@ -11,9 +11,9 @@ needPackages("igraph",
 source("./code/useful-variables.R")
 ```
 
-```{r title-image, echo=FALSE}
-plot(x=c(3, 7), y=rep(6,2), pch=c(43, 95), cex=20, col=colPal[c(6,7)], xlim=c(0,10), ylim=c(3, 9), bty='n', axes=FALSE, ylab=NA, xlab = NA)  
-```
+<!--  ```{r title-image, echo=FALSE} -->
+<!--  plot(x=c(3, 7), y=rep(6,2), pch=c(43, 95), cex=20, col=colPal[c(6,7)], xlim=c(0,10), ylim=c(3, 9), bty='n', axes=FALSE, ylab=NA, xlab = NA)   -->
+<!--  ``` -->
 
 This Chapter introduces false positives and false negatives.
 

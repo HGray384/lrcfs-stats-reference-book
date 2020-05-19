@@ -1,7 +1,7 @@
-# Odds as probabilities {#odds}
+# Odds {#odds}
 
-This Chapter introduces odds
+## What are the odds?
 
-## What are the odds
+## Odds and probability
 
 ## Examples revisited
