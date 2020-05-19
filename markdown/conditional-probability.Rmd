@@ -4,6 +4,8 @@ This Chapter introduces conditional probability.
 
 ## Conditioning
 
+
+
 ## Probative information
 
 ## Statistical independence
