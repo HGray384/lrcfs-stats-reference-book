@@ -2,10 +2,26 @@
 
 This Chapter introduces propositions
 
-## Issues
+## Facts-in-issue
+
+To motivate the use of propositions, we begin with a discussion about facts-in-issue. Facts-in-issue are the relevant facts of a specific case which are contested by each side of the legal dispute. In criminal trials, this typically manifests as the defence contesting facts which the prosecution have asserted.
+
+There is epistemic uncertainty about the facts-in-issue and so relevant evidence is presented to the court. The fact finder then considers this evidence to determine the truth of the facts-in-issue, and ultimately the outcome of the case. 
+
+It is clear from this that the language and presentation of facts-in-issue must be precise and accurate. The presentation should also be done in a way that allows the fact finder to clearly discriminate between what either side of counsel is asserting. To achieve this, forensic scientists formalise the facts-in-issue into what are known as propositions. 
 
 ## Propositions
 
-## Probability conditioned on propositions
+
+
+## Hierarchy of propositions
 
 ## Competing propositions
+
+## Probative value of evidence
+
+## Changing propositions
+
+## More information
+
+## Exercises
