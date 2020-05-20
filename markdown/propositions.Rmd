@@ -12,13 +12,55 @@ It is clear from this that the language and presentation of facts-in-issue must 
 
 ## Propositions
 
+A proposition is an assertion about a factual state of nature. The 'factual' part of that is key since it means that the assertion is capable of being either true or false. Thus, propositions are capable of either being true or false. Although not always correct, we will speak of propositions as not only **capable of being** either true or false, but **as** being either true or false. 
 
+The truth of propositions does not depend upon people's belief about them (unless the proposition is specifically about their belief). Consider the following:
 
-## Hierarchy of propositions
+1. The Earth orbits the Sun.
+2. The Earth is flat.
+
+Proposition 1 is true and proposition 2 is false, and we have substantial scientific evidence to prove this. At a certain point of time in history, however, common belief about those propositions was false: people thought that the Sun orbited the Earth, and that the Earth was flat (and some still do...). It was true that the Earth orbits the Sun both before and after humans had enough evidence to believe it was true. 
+
+Propositions can still evoke epistemic uncertainty; they are true or false but we might not know which. In this case we can probabilistically reason about them. Consider another example:
+
+3. Poker Player B is holding an ace.
+
+In this hypothetical poker game, it's self-evident that the proposition is true if Player B is holding an ace and it is false if Player B is not holding an ace. If you are Player B then you will know the truth of this and the proposition is trivial. However, if you are not Player B then you won't know the truth of this; you have epistemic uncertainty. To play your hand well, you will have to come to a reasonable belief about the probability of this proposition (and others) and make decisions about checking, raising, or folding etc., whilst accounting for this uncertainty. Note that in this example you might **never** know the truth of this proposition. Player B might never turn over their cards nor reveal the answer. The proposition was still either true or false regardless of this.
+
+The truth of some propositions may change over time. Consider the following:
+
+6. Boris Johnson's Conservative party govern the UK. 
+
+As of me writing this, this proposition is true. The UK still exists, the Conservative party exist and are led by Boris Johnson, and his party governs the UK after a landslide general election win. This proposition won't be true forever, and may not even be true by the time you're reading this. It can help to be more specific when formulating propositions to overcome this dependence on time or other factors. Changing the proposition to:
+
+7. On 20th May 2020, Boris Johnson's Conservative party govern the UK. 
+
+This more specific proposition is now unambigious about factors which may change it. However, the proposition is now less general since it only refers to one specific day. Whether this lack of generality is useful or not depends on the question at hand. When the question is provided by investigators and given to forensic scientists, then the scientists have to balance these factors when formulating appropriate propositions. 
 
 ## Competing propositions
 
+When formulating propositions from facts-in-issue, the different sides of the adversarial system make different assertions about the same factual event. This leads to so-called competing propositions, . Competing propositions typically come in pairs, here are some examples
+
+
+mutual exclusivity
+
+exhaustiveness
+
+Negating propositions
+
+## Hierarchy of propositions
+
+offence
+
+activity
+
+source
+
+sub-source
+
 ## Probative value of evidence
+
+evidence conditioned on propositions
 
 ## Changing propositions
 
