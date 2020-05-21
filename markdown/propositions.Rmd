@@ -23,24 +23,44 @@ Proposition 1 is true and proposition 2 is false, and we have substantial scient
 
 Propositions can still evoke epistemic uncertainty; they are true or false but we might not know which. In this case we can probabilistically reason about them. Consider another example:
 
-3. Poker Player B is holding an ace.
+3. Poker Player B is holding an ace in this round.
 
-In this hypothetical poker game, it's self-evident that the proposition is true if Player B is holding an ace and it is false if Player B is not holding an ace. If you are Player B then you will know the truth of this and the proposition is trivial. However, if you are not Player B then you won't know the truth of this; you have epistemic uncertainty. To play your hand well, you will have to come to a reasonable belief about the probability of this proposition (and others) and make decisions about checking, raising, or folding etc., whilst accounting for this uncertainty. Note that in this example you might **never** know the truth of this proposition. Player B might never turn over their cards nor reveal the answer. The proposition was still either true or false regardless of this.
+In this hypothetical poker game, it's self-evident that the proposition is true if Player B is holding an ace and it is false if Player B is not holding an ace. If you are Player B then you will know the truth of this and the proposition is trivial. However, if you are not Player B then you won't know the truth of this; you have epistemic uncertainty.
 
-The truth of some propositions may change over time. Consider the following:
+To play your hand well, you will have to come to a reasonable belief about the probability of this proposition (and others) and make decisions about checking, raising, or folding etc., whilst accounting for this uncertainty. Note that in this example you might **never** know the truth of this proposition. Player B might never turn over their cards nor reveal the answer. The proposition was still either true or false regardless of this.
 
-6. Boris Johnson's Conservative party govern the UK. 
+The truth of some propositions may change as situations change. Consider the following:
 
-As of me writing this, this proposition is true. The UK still exists, the Conservative party exist and are led by Boris Johnson, and his party governs the UK after a landslide general election win. This proposition won't be true forever, and may not even be true by the time you're reading this. It can help to be more specific when formulating propositions to overcome this dependence on time or other factors. Changing the proposition to:
+4. Boris Johnson's Conservative party govern the UK. 
 
-7. On 20th May 2020, Boris Johnson's Conservative party govern the UK. 
+As of me writing this, the proposition is true. The UK still exists, the Conservative party exist under that same name and are led by Boris Johnson, and his party governs the UK after a landslide general election win. This proposition won't be true forever, and may not even be true by the time you're reading this. It can help to be more specific when formulating propositions to overcome this dependence on time or other factors. Changing the proposition instead to:
 
-This more specific proposition is now unambigious about factors which may change it. However, the proposition is now less general since it only refers to one specific day. Whether this lack of generality is useful or not depends on the question at hand. When the question is provided by investigators and given to forensic scientists, then the scientists have to balance these factors when formulating appropriate propositions. 
+5. On 20th May 2020, Boris Johnson's Conservative party govern the UK 
+
+gives a more specific proposition that is now unambigious about the temporal factor which may affect it. However, the proposition is now less general since it only refers to one specific day. Whether this lack of generality is worth the extra specificity or not depends on the question at hand. When the question is provided by investigators and given to forensic scientists, then the scientists have to balance these factors when formulating appropriate propositions. 
 
 ## Competing propositions
 
-When formulating propositions from facts-in-issue, the different sides of the adversarial system make different assertions about the same factual event. This leads to so-called competing propositions, . Competing propositions typically come in pairs, here are some examples
+When formulating propositions from facts-in-issue, the different sides of the adversarial system make different assertions about the circumstances which lead to the same factual observation. Translating these assertions into propositions gives so-called competing propositions. Competing propositions typically come in pairs, one put forward by each side of legal counsel.
 
+Case scenario: Police were called to the house of a known local drug-dealer after reports by neighbours of a suspected gunshot heard from within. They arrived at the scene to find a middle-aged male, the owner of the house and the drug-dealer, shot dead in a bedroom. A window at the back of the house on the ground floor was found to be smashed, with the glass having fallen towards the inside of the house. They found open death-threats on the deceased's public social media account from two males. The males are known to police, having previously been involved in drug-related crimes too. Both are arrested their known addresses, at which time Suspect 1 confesses to having broken in to the house but not having fired the weapon. He refuses to name any accomplices. Suspect 2 refuses to comment, despite glass-covered clothing being found within a plastic bag in his waste disposal unit. After further testing, this clothing was also found to be covered in gunshot-residue particles. No weapon is recovered.
+
+Here are three facts-in-issue of the (probably) many for this case at this preliminary stage. 
+
+Fact-in-issue: whether or not Suspect 2 (or 1) killed the victim with the intent to kill or cause grievous bodily harm.
+
+6. P: Suspect 2 (or 1) committed murder,
+7. D: Suspect 2 (or 1 or both) did not commit murder,
+
+Fact-in-issue: whether or not Suspect 2 fired the gun in question
+
+8. P: Suspect 2 fired the gun,
+9. D: Suspect 2 did not fire the gun,
+
+Fact-in-issue: whether or not the glass fragments found on Suspect 2's clothing originated from the smashed window
+
+10. P: The glass fragments originate from the smashed window,
+11. D: The glass fragments originate from a source other than the smashed window.
 
 mutual exclusivity
 
