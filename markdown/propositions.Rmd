@@ -41,34 +41,62 @@ gives a more specific proposition that is now unambigious about the temporal fac
 
 ## Competing propositions
 
-When formulating propositions from facts-in-issue, the different sides of the adversarial system make different assertions about the circumstances which lead to the same factual observation. Translating these assertions into propositions gives so-called competing propositions. Competing propositions typically come in pairs, one put forward by each side of legal counsel.
+When formulating propositions from facts-in-issue, the different sides of the adversarial system make different assertions about the circumstances which lead to the same factual observation.
 
-Case scenario: Police were called to the house of a known local drug-dealer after reports by neighbours of a suspected gunshot heard from within. They arrived at the scene to find a middle-aged male, the owner of the house and the drug-dealer, shot dead in a bedroom. A window at the back of the house on the ground floor was found to be smashed, with the glass having fallen towards the inside of the house. They found open death-threats on the deceased's public social media account from two males. The males are known to police, having previously been involved in drug-related crimes too. Both are arrested their known addresses, at which time Suspect 1 confesses to having broken in to the house but not having fired the weapon. He refuses to name any accomplices. Suspect 2 refuses to comment, despite glass-covered clothing being found within a plastic bag in his waste disposal unit. After further testing, this clothing was also found to be covered in gunshot-residue particles. No weapon is recovered.
+For example, as part of a case there might be a DNA sample at the crime scene which was found to match the DNA profile taken from the suspect after their arrest. The prosecution might assert that the defendant was at the location in which the DNA sample was recovered. The defence, on the other hand, might accept that this is the defendant's DNA but instead assert that it was indirectly transferred there, e.g. from contact with another individual who was provably at the crime scene. Both of these assertions would reasonably lead to the defendant's DNA matching the crime scene sample.
+
+Translating these assertions into propositions gives so-called competing propositions. Competing propositions typically come in pairs, one put forward by each side of legal counsel. They are often denoted as $H_p$ and $H_d$ to represent 'prosecution/defence hypothesis', and we'll use this from now on.
+
+Case scenario: Police were called to the house of a known local drug-dealer after reports by neighbours of a suspected gunshot heard from within. They arrived at the scene to find a middle-aged male, the known drug-dealer, shot dead in a bedroom. A window at the back of the house on the ground floor was found to be smashed, with the glass having fallen towards the inside of the house. They found open death-threats on the deceased's public social media account from two males. The males are known to police, having previously been involved in drug-related crimes too. Both are arrested at their known addresses, at which time Suspect 1 confesses to having broken in to the house but not having fired the weapon. He refuses to name any accomplices. Suspect 2 refuses to comment, despite glass-covered clothing being found within a plastic bag in a bin at his residence. After further testing, this clothing was also found to be covered in gunshot-residue particles. No weapon is recovered.
 
 Here are three facts-in-issue of the (probably) many for this case at this preliminary stage. 
 
-Fact-in-issue: whether or not Suspect 2 (or 1) killed the victim with the intent to kill or cause grievous bodily harm.
+Fact-in-issue 1: whether or not Suspect 2 killed the victim with the intent to kill or cause grievous bodily harm.
 
-6. P: Suspect 2 (or 1) committed murder,
-7. D: Suspect 2 (or 1 or both) did not commit murder,
+- $H_p^1$: Suspect 2 committed murder,
+- $H_d^1$: Suspect 2 did not commit murder,
 
-Fact-in-issue: whether or not Suspect 2 fired the gun in question
+Fact-in-issue 2: whether or not Suspect 2 fired the gun in question
 
-8. P: Suspect 2 fired the gun,
-9. D: Suspect 2 did not fire the gun,
+- $H_p^2$: Suspect 2 fired the gun,
+- $H_d^2$: Suspect 2 did not fire the gun,
 
-Fact-in-issue: whether or not the glass fragments found on Suspect 2's clothing originated from the smashed window
+Fact-in-issue 3: whether or not the glass fragments found on Suspect 2's clothing originated from the smashed window
 
-10. P: The glass fragments originate from the smashed window,
-11. D: The glass fragments originate from a source other than the smashed window.
+- $H_p^3$: The glass fragments originate from the smashed window,
+- $H_d^3$: The glass fragments originate from a source other than the smashed window.
 
-mutual exclusivity
+We have extracted the information from the case scenario and formulated potential facts-in-issue. These facts-in-issue isolate individual issues that appear in the case scenario. They also make a clear statement about what is the potential issue which surrounds each fact, e.g. was it or was it not the suspect?
 
-exhaustiveness
+It is clear that for each fact-in-issue, we have created a potential pair of competing propositions. Each proposition makes a direct assertion about the associated fact-in-issue, considers each side of the issue (prosecution or defence) separately, and is either true or false. Using this process reduces complex case scenarios into individual unambiguous points of focus, around which the investigation can be anchored.
 
-Negating propositions
+There are some other key properties of these propositions which are worth exploring. Let's revisit the following competing pair of propositions:
+
+- $H_p^2$: Suspect 2 fired the gun,
+- $H_d^2$: Suspect 2 did not fire the gun.
+
+One property of these propositions is that when one is true, the other is necessarily false (and vice versa). This is known as **mutual exclusivity**. 
+
+Another property of these propositions is that either one or the other must be true -- there is no scenario in which both are false. This is known as **exhaustivity**. Exhaustivity means that the propositions cover the entire set of all possibilities for the event in question. We know that a gun was fired, so either Suspect 2 fired the gun or they did not. The proposition $H_p^2$ covers one specific event and $H_d^2$ covers everything else. 
+
+These propositions were guaranteed to be mutually exclusive and exhaustive because of the way we constructed them. First we specified $H_p$. Then, we **negated** $H_p$ to get $H_d$ in each pair of propositions. A simpler way of phrasing this is to day we formed '$H_p$' and 'not $H_p$'. Take the glass propositions as an example:
+
+- $H_p^3$: The glass fragments originate from the smashed window,
+- $H_d^3$: The glass fragments originate from a source other than the smashed window.
+
+If $H_p^3$ is not true, then the glass fragments must originate from a source other than the smashed window, and so we get $H_d^3$. This makes the propositions necessarily mutually exclusive, $H_p^3$ and not $H_p^3$ cannot both be true because they are logical 'opposites'. It also means that they are exhaustive, since $H_p^3$ or its negation must be true.
+
+The logic of negating propositions is in line with the burden of proof in UK criminal cases. It is for the prosecution to prove beyond reasonable doubt that their assertions are true. The defence, in proving reasonable doubt about the prosecution assertions need only show that the opposite of the prosecution story is reasonably credible. Negating prosecution propositions is one logical way of doing this.
+
+There are plenty of situations in which simply negating the prosecution propositions is appropriate, e.g. when the defendant has a genuine alternative narrative for events. In this situation, the defence narrative might be used for $H_d$, e.g.:
+
+- $H_d^3$: the glass fragments originate from a glass barrier at a shooting range that Suspect 2 was perfoming construction work on.
+
+These properties of propositions are important when we begin to consider probabilities associated with them in Chapter [...]. But first we will look at different categories of proposition. 
 
 ## Hierarchy of propositions
+
+It's helpful to further categorise propositions based upon the type of assertion that they are making. 
 
 offence
 
