@@ -6,7 +6,8 @@ source("./code/helper-functions.R")
 needPackages("igraph",
               "ggthemes",
               "kableExtra",
-              "tidyverse")
+              "tidyverse",
+              "plotly")
 # set some useful variables
 source("./code/useful-variables.R")
 ```
@@ -91,15 +92,17 @@ vsDf %>%
 
 The LR is determined by the values of the conditional probabilities which underly it. Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities.
 
-```{r lr-function, echo=FALSE, fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support for A compared to B, and orange is support for B compared to A. White is equal support for both.", out.width = '80%', fig.align = 'center'}
+```{r lr-function, echo=FALSE, fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support for A compared to B, and orange is support for B compared to A. White is equal support for both.", out.width = '100%', fig.align = 'center'}
 gridVals <- 101
 prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1]
 vars <- expand.grid(prob1, prob2)
 lrDf <- tibble(prob1 = vars$Var1, prob2 = vars$Var2)%>%
   mutate(lr = prob1/prob2)
 
-ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
-  geom_tile() +
+graph = ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
+  geom_tile(aes(text = paste('probability of E assuming A is true: ', prob1,
+                             '<br>probability of E assuming B is true:', prob2,
+                             '<br>LR: ',lr))) +
   xlab("probability of E assuming B is true") +
   ylab("probability of E assuming A is true") +
   scale_x_continuous(expand = c(0, 0)) +
@@ -118,6 +121,9 @@ ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
                        #            0.5, 
                        #            0.6, 1)
   )
+
+ggplotly(graph, tooltip = "text")
+  
 ```
 
 Figure \@ref(fig:lr-function) highlights some important properties of the LR:
