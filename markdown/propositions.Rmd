@@ -75,22 +75,26 @@ There are some other key properties of these propositions which are worth explor
 - $H_p^2$: Suspect 2 fired the gun,
 - $H_d^2$: Suspect 2 did not fire the gun.
 
-One property of these propositions is that when one is true, the other is necessarily false (and vice versa). This is known as **mutual exclusivity**. 
+One property of these propositions is that when one is true, the other is necessarily false (and vice versa). They cannot both be true. This is known as **mutual exclusivity**. Mutual exclusivity occurs when two propositions make assertions which have logical no overlap. Suspect 2 firing the gun and not firing the gun cannot both be true, they are completely seperable assertions.
 
 Another property of these propositions is that either one or the other must be true -- there is no scenario in which both are false. This is known as **exhaustivity**. Exhaustivity means that the propositions cover the entire set of all possibilities for the event in question. We know that a gun was fired, so either Suspect 2 fired the gun or they did not. The proposition $H_p^2$ covers one specific event and $H_d^2$ covers everything else. 
 
-These propositions were guaranteed to be mutually exclusive and exhaustive because of the way we constructed them. First we specified $H_p$. Then, we **negated** $H_p$ to get $H_d$ in each pair of propositions. A simpler way of phrasing this is to day we formed '$H_p$' and 'not $H_p$'. Take the glass propositions as an example:
+When competing propositions are exhaustive and mutually exclusive then they cover all possible events, meaning that one of them must be true, but they cannot both be true. This means that one of the propositions must be true and the other must be false. This 'either one or the other' property makes such competing propositions easier to evaluate, since knowing the truth of one determines the truth of the other.
+
+These propositions were guaranteed to be mutually exclusive and exhaustive because of the way we constructed them. First we specified $H_p$. Then, we **negated** $H_p$ to get $H_d$ in each pair of propositions. A simpler way of phrasing this is to say we formed '$H_p$' and 'not $H_p$'. Take the glass propositions as an example:
 
 - $H_p^3$: The glass fragments originate from the smashed window,
 - $H_d^3$: The glass fragments originate from a source other than the smashed window.
 
-If $H_p^3$ is not true, then the glass fragments must originate from a source other than the smashed window, and so we get $H_d^3$. This makes the propositions necessarily mutually exclusive, $H_p^3$ and not $H_p^3$ cannot both be true because they are logical 'opposites'. It also means that they are exhaustive, since $H_p^3$ or its negation must be true.
+If $H_p^3$ is not true, then the glass fragments must originate from a source other than the smashed window, and so we get $H_d^3$. This makes the propositions necessarily mutually exclusive, '$H_p^3$' and 'not $H_p^3$' cannot both be true because they are logical negations. It also means that they are exhaustive, since $H_p^3$ or its negation ('anything else') must be true.
 
-The logic of negating propositions is in line with the burden of proof in UK criminal cases. It is for the prosecution to prove beyond reasonable doubt that their assertions are true. The defence, in proving reasonable doubt about the prosecution assertions need only show that the opposite of the prosecution story is reasonably credible. Negating prosecution propositions is one logical way of doing this.
+The logic of negating propositions is in line with the burden of proof in UK criminal cases. It is for the prosecution to prove beyond reasonable doubt that their assertions are true. The defence, in proving reasonable doubt about the prosecution assertions need only show that the opposite of the prosecution story has reasonable credibility. Negating prosecution propositions is one logical way of doing this.
 
-There are plenty of situations in which simply negating the prosecution propositions is appropriate, e.g. when the defendant has a genuine alternative narrative for events. In this situation, the defence narrative might be used for $H_d$, e.g.:
+There are plenty of situations in which simply negating the prosecution propositions is inappropriate however, e.g. when the defendant has a genuine alternative narrative for events. In this situation, the defence narrative might be used for $H_d$, e.g.:
 
-- $H_d^3$: the glass fragments originate from a glass barrier at a shooting range that Suspect 2 was perfoming construction work on.
+- $H_d^3$: the glass fragments originate from a glass barrier at a shooting range that Suspect 2 has recently been performing construction work on.
+
+This proposition is still competing with $H_p^3$, and $H_p^3$ and the new $H_d^3$ are still mutually exclusive. However, they are no longer exhaustive. This is because all possible alternatives to $H_p^3$ are no longer considered by $H_d^3$. In other words, it is now possible for both $H_p^3$ and $H_d^3$ to be false. This could happen if the suspect lies or is mistaken about their alternative version of events.
 
 These properties of propositions are important when we begin to consider probabilities associated with them in Chapter [...]. But first we will look at different categories of proposition. 
 
