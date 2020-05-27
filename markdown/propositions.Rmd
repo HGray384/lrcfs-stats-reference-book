@@ -100,15 +100,101 @@ These properties of propositions are important when we begin to consider probabi
 
 ## Hierarchy of propositions
 
-It's helpful to further categorise propositions based upon the type of assertion that they are making. 
+It's helpful to further categorise propositions based upon the type of assertion that they make. This categorisation makes the proposition's claims explicit and clear, which helps us understand how the proposition can help to answer a question.  
 
-offence
+Propositions are mostly grouped into four categories (or levels): offence, activity, source, and sub-source. This is known as the **hierarchy of propositions**, since each category is generally more or less important than the others when considering the case as a whole. Examples of competing propositions for each of these levels are shown in Table \@ref(tab:propositions-table) below.
 
-activity
+```{r propositions-df, include=FALSE}
+Level <- c(rep("Offence", 4),
+           rep("Activity", 4),
+           rep("Source", 4),
+           rep("Sub-source", 4))
+Examples <- c("$H_p^1$: The defendant committed murder",
+              "$H_d^1$: The defendant did not commit murder",
+              "$H_p^2$: The defendant assaulted the claimant",
+              "$H_d^2$: The defendant did not assault the claimant",
+              "$H_p^3$: The defendant fired the gun",
+              "$H_d^3$: The defendant did not fire the gun",
+              "$H_p^4$: The defendant kicked the claimant",
+              "$H_d^4$: The defendant was not present when the claimant was kicked",
+              "$H_p^5$: The glass from the defendant's clothing originated from the smashed window",
+              "$H_d^5$: The glass from the defendant's clothing originated from some other source",
+              "$H_p^6$: The blood on the defendant's shoes came from the claimant",
+              "$H_d^6$: The blood on the defendant's shoes came from someone else",
+              "$H_p^7$: NA",
+              "$H_d^7$: NA",
+              "$H_p^8$: The DNA on the claimant's clothing came from the defendant",
+              "$H_d^8$: The DNA on the claimant's clothing came from someone else")
+propsDf <- dplyr::tibble(Level, Examples)
+```
 
-source
+```{r propositions-table, echo=FALSE}
+options(kableExtra.html.bsTable = T)
+propsDf %>%
+  knitr::kable(booktabs = TRUE, escape = F, align = "l",
+             caption = 'Propositions levels and some examples of competing propositions.') %>%
+  kable_styling(c("striped", "condensed"), 
+                latex_options = "striped") %>%
+  collapse_rows(columns = 1, valign = "top")
 
-sub-source
+
+```
+
+Offence-level propositions directly refer to a criminal offence. From Table \@ref(tab:propositions-table) we have:
+
+- $H_p^1$: The defendant committed murder,
+- $H_d^1$: The defendant did not commit murder.
+
+We saw these propositions in the case scenario of the previous Section. These competing propositions refer to the **ultimate issue** in the case. Others, such as $H_p^2$ and $H_d^2$ might not be the ultimate issue of the case, but will still determine the fate of the defendant. For this reason, they are the most important level of proposition. 
+
+Offence-level propositions are considered by the fact finder in a case and rarely the forensic scientist. This is because propositions about criminal offences fall outside the domain of an scientific expert witness, who gives evidence only on scientific findings within a case. There will be other non-scientific evidence in the case that will need to be considered too. The scientist can indirectly assist in finding the truth of offence-level propositions through assisting the court on other related propositions which do fall within their expert domain.
+
+Activity-level propositions relate to activies and do not assert criminal liability. This leaves them one step below the offence-level propositions in terms of importance to the court; the activity may have been criminal but it also may not have been. In Table \@ref(tab:propositions-table) we have:
+
+- $H_p^4$: The defendant kicked the claimant,
+- $H_d^4$: The defendant was not present when the claimant was kicked.
+
+If $H_p^4$ is true, then this still may have been done within the law. However, if $H_p^4$ is proven true to the fact finder, then it is a large step closer to answering the ultimate issue -- all that remains is to show that the activity amounted to assault, thus addressing $H_p^2$. This means that activity level propositions still have a high degree of importance.
+
+Forensic scientists do consider activity level propositions where scientific findings can assist the court on them. In fact, this is the advised level of proposition where it is possible. In order to consider activity level propositions, it is often necessary for the scientist to take in to account contextual information from case circumstances as well as the available scientific findings. If the necessary contextual information is unavailable, then the scientist may find themselves unable to assist the court regarding alleged activities. Consider the propositions:
+
+- $H_p^3$: The defendant fired the gun,
+- $H_d^3$: The defendant did not fire the gun. 
+
+Finding gunshot residue particles on the defendant's clothing might not be enough information for the scientist to assist the court on these propositions. They would have to consider other explanations for the defendant having gunshot residue on their clothes first. If the defendant was in the military, part of a shooting club, or had any other reasonable explanation for having this residue on their clothing then the scientist would need to know. They might then require further information about the last time the defendant was in contact with firearms. The the amount of particles found on the clothing, and the location in which they were found (e.g. cuffs), might then be considered in light of the defendant's response. Results from the scientific literature about the background abundance and transfer and persistence of gunshot residue particles might then need to be used in addition to the scientific findings from the case. 
+
+[add a picture to the above pls, it is sooo dry]
+
+Source level propositions relate to the origin of traces and impressions found, e.g. at a crime scene. The source-level makes attributions such as blood to an individual, fibres to a garment of clothing, footwear marks to a piece of footwear, etc. These propositions are relatively simple compared to activity-level sinc ethey do not comment on questions such as "how?" or "why?" the traces and impressions may have come to be where they were recovered from. The answer to these questions are often the most consequential because they are logically closer to the ultimate issue. Since the activity level addresses these questions and the source level does not, the source level is placed below the activity level in the hierarchy.
+
+Consider the competing propositions from Table \@ref(tab:propositions-table):
+
+- $H_p^5$: The glass from the defendant's clothing originated from the smashed window,
+- $H_d^5$: The glass from the defendant's clothing originated from some other source.
+
+These propositions have been derived from evidence that has been found. This is a common situation for source-level propositions: trace evidence is found and we need to know its origin. It is also very common for forensic scientists to consider source-level propositions. This is because the science is well-equipped to shed light on them. For $H_p^5$ above, the scientist can compare analytic measurements from the recovered glass fragments to other fragments known to come from the smashed window. For $H_d^5$, the scientist will need to compare analytic measurements of the recovered fragments to fragments from other known sources. 
+
+Although the source-level propositions are below the activity level in the hierarchy, this is not to say that they are unimportant. In fact, in individual cases, they may be the most important as they might effectively address the most important activity level propositions. For example, if the fact-finder decides that $H_p^5$ is true based on the expert's evidence, then they may not require further evidence to think that the following activity-level proposition is true:
+
+- $H_p^{5+}$: the defendant was present when the glass was smashed. 
+
+In other words, the truth of the source-level proposition could have a logical domino effect that leads to the fact-finder being sure of the truth of the most important propositions. 
+
+The sub-source level is a particular version of the source level. It makes source attributions of more general traces, such as DNA to an individual. The difference between source and sub-source is that the source-level states the specific cellular material (e.g. blood) that DNA would be recovered from, whereas sub-source simply states that DNA was found. This is the result of highly sensitive modern measurement technologies. Taking swabs of items of interest at a crime scene can detect very low levels of DNA even though there was no obvious biological material that was swabbed.
+
+This distinction can be key in case circumstances because it leaves open questions of how the DNA came to be there. The sub-source level propositions in Table \@ref(tab:propositions-table) were:
+
+- $H_p^8$: The DNA on the claimant's clothing came from the defendant,
+- $H_d^8$: The DNA on the claimant's clothing came from someone else.
+
+DNA found on clothing may be explained by direct contact and indirect transfer, which might be reasonable in any given case. This means that more obstacles are encountered than source-level propositions when trying to move to the activity level. If blood has been found on an item then there are far fewer mechanisms of it coming to be there compared to finding DNA alone. 
+
+The hierarchy of propositions and the degree to which the scientist can aid the court in addressing them using science alone is represented in the Figure [...].
+
+
+It's worth mentioning again that these are conceptual frameworks with which to consider propositions. Individual case circumstances will determine how important each level of proposition is and the degree to which the scientist can consider them using science alone. 
+
+What role does evidence play here? We have seen that source and sub-source level propositions are formed from evidence and that there is a logical relationship between all levels of proposition. In the next section, we will add evidence into the mix.
 
 ## Probative value of evidence
 
