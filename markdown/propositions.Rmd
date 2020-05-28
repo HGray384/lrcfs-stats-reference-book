@@ -198,9 +198,59 @@ What role does evidence play here? We have seen that source and sub-source level
 
 ## Probative value of evidence
 
-evidence conditioned on propositions
+The **probative value** of evidence is the degree to which a piece of evidence can discriminate between competing propositions. If a piece of evidence cannot discriminate between propositions then it is not probative for those propositions. But this does not mean it is not probative of any propositions. Consider the following propositions from Table \@ref(tab:propositions-table):
+
+- $H_p^5$: The glass from the defendant's clothing originated from the smashed window,
+- $H_d^5$: The glass from the defendant's clothing originated from some other source,
+
+- $H_p^6$: The blood on the defendant's shoes came from the claimant,
+- $H_d^6$: The blood on the defendant's shoes came from someone else,
+
+and the following three pieces of evidence:
+
+- $E_1$: glass analysis reveals a "match" between the fragments found on the defendant's clothing and the smashed window,
+- $E_2$: DNA analysis of the blood on the defendant's shoes does not match the claimant,
+- $E_3$: gun shot residue particles were found on the defendant's clothing.
+
+Clearly evidence $E_1$ is highly probative of $H_p^5$/$H_d^5$. Intuitively, we expect a match if $H_p^5$ is true. We might also come across a match if $H_d^5$ is true. This could occur when the same type of glass has been used for both the smashed window and the other source, but we might reasonably expect this to be less likely than if the glass fragments really did come from the smashed window. One factor which will affect our expectation is how common that type of glass is in other uses, e.g. are all household windows made from that type?
+
+Evidence $E_2$ is not just probative of $H_p^6$/$H_d^6$, but it is almost completely determinative of it. We absolutely do not expect a "no match" if the claimant truly is the source of the blood; $H_p^6$ is incompatible with the evidence. The only situation in which this is not true is if there has been a mistake with handling and analysing the sample. With sufficient evidence gathering and analysing protocols in place, it is assumed that this is not the case unless there is reasonable evidence to suggest otherwise. On the other hand, we absolutely expect "no match" if the claimant is not the source, i.e. if $H_d^6$ is true.
+
+Evidence $E_3$ is not probative of either pair of competing propositions with the lack of contextual information that we have given here. However, it's not hard to imagine that it could be highly probative of the propositions about firing a gun, e.g. $H_p^3$/$H_d^3$, if case circumstances reflected this. 
+
+As soon as forensic evidence has been recovered then it is trivially certain. The uncertainty that does arise comes from assessing the circumstances which may have led to the evidence being left where it was found, or the origin of the trace/impression which was recovered. This means considering the evidence in light of the competing propositions. We did this qualitatively in the discussion above with $E_1$, $E_2$, and $E_3$ and the propositions $H_p^5$/$H_d^5$ and $H_p^6$/$H_d^6$. Since the truth of the propositions is not known by the those investigating, there is uncertainty. And since there is uncertainty, it can be described quantitatively using the language of probability.
+
+Repeating the points above, we can say that the probability of $E_1$, $E_2$, and $E_3$ is 1; since we observed it we know it to be certain. But what we really need is to condition the observed evidence $E_1$, $E_2$, and $E_3$ on the propositions that counsel have put forward $H_p^5$/$H_d^5$ and $H_p^6$/$H_d^6$. This will help the fact finder determine the truth of the propositions. The probabilities for the evidence change when we condition on propositions as they reflect our uncertainty about observing the evidence under these circumstances. Let's revisit the our qualitative analysis.
+
+What's the probability of $E_1$ assuming that $H_p^5$ is true? It is 1, we would consider it certain to obtain a match if the recovered fragments do come from the smashed window. What's the probability of $E_1$ assuming that $H_d^5$ is true? This is uncertain. We said that this would depend on factors such as how common the glass type of the smashed window was in other sources of glass that the suspect might reasonably have come into contact with. The ability of the evidence $E_1$ to discriminate between $H_p^5$/$H_d^5$ depends on the probability of $E_1$ assuming that $H_d^5$ is true. If this probability is low then it can discriminate well between the propositions because $E_1$ would be far more likely assuming $H_p^5$ were true rather than if $H_d^5$ were true. If the probability is high (near to 1), then it cannot discriminate well between them because the probabilities are of similar magnitude and so the evidence is similarly likely assuming each proposition to be true. In other words, $E_1$ could have high or low (or anywhere inbetween) probative value.
+
+What's the probability of $E_2$ assuming that $H_p^6$ is true? It is 0, with current DNA technology for single donor full profiles, we consider it impossible to obtain a "no match" if the claimant is the origin of the blood. What's the probability of $E_2$ assuming that $H_d^6$ is true? It is 1 or near to 1. To rephrase this, the evidence $E_2$ is only possible if $H_d^6$ were true (ignoring mistakes in handling evidence), and so the evidence has extremely high probative value in favour of $H_d^6$ compared to $H_p^6$.
+
+What's the probability of $E_3$ assuming that $H_p^6$ is true? It is 1. This is because, given the current contextual information, $H_p^6$ has nothing to do with gun shot residue. It is reasonable to assume (although this might have to be proven in a real case) that they are statistically independent and so the probability of $E_3$ assuming that $H_p^6$ is true is the same as the probability of $E_3$ disregarding $H_p^6$, which is 1 because we observed it. Conditioning on an irrelevant proposition tells us nothing that we didn't already know. The same argument can be applied to $H_d^6$. The evidence $E_3$ cannot discriminate between $H_p^6$/$H_d^6$ and so it does not have probative value for these propositions.
+
+The preceding analysis should motivate that propositions are the key elements which define the probative value of evidence. The same piece of evidence can have no probative value for 1 set of competing propositions but may be highly probative for another. We have shown that using the language of probability, we can quantify the uncertainty surrounding evidence conditional on propositions. The natural question is then, can we quantify probative value? Yes. This is the topic of the next Chapter, the Likelihood Ratio.
 
 ## Changing propositions
+
+It goes without saying that since propositions determine the probative value of a piece of evidence, then changes in propositions can affect probative value. This might seem like an obvious statement to some, but it is an important one to highlight because changes in propositions are common and sometimes subtle. The resulting change in probative value might not be as subtle.
+
+As a case develops and investigations continue, new information comes to light and previous information might update. Changes to propositions which are considered by the scientist reflect this, which is why there is always an explicit statement about it that features in written expert witness reports: "these conclusions are based on current information and may change if new information becomes available."
+
+One common example of this is if the defendant changes their version of events or reveals new relevant activities of theirs. The source level glass propositions $H_p^5$/$H_d^5$ might be the default ones considered by the scientist with a lack of other relevant contextual information. If the suspect then states in interview that they have only worn the same clothing recently once before and it was when they were working on a construction site replacing windows, then $H_d^5$ should be revised to reflect this. The proposition might change to:
+
+- $H_d^{5^*}$: The glass from the defendant's clothing originated from the windows on the construction site.
+
+This might be considered a small alteration to the proposition but it could completely diminish the probative value of the glass match $E_1$. Suppose that the glass type of the smashed window at the crime scene is very rare, it is only used for house windows of a very specific style. That means that when compared to all other reasonable sources of glass, this type of glass is found rarely. The probability of $E_1$ assuming $H_d^{5}$ is low in this situation. But, suppose that the suspect was fitting windows of this same style. Now, it would not be a rare occurrence at all. The probability of $E_1$ assuming $H_d^{5^*}$ to be true would be very high, maybe even 1. The evidence has no probative value with the new contextual information and propositions $H_p^{5}$/$H_d^{5^*}$. The represents a change in the reference class, which we saw back in Chapter [...].
+
+## Probabilities for propositions
+
+In this Chapter we have been very careful to refer to **probabilities for evidence**. We reasoned that probative value is related to probabilities for evidence assuming, in turn, competing propositions to be true and comparing them to each other. We explicitly did not state **probabilities for propositions**, and particularly probabilities for competing propositions in light of the available evidence. 
+
+This is because it is not currently within the role of the expert witness (in the UK) to do so. The expert witness uses their scientific expertise to comment on the likelihood of observing particular pieces of evidence in light of proposed versions of events. It is then within the fact finder's remit to use this information to determine the truth of propositions themselves. In other words, it is up to the fact finder to reason about their own uncertainty for the propositions in the light of the evidence they see put before the court. 
+
+If the fact finder's uncertainty is reduced to "beyond reasonable doubt", for what the fact finder decides are the key propositions, then they should return a verdict in favour of the prosecution. If the same uncertainty is not reduced beyond reasonable doubt, then the verdict should be in favour of the defense. Whether the fact finder decides to reason about this uncertainty quantitatively using probability theory or otherwise is up to them.
+
+To hammer home the point, in this book: the **expert** considers **probabilities for evidence**, the **fact finder** considers **probabilities for propositions**. In the discussions following this Chapter, probabilistic statements that we claim come from an expert will only be about observed evidence.
 
 ## More information
 
