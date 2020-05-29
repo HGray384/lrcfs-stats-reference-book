@@ -1,7 +1,52 @@
 # Uncertainty {#uncertainty}
 
-This Chapter will be about uncertainty.
+```{r package-load-uncertainty, include=FALSE}
+source("./code/helper-functions.R")
+# check and load the libraries
+needPackages("igraph",
+             "ggthemes",
+             "kableExtra",
+             "tidyverse",
+             "plotly")
+# set some useful variables
+source("./code/useful-variables.R")
+```
 
-## Uncertainty about future events
+> "... in this world there is nothing certain but death and taxes."
+>
+> --- Benjamin Franklin
 
-## Uncertainty about past events
+Benjamin Franklin wrote this in 1789 in the context of the newly formed US constitution. He also concisely and inadvertantly summarised the central idea behind what came to be known as probability and statistical theory.
+
+The word uncertainty is used by many people in different contexts with a variety of intended meanings. It's useful to discuss what we mean by uncertainty, provide some examples of situations in which it is useful to think about and communicate uncertainty, and to show how it motivates the work behind evaluating forensic scientific evidence. That's what we'll do in this Chapter.
+
+## Uncertainty is everywhere
+
+> Uncertainty: a situation in which something is not known, or something that is not known or certain.
+>
+> --- Cambridge Dictionary
+
+
+
+## Types of uncertainty
+
+In this book, we will consider two types of uncertainty:
+
+1. Aleatory uncertainty: uncertainty due to variation,
+2. Epistemic uncertainty: uncertainty due to ignorance.
+
+**Aleatory uncertainty** concerns situations with natural variability, sometimes referred to as **chance**. What number will win on the next spin of a roulette wheel? 
+
+**Epistemic uncertainty** concerns situations about which we have a lack of knowledge. 
+
+## Attitudes towards uncertainty
+
+
+
+## Communicating uncertainty
+
+
+
+## More information
+
+## Exercises
