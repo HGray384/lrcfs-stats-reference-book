@@ -26,11 +26,16 @@ The word uncertainty is used by many people in different contexts with a variety
 >
 > --- Cambridge Dictionary
 
+Will it be sunny at the weekend? Will the England women's team win the next football World Cup? How about the men? Will my favourite sandwich shop have my favourite bread tomorrow? By how many degrees will the Earth's temperature rise by 2050? All of these questions involve thinking about different uncertainties about the future.
+
+When did dinosaurs become extinct? What did I eat for breakfast on this day 20 years ago? Who was Jack the Ripper? Is the defendant innocent or guilty? All of these questions involve thinking about different uncertainties about the past. Past events have either occurred or not, but we can still be uncertain about them (as with the identity of Jack the Ripper). 
 
 
-## Types of uncertainty
 
-In this book, we will consider two types of uncertainty:
+Attitudes towards uncertainty
+
+
+We will consider two types of uncertainty:
 
 1. Aleatory uncertainty: uncertainty due to variation,
 2. Epistemic uncertainty: uncertainty due to ignorance.
@@ -39,13 +44,19 @@ In this book, we will consider two types of uncertainty:
 
 **Epistemic uncertainty** concerns situations about which we have a lack of knowledge. 
 
-## Attitudes towards uncertainty
+## Uncertainty in scientific evidence
 
+What are we uncertain about?
 
+What are the sources of uncertainty?
+
+What is the level of our uncertainty?
+
+What is the magnitude of uncertainty?
+
+In what form is that uncertainty communicated?
 
 ## Communicating uncertainty
-
-
 
 ## More information
 
