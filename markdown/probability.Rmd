@@ -1,16 +1,147 @@
 # Probability to describe uncertainty {#probability}
 
-This Chapter introduces probability
+```{r package-load-probability, include=FALSE}
+source("./code/helper-functions.R")
+# check and load the libraries
+needPackages("igraph",
+             "ggthemes",
+             "kableExtra",
+             "tidyverse",
+             "plotly",
+             "grid",
+             "plyr")
+# set some useful variables
+source("./code/useful-variables.R")
+```
 
-## Personal probabilities
+We saw in the previous chapter that there was uncertainty in scientific evidence. Using a conceptual framework, we showed how it was possible to  break down the uncertainties surrounding evidence in particular case circumstances. As part of this process the expert quantifies the uncertainty, e.g. out of every 1000 similar case circumstances they believe 200 would yield a fibre match if the suspect had truly been at the crime scene. This quantification stage converts the uncertainty into what is known as a probability (and then this is converted again for communication). In this chapter we discuss probability, describing what it is and giving reasons for why we use it when interpreting forensic scientific evidence.
+
+## Quantifying uncertainty
+
+A probability is just a number between 0 and 1 that describes the magnitude of certainty for the occurrence of an event. A probability of 0 means that the event is impossible whilst a probability of 1 means that an event is certain. Most interesting probabilities fall between 0 and 1 based on how much certainty there is about the occurrence of the event. Events with low certainty should have a probability closer to 0 on the scale, highly certain events should have a probability closer to 1 on the scale. Probabilities of 0.5 describe an event whose occurrence is exactly as likely as its non-occurrence. 
 
 ## Example: coin toss
 
+The classic example for demonstrating probability is tossing a two-sided coin. Before the coin has been tossed, the outcome is uncertain. We can consider some of the questions from the previous section to describe this uncertainty.
+
+What uncertainties are there? Whether the coin will land heads-up or tails-up as a result of the toss.
+
+What are the sources of this uncertainty? There is a randomness to the flipping process. We also do not know if the coin is double-sided, e.g. has two heads instead of one heads and one tails. You may consider other sources here too, such as trust in the person flipping the coin to be acting fairly.
+
+The double-sidedness of the coin represents epistemic uncertainty. We can eliminate this uncertainty by checking both sides of the coin before it is tossed.
+
+The randomness of the flipping process represents a combination of aleatoric and epistemic uncertainty. The epistemic uncertainty comes from trust in the person flipping the coin and other factors which might unfairly influence the outcome of the coin flip. It is possible to mostly eliminate this uncertainty by learning about the properties of this coin and the person flipping it and overcoming them, e.g. by letting someone trustworthy flip the coin.
+
+Once these factors are removed there is only aleatoric uncertainty about the outcome. This is an irreducible uncertainty of the coin flip; no further information can be learned which will make your guess better. This means that one cannot develop a better long-term guessing strategy than by guessing at random. Let's try to quantify this uncertainty.
+
+We know that a probability of 1 means an event is certain. We also accept that the coin toss must either result in heads or tails. This means that the event 'heads or tails' has probability 1. It also means that the event 'heads and tails' has probability 0, it is impossible to get both in a single toss. 
+
+The event 'heads or tails', which has probability 1, is made up of two other events: the event 'heads' and the event 'tails'. In other words, if we get either 'heads' or 'tails' then we get 'heads or tails'. In probabilities this means that the probability of 'heads or tails' (which is 1) is equal to the probability of 'heads' added to the probability of 'tails'. 
+
+We then have two events whose probabilities add up to 1. Now we can consider them in relation to each other. Is getting a 'heads' more likely than getting a 'tails'? Is getting a 'heads' less likely than getting a 'tails'? Most people would answer no to these questions, and so the conclusion for those people is that 'heads' and 'tails' are equally likely. If they are equally likely, then they must each have a probability equal to 0.5.
+
+There are ways we can check this. What would we expect if we toss the coin many times? If we hold the belief that each probability is 0.5, then the outcome should be evenly distributed between heads and tails when we flip the coin a very large number of times. So let's check the outcome of a trustworthy computer flipping a coin.
+
 [interactive app which performs simulated coin flips]
 
-## Some properties
+As the number of tosses gets larger and larger, the proportion of heads and tails gets closer to 0.5, e.g. out of 10,000 flips, we expect 5000 to be heads and 5000 to be tails. This can be represented in what is known as an expected frequency tree, shown below.
 
-## Example: dice roll
+```{r freq-tree-coin-toss, echo=FALSE,fig.cap="Out of 10,000 cosses, we expect 5000 to be heads and 5000 to be tails. The probability of heads is 0.5 and is equal to the probability of tails. ", out.width = '80%', fig.align = 'center'}
+e <- c(1, 2, 1, 3)
+v <- c("10,000\ntosses", " 5000\nheads", "5000\ntails")
+freqTree <- graph(edges=e, n=3, directed=FALSE)
+V(freqTree)$name <- v
+
+# the commented code below complicates the point
+# V(freqTree)$color <- c(rep(colPal[1], 3), 
+#                        colPal[4], 
+#                        colPal[7],
+#                        colPal[7],
+#                        colPal[4])
+V(freqTree)$color <- c(rep(colPal[1], 3))
+par(mar = c(0, 0, 0, 0))
+plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+     vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+     vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
+     layout=layout_as_tree(graph = freqTree, root = 1),
+     vertex.size=50)
+# legend("bottomright", legend=c("True", "False"),
+#        col=colPal[c(4,7)], bty = "n",
+#        pch=16)
+par(mar = defMar)
+```
+
+If we did not ignore some of the epistemic uncertainties about the coin toss (e.g. if we did not trust the coin flipper), then this probability might not accurately represent our belief.
+
+## Personal probabilities
+
+We mentioned in the previous chapter that uncertainty was personal. Your uncertainties will be different than mine because we have different beliefs and information. This means that our probabilities might also be different; probability is personal too. 
+
+In the previous example you might not have 
+
+## Example: some real events
+
+Figure 
+
+```{r, prop-ruler, echo=FALSE, fig.align = 'center'}
+ruler.func<-function(gg){
+seq.list<-list()
+for(i in 1:length(gg)){  
+  ystart<-seq(0.1,gg[i],0.1)
+  yend<-ystart
+  xstart<-rep(i-0.25,length(ystart))
+  xend<-xstart+0.1
+  nam.val<-c(LETTERS[i],rep(NA,length(ystart)-1))
+  numb.val<-c(gg[i],rep(NA,length(ystart)-1))
+  seq.list[[i]]<-data.frame(nam.val,numb.val,xstart,xend,ystart,yend)
+}
+df<-as.data.frame(do.call(rbind, seq.list))
+p <- ggplot(df, aes(nam.val))
+p <- p + geom_bar(aes(y=numb.val,fill=nam.val),stat="identity",width=0.5,color="black",lwd=1.1)+
+    scale_x_discrete(limits=LETTERS[1:length(gg)])+
+    geom_segment(aes(x=xstart,y=ystart,xend=xend,yend=yend))+
+    geom_hline(yintercept=c(0.25, 0.5, 0.75),color="white",lwd=1.1)+
+    ggtitle("Probability of real events")+
+    ylim(c(0,max(gg)+0.5))+
+  annotate("text",x=seq(1,length(gg),1),y=gg+0.1,label=gg,fontface="bold",size=rel(6))+
+  theme_bw()+
+  theme(axis.title=element_blank(),
+        axis.text.y=element_blank(),
+        axis.text.x=element_text(face="bold",size=rel(1.5)),
+        axis.ticks=element_blank(),
+        panel.border=element_blank(),
+        panel.grid=element_blank(),
+        legend.position = "bottom",
+        legend.margin = margin()) +
+  scale_fill_discrete(name="Event",
+                      labels=c("an American male dying of cancer in their lifetime",
+                               "any 2 people having the same birthday in a room of 23 random people",
+                               "the Scottish city of Dundee being overcast on 26th January",
+                               "a female born in 2020 living to age 70 or longer"))+
+  guides(fill=guide_legend(nrow=4,byrow=TRUE))+
+  coord_flip()
+print(p)
+}
+ruler.func(c(0.21,0.51,0.68, 0.9))
+```
+
+Cancer: https://www.cancer.org/cancer/cancer-basics/lifetime-probability-of-developing-or-dying-from-cancer.html
+
+Life expectancy: https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/articles/lifeexpectancycalculator/2019-06-07
+
+Weather: https://weatherspark.com/m/40087/6/Average-Weather-in-June-in-Dundee-United-Kingdom
+
+Birthday: https://en.wikipedia.org/wiki/Birthday_problem
+
+## Conditioning on information
+
+## Probative information
+
+## Independence
+
+## Odds
+
+## Bayes' theorem
 
 ## More information
 
