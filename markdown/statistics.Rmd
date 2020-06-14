@@ -1,4 +1,4 @@
-# Statistics for observations {#statistics}
+# Statistics to infer uncertainty {#statistics}
 
 This Chapter introduces statistics
 
