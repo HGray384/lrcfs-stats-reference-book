@@ -95,7 +95,7 @@ In addition, the 'science' part of forensic science is still a developing field.
 
 Uncertainty in both of its forms is (and will always be) an integral part of scientific evidence. This means that it is important for us as a community to work together to ensure a common understanding of uncertainty, both in terms of how we think about it and how we talk about it. A lot of research thus far has focussed on how we should think about uncertainty. There is still more work to be done on talking about uncertainty in scientific evidence, and in this respect forensic science is similar to other scientific communities who wish to convey their results to non-experts. This brings us on to the final section of this chapter.
 
-## Communicating uncertainty is hard
+## Communicating uncertainty
 
 Despite uncertainty being everywhere, the communication surrounding it (particularly by experts) leaves much room for improvement. One reason for this is because communicating uncertainty is hard. There are some barriers which make it hard, and these barriers prevent experts from communicating it well. In this section, we take a look at some of those barriers.
 
@@ -111,7 +111,7 @@ Despite uncertainty being everywhere, the communication surrounding it (particul
 
 It is important to mention these reasons because there may be times when you read through the following material and don't understand something. Or, maybe you understand it quite well but hear an expert not explaining it well (or think it is not well-explained here). Handling and communicating uncertainty is a learned skill and it is hard, but it does improve with practice.
 
-The aim of the rest of this book is to give some insight into the way that uncertainty is handled in forensic science. Looking to the next section we will introduce a common language for describing uncertainty, probability.
+The aim of the rest of this book is to give some insight into the way that uncertainty is handled in forensic science. When communicating uncertainty, is important that we are speaking the same language. The common language for uncertainty is probability, and this is what we look at in the next chapter. 
 
 ## More information
 
