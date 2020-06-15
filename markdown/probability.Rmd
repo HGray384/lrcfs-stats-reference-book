@@ -75,9 +75,23 @@ If we did not ignore some of the epistemic uncertainties about the coin toss (e.
 
 ## Personal probabilities
 
-We mentioned in the previous chapter that uncertainty was personal. Your uncertainties will be different than mine because we have different beliefs and information. This means that our probabilities might also be different; probability is personal too. 
+We mentioned in the previous chapter that uncertainty was personal. Your uncertainties will be different than mine because we have different beliefs and information. If this is true then quantifying uncertainty is also personal. In other words, probability is personal too. 
 
-In the previous example you might not have 
+In the previous example you might not agree that the person (or computer) tossing the coin was doing so fairly, e.g. the flip was in favour of heads being more likely than tails. This would adjust your probability in favour of heads. If this belief was marginal, then you might adjust it only a small amount, say to 5500 heads out of each 10,000 tosses, or a probability of heads of 0.55. You would then expect 4500 out of 10,000 tosses to be tails and so your probability of tails is adjusted to 0.45. If this belief was stronger, then you might adjust your probability of heads closer to 1, and your probability of tails closer to 0 accordingly. 
+
+Some differences in opinion might be more or less reasonable since they might be based upon more or less reliable information. Those based upon more reliable and generally agreeable information will be more **objective**. Those based upon less reliable or agreeable information will more be more **subjective**.
+
+In the coin tossing example, I take a neutral position on the flip - I said that the flip was unbiased so that it made heads no more likely than tails as an outcome. My rationale for this is based upon knowledge of theoretical coin flips designed to have heads and tails as equally probable. I also express ignorance about the person (or computer) flipping the coin so I take the neutral stance that they are flipping the coin fairly. These are reasonable expressions of my uncertainty based upon my knowledge and might be considered to be quite objective (even though they might not be right).
+
+You might have believed that heads was more (or less) probable than tails. If you did this because you distrust the flipper of the coin without evidence then this would be subjective and subject to reasonable challenge. If you did this because you know the coin flipper very well then this probability is more objective. Further still if you can demonstrate that on previous occasions heads has been more (or less) likely when this person has tossed the coin, then this probability would be even more objective. Note that both mine and your probability can be different but still have reasonable rationales. In the case that you sufficiently demonstrate to me the previous malfeasance of the coin flipper then you have dispelled some of my epistemic uncertainty by giving me relevant information. I should then update my probability for heads to be closer (or equal to) yours.
+
+Fortunately for repeatable events like the coin toss we can check and update our probabilities using empirical data, e.g. repeated flips of the coin in the example. This can be seen as eliminating epistemic uncertainty or gaining a better understanding of the aleatory uncertainty. Using the computer as the flipping device, data was provided from repeated flips which supported the toss leaving an equal probability for heads and tails. The personal probabilities in this case were easily assessable.
+
+In criminal cases, the opportunity to repeat events and gather scientific data from the case circumstances is often not possible (nor even desirable when results are harmful outcomes). The events are uncertain and one-off, and so probabilities cannot be assessed empirical repetition. They can still be informed by other empirical data however, e.g. be validated repetitions in similar (but not the same) circumstances. 
+
+Another thing that can be checked is the general **calibration** of personal probability assignments. This means asking experts to assign probabilities to events whose probability is known (but unknown to the expert). For example, an expert who assigns a probability of 0.4 to an event whose probability is 0.45 is calibrated better than an expert who assigns a probability of 0.8 to the event.
+
+In practice that can be done by performing competency tests when the underlying truth is known. For example, comparing latent finger prints or footwear marks to numerous potential reference finger prints and footwear. The true sources of the prints or marks are known to those conducting the test but unknown to the expert being tested. The resulting proportion of correct source identifications and correct source exclusions is then a metric of expert calibration for questions about impression evidence.
 
 ## Example: some real events
 
