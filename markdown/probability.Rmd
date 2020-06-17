@@ -161,6 +161,8 @@ In the same way, one can condition on events which could have occurred in the pa
 
 ## Example: double coin toss
 
+Suppose now that we toss 2 coins, labelled coin 1 and coin 2. We toss coin 1 first and then coin 2. Let's first lay out some working assumptions to avoid tedious detail later on. Assume that they are tossed in such a way that guarantees a 0.5 probability of heads on each coin for each toss. What's the probability that both coins land heads up? Figure \@ref(fig:freq-tree-double-coin) shows the expected outcomes.
+
 ```{r freq-tree-double-coin, echo=FALSE,fig.cap="Out of every 10,000 double coin tosses, we expect 2500 to be double heads. The probability of getting two heads is 0.25.", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000 \ntosses", "5000\ncoin 1 heads", "5000\ncoin 1 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails")
@@ -174,7 +176,7 @@ V(freqTree)$name <- v
 #                        colPal[7],
 #                        colPal[4])
 V(freqTree)$color <- c(rep(colPal[1], 7))
-V(freqTree)$label.font <- c(2, 1, 1, 2, 1, 1, 1)
+V(freqTree)$label.font <- c(2, 2, 1, 2, 1, 1, 1)
 par(mar = c(0, 0, 0, 0))
 plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
      vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
@@ -187,7 +189,15 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 par(mar = defMar)
 ```
 
-```{r freq-tree-double-coin-bet, echo=FALSE,fig.cap="Out of every 5000 times coin 1 shows heads, we expect 2500 to result in coin 2 also showing heads. The probability of coin 2 being heads conditioned on coin 1 being heads in 0.5.", out.width = '80%', fig.align = 'center'}
+The first branch of the outcomes is exactly the same as we saw in \@ref(fig:freq-tree-coin-toss) as it's just one coin being tossed at first. Out of every 10,000 tosses of coin 1, we expect 5000 to be heads and 5000 to be tails. After tossing coin 1, we toss coin 2. So for each of the potential outcomes of coin 1, we can consider the potential outcomes of coin 2. Out of every 5000 tosses of coin 1 which result in heads, we expect 2500 to lead to tosses of coin 2 which also result in heads. In summary, out of all 10,000 tosses of both coins, we expect 2500 of them to result in double heads; the probability of getting a heads on both coins in a double coin toss is 0.25.
+
+As part of this inference, we considered a conditional probability: out of every 5000 tosses of coin 1 which result in heads, we expect 2500 to lead to lead to tosses of coin 2 which also result in heads. In other words, the probability of getting a heads from coin 2 **conditioned on** coin 1 being heads is 0.5. By condiitoning on this information, we restricted our focus to only those coin 1 tosses which were heads, which was 5000 instead of the 10,000 total tosses. Only then did we consider the outcomes for coin 2. 
+
+Note how this probability is the same as getting a heads from tossing coin 2 **without** conditioning on coin 1 being a heads anyway. We can see this by looking at the 'tails' branch of coin 1 tosses. Out of 5000 tosses for which coin 1 is tails, we expect 2500 of those to result in coin 2 being heads. The probability of getting a heads from coin 2 **conditioned on** on coin 1 being tails is also 0.5. The result from tossing coin 1 **does not** affect the probability of getting a heads for coin 2. This is known as **independence** between the coin tosses. When events are independent, conditioning one on the result of the other has no affect on the probability of the other occurring. Let's take a look at events which are not independent.
+
+Suppose we now play a game with this double coin toss. I win if the coin toss results in double heads and you win if the coin toss results in double tails. If neither of us wins then we call it a draw and toss the coins again. Since double heads is just as likely as double tails then we are both equally likely to win. We can see this from the highlighted Figure \@ref(fig:freq-tree-double-coin-bet) below.
+
+```{r freq-tree-double-coin-bet, echo=FALSE,fig.cap="Out of every 10,000 tosses, 2500 are double heads and 2500 are double tails. This means that we have equal probability of winning of 0.25 each. The remaining 5000 tosses result in a draw and so the probability of a draw is 0.5.", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000\ntosses", "5000\ncoin 1 heads", "5000\ncoin 1 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -200,7 +210,7 @@ V(freqTree)$name <- v
 #                        colPal[7],
 #                        colPal[4])
 V(freqTree)$color <- c(rep(colPal[1], 7))
-V(freqTree)$label.font <- c(1, 2, 1, 2, 1, 1, 1)
+V(freqTree)$label.font <- c(1, 1, 1, 2, 1, 1, 2)
 par(mar = c(0, 0, 0, 0))
 plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
      vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
@@ -213,11 +223,35 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 par(mar = defMar)
 ```
 
-independence
+Out of 10,000 double flips, I will win 2500, you will win 2500, and 5000 result in a draw. We each share a winning probability of 0.25, and there is a 0.5 probability that we draw. Let's look at some conditional probabilities. Out of every 5000 heads from coin 1, I win on 2500 occasions and we draw on 2500 occasions. You win on 0 occasions. The probability of me winning conditional on coin 1 being heads is 0.5 and the probability of you winning conditional on coin 1 being heads is 0. My probability of winning rises from 0.25 to 0.5 conditional on coin 1 being heads, and yours decreases from 0.25 to 0. This means that the events of me and you winning are not independent of the result of coin 1 (i.e. the are dependent). The probability of a draw remains the same after coin 1 is tossed at 0.5. This means that the event of a draw is independent of the outcome of coin 1. 
 
 ## Odds
 
-## Bayes' theorem
+Odds are just another way of expressing probabilities. Odds are given as a ratio of probabilities so that it is clear how much more or less likely one event is compared to another. You can compare any two probabilities together to create odds. One pair which is commonly used is the probability of an event occurring versus the probability of it not occurring.
+
+For example, the fair coin flip was just as likely to result in heads as it was to result in tails. This results in odds written as 1:1, which is spoken as '1-to-1' or more commonly 'evens'. Intuitively, this means that we can separate the possible outcomes into a total of (1+1=)2 parts which are equally probable. One part represents the probability of heads and the other part represents the probability of tails.
+
+We can convert from odds to probability as follows. For the single coin toss we had odds of 1:1 for heads. The total probability, which must be 1, is made up of 2 equally sized parts. One of these parts represents heads, and so the probability of heads (and similarly for tails) is $\frac{1}{2}=0.5$. Suppose we have odds of 1:9 for an event occurring versus not occurring. This means that the total probability, which must be 1, is made up of 10 equally sized parts. One of these ten parts represents the event occurring, and so its probability is $\frac{1}{10}=0.1$. 
+
+Odds like this, which are used to represent probabilities before any conditioning occurs, are known as **prior odds**.
+
+Odds which are used to represent conditional probabilities are known as **posterior odds**. For example, in our double coin toss game we conditioned on the result of the coin 1 being heads. Before the conditioning, my probability of winning was 0.25. This means my prior odds of winning were 1:3. The conditioning resulted in the probability of me winning rising to 0.5, which is posterior odds (i.e. the odds of me winning **after** observing coin 1 being heads) of evens (1:1). 
+
+Another reason that odds are useful is because of the simplicity that they give to a very important mathematical result, which we discuss in the next section. 
+
+## Bayes' rule
+
+Bayes' theorem is a mathematical rule which links the **prior odds** to the **posterior odds**. Suppose we have two events A and B, Bayes' rule states
+
+It allows us to switch the conditioning information in two probabilities, known as **transposing the conditional**.
+
+## Example: guessing coin 1
+
+In the double coin toss example we played a game in which I won if two heads were tossed and you won if two tails were tossed. We drew if there were a combination of heads and tails. When thinking about the probabilities of winning, we conditioned on coin 1 showing heads and also on coin 1 showing tails. In each conditioning, one of our probabilities reduce to 0 and the other's increased to 0.5.
+
+Suppose we change the game so that I toss the coins and don't show you which sides were facing up. I only tell you whether you won or not. If you didn't win, I give you another change to win by asking you to guess the result of coin 1's toss. If you guess correctly, you win this new game. What should you guess? The answer is found by conditioning on you not winning the first part of the game, instead of conditioning on the outcome of coin 1 like we did in the first game.
+
+## Assigning probabilities
 
 ## More information
 
