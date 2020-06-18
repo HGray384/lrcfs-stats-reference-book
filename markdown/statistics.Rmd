@@ -1,5 +1,19 @@
 # Statistics to infer uncertainty {#statistics}
 
+```{r package-load-statistics, include=FALSE}
+source("./code/helper-functions.R")
+# check and load the libraries
+needPackages("igraph",
+             "ggthemes",
+             "kableExtra",
+             "tidyverse",
+             "plotly",
+             "grid",
+             "plyr")
+# set some useful variables
+source("./code/useful-variables.R")
+```
+
 This Chapter introduces statistics
 
 ## Observations from populations
@@ -8,4 +22,64 @@ This Chapter introduces statistics
 
 ## Inferring from observations
 
+## Example: some real events
+
+The below Figure shows some probabilities for more tangible events than theoretical coin tosses.
+
+```{r, prop-ruler, echo=FALSE, fig.align = 'center'}
+ruler.func<-function(gg){
+seq.list<-list()
+for(i in 1:length(gg)){  
+  ystart<-seq(0.1,gg[i],0.1)
+  yend<-ystart
+  xstart<-rep(i-0.25,length(ystart))
+  xend<-xstart+0.1
+  nam.val<-c(LETTERS[i],rep(NA,length(ystart)-1))
+  numb.val<-c(gg[i],rep(NA,length(ystart)-1))
+  seq.list[[i]]<-data.frame(nam.val,numb.val,xstart,xend,ystart,yend)
+}
+df<-as.data.frame(do.call(rbind, seq.list))
+p <- ggplot(df, aes(nam.val))
+p <- p + geom_bar(aes(y=numb.val,fill=nam.val),stat="identity",width=0.5,color="black",lwd=1.1)+
+    scale_x_discrete(limits=LETTERS[1:length(gg)])+
+    geom_segment(aes(x=xstart,y=ystart,xend=xend,yend=yend))+
+    geom_hline(yintercept=c(0.25, 0.5, 0.75),color="white",lwd=1.1)+
+    ggtitle("Probability of real events")+
+    ylim(c(0,max(gg)+0.5))+
+  annotate("text",x=seq(1,length(gg),1),y=gg+0.1,label=gg,fontface="bold",size=rel(6))+
+  theme_bw()+
+  theme(axis.title=element_blank(),
+        axis.text.y=element_blank(),
+        axis.text.x=element_text(face="bold",size=rel(1.5)),
+        axis.ticks=element_blank(),
+        panel.border=element_blank(),
+        panel.grid=element_blank(),
+        legend.position = "bottom",
+        legend.margin = margin()) +
+  scale_fill_discrete(name="Event",
+                      labels=c("an American male dying of cancer in their lifetime",
+                               "any 2 people having the same birthday in a room of 23 random people",
+                               "the Scottish city of Dundee being overcast on 26th January",
+                               "a female born in 2020 living to age 70 or longer"))+
+  guides(fill=guide_legend(nrow=4,byrow=TRUE))+
+  coord_flip()
+print(p)
+}
+suppressWarnings(ruler.func(c(0.21,0.51,0.68, 0.9)))
+```
+
+Whose probabilities are these?
+
 ## Relevant populations
+
+## More information
+
+## Exercises
+
+Cancer: https://www.cancer.org/cancer/cancer-basics/lifetime-probability-of-developing-or-dying-from-cancer.html
+
+Life expectancy: https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/articles/lifeexpectancycalculator/2019-06-07
+
+Weather: https://weatherspark.com/m/40087/6/Average-Weather-in-June-in-Dundee-United-Kingdom
+
+Birthday: https://en.wikipedia.org/wiki/Birthday_problem
