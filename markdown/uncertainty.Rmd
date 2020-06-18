@@ -16,25 +16,21 @@ source("./code/useful-variables.R")
 >
 > --- Benjamin Franklin
 
-Benjamin Franklin wrote this in 1789 in the context of the newly formed US constitution. Inadventantly, it is also a very helpful starting point to begin thinking about probability and statistics: by becoming familiar with uncertainty. 
+Benjamin Franklin wrote this in 1789 in the context of the newly formed US constitution. Inadvertantly, it is also a very helpful starting point to begin thinking about probability and statistics: by becoming familiar with uncertainty. 
 
-The word uncertainty is used by many people in different contexts with a variety of intended meanings. It's useful to discuss what we mean by uncertainty, provide some examples of situations in which it is useful to think about and communicate uncertainty, and to show how it motivates the work behind evaluating forensic scientific evidence. That's what we'll do in this Chapter.
+The word uncertainty is used by many people in different contexts with a variety of intended meanings. It's useful to discuss what we mean by uncertainty, provide some examples of situations in which it is useful to think about and communicate uncertainty, and to highlight its role in evaluating forensic scientific evidence. That's what we'll do in this Chapter.
 
 ## The impact of uncertainty
 
 Uncertainty describes a situation in which we do not know something. Since we cannot know everything, uncertainty is unavoidable. 
 
-Experiencing something positive and uncertain can leave us feeling exhilarated. We have all been surprised by something nice: an unexpected present, the unanticipated appearance of a loved one, taking a chance and being lucky. Uncertainty can make life more exciting.
+Uncertainty can lead to nice surprises and make life more exciting. But unfortunately, it can also make things very uncomfortable. Not knowing if bad things will happen and what effects they might have can be stressful. Managing and communicating uncertainty can help to mitigate possible negative consequences. The communication part is key to forming expectations and adjusting existing expectations to be more realistic. However, in many aspects of life today, uncertainty is simply ignored or it is deliberately hidden from those who can benefit from knowing it. 
 
-But for many of us, uncertainty is also uncomfortable: having job insecurity, being unsure about the health of a loved one, not understanding the effects of climate change. These are saddening, stressful, and confusing circumstances. Some of this negativity has its roots in uncertainty about the cause and/or possible outcomes of the situation.
+The COVID-19 pandemic has been another reminder to us that medical diagnostic test results can be wrong, that viruses do not always produce the same (or any) symptoms, and that official statistics do not count everything we might think they would. These things are uncertain and that's not always made clear. It has been demonstrated on a daily basis recently that understanding and communicating uncertainty has significant consequences when handling a public health emergency. 
 
-Managing and communicating uncertainty can help to mitigate possible negative consequences. The communication part is key to forming expectations and adjusting existing expectations to be more realistic. However, in many aspects of life today, uncertainty is simply ignored or it is deliberately hidden from those who can benefit from knowing it. 
+The justice system has also been challenged by uncertainty during this time: how to continue administering justice and what the justice process will look like in the future. Challenges arising from uncertainty in the pre-pandemic era also remain. Imprisoned individuals are still being exonerated (notably in the US) after overly confident expert testimony is revisited. The impact of uncertainty is clear and very serious. 
 
-The COVID-19 pandemic has been another reminder to us that medical diagnostic test results can be wrong, that official statistics do not count everything we are made to think they do, and that politicians can make claims about certain promises having been fulfilled when really they have not been. It has been demonstrated on a daily basis that understanding and communicating uncertainty has significant consequences when handling a public health emergency. 
-
-The justice system has also been challenged by uncertainty: how to continue administering justice and what the justice process will look like in the future. Challenges arising from uncertainty in the pre-pandemic era also remain. We have imprisoned individuals being exonerated after expert testimony, which failed to appropriately incorporate uncertainty, is examined again. The impact of uncertainty is clear and serious. 
-
-In society there are many situations in which we can better handle uncertainty. This will come with building a better understanding of uncertainty and having honest and open discussions about it. We begin that journey here by making a distinction between different types of uncertainty.
+In society there are many situations in which we can better handle uncertainty. This will come with building a better understanding of uncertainty and having honest and open discussions about it. We aim to contribute to that in forensic science, by framing evidence evaluation around uncertainty. To start things off, we can make a distinction between different types of uncertainty.
 
 ## Types of uncertainty
 
@@ -79,7 +75,7 @@ Let's take a look at each of these in the order that they appear above.
 
 ## Example: fibre evidence
 
-Let's think about an example of fibre evidence found at a crime scene. In this case we'll assume that fibres matching clothing of the suspect were recovered at the scene. The main uncertainty is whether or not the suspect committed the crime. This is epistemic uncertainty: the suspect either did or did not commit the crime but we don't know which is true. The fibre evidence alone might not completely reduce this uncertainty, but it could reduce it somewhat by reducing uncertainty about whether or not the suspect was at the crime scene at a relevant time. 
+Let's think about an example of fibre evidence found at a crime scene. In this case we'll assume that fibres matching clothing of the suspect were recovered at the scene. The main uncertainty is whether or not the suspect committed the crime. This is epistemic uncertainty: the suspect either did or did not commit the crime but we don't know which is true. The fibre evidence alone might not completely reduce this uncertainty, but it could reduce it somewhat by reducing uncertainty about whether or not the suspect was at the crime scene. 
 
 The expert who interprets the fibre evidence addresses uncertainty about the evidence. The fibre evidence is the **object** of uncertainty in this example. The **reasons** for uncertainty about this evidence might relate to how rare this type of fibre is in the general population or how well it transfers from clothing to surfaces and how well it persists on those surfaces. These are **direct** uncertainties about the fibre evidence.
 
@@ -93,26 +89,34 @@ In the example above, we only focussed on one possible object of uncertainty. In
 
 In addition, the 'science' part of forensic science is still a developing field. Expert interpretations which historically overlooked (and in some cases ignored) major elements of uncertainty in their discipline are gradually being updated by practices which are informed by scientific evidence. But have no illusion, there is still a long way to go. There is still a large amount of epistemic uncertainty. Notwithstanding this, there will always be a degree of aleatoric uncertainty due to the probabilistic nature of real-world processes, e.g. transference of materials from direct contact with surfaces (and many others). One result of this at (pre-)trial is that there might always be reasonable disagreement between experts. These disagreements can still be settled in the mind of the fact finder in the same way as disagreements in other aspects of evidence: through cross-examination.
 
-Uncertainty in both of its forms is (and will always be) an integral part of scientific evidence. This means that it is important for us as a community to work together to ensure a common understanding of uncertainty, both in terms of how we think about it and how we talk about it. A lot of research thus far has focussed on how we should think about uncertainty. There is still more work to be done on talking about uncertainty in scientific evidence, and in this respect forensic science is similar to other scientific communities who wish to convey their results to non-experts. This brings us on to the final section of this chapter.
+Uncertainty in both of its forms is (and will always be) an integral part of scientific evidence. This means that it is important for us as a community to work together to ensure a common understanding of uncertainty, both in terms of how we think about it and how we talk about it. A lot of research thus far has focussed on how we should think about uncertainty. There is still more work to be done on talking about uncertainty in scientific evidence, especially when results need to be conveyed to non-experts. This brings us on to the final section of this chapter.
 
 ## Communicating uncertainty
 
-Despite uncertainty being everywhere, the communication surrounding it (particularly by experts) leaves much room for improvement. One reason for this is because communicating uncertainty is hard. There are some barriers which make it hard, and these barriers prevent experts from communicating it well. In this section, we take a look at some of those barriers.
+Despite uncertainty being everywhere, the communication surrounding it (particularly by experts) leaves much room for improvement. One reason for this is because communicating uncertainty is hard. There are some barriers which make it hard, and these barriers can prevent experts from communicating it well. Some of the barriers include the following:
 
-- It is hard to explain the exact meaning of uncertainty. It often deals with thinking about hypothetical events in the future or past and considering hypothetical or real outcomes of those hypothetical events. This requires creativity and experience to get right, and even then it's easy to make mistakes. As explained before, the word uncertainty also means different things to people in the first place.
+- The exact meaning of uncertainty can be uncertain. As explained before, the word uncertainty means different things to people in the first place.
 
-- It is hard to explain uncertainty in a way that is understandable. People have different preferences for different information formats. We have taken a more visual approach to formats in this text and that will work for some but not others. Understanding and switching between quantitative forms of uncertainty also requires a high level of numeracy and lots of practice.
+- It is hard to explain uncertainty in a way that is understandable. It often deals with thinking about hypothetical events in the future or past and considering hypothetical or real outcomes of those hypothetical events. This requires creativity and experience to get right, and even then it's easy to make mistakes. Understanding and switching between quantitative forms of uncertainty requires a high level of numeracy and lots of practice.
 
 - It is hard to know which uncertainties to communicate, and which to spare the detail of. The uncertainties need to be relevant to the receiver but at the same time not overlook important detail. What is 'relevant' and which details are too 'important' to omit is context-specific.
 
-- It feels hard to communicate uncertainty when the receiver trusts you. There is a perception among experts that expressing uncertainty diminishes trust and credibility. Fortunately, there is growing evidence to suggest that the opposite is true when communication is done well. 
+- It is challenging to communicate uncertainty when in a position of trust. There is a perception among experts that expressing uncertainty diminishes trust and credibility. Fortunately, there is growing evidence to suggest that the opposite is true when communication is done well. 
 
-- It is hard to communicate uncertainty when the receiver has to act on that information. From the receiver's perspective, they may want a definite answer so that their decision is easier. The communicator may also want to facilitate this. However, overlooking uncertainty removes agency from the receiver in their capacity to make their own decision. Moreover, ignoring uncertainty means that they will not be fully informed. 
+- It is hard to communicate uncertainty to a decision-maker. From the receiver's perspective, they may want a definite answer so that their decision is easier. The communicator may also want to facilitate this. However, overlooking uncertainty removes agency from the receiver in their capacity to make their own decision. Moreover, ignoring uncertainty means that they will not be fully informed. 
 
-It is important to mention these reasons because there may be times when you read through the following material and don't understand something. Or, maybe you understand it quite well but hear an expert not explaining it well (or think it is not well-explained here). Handling and communicating uncertainty is a learned skill and it is hard, but it does improve with practice.
+When these barriers are overcome and uncertainty is communicated, then it can come in a variety of formats.
 
-The aim of the rest of this book is to give some insight into the way that uncertainty is handled in forensic science. When communicating uncertainty, is important that we are speaking the same language. The common language for uncertainty is probability, and this is what we look at in the next chapter. 
+For direct uncertainties, this can range from having a full and explicit distribution of possible outcomes along with quantified uncertainties associated to each outcome, to an overt denial that any uncertainty even exists (this is communicating uncertainty by saying that there is no uncertainty). Statements can be absolute or relative, e.g. very likely versus more likely than.
+
+Indirect uncertainties are usually presented as a subjective verbal statement about the quality of the underlying evidence. A number of systematic approaches have been developed to make this subjective judgement more consistent and transparent. They tend to define checklists of characteristics which then determine a category for evidence quality based on how many criteria on the checklist the evidence meets. For example, the GRADE scale has been developed to assess the effects of medical interventions. It has categories which range from 'very low quality' to 'high quality', and presents this graphically.
+
+The endorsed approach when evaluating forensic scientific evidence is to quantify direct uncertainty about specific evidence related to a contested event and then to present that as a number, range of numbers, or to translate a number into a verbal qualifying statement. The resulting statement is always relative, in that it gives the fact finder information about the scientific evidence in light of the prosecution versus the defence's assertions. Indirect uncertainties are usually given as a subjective verbal statement, or a factual statement describing the strengths and weaknesses of the quality of the evidence. No systematic approach is currently used for assessing and communicating indirect uncertainties.
+
+Since quantifying uncertainty plays an important role in evaluating forensic scientific evidence, it is important that we are speaking the same language when it comes to communicating about it. The common numerical language for uncertainty is probability, and this is what we look at in the next chapter. 
 
 ## More information
+
+GRADE: https://www.gradeworkinggroup.org/
 
 ## Exercises
