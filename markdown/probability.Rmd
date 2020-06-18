@@ -231,17 +231,19 @@ Odds are just another way of expressing probabilities. Odds are given as a ratio
 
 For example, the fair coin flip was just as likely to result in heads as it was to result in tails. This results in odds written as 1:1, which is spoken as '1-to-1' or more commonly 'evens'. Intuitively, this means that we can separate the possible outcomes into a total of (1+1=)2 parts which are equally probable. One part represents the probability of heads and the other part represents the probability of tails.
 
-We can convert from odds to probability as follows. For the single coin toss we had odds of 1:1 for heads. The total probability, which must be 1, is made up of 2 equally sized parts. One of these parts represents heads, and so the probability of heads (and similarly for tails) is $\frac{1}{2}=0.5$. Suppose we have odds of 1:9 for an event occurring versus not occurring. This means that the total probability, which must be 1, is made up of 10 equally sized parts. One of these ten parts represents the event occurring, and so its probability is $\frac{1}{10}=0.1$. 
+We can convert from odds to probability as follows. For the single coin toss we had odds of 1:1 for heads. The total probability, which must be 1, is made up of 2 equally sized parts. One of these parts represents heads, and so the probability of heads (and similarly for tails) is $\frac{1}{2}=0.5$. Suppose we have odds of 1:9 for an event occurring versus not occurring. This means that the total probability, which must be 1, is made up of 10 equally sized parts. One of these ten parts represents the event occurring, and so its probability is $\frac{1}{10}=0.1$. Odds like this, which are used to represent probabilities before any conditioning occurs, are known as **prior odds**. The conversion from odds to probabilities is more challenging when the probabilities of both events do not sum to 1, but we do not consider that here.
 
-Odds like this, which are used to represent probabilities before any conditioning occurs, are known as **prior odds**.
+Converting from probabilities to odds is much simpler as you only have to consider how much bigger one probability is than the other. For example, the probability of me winning the game in the double coin toss by getting two heads was 0.25. That meant that the probability of me not winning before any coins had been tossed was 0.75. Since the probability of me not winning (0.75) was three times larger than the probability of me winning (0.25), the prior odds of me winning were 1:3.
 
-Odds which are used to represent conditional probabilities are known as **posterior odds**. For example, in our double coin toss game we conditioned on the result of the coin 1 being heads. Before the conditioning, my probability of winning was 0.25. This means my prior odds of winning were 1:3. The conditioning resulted in the probability of me winning rising to 0.5, which is posterior odds (i.e. the odds of me winning **after** observing coin 1 being heads) of evens (1:1). 
+Odds which are used to update prior odds by conditioning on more information are known as **posterior odds**. For example, in our double coin toss game we conditioned on the result of the coin 1 being heads. Before the conditioning, my probability of winning was 0.25; my prior odds of winning were 1:3. Conditioning on coin 1 being heads resulted in the probability of me winning rising to 0.5. This means that the posterior odds (i.e. **after** observing coin 1 being heads) of me winning were evens (1:1). 
 
 Another reason that odds are useful is because of the simplicity that they give to a very important mathematical result, which we discuss in the next section. 
 
 ## Bayes' rule
 
-Bayes' theorem is a mathematical rule which links the **prior odds** to the **posterior odds**. Suppose we have two events A and B, Bayes' rule states
+Bayes' rule is a mathematical rule which links the **prior odds** to the **posterior odds**. 
+
+Suppose we have two events A and B, Bayes' rule states
 
 It allows us to switch the conditioning information in two probabilities, known as **transposing the conditional**.
 
