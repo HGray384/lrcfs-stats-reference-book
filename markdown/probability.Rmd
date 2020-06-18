@@ -14,11 +14,17 @@ needPackages("igraph",
 source("./code/useful-variables.R")
 ```
 
-We saw in the previous chapter that there was uncertainty in scientific evidence. Using a conceptual framework, we showed how it was possible to  break down the uncertainties surrounding evidence in particular case circumstances. As part of this process the expert quantifies the uncertainty, e.g. out of every 1000 similar case circumstances they believe 200 would yield a fibre match if the suspect had truly been at the crime scene. This quantification stage converts the uncertainty into what is known as a probability (and then this is converted again for communication). In this chapter we discuss probability, describing what it is and giving reasons for why we use it when interpreting forensic scientific evidence.
+We saw in the previous chapter that there was uncertainty in scientific evidence. Using a conceptual framework, we showed how it was possible to  break down the uncertainties surrounding evidence in particular case circumstances. As part of this process the expert quantifies the uncertainty, e.g. out of every 1000 similar case circumstances they believe 200 would yield a fibre match if the suspect had truly been at the crime scene. This quantification stage converts the uncertainty into what is known as a probability (and then this is converted again for communication). In this chapter we discuss probability, describing what it is and using examples to demonstrate some of its properties.
 
 ## Quantifying uncertainty
 
+Quantifying uncertainty gives us a systematic way of assimilating and comparing uncertainties. This means that we can add and subtract different uncertainties for the same object, and compare and contrast uncertainties for different objects. It allows us to do this within the coherent and universal framework of mathematics. Having uncertainties obeying a consistent set of logical rules forces us to manage them in a consistent manner. The subset of mathematics which handles uncertainty is known as probability.
+
 A probability is just a number between 0 and 1 that describes the magnitude of certainty for the occurrence of an event. A probability of 0 means that the event is impossible whilst a probability of 1 means that an event is certain. Most interesting probabilities fall between 0 and 1 based on how much certainty there is about the occurrence of the event. Events with low certainty should have a probability closer to 0 on the scale, highly certain events should have a probability closer to 1 on the scale. Probabilities of 0.5 describe an event whose occurrence is exactly as likely as its non-occurrence. 
+
+The main difference in how uncertainty is quantified comes between direct and indirect uncertainty. Direct uncertainty is generally easier to conceptualise. For example, if a diabetic was uncertain about their blood sugar level then they could use a machine to extract some blood and measure it. That measurement would be subject to some measurement uncertainty, in which the displayed measurement might vary based on where the blood was taken from and the precision of the machine's measurement technology. That uncertainty might even have been quantified from repeated test measurements and be available on the manufacturer's website. However indirect uncertainty, say about the science underlying the machine's detection ability, is hard to imagine even how it would be quantified (or if it should be). We only consider quantifying direct uncertainties here.
+
+Quantifying uncertainty is often done by assuming a theoretical **model** for how we think our uncertainty should behave. Then we apply this theoretical model to the practical case at hand. This gives rise to the phrase "all models are wrong, but some are useful". The most useful models of uncertainty can accurately align our qualitative uncertainty to our quantitative probability, accepting that this can never be done perfectly.
 
 ## Example: coin toss
 
@@ -42,7 +48,7 @@ We then have two events whose probabilities add up to 1. Now we can consider the
 
 There are ways we can check this. What would we expect if we toss the coin many times? If we hold the belief that each probability is 0.5, then the outcome should be evenly distributed between heads and tails when we flip the coin a very large number of times. So let's check the outcome of a trustworthy computer flipping a coin.
 
-[interactive app which performs simulated coin flips]
+[interactive example which performs simulated coin flips and shows the proportion which were heads, vary the sample size so that the user can see it converges to 0.5, or the user can vary the fairness of the coin to seehow the proportion of heads converges to this with many tosses]
 
 As the number of tosses gets larger and larger, the proportion of heads and tails gets closer to 0.5, e.g. out of 10,000 flips, we expect 5000 to be heads and 5000 to be tails. This can be represented in what is known as an expected frequency tree, shown below.
 
@@ -79,73 +85,15 @@ We mentioned in the previous chapter that uncertainty was personal. Your uncerta
 
 In the previous example you might not agree that the person (or computer) tossing the coin was doing so fairly, e.g. the flip was in favour of heads being more likely than tails. This would adjust your probability in favour of heads. If this belief was marginal, then you might adjust it only a small amount, say to 5500 heads out of each 10,000 tosses, or a probability of heads of 0.55. You would then expect 4500 out of 10,000 tosses to be tails and so your probability of tails is adjusted to 0.45. If this belief was stronger, then you might adjust your probability of heads closer to 1, and your probability of tails closer to 0 accordingly. 
 
-Some differences in opinion might be more or less reasonable since they might be based upon more or less reliable information. Those based upon more reliable and generally agreeable information will be more **objective**. Those based upon less reliable or agreeable information will more be more **subjective**.
+Some differences in beliefs might be more or less reasonable since they might be based upon more or less reliable information. Probability assignments based upon more reliable and generally agreeable information will be more **objective**. Probability assignments based upon less reliable or agreeable information will more be more **subjective**. Highly subjective probabilities can be okay because they can still be the best assessment of the available knowledge. This might happen when there is very limited reliable information for example. 
 
-In the coin tossing example, I take a neutral position on the flip - I said that the flip was unbiased so that it made heads no more likely than tails as an outcome. My rationale for this is based upon knowledge of theoretical coin flips designed to have heads and tails as equally probable. I also express ignorance about the person (or computer) flipping the coin so I take the neutral stance that they are flipping the coin fairly. These are reasonable expressions of my uncertainty based upon my knowledge and might be considered to be quite objective (even though they might not be right).
+Although probability is personal, it should still reflect the best assessment of your belief. In the coin tossing example, I take a neutral position on the flip - I said that the flip was unbiased so that it made heads no more likely than tails as an outcome. My rationale for this is based upon knowledge of theoretical coin flips designed to have heads and tails as equally probable. I also express ignorance about the person (or computer) flipping the coin so I take the neutral stance that they are flipping the coin fairly. These are reasonable expressions of my uncertainty based upon my knowledge and might be considered to be quite objective (even though they might not be right).
 
-You might have believed that heads was more (or less) probable than tails. If you did this because you distrust the flipper of the coin without evidence then this would be subjective and subject to reasonable challenge. If you did this because you know the coin flipper very well then this probability is more objective. Further still if you can demonstrate that on previous occasions heads has been more (or less) likely when this person has tossed the coin, then this probability would be even more objective. Note that both mine and your probability can be different but still have reasonable rationales. In the case that you sufficiently demonstrate to me the previous malfeasance of the coin flipper then you have dispelled some of my epistemic uncertainty by giving me relevant information. I should then update my probability for heads to be closer (or equal to) yours.
+You might have believed that heads was more (or less) probable than tails. If you did this because you distrust the flipper of the coin without evidence then this would be subjective and subject to reasonable challenge. If you did this because you know the coin flipper very well then this probability is more objective. Further still, if you can demonstrate that on previous occasions heads has been more (or less) likely when this person has tossed the coin, then this probability would be even more objective. Note that both of our probabilities can be different but still have reasonable rationales. In the case that you sufficiently demonstrate to me the previous malfeasance of the coin flipper then you have dispelled some of my epistemic uncertainty by giving me relevant information. I should then update my probability for heads to be closer (or equal to) yours as my best assessment has now changed.
 
 Fortunately for repeatable events like the coin toss we can check and update our probabilities using empirical data, e.g. repeated flips of the coin in the example. This can be seen as eliminating epistemic uncertainty or gaining a better understanding of the aleatory uncertainty. Using the computer as the flipping device, data was provided from repeated flips which supported the toss leaving an equal probability for heads and tails. The personal probabilities in this case were easily assessable.
 
-In criminal cases, the opportunity to repeat events and gather scientific data from the case circumstances is often not possible (nor even desirable when results are harmful outcomes). The events are uncertain and one-off, and so probabilities cannot be assessed empirical repetition. They can still be informed by other empirical data however, e.g. be validated repetitions in similar (but not the same) circumstances. 
-
-Another thing that can be checked is the general **calibration** of personal probability assignments. This means asking experts to assign probabilities to events whose probability is known (but unknown to the expert). For example, an expert who assigns a probability of 0.4 to an event whose probability is 0.45 is calibrated better than an expert who assigns a probability of 0.8 to the event.
-
-In practice that can be done by performing competency tests when the underlying truth is known. For example, comparing latent finger prints or footwear marks to numerous potential reference finger prints and footwear. The true sources of the prints or marks are known to those conducting the test but unknown to the expert being tested. The resulting proportion of correct source identifications and correct source exclusions is then a metric of expert calibration for questions about impression evidence.
-
-## Example: some real events
-
-Figure 
-
-```{r, prop-ruler, echo=FALSE, fig.align = 'center'}
-ruler.func<-function(gg){
-seq.list<-list()
-for(i in 1:length(gg)){  
-  ystart<-seq(0.1,gg[i],0.1)
-  yend<-ystart
-  xstart<-rep(i-0.25,length(ystart))
-  xend<-xstart+0.1
-  nam.val<-c(LETTERS[i],rep(NA,length(ystart)-1))
-  numb.val<-c(gg[i],rep(NA,length(ystart)-1))
-  seq.list[[i]]<-data.frame(nam.val,numb.val,xstart,xend,ystart,yend)
-}
-df<-as.data.frame(do.call(rbind, seq.list))
-p <- ggplot(df, aes(nam.val))
-p <- p + geom_bar(aes(y=numb.val,fill=nam.val),stat="identity",width=0.5,color="black",lwd=1.1)+
-    scale_x_discrete(limits=LETTERS[1:length(gg)])+
-    geom_segment(aes(x=xstart,y=ystart,xend=xend,yend=yend))+
-    geom_hline(yintercept=c(0.25, 0.5, 0.75),color="white",lwd=1.1)+
-    ggtitle("Probability of real events")+
-    ylim(c(0,max(gg)+0.5))+
-  annotate("text",x=seq(1,length(gg),1),y=gg+0.1,label=gg,fontface="bold",size=rel(6))+
-  theme_bw()+
-  theme(axis.title=element_blank(),
-        axis.text.y=element_blank(),
-        axis.text.x=element_text(face="bold",size=rel(1.5)),
-        axis.ticks=element_blank(),
-        panel.border=element_blank(),
-        panel.grid=element_blank(),
-        legend.position = "bottom",
-        legend.margin = margin()) +
-  scale_fill_discrete(name="Event",
-                      labels=c("an American male dying of cancer in their lifetime",
-                               "any 2 people having the same birthday in a room of 23 random people",
-                               "the Scottish city of Dundee being overcast on 26th January",
-                               "a female born in 2020 living to age 70 or longer"))+
-  guides(fill=guide_legend(nrow=4,byrow=TRUE))+
-  coord_flip()
-print(p)
-}
-ruler.func(c(0.21,0.51,0.68, 0.9))
-```
-
-Cancer: https://www.cancer.org/cancer/cancer-basics/lifetime-probability-of-developing-or-dying-from-cancer.html
-
-Life expectancy: https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/articles/lifeexpectancycalculator/2019-06-07
-
-Weather: https://weatherspark.com/m/40087/6/Average-Weather-in-June-in-Dundee-United-Kingdom
-
-Birthday: https://en.wikipedia.org/wiki/Birthday_problem
+In criminal cases, the opportunity to repeat events and gather scientific data from the case circumstances is often not possible (nor even desirable when results are harmful outcomes). The events are uncertain and one-off, and so probabilities cannot usually be assessed by empirical repetition. They can still be informed by other empirical data however, e.g. be validated repetitions in similar (but not the same) circumstances. We discuss this more in the next chapter, but for now we need to consider more of the properties of probabilities.
 
 ## Conditioning on information
 
@@ -241,19 +189,78 @@ Another reason that odds are useful is because of the simplicity that they give 
 
 ## Bayes' rule
 
-Bayes' rule is a mathematical rule which links the **prior odds** to the **posterior odds**. 
+**Bayes' rule** is a mathematical rule which links the **prior odds** to the **posterior odds**. Suppose we were considering odds of two events A and B, and we observe some new information from an event E. We want to compute the posterior odds of A and B conditioned on E. Bayes' rule states that this is done as follows:
+$$\text{posterior odds}=\frac{\text{probability of E conditioned on A}}{\text{probability of E conditioned on B}}\times \text{prior odds}.$$
 
-Suppose we have two events A and B, Bayes' rule states
+In other words, the posterior odds of A and B conditioned on E are equal to the prior odds of A and B multiplied by this ratio of probabilities for E conditioned on A and B. This ratio is known as the **Bayes factor**, or **likelihood ratio** in this instance. Understanding the likelihood ratio is the main goal of this book and we will revisit it in Chapter \@ref(likelihood-ratio). Bayes' rule describes how prior odds must be updated in light of new conditioning information.
 
-It allows us to switch the conditioning information in two probabilities, known as **transposing the conditional**.
+Bayes' rule gives us a mathematical expression that our probability assignments must obey. This means that posterior odds or probabilities cannot be arbitrarily assigned, rather they must follow by multiplying the prior odds by the likelihood ratio. Avoiding such arbitrariness is extremely useful when odds are based on a significant amount of epistemic uncertainty, which can be hard to accurately quantify. It removes any subjectivity in how we condition on information to obtain posterior odds.
+
+Notice how Bayes' rule allows us to switch the conditioning information as we move from the likelihood ratio to the posterior odds. We go from probabilities for E which are conditioned on A and B, to probabilities for A and B conditioned on E. This switching of conditioning is known as **transposing the conditional**. Bayes' rule gives us the correct way to transpose the conditional. A famous example of incorrectly transposing the conditional in the legal domain is known as the **prosector's fallacy**, which we look at in later chapter. 
+
+Despite seeming to be logical, Bayes' rule can lead to highly counter-intuitive results. This is best demonstrated using examples. Let's take a look at one.
 
 ## Example: guessing coin 1
 
-In the double coin toss example we played a game in which I won if two heads were tossed and you won if two tails were tossed. We drew if there were a combination of heads and tails. When thinking about the probabilities of winning, we conditioned on coin 1 showing heads and also on coin 1 showing tails. In each conditioning, one of our probabilities reduce to 0 and the other's increased to 0.5.
+In the double coin toss example we played a game in which I won if two heads were tossed and you won if two tails were tossed. We drew if there were a combination of heads and tails. When thinking about the probabilities of winning, we conditioned on coin 1 showing heads and also on coin 1 showing tails. In each conditioning, one of our probabilities reduced to 0 and the other's increased to 0.5.
 
-Suppose we change the game so that I toss the coins and don't show you which sides were facing up. I only tell you whether you won or not. If you didn't win, I give you another change to win by asking you to guess the result of coin 1's toss. If you guess correctly, you win this new game. What should you guess? The answer is found by conditioning on you not winning the first part of the game, instead of conditioning on the outcome of coin 1 like we did in the first game.
+Suppose we change the game so that I toss the coins and don't show you which sides were facing up. I only tell you whether you won or not and assume that I am telling the truth. If you didn't win, I give you another chance to win by asking you to guess the result of coin 1's toss. If you guess correctly, you win this new game. What should you guess?
 
-## Assigning probabilities
+Firstly, it's important to realise that this is a classic situation of epistemic uncertainty. Before the coin tosses, we both have uncertainty and it is aleatoric - there is an unavoidable randomness to the future outcomes of these coin tosses. Focussing only on the uncertainty of coin 1, both heads and tails have equal probability of 0.5. These are prior odds of evens.
+
+After the coin tosses, I no longer have any uncertainty as I know the outcome. But for your uncertainty there are two possible situations. Either I tell you that you have won, in which case there is no uncertainty for you any longer because you know that coin 1 must have resulted in tails. Or, I tell you that you did not win, and you now have epistemic uncertainty about the result of coin 1. How can you quantify that? The outcomes of the double coin toss are presented again in Figure \@ref(fig:freq-tree-double-coin-bet-2) below.
+
+```{r freq-tree-double-coin-bet-2, echo=FALSE,fig.cap="You expect not to win in 7500 out of the original 10,000 tosses. Out of those 7500 non-winning double tosses, 2500 came from coin 1 being tails, and 5000 came from coin 1 being heads. The posterior odds of coin 1 being heads are 2:1.", out.width = '80%', fig.align = 'center'}
+e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
+v <- c("10,000\ntosses", "5000\ncoin 1 heads", "5000\ncoin 1 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails")
+freqTree <- graph(edges=e, n=7, directed=FALSE)
+V(freqTree)$name <- v
+
+# the commented code below complicates the point
+# V(freqTree)$color <- c(rep(colPal[1], 3), 
+#                        colPal[4], 
+#                        colPal[7],
+#                        colPal[7],
+#                        colPal[4])
+V(freqTree)$color <- c(rep(colPal[1], 7))
+V(freqTree)$label.font <- c(1, 1, 1, 2, 2, 2, 1)
+par(mar = c(0, 0, 0, 0))
+plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+     vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+     vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
+     layout=layout_as_tree(graph = freqTree, root = 1),
+     vertex.size=50)
+# legend("bottomright", legend=c("True", "False"),
+#        col=colPal[c(4,7)], bty = "n",
+#        pch=16)
+par(mar = defMar)
+```
+
+Once I have told you that you did not win, you know that one of these three outcomes occurred: either coin 1 was heads and then coin 2 was heads or tails, or coin 1 was tails and coin 2 was heads. Out of every 10,000 double tosses, we expect those outcomes in 7500 cases - these are just the outcomes in which you do not win. Out of these 7500 non-winning double tosses, coin 1 was heads in 5000 of them, and coin 1 was tails in 2500 of them. This represents posterior odds that coin 1 is heads of 2:1, since 5000 is twice as large as 2500. Back to the original question, you should always guess heads when I give you the offer as the odds will be in your favour. This result might seem counter-intuitive, so take some time to think it through. The key thing to understand is that I have told you information which should inform your belief about the possible outcomes of the tosses.
+
+We calculated these posterior odds without using Bayes' rule. Let's verify that they are correct by using Bayes' rule. In the Bayes' rule formula as we presented it, event A in this example is coin 1 being heads, event B is coin 1 being tails, and the event E is me telling you that you did not win on the original double tosses. We need to calculate the prior odds and the likelihood ratio.
+
+Looking at the likelihood ratio first, we need to calculate two probabilities. The first is the probability of me telling you that you did not win conditional on coin 1 being heads. This probability is 1. If coin 1 shows up heads then it is certain that you did not win as you needed two tails.
+
+The second one we need is the probability of me telling you that you did not win conditional on coin 1 being tails. Out of every 5000 tosses in which coin 1 was tails, we expect 2500 to lead to coin 2 being heads (and you losing) and 2500 to lead to coin 2 being tails (and you winning). The probability is 0.5. Using these two probabilities results in a likelihood ratio of $\frac{1}{0.5}=2$.
+
+Now for the prior odds of coin 1 being heads. We reasoned that these odds were evens because before we toss coin 1 there is an equal probability of heads and tails. The prior odds of coin 1 showing heads are 1:1.
+
+Bayes' rule dictates that the posterior odds must be equal to the prior odds multiplied by the likelihood ratio. With a likelihood ratio of 2 and prior odds of 1:1, we obtain posterior odds of 2:1 in favour of heads. This result is the same as when we reasoned without using Bayes' rule, and so we have verified that it satisfies Bayes' rule. 
+
+We were fortunate in this example that we could calculate the posterior odds easily enough without using Bayes' rule. This meant that we could verify it. In many real situations, the posterior odds are hard to quantify in a way that guarantees they satisfy Bayes' rule without using Bayes' rule itself to derive them. This is where Bayes' rule is most powerful, because all we need to do is quantify our prior uncertainty and the likelihood ratio and we can obtain coherent posterior odds.
+
+## Reliable probabilities
+
+Using our notion of probability, anyone is capable of assigning a probability to anything they are uncertain about. But even if everyone does this to the best of their ability, some people simply have more information about some events than others. This is clear from the idea of experts versus non-experts: the expert's probability assignment will be more **reliable** than that of the non-expert. Reliability here refers to the fact that the expert's knowledge is closer to all the available knowledge about a given topic, and so their best assessment is better than an uninformed non-expert's. This is the idea of the expert witness. Reliability of probability assignments is a key part to interpeting and using expert evidence.
+
+One category of things to be mindful of is assumptions. In practice what happens is that assumptions are made and stated upfront, so that they are inherently conditioned on when any probability is stated. We did this when we assumed that the coin toss was fair in the double coin toss examples. This assumption was based on a somewhat 'default' state of knowledge, i.e. the coin tosses should be assumed to be fair unless there is good reason to be believe otherwise. This is often done in practice when assigning probabilities to real events, e.g. in the expert report or its supporting information. Assumptions can greatly simplify the probabilities which need to be assigned to events. In many cases they can relate to details which are regarded as negligible in how they affect the probability. Assumptions like this might be considered widely reasonable and accepted by most experts who would seek to assign their own personal probability to events.
+
+In all cases, it is important that assumptions are made transparent so that when they are unreasonable they can be rightly challenged. This makes probability assignments **assessible**. They can then in principle be assessed for their reliability. Important assumptions to watch out for are those relating to independence between events. It is tempting to assume this as it simplifies the mathematics of probability, however it can result in seriously inaccurate probabilities when it is incorrectly assumed.
+
+Another thing that can be checked is the general **calibration** of personal probability assignments. This means asking experts to assign probabilities to events whose probability is known (but unknown to the expert). For example, an expert who assigns a probability of 0.4 to an event whose actual probability is 0.45 is calibrated better than an expert who assigns a probability of 0.8 to the same event. Greater calibration leads to greater reliability. Experts in forensic science demonstrate this in some capacity by performing competency tests. These involves conducting simulated examinations of evidence when the underlying truth is known to the examiners, but unknown to the experts.
+
+We saw that some probabilities could be empirically validated using repetitions of the same event. When this couldn't be done, e.g. for one-off events, then we said that information from similar events could be used to inform that probability assignment. This is part of the wider idea of using **data** to construct more reliable probabilities. If there are known data relating to an event of interest, then an individual's best assessment of the probability of that event must incorporate that data. But how should that be quantified? This question moves us from the realm of probability to the realm of statistics, and is the focus of the next chapter.
 
 ## More information
 
