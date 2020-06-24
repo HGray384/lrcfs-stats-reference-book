@@ -16,17 +16,19 @@ source("./code/useful-variables.R")
 
 In the last Chapter we spoke about probability as a means of quantifying our uncertainty. Probability was introduced as personal in the sense that it depends upon the information and beliefs of an individual. However, these beliefs are not completely arbitrary as they should always be a best assessment of the available information. One way to improve this assessment and increase and share available information is to gather data from empirical observations. These data can then be used to inform our beliefs and create more reliable probabilities. 
 
-The branch of mathematics that is concerned with learning from empirical observations is known as statistics. In this Chapter we will look at statistics, how it interacts with probability, and some of its applications in forensic science. 
+The branch of mathematics that is concerned with describing and learning from empirical observations is known as statistics. In this Chapter we will look at statistics, how it relates to probability, what are some problems that statistics can be useful for, and how this is applied in forensic scientific evidence. 
 
 ## Learning from data
 
-When we were thinking about probability, we were quantifying our listed uncertainties. We used the idea of expected frequencies to present this. For example, if your probability of an event was 0.5 then you expected it to occur 5000 out of 10,000 total relevant opportunities. This involves us thinking about what we believe could occur, sometimes creating a probabilistic model to describe this uncertainty, and then using that to form expectations of that occurring in the real world. In the coin toss example, my basis was a probability of heads of 0.5 and so this must mean than that I expect 5000 heads out of 10,000 tosses of that coin.
+When we were thinking about probability, we were quantifying our theoretical uncertainties. This involved us thinking about our uncertainties to map out what we believe could occur in theory, sometimes creating a probabilistic model for this, and then using that theory to form expectations about would occur in practice. In the coin toss example, my probability of heads being assigned as 0.5 meant that I expect 5000 heads out of 10,000 tosses of that coin. But, what I expect to occur is rarely what we observe in reality.
 
-Statistics is all about doing this process in reverse. We observe events in the real world and then try to use those to learn about what kind of probabilistic model might have lead to them. For example, suppose we tossed a new coin 10 times and observed 7 heads. What should we infer about the probability of heads? 0.7 could seem a reasonable answer because that is the proportion of heads that we observed. 0.5 is also a reasonable answer because, although we expect 5 heads, we are not guaranteed to actually observe 5 heads for every 10 tosses.
+Statistics is all about doing this process in reverse. We use observed events in the real world in order to try to learn about what kind of probabilistic models might have lead to them. For example, suppose we tossed a new coin 10 times and observed 7 heads. What should we infer from these tosses about the probability of heads for this new coin? One reasonable answer would be a probability of heads of 0.7 because that is the proportion of heads that we actually observed. Another reasonable answer is still 0.5 because, although this means that we would expect 5 heads from 10 tosses, we are not guaranteed to always observe 5 heads for every 10 tosses. We might ask how rare it would be to observe a sequence of 7 out of 10 heads when the probability of heads is 0.5 compared to when the probability of heads is 0.7. How we might then choose between these inferences about the probability of heads is a question that statistical theory can help with.
 
-Probability was useful because it could quantitively describe our theoretical uncertainty. Statistics is useful because it can quantitively describe our empirical uncertainty, which in turn can refine our theoretical uncertainty. This results in probabilistic models which are continually improved by gathering **data** about them from empirical observations. Using probability and statistics together in this way has many similarities with the scientific method; first we generate hypotheses and then perform experiments and gather evidence to test those hypotheses against. This application has led it to be called statistical science.
+Probability and statistics are complementary. Probability is useful because it can quantitively describe our theoretical uncertainty. Statistics is useful because it can quantitively describe the uncertainty that is observed in practice. This empirical uncertainty can then be used to compare to and refine our theoretical uncertainty. Where possible and practical, this process can then be repeated many times to reduce epistemic uncertainty and characterise aleatory uncertainty.
 
-In most of the processes in the real world we do not know the underlying models which cause them and so we use statistical science to learn about them. It can be applied to achieve many goals, and we restrict ourselves to the following:
+This results in probabilistic models which are continually improved by gathering **data** about them from empirical observations. In the previous short example, when we tossed the new coin 10 times we generated data about the coin toss. The data was that 7 out of the 10 tosses resulted in heads. We then used this data to think about the probability of heads occurring from the toss of the new coin. We could toss the coin many more times to gather more data and reassess our probabilities. This is learning from data. Using statistics makes the magnitude of learning match the amount of information in the data (subject to our beliefs); without using statistics this would not be guaranteed.
+
+Using probability and statistics together in this way has many similarities with the scientific method; generating hypotheses and then performing experiments to gather evidence to test those hypotheses against. This methodology is why it is sometimes known as **statistical science**. In most of the processes in the real world we do not know the underlying models which cause them and so we use statistical science to learn about them. This can be done to achieve many goals, and we restrict ourselves to the following:
 
 - describing empirical observations,
 - inferring general conclusions from empirical observations,
@@ -35,6 +37,8 @@ In most of the processes in the real world we do not know the underlying models 
 The next few sections go through each of these in more detail.
 
 ## Describing observations
+
+Describing observations is probably the most familiar use of the field of statistics for most people. This is because it is concerned with reporting and summarising data and we have a lot of exposure to this, sometimes through our jobs in things like company reports but definitely through outlets such as news media.
 
 ## Inferring from observations
 
@@ -89,6 +93,8 @@ suppressWarnings(ruler.func(c(0.21,0.51,0.68, 0.9)))
 Whose probabilities are these?
 
 ## Relevant populations
+
+## Statistics in forensic evidence
 
 ## More information
 
