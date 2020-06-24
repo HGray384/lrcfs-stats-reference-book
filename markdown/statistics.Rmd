@@ -26,7 +26,9 @@ Statistics is all about doing this process in reverse. We use observed events in
 
 Probability and statistics are complementary. Probability is useful because it can quantitively describe our theoretical uncertainty. Statistics is useful because it can quantitively describe the uncertainty that is observed in practice. This empirical uncertainty can then be used to compare to and refine our theoretical uncertainty. Where possible and practical, this process can then be repeated many times to reduce epistemic uncertainty and characterise aleatory uncertainty.
 
-This results in probabilistic models which are continually improved by gathering **data** about them from empirical observations. In the previous short example, when we tossed the new coin 10 times we generated data about the coin toss. The data was that 7 out of the 10 tosses resulted in heads. We then used this data to think about the probability of heads occurring from the toss of the new coin. We could toss the coin many more times to gather more data and reassess our probabilities. This is learning from data. Using statistics makes the magnitude of learning match the amount of information in the data (subject to our beliefs); without using statistics this would not be guaranteed.
+This results in probabilistic models which are continually improved by gathering **data** about them from empirical observations. In the previous short example, when we tossed the new coin 10 times we generated data about the coin toss. The data was the ten coin tosses and their results. We can summarise data or perform mathematical operations on it to create quantities known as **statistics**. For example, by summarising that 7 out of the 10 tosses (70%) resulted in heads, we have a statistic which describes the proportion of heads in that coin toss data.
+
+We then used this data, and the statistic computed from it, to think about the probability of heads occurring from the toss of the new coin. We could toss the coin many more times to gather more data, compute more statistics, and reassess our probabilities. This is called learning from data. Using statistical theory makes the magnitude of learning match the amount of information in the data (subject to our beliefs); without using statistical theory this would not be guaranteed.
 
 Using probability and statistics together in this way has many similarities with the scientific method; generating hypotheses and then performing experiments to gather evidence to test those hypotheses against. This methodology is why it is sometimes known as **statistical science**. In most of the processes in the real world we do not know the underlying models which cause them and so we use statistical science to learn about them. This can be done to achieve many goals, and we restrict ourselves to the following:
 
@@ -34,12 +36,36 @@ Using probability and statistics together in this way has many similarities with
 - inferring general conclusions from empirical observations,
 - evaluating empirical observations.
 
-The next few sections go through each of these in more detail.
+We get to these topics in the next few sections but first we need to introduce a couple of important concepts.
+
+## Populations and samples
+
+Two key concepts in statistics are populations and samples. A **population** is every possible member of a group of interest. A **sample** is a subset of members taken from the population.
 
 ## Describing observations
 
-Describing observations is probably the most familiar use of the field of statistics for most people. This is because it is concerned with reporting and summarising data and we have a lot of exposure to this, sometimes through our jobs in things like company reports but definitely through outlets such as news media.
+Using statistics to describe observations is probably their most familiar application. This is because they concisely and precisly report and summarise data, and this plays a central role in our ever growing data-centric society. These type of statistics are referred to as **descriptive statistics**. Some common examples are the average height of males or females in the UK, median household income, most popular baby's name for a girl etc.
 
+
+
+## Example: GSR publications
+
+In 2020, a systematic analysis of all academic publications related to gunshot residue (GSR) particles was published by @sobreira2020. A small subset of the data, containing information about the number of publications per year, can be found below in Table \@ref(tab:gsr-publication-table).
+
+```{r gsr-publication-df, include=FALSE}
+gsrDf <- as.tibble(read.table("./dat/gsr-publications.txt", header = TRUE, sep = "&")) %>%
+  select(Year, Publications) %>%
+  filter(Year > 2009)
+```
+
+```{r gsr-publication-table, echo=FALSE}
+options(kableExtra.html.bsTable = T)
+gsrDf %>%
+  knitr::kable(booktabs = TRUE, escape = F, align = "c",
+             caption = 'Academic publications related to gunshot residue analysis from the years 2010-2018.') %>%
+  kable_styling(c("striped", "condensed"), 
+                latex_options = "striped")
+```
 ## Inferring from observations
 
 ## Data sources
