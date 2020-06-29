@@ -40,7 +40,43 @@ We get to these topics in the next few sections but first we need to introduce a
 
 ## Populations and samples
 
-Two key concepts in statistics are populations and samples. A **population** is every possible member of a group of interest. A **sample** is a subset of members taken from the population.
+Two key concepts in statistics are populations and samples. A **population** is every possible event/characteristic/individual in a certain group of interest. Some examples of populations are
+
+Population 1: all of the people living the UK,
+
+Population 2: burglaries in the Greater London area of England,
+
+Population 3: all the footwear of people living in a small local region.
+
+Having information about these populations can have important practical impact. For example, knowing the locations of all burglaries in Greater London might reveal patterns such as hotspots. The Metropolitan Police could use this information to put preventative measures in place. Collecting data about the entire population is known as a **census**. The UK census is one such example, gathering data on people and households within the UK, occurring once every 10 years.
+
+Censuses are often very difficult or impossible to fully complete. This can be for logistical reasons such as it being too expensive and resource intensive to conduct. It can also be because the population is unable to be fully surveyed. Population 3 above would be highly relevant for criminal investigations within the specific local region, e.g. for comparing footwear marks found at local crime scenes. However, it is practically impossible to gather and record all of this information. One reason for this would be legal restrictions preventing the systematic collection of this data.
+
+For these reasons, it is common to take a **sample** from the population instead. A sample is a subset of members out of a population. Since samples don't aim to gather information from the entire population, they are much simpler and cheaper to conduct. As well as saving resources, the aim of taking a sample is to be sufficiently representative of the population. Below are some examples of samples:
+
+Sample 1: a survey of people within the UK,
+
+Sample 2: reported burglaries in a Met. Police database,
+
+Sample 3: voluntarily submitted footwear marks from a local area.
+
+Sampling has many different types as it is such an important aspect of statistics. In this text, we will only mention random samples and convenience samples. A **random** sample is a sample drawn from a population in such a way that every member in the population has an equal probability of being sampled. In sample 1 above, the survey can be conducted by randomly contacting potential respondents from a representative database of people.
+
+A **convenience** sample is a sample drawn from a population in which only the most available members of the population are sampled. This means that convenience samples might not be representative of the population as a whole. For sample 2 above, it might be reasonable to say that these reported burglaries are fairly representative of all burglaries in Greater London i.e. population 2. This assumes that almost all burglaries are reported and logged and that there are no systematic differences in the burglaries which are not being reported (e.g. in their location).
+
+Sample 3 is also a convenience sample, this time of reported footwear. The degree to which the submitted footwear marks are representative of all footwear in a local area (e.g. population 3) depends upon the representativeness of the volunteers who submit them. If a certain age group of people is over-represented in the volunteers then the sample will be **biased** in favour of that age group. If desired, statistical methods can be applied to take this bias into account, e.g. by weighing the over-represented age group's submission proportionally less compared to other age groups. This is one way polling companies attempt to make a potentially biased sample more representative.
+
+Sampling adds another layer of uncertainty to consider, which lends itself to working with probability. In any sampling method, there is uncertainty about how representative the sample is of the population from which it is drawn, and also a natural randomness as to which members are sampled. This represents both epistemic and aleatory uncertainty. The epistemic uncertainty arises because we do not know some characteristics of the population (which is why we are sampling from it). Learning more about the population to be sampled from reduces this uncertainty, and so the sampling procedure itself can reduce this.
+
+The aleatory uncertainty is because there will always be randomness when sampling. The randomness can be due to a random sampling procedure, but even within convenience samples there is a randomness as to which convenient members are sampled. **Sample size** is an important factor for characterising the aleatory uncertainty associated with sampling. The more we perform a sampling procedure in a population, the more we learn about its variability. 
+
+But sample size isn't everything: a small but carefully constructed random sample can be more representative of the population than a large but careless convenience sample.
+
+Increasing the sample size only reduces the uncertainty to a point, 
+
+and so often an optimal sample size can be specified before any sample is collected. 
+
+Now that we have seen what populations and samples are, we can look at the first use of statistics from our list: describing observations.
 
 ## Describing observations
 
