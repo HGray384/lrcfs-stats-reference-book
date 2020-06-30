@@ -80,7 +80,7 @@ Measures of central tendancy aim to tell us a number around which the data tend 
 
 Dispersion aims to tell us how closely the data cluster around the measures of central tendency. The most common of these known as the **standard deviation**. The **standard deviation** tells us on average how close the data are to the mean. Larger values indicate that the data is not well represented by the mean since they are spread widely around it. Smaller values indicate that the mean is a good representation because the data are tighly packed around it.
 
-When naming specific descriptive statistics, it is good practice to mention whether that statistic is describing a sample of data or a population. This makes it clearer and more interpretable to the consumer of the statistic because they can think about it in context, e.g. "could the statistic be biased by convenience sampling?" When a statistic describes a population, it is referred to using words such as *population*, *true*, *parameter*, e.g. the population mean. When a statistic describes a sample it is usually referred to as a **sample statistic**, e.g. the sample mean. When this distinction is not made, there is the risk of confusing a sample for a population, which ignores uncertainty and leaves the potential to make an unwarrented and inaccurate generalisation. If in doubt, assume everything is a sample. Even for census data this can be a safe assumption since some forms are bound to not be completed or go missing after completion (even if this is a really small number).
+When naming specific descriptive statistics, it is good practice to mention whether that statistic is describing a sample of data or a population. This makes it clearer and more interpretable to the consumer of the statistic because they can think about it in context, e.g. "could the statistic be biased by convenience sampling?" When a statistic describes a population, it is referred to using words such as *population*, *true*, *parameter*, e.g. the population mean. When a statistic describes a sample it is usually referred to as a **sample statistic** or using the word *empirical*, e.g. the sample mean. When this distinction is not made, there is the risk of confusing a sample for a population, which ignores uncertainty and leaves the potential to make an unwarrented and inaccurate generalisation. If in doubt, assume everything is a sample. Even for census data this can be a safe assumption since some forms are bound to not be completed or go missing after completion (even if this is a really small number).
 
 The following example looks at descriptive statistics in action.
 
@@ -107,11 +107,46 @@ Using this data, we can calculate measures of central tendency and dispersion. L
 
 To calculate the **sample mean**, we calculate the total number of publications and divide this by the number years we used. Using the GSR publication data, this gives:
 $$\text{sample mean}=\frac{20+27+45+38+37+31+41+47+45}{9}=\frac{331}{9}\approx36.8,$$
-which means that the sample mean number of GSR-related publications per year during the period 2010-2018 is roughly 36.8. In other words, if we wanted to report a single number for the rate at which GSR-related publications were published each year between 2010-2018 in this sample, then that rate would be 36.8. You can confirm this by multiplying 36.8 by the number of years (9) and compare that to the total number of publications.
+which means that the sample mean number of GSR-related publications per year during the period 2010-2018 is roughly 36.8. In other words, if we wanted to report a single number for the rate at which GSR-related publications were published each year between 2010-2018 in this sample, then that rate would be 36.8. You can confirm this by multiplying 36.8 by the number of years (9) and compare that to the total number of publications. 
 
-Notice how 36.8 isn't itself a valid number of publications for any given year - the average doesn't exist as its own data point, it is a statistic which describes the data points. This highlights that there isn't such a thing as an "average year" for instance, which is sometimes how the average is reported. 
+Notice how 36.8 isn't itself a valid number of publications for any given year - the average doesn't exist as its own data point, it is a statistic which describes the data points. This highlights that there isn't such a thing as an "average year" for instance, which is sometimes how the average is reported.
 
+How well does this sample mean represent the actual number of publications each year in our sample? We can answer that by calculating the **sample standard deviation**. To show some intuition for this, we can plot the number of publications each year against the sample mean to highlight the difference.
 
+```{r gsr-mean-plot, echo=FALSE, fig.cap="The number of GSR-related publications between 2010-2018. The black dashed line represents the mean number of publications per year in this sample. The red dashed lines show the difference between the sample mean and the observed number of publications.", out.width = '80%', fig.align = 'center'}
+ggplot(gsrDf, aes(x=Year, y=Publications)) + geom_point() +
+  geom_hline(yintercept=36.8, linetype="dashed") +
+  geom_segment(aes(x = 2010, y = 20, xend = 2010, yend = 36.8),linetype="dashed", color='red') +
+  geom_segment(aes(x = 2011, y = 27, xend = 2011, yend = 36.8),linetype="dashed", color='red') +
+  geom_segment(aes(x = 2012, y = 45, xend = 2012, yend = 36.8),linetype="dashed", color='red') +
+geom_segment(aes(x = 2013, y = 38, xend = 2013, yend = 36.8),linetype="dashed", color='red') +
+  geom_segment(aes(x = 2014, y = 37, xend = 2014, yend = 36.8),linetype="dashed", color='red') +
+  geom_segment(aes(x = 2015, y = 31, xend = 2015, yend = 36.8),linetype="dashed", color='red') +
+  geom_segment(aes(x = 2016, y = 41, xend = 2016, yend = 36.8),linetype="dashed", color='red') +
+  geom_segment(aes(x = 2017, y = 47, xend = 2017, yend = 36.8),linetype="dashed", color='red') +
+  geom_segment(aes(x = 2018, y = 45, xend = 2018, yend = 36.8),linetype="dashed", color='red') 
+```
+
+[Roy: it would be great to make the above interactive, so the red lines pivoted round to be on the same scale and showed them being squared and then averaged and square rooted to calculate the sample standard deviation.]
+
+The **sample median** is best seen by rearranging Table \@ref(tab:gsr-publication-table) so that the number of publications are in order from lowest to highest, rather than in chronological order by year. This is shown in Table \@ref(tab:gsr-publication-sorted-table).
+
+```{r gsr-publication-sorted-table, echo=FALSE}
+options(kableExtra.html.bsTable = T)
+gsrDf %>% 
+  arrange(Publications) %>%
+  knitr::kable(booktabs = TRUE, escape = F, align = "c",
+             caption = 'Academic publications related to gunshot residue analysis from the years 2010-2018 in ascending order.') %>%
+  kable_styling(c("striped", "condensed"), 
+                latex_options = "striped")
+```
+Since we have 9 values, the middle value is the one which has 4 values lower than it and 4 values higher than it. This is seen by inspecting Table \@ref(tab:gsr-publication-sorted-table). The median number of GSR-related publications in this sample during the period 2010-2018 is 38. This is quite similar to the sample mean of 36.8, and so these two measures of central tendency are in general agreement with each other. 
+
+The median isn't always this easy to calculate. When there is an even number data points then we have to decide upon a consistent method to select the median value. For example, if we excluded 2010 from our sample of GSR-related publications, then we have 8 years of publication data. There are then a range of values between 38 and 41 which leave 4 observed values above and below them. However, the technicalities of these complications are beyond the scope of this content.
+
+The final measure of central tendency to calculate is the **sample mode**. This is the most common number of GSR-related publications that appears in our sample. We can see from Table \@ref(tab:gsr-publication-sorted-table) that one value appears twice, and all others appear once. The sample mode is therefore the value which appears twice, which is 45.
+
+We've gone through the calculation of the sample statistics for the number of GSR-related publications in this dataset, how useful are they?
 
 ## Inferring from observations
 
