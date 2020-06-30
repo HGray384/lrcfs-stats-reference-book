@@ -44,7 +44,7 @@ Two key concepts in statistics are populations and samples. A **population** is 
 
 Population 1: all of the people living the UK,
 
-Population 2: burglaries in the Greater London area of England,
+Population 2: all burglaries in the Greater London area of England,
 
 Population 3: all the footwear of people living in a small local region.
 
@@ -64,29 +64,29 @@ Sampling has many different types as it is such an important aspect of statistic
 
 A **convenience** sample is a sample drawn from a population in which only the most available members of the population are sampled. This means that convenience samples might not be representative of the population as a whole. For sample 2 above, it might be reasonable to say that these reported burglaries are fairly representative of all burglaries in Greater London i.e. population 2. This assumes that almost all burglaries are reported and logged and that there are no systematic differences in the burglaries which are not being reported (e.g. in their location).
 
-Sample 3 is also a convenience sample, this time of reported footwear. The degree to which the submitted footwear marks are representative of all footwear in a local area (e.g. population 3) depends upon the representativeness of the volunteers who submit them. If a certain age group of people is over-represented in the volunteers then the sample will be **biased** in favour of that age group. If desired, statistical methods can be applied to take this bias into account, e.g. by weighing the over-represented age group's submission proportionally less compared to other age groups. This is one way polling companies attempt to make a potentially biased sample more representative.
+Sample 3 is also a convenience sample, this time of submitted footwear. The degree to which the submitted footwear marks are representative of all footwear in a local area (e.g. population 3) depends upon the representativeness of the volunteers who submit them. For example, if a certain age group of people, say teenagers, is over-represented in the volunteers then the sample will be **biased** in favour of them. This means that when trying to count a simple measure such as the most common shoe size in the local area, the data will be biased in favour of shoe sizes which are probably smaller than the true most common size. This is because the teenagers will still be growing. If desired, statistical methods can be applied to take this bias into account, e.g. by weighing the teenager group's submissions proportionally less compared to other age groups. This is one way polling companies attempt to make a potentially biased sample more representative when trying to determine election outcomes.
 
-Sampling adds another layer of uncertainty to consider, which lends itself to working with probability. In any sampling method, there is uncertainty about how representative the sample is of the population from which it is drawn, and also a natural randomness as to which members are sampled. This represents both epistemic and aleatory uncertainty. The epistemic uncertainty arises because we do not know some characteristics of the population (which is why we are sampling from it). Learning more about the population to be sampled from reduces this uncertainty, and so the sampling procedure itself can reduce this.
+Sampling adds another layer of uncertainty to consider, which lends itself to working with probability. In any sampling method, there is uncertainty about how representative the sample is of the population from which it is drawn, and also a natural randomness as to which members are sampled. This represents both epistemic and aleatory uncertainty. The epistemic uncertainty arises because we do not know some characteristics of the population (which is why we are sampling from it). Learning more about the population reduces this uncertainty, and so the sampling procedure itself can reduce this.
 
-The aleatory uncertainty is because there will always be randomness when sampling. The randomness can be due to a random sampling procedure, but even within convenience samples there is a randomness as to which convenient members are sampled. **Sample size** is an important factor for characterising the aleatory uncertainty associated with sampling. The more we perform a sampling procedure in a population, the more we learn about its variability. 
-
-But sample size isn't everything: a small but carefully constructed random sample can be more representative of the population than a large but careless convenience sample.
-
-Increasing the sample size only reduces the uncertainty to a point, 
-
-and so often an optimal sample size can be specified before any sample is collected. 
+The aleatory uncertainty is because there will always be randomness when sampling. Randomness is clearly present in a random sampling procedure, but it is also present within convenience samples. This is because there is a randomness as to which convenient members are sampled. **Sample size** is an important factor for characterising the aleatory uncertainty associated with sampling. The more we perform a sampling procedure in a population, the more we learn about its inherent variability. But sample size isn't everything: a small but carefully constructed random sample can be more representative of the population than a large but careless convenience sample.
 
 Now that we have seen what populations and samples are, we can look at the first use of statistics from our list: describing observations.
 
 ## Describing observations
 
-Using statistics to describe observations is probably their most familiar application. This is because they concisely and precisly report and summarise data, and this plays a central role in our ever growing data-centric society. These type of statistics are referred to as **descriptive statistics**. Some common examples are the average height of males or females in the UK, median household income, most popular baby's name for a girl etc.
+Using statistics to describe observations is probably their most familiar application. This is because they concisely and precisly report and summarise data, and this plays a central role in our ever growing data-centric society. These type of statistics are referred to as **descriptive statistics**. Some common examples are the average height of males or females in the UK, median household income, most popular baby's name for a girl etc. Descriptive statistics give us information about a particular set of data. Two common categories these fall into are **central tendency** and **dispersion**.
 
+Measures of central tendancy aim to tell us a number around which the data tend to cluster. There are three common measures used for this: the **mean**, **median**, and the **mode**. The **mean** describes the average value of the data. The **median** describes the value in the middle of the data after we put all of the numbers in order. The **mode** describes the most common value on the data.
 
+Dispersion aims to tell us how closely the data cluster around the measures of central tendency. The most common of these known as the **standard deviation**. The **standard deviation** tells us on average how close the data are to the mean. Larger values indicate that the data is not well represented by the mean since they are spread widely around it. Smaller values indicate that the mean is a good representation because the data are tighly packed around it.
+
+When naming specific descriptive statistics, it is good practice to mention whether that statistic is describing a sample of data or a population. This makes it clearer and more interpretable to the consumer of the statistic because they can think about it in context, e.g. "could the statistic be biased by convenience sampling?" When a statistic describes a population, it is referred to using words such as *population*, *true*, *parameter*, e.g. the population mean. When a statistic describes a sample it is usually referred to as a **sample statistic**, e.g. the sample mean. When this distinction is not made, there is the risk of confusing a sample for a population, which ignores uncertainty and leaves the potential to make an unwarrented and inaccurate generalisation. If in doubt, assume everything is a sample. Even for census data this can be a safe assumption since some forms are bound to not be completed or go missing after completion (even if this is a really small number).
+
+The following example looks at descriptive statistics in action.
 
 ## Example: GSR publications
 
-In 2020, a systematic analysis of all academic publications related to gunshot residue (GSR) particles was published by @sobreira2020. A small subset of the data, containing information about the number of publications per year, can be found below in Table \@ref(tab:gsr-publication-table).
+In 2020, a systematic analysis of all academic publications related to gunshot residue (GSR) particles was published by @sobreira2020. Among other things, the study looked at trends over time in the number of publications which are related to GSR. A small subset of the data, containing information about the number of publications per year between 2010-2018, can be found below in Table \@ref(tab:gsr-publication-table).
 
 ```{r gsr-publication-df, include=FALSE}
 gsrDf <- as.tibble(read.table("./dat/gsr-publications.txt", header = TRUE, sep = "&")) %>%
@@ -102,6 +102,17 @@ gsrDf %>%
   kable_styling(c("striped", "condensed"), 
                 latex_options = "striped")
 ```
+
+Using this data, we can calculate measures of central tendency and dispersion. Let's assume this is a sample of the total population of GSR-related publications during the same timeframe. This is safe because some publications (albeit very few) may have been missed during the literature search.
+
+To calculate the **sample mean**, we calculate the total number of publications and divide this by the number years we used. Using the GSR publication data, this gives:
+$$\text{sample mean}=\frac{20+27+45+38+37+31+41+47+45}{9}=\frac{331}{9}\approx36.8,$$
+which means that the sample mean number of GSR-related publications per year during the period 2010-2018 is roughly 36.8. In other words, if we wanted to report a single number for the rate at which GSR-related publications were published each year between 2010-2018 in this sample, then that rate would be 36.8. You can confirm this by multiplying 36.8 by the number of years (9) and compare that to the total number of publications.
+
+Notice how 36.8 isn't itself a valid number of publications for any given year - the average doesn't exist as its own data point, it is a statistic which describes the data points. This highlights that there isn't such a thing as an "average year" for instance, which is sometimes how the average is reported. 
+
+
+
 ## Inferring from observations
 
 ## Data sources
