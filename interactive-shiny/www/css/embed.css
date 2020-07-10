@@ -1,0 +1,11 @@
+header,
+aside,
+#bookmarkButton{
+	display: none;
+}
+
+.content-wrapper{
+	margin-left: 0px;
+	background-color: #FFF;
+}
+    
