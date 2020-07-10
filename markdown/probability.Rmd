@@ -51,7 +51,7 @@ There are ways we can check this. What would we expect if we toss the coin many 
 [interactive example which performs simulated coin flips and shows the proportion which were heads, vary the sample size so that the user can see it converges to 0.5, or the user can vary the fairness of the coin to seehow the proportion of heads converges to this with many tosses]
 
 ```{r echo=FALSE}
-knitr::include_app('http://127.0.0.1:3464/?_inputs_&sidebar=%22tabCoinToss%22&sidebarCollapsed=false&slider=50&sidebarItemExpanded=null&embed=true', height = '1100px')
+knitr::include_app(paste0(SHINY_HOST,'/?_inputs_&sidebar=%22tabCoinToss%22&sidebarCollapsed=false&slider=50&sidebarItemExpanded=null&embed=true'), height = '1100px')
 ```
 
 As the number of tosses gets larger and larger, the proportion of heads and tails gets closer to 0.5, e.g. out of 10,000 flips, we expect 5000 to be heads and 5000 to be tails. This can be represented in what is known as an expected frequency tree, shown below.
@@ -82,7 +82,7 @@ par(mar = defMar)
 ```
 
 ```{r echo=FALSE}
-knitr::include_app('http://127.0.0.1:3464/?_inputs_&sidebar=%22tabCoinTree%22&sidebarCollapsed=false&slider=50&sidebarItemExpanded=null&embed=true', height = '620px')
+knitr::include_app(paste0(SHINY_HOST,'/?_inputs_&sidebar=%22tabCoinTree%22&sidebarCollapsed=false&slider=50&sidebarItemExpanded=null&embed=true'), height = '620px')
 
 ```
 
