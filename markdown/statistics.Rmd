@@ -103,15 +103,17 @@ gsrDf %>%
                 latex_options = "striped")
 ```
 
-Using this data, we can calculate measures of central tendency and dispersion. Let's assume this is a sample of the total population of GSR-related publications during the same timeframe. This is safe because some publications (albeit very few) may have been missed during the literature search.
+Using this data, we can calculate some descriptive statistics. Let's assume this is a sample of the total population of GSR-related publications during the same timeframe. This is a safe assumption because some publications (albeit very few) may have been missed during the literature search.
 
-To calculate the **sample mean**, we calculate the total number of publications and divide this by the number years we used. Using the GSR publication data, this gives:
+To calculate the **sample mean**, we calculate the total number of publications and divide this by the number years for which we counted publications. Using the GSR publication data, this gives:
 $$\text{sample mean}=\frac{20+27+45+38+37+31+41+47+45}{9}=\frac{331}{9}\approx36.8,$$
 which means that the sample mean number of GSR-related publications per year during the period 2010-2018 is roughly 36.8. In other words, if we wanted to report a single number for the rate at which GSR-related publications were published each year between 2010-2018 in this sample, then that rate would be 36.8. You can confirm this by multiplying 36.8 by the number of years (9) and compare that to the total number of publications. 
 
-Notice how 36.8 isn't itself a valid number of publications for any given year - the average doesn't exist as its own data point, it is a statistic which describes the data points. This highlights that there isn't such a thing as an "average year" for instance, which is sometimes how the average is reported.
+Notice how 36.8 isn't itself a valid number of publications for any given year - the average doesn't exist as its own data point, it is simply a statistic which describes the data points. This highlights that there isn't such a thing as an "average year" for instance, which is sometimes how the average is reported.
 
-How well does this sample mean represent the actual number of publications each year in our sample? We can answer that by calculating the **sample standard deviation**. To show some intuition for this, we can plot the number of publications each year against the sample mean to highlight the difference.
+How much spread around this sample mean is there in this data? We can answer that by calculating the **sample standard deviation**. The idea is to see a single number descriptive statistic for how different the number of publications are each year compared to the sample mean. The closer the number is to 0, the tighter the data are grouped around the sample mean. The further away from 0, the more spread there is.
+
+To show some intuition for the sample standard deviation and how it is computed, we can plot the number of publications each year and highlight the difference between these and the sample mean.
 
 ```{r gsr-mean-plot, echo=FALSE, fig.cap="The number of GSR-related publications between 2010-2018. The black dashed line represents the mean number of publications per year in this sample. The red dashed lines show the difference between the sample mean and the observed number of publications.", out.width = '80%', fig.align = 'center'}
 ggplot(gsrDf, aes(x=Year, y=Publications)) + geom_point() +
@@ -127,7 +129,55 @@ geom_segment(aes(x = 2013, y = 38, xend = 2013, yend = 36.8),linetype="dashed", 
   geom_segment(aes(x = 2018, y = 45, xend = 2018, yend = 36.8),linetype="dashed", color='red') 
 ```
 
-[Roy: it would be great to make the above interactive, so the red lines pivoted round to be on the same scale and showed them being squared and then averaged and square rooted to calculate the sample standard deviation.]
+The standard deviation reduces the differences in Figure \@ref(fig:gsr-mean-plot) into a single number summary. The first couple of steps involve calculating the differences, squaring them (this mean multiplying them by themselves), and then adding all of these squared differences together. The squaring operation means that each individual difference becomes a positive number and so we end up adding together a collection of positive numbers. If any of the numbers were negative, then adding them together with positive numbers would decrease the total sum of differences. Squaring the differences also means that bigger differences become much bigger. This means that big differences contribute much more to the total sum of differences. We can see this by calculating the differences and their squares in Table \@ref(tab:gsr-squared-diffs-table) below.
+
+```{r gsr-squared-diffs-table, echo=FALSE}
+diffsDf <- gsrDf %>%
+  mutate(sampleMean = 36.8) %>%
+  mutate(Differences = (Publications-sampleMean)) %>%
+  mutate(squaredDifferences = Differences^2)
+options(kableExtra.html.bsTable = T)
+diffsDf %>%
+  knitr::kable(booktabs = TRUE, escape = F, align = "c",
+             caption = 'Number of GSR-related publications per year. The differences represent the number of publications that year minus the sample mean number of publications 36.8. These differences are then squared in the squaredDifferences column.') %>%
+  kable_styling(c("striped", "condensed"), 
+                latex_options = "striped")
+
+
+```
+
+If you look at the year 2013 as an example, you can see that its difference from the sample mean is only 1.2. Multiplying this by itself gives $1.2\times 1.2=1.44$, and so the squared difference is only a small increase from the original difference. Compare that to the year 2010. For that year, there is a difference of -16.8 compared to the sample mean, but when this is squared we get $(-16.8)\times(-16.8)=282.24$. The years 2013 and 2010 are not too far away in terms of their difference to the mean (1.2 compared to -16.8), but they are very far away on the squared difference scale (1.44 compared to 282.24). Notice how squaring decreases differences which are less than 1 (this happens in 2014). 
+
+Now that we have the squared differences we add them all up to get a total of 669.56. The next step is to divide this total by a number so that it approximately represents the squared differences per year. This is where the calculation of the standard deviation can be different for a population versus a sample. 
+
+For a population, we would divide the sum of squared differences by the number of years which contributed to the sum, 9 (just as is done for both the population and sample mean). This is the more intuitive quantity because it exactly represents the squared differences from the sample mean per year.
+
+However, for a sample, there are two ways we can do it. We can either divide the sum of squared differences by the same number as for the population standard deviation, 9, or we can divide by this number minus 1, which is 8. The former is known as the biased sample variance, and the latter as the unbiased sample variance. We focus on the unbiased sample variance in this book.
+
+The reason that the unbiased sample variance divides by this less-intuitive number involves more complex statistical theory which is not covered here. One intuition behind it is that the number we divide by is like a currency. Each data point gives an extra unit of currency to spend. We pay a price of this currency in the computation of a new statistic that uses the original data as well other sample statistics based upon that data. The price paid is equal to the number of extra statistics we use in the computation of the new one. 
+
+To compute the mean (population or sample), we added the data for the number of publications per year together as the first step. Since this involved no statistics, we paid no price and so could divide by the number of data points. To compute the population standard deviation, we would add the squared differences from the population mean together. Since this involved the population mean, and not a sample statistic, no price is paid and so we could just divide by the number of data points. For the sample standard deviation however, the squared differences are computed based upon the sample mean. Since this is a sample statistic, we pay a price equal to one. We therefore divide the sum of squared differences by the number of data points minus 1. 
+
+Back to the GSR dataset, when we divide the sum of squared differences by $9-1=8$ we get $83.695$. The squared differences and the result after dividing their sum by 8 is shown in Figure \@ref(fig:gsr-squared-diffs-plot) below.
+
+```{r gsr-squared-diffs-plot, echo=FALSE, fig.cap="The squared differences between the actual number of publications each year and the sample mean. The dashed line shows the sum of the squared differences 669.56 divided by 8. ", out.width = '80%', fig.align = 'center'}
+ggplot(diffsDf, aes(x=Year, y=squaredDifferences)) + geom_point() +
+  geom_hline(yintercept=sum(diffsDf$squaredDifferences)/8, linetype="dashed") +
+  ylab("Squared differences")
+```
+
+At this point, the number $83.695$ represents the typical squared difference between the data points and the sample mean. It is more interpretable to convert that from the squared scale of differences back to the original scale. This is the final step of computing the unbiased sample standard deviation. The mathematical operation which does this conversion, the 'opposite' of squaring, is called the square root. The square root takes a number and finds which other number is squared to make it. The square root of our quantity of interest is $\sqrt{83.695}\approx9.15$. This is the unbiased sample standard deviation.
+
+To recap, the steps we took to compute the unbiased sample standard deviation were:
+
+1. compute the sample mean,
+2. compute the differences in the number of publications each year compared to the sample mean,
+3. square the differences,
+4. add them together,
+5. divide by the number of years which contributed to the sum minus 1,
+6. compute the square root.
+
+A sample standard deviation of 9.15 means that there is a typical spread of 9.15 around the sample mean of 36.8 in this dataset. 
 
 The **sample median** is best seen by rearranging Table \@ref(tab:gsr-publication-table) so that the number of publications are in order from lowest to highest, rather than in chronological order by year. This is shown in Table \@ref(tab:gsr-publication-sorted-table).
 
@@ -142,17 +192,29 @@ gsrDf %>%
 ```
 Since we have 9 values, the middle value is the one which has 4 values lower than it and 4 values higher than it. This is seen by inspecting Table \@ref(tab:gsr-publication-sorted-table). The median number of GSR-related publications in this sample during the period 2010-2018 is 38. This is quite similar to the sample mean of 36.8, and so these two measures of central tendency are in general agreement with each other. 
 
-The median isn't always this easy to calculate. When there is an even number data points then we have to decide upon a consistent method to select the median value. For example, if we excluded 2010 from our sample of GSR-related publications, then we have 8 years of publication data. There are then a range of values between 38 and 41 which leave 4 observed values above and below them. However, the technicalities of these complications are beyond the scope of this content.
+The median isn't always this easy to calculate. When there is an even number data points then we have to decide upon a consistent method to select the median value. For example, if we excluded 2010 from our sample of GSR-related publications, then we have 8 years of publication data. There are then a range of values between 38 and 41 which leave 4 observed values above and below them. However, the technicalities of these situations are beyond the scope of this content.
 
 The final measure of central tendency to calculate is the **sample mode**. This is the most common number of GSR-related publications that appears in our sample. We can see from Table \@ref(tab:gsr-publication-sorted-table) that one value appears twice, and all others appear once. The sample mode is therefore the value which appears twice, which is 45.
 
-We've gone through the calculation of the sample statistics for the number of GSR-related publications in this dataset, how useful are they?
+All of the above statistics should be subject to a fair amount of criticism for this dataset. The least reliable here is the mode. With just two occurences, including another single year with 20 publications into the dataset would change it from 45 down to jointly 45 and 20. All of these descriptive statistics miss the main message of this dataset, which can be seen from Figure \@ref(fig:gsr-mean-plot): there appears to be an upwards trend in the number of GSR-related publications during this time period. There are descriptive statistics for this too, but the main message is that descriptive statistics alone, whilst very useful, might not tell the whole story.
+
+Depending on the question of interest, it could be meaningful to compare descriptive statistics from this sample to those of another sample of publications, e.g. the same GSR publications from the 9-year period 2001-2009. Such comparisons often go beyond just describing the data, and begin to start to infer conclusions from them. This brings us on to the other type of statistics: inferential statistics.
 
 ## Inferring from observations
 
-## Data sources
+<!-- Inferring from observationorm -->
+<!-- commenting out these lines as they are bugged!! -->
+<!-- Inferring from observations means drawing more general conclusions about populations based upon information gathered from samples. It is known as statistical inference, and is done using inferential statistics. -->
 
-## Example: some real events
+Inferring from populations means drawing more general conclusions about populations based upon information gathered from samples. This is known as **statistical inference**, and it is done using **inferential statistics**.
+
+A popular application of statistical inference is **estimation**. Estimation aims to learn about some property of a population of interest. A common type of estimation is **parameter estimation**, in which certain parameters of the population are estimated using probability models and statistics from samples.
+
+We saw an example of this at the beginning of this chapter. We said that a coin was flipped 10 times and 7 of those resulted in heads. The sample proportion of heads, a descriptive statistic, is 0.7. If we use this sample statistic to make an inference about the population (e.g. the population proportion of heads, or the probability of heads) then the **estimate** 0.7 can be called an inferential statistic. This estimate is a single number summary, and we call such estimates **point estimates**.
+
+## Assessing data sources
+
+## Example: some data sources
 
 The below Figure shows some probabilities for more tangible events than theoretical coin tosses.
 
