@@ -30,30 +30,44 @@ source("appConfig.R")
 source("views/view_coinToss.R")
 source("views/view_coinTree.R")
 
-ui <- function(request) { 
-  dashboardPage(
-    dashboardHeader(title = "Stats Book"),
-    dashboardSidebar(
-      sidebarMenu(id = "sidebar",
-                  menuItem("Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
-                  menuItem("Tree", tabName = "tabCoinTree", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
-      )
-    ),
-    dashboardBody(
-      tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/lrcfs.css")),
-      tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/style.css")),
-      uiOutput('embedStylesheet'),
-      bookmarkButton('bookmarkButton', id="bookmarkButton"),
-      tabItems(
-        tabCoinToss,
-        tabCoinTree
-      )
-    )
+ui = function(request) {
+  dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
+                    dashboardHeaderPlus(title = APP_NAME),
+                    dashboardSidebar(
+                      sidebarMenu(id = "sidebar",
+                                  menuItem("Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
+                                  menuItem("Tree", tabName = "tabCoinTree", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
+                      ),
+                      bookmarkButton(id='bookmarkButton')
+                    ),
+                    dashboardBody(
+                      tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/lrcfs.css")),
+                      tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/style.css")),
+                      uiOutput('embedStylesheet'),
+                      
+                      tabItems(
+                        tabCoinToss,
+                        tabCoinTree
+                      )
+                    ),
+                    footer = dashboardFooter(
+                      left_text = HTML(paste0("<div class='footerItem'>",APP_NAME," (v",APP_VER,") &copy;",format(Sys.time(), "%Y"),"</div>
+                                           <div class='footerItem'><a href='https://www.dundee.ac.uk/leverhulme/'>Developed by ", APP_DEV_SHORT, "</a></div>
+                                           <div class='footerItem'><a href='https://www.leverhulme.ac.uk/'>Funded by The Leverhulme Trust</a></div>")),
+                      right_text = HTML("<div class='footerLogo'><a href='https://www.dundee.ac.uk/leverhulme/'><img src='images/lrcfs-logo-colour.png'  alt='Visit LRCFS website' /></a></div>
+                                            <div class='footerLogo'><a href='https://www.leverhulme.ac.uk'><img src='images/lt-logo-colour.png' alt='Visit The Leverhulme Trust website' /></a></div>")
+                    )
   )
 }
 
-server <- function(input, output,session) {
+server = function(input, output,session) {
 
+  # Need to exclude the buttons from themselves being bookmarked
+  setBookmarkExclude(c("bookmarkButton"))
+  observeEvent(input$bookmarkButton, {
+    session$doBookmark()
+  })
+  
   output$embedStylesheet = renderUI({
     query = getQueryString()
     if("embed" %in% names(query))
@@ -68,7 +82,7 @@ server <- function(input, output,session) {
   source("models/model_coinToss.R", local = TRUE)
   source("models/model_coinTree.R", local = TRUE)
 
-
 }
+
 enableBookmarking(store = "url")
 shinyApp(ui, server)

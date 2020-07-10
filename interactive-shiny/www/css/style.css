@@ -9,6 +9,8 @@
     margin: 0 1px 1px 0;
     text-align: center;
     color: #FFF;
+    font-weight: bold;
+    border-radius: 10px;
   }
   
     .tossIconHeads{

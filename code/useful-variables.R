@@ -6,4 +6,4 @@
 defMar <- par()$mar
 colPal <- colorblind_pal()(8)
 
-SHINY_HOST = "http://127.0.0.1:3464"
+SHINY_HOST = "http://127.0.0.1:3305"

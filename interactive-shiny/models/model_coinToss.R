@@ -3,6 +3,48 @@ myTosses <<- vector()
 dfAllTosses <<- data.frame()
 ##################################################
 
+# observeEvent(input$coinToss_numberOfTossesTEXT, {
+#   sldrVal = input$coinToss_numberOfTosses
+#   txtval = input$coinToss_numberOfTossesTEXT
+#   if ((as.numeric(txtval) != sldrVal) &
+#       txtval != "" &  sldrVal != "")
+#   {
+#     updateSliderInput(
+#       session = session,
+#       inputId = 'coinToss_numberOfTosses',
+#       value = txtval
+#     )
+#   } else {
+#     if (txtval == "") {
+#       updateSliderInput(session = session,
+#                         inputId = 'coinToss_numberOfTosses',
+#                         value = 1)
+#     }
+#   }
+# })
+# 
+# observeEvent(input$coinToss_numberOfTosses, {
+#   sldrVal = as.numeric(input$coinToss_numberOfTosses)
+#   txtVal = as.numeric(input$coinToss_numberOfTossesTEXT)
+#   if((sldrVal != txtVal) &
+#      !is.na(sldrVal) &
+#      !is.na(txtVal))
+#   {
+#     updateTextInput(
+#       session = session,
+#       inputId = 'coinToss_numberOfTossesTEXT',
+#       value = sldrVal
+#     )
+#   }
+#   else{
+#     updateTextInput(
+#       session = session,
+#       inputId = 'coinToss_numberOfTossesTEXT',
+#       value = 1
+#     )
+#   }
+# })
+
 observeEvent(input$coinToss_resetTotals, {
   myTosses <<- vector()
   dfAllTosses <<- data.frame()
@@ -38,12 +80,7 @@ output$display_coinToss_overalWhisker = renderPlot({
   )
   
   dfAllTosses <<- rbind(dfAllTosses, latestToss)
-  
-  # ToothGrowth$dose <- as.factor(ToothGrowth$dose)
-  # head(ToothGrowth)
-  # ggplot(ToothGrowth, aes(x=dose, y=len)) + 
-  #   geom_boxplot()
-  
+
   ggplot(dfAllTosses, aes(x=tosses, y=headsProbabilty, group=tosses)) + 
     geom_boxplot() +
     ylim(0,1) +
@@ -66,7 +103,9 @@ output$display_coinToss_tossResultsPie = renderPlot({
   ggplot(dfCoinTossesOverall, aes(x = coinTosses, y = Freq, fill = colours)) +
     geom_bar(stat="identity") +
     theme(legend.position='none') +
-    scale_fill_manual(values = c("Heads" = HEADS_COLOUR, "Tails" = TAILS_COLOUR))
+    scale_fill_manual(values = c("Heads" = HEADS_COLOUR, "Tails" = TAILS_COLOUR)) +
+    ylab("Total number of occurances") +
+    xlab("Side of Coin")
   
 })
 
