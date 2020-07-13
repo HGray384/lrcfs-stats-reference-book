@@ -16,4 +16,5 @@ rmd_files: [
   "markdown/summary.Rmd",
   "markdown/references.Rmd"
 ]
+delete_merged_file: true
 output_dir: "output"
