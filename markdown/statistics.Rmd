@@ -206,15 +206,21 @@ Depending on the question of interest, it could be meaningful to compare descrip
 <!-- commenting out these lines as they are bugged!! -->
 <!-- Inferring from observations means drawing more general conclusions about populations based upon information gathered from samples. It is known as statistical inference, and is done using inferential statistics. -->
 
-Inferring from populations means drawing more general conclusions about populations based upon information gathered from samples. This is known as **statistical inference**, and it is done using **inferential statistics**.
+Inferring from observations means drawing more general conclusions about populations based upon information gathered from samples. This is known as **statistical inference**, and it is done using **inferential statistics**. Inferential statistics go beyond describing information in a sample, and that is what makes them different from descriptive statistics.
 
-A popular application of statistical inference is **estimation**. Estimation aims to learn about some property of a population of interest. A common type of estimation is **parameter estimation**, in which certain parameters of the population are estimated using probability models and statistics from samples.
+A popular application of statistical inference is **estimation**. Estimation aims to learn about some property of a population of interest. A common type of estimation is **parameter estimation**, in which certain parameters of the population are estimated using probability models and statistics from samples. We saw an example of this at the beginning of this chapter. The example stated that a coin was flipped 10 times and 7 of those resulted in heads. The sample proportion of heads, a descriptive statistic, is 0.7. If we use this sample statistic to make an inference about the population (e.g. the population proportion of heads, or the probability of heads is 0.7) then we say it is an **estimate** and in this use it is an inferential statistic. This estimate is a single number summary, and we call such estimates **point estimates**. In the example above, we used the sample proportion of heads as a point estimate for the population proportion of heads.
 
-We saw an example of this at the beginning of this chapter. We said that a coin was flipped 10 times and 7 of those resulted in heads. The sample proportion of heads, a descriptive statistic, is 0.7. If we use this sample statistic to make an inference about the population (e.g. the population proportion of heads, or the probability of heads) then the **estimate** 0.7 can be called an inferential statistic. This estimate is a single number summary, and we call such estimates **point estimates**.
+As well as estimation using point estimates, we can perform estimation using **interval estimates**. Rather than using a single number summary, interval estimates give a range of values as their estimate. For example, given that the sample proportion of heads from 10 coins flips was 0.7, we might take an educated guess that the population proportion of heads is  between 0.4 and 1. We could make this range more narrow, say 0.6 to 0.8, but as we make the interval more narrow, we also increase our uncertainty. Logically, we have to be less certain that the population proportion of heads lies between 0.6 and 0.8, compared with 0.4 and 1, since the former interval is fully contained within the latter interval. A common interval estimate is a confidence interval, where the size of the interval depends upon a level of confidence we wish to have (amongst other factors).
 
-## Assessing data sources
+Estimates are carefully selected so that they have desirable statistical properties and are supported by statistical theory as being "optimal" in some sense. For example, the sample proportion of heads can be thought of as the point estimate which maximises the probability of observing 7 out of 10 coins as heads (with some reasonable assumptions). In addition, a correctly constructed 95% confidence interval has the property that if enough samples are gathered and intervals calculated for each sample, then 95 out of every 100 of them will contain the population parameter. Individuals may disagree about what are "reasonable" assumptions or which criterion should be maximised and so there can be reasonable discrepencies between estimates --- there may be no "correct" answer. Transparency about these matters is key to intepreting and evaluating inferences.
 
-## Example: some data sources
+[maybe comment on prediction, hypothesis testing, evaluating scientific conclusions?]
+
+## Data sources
+
+Statistics can be computed on any source of data. This grants them a wide range of applications but also a large potential to be misused. 
+
+## Example: real data sources
 
 The below Figure shows some probabilities for more tangible events than theoretical coin tosses.
 
@@ -265,6 +271,8 @@ Whose probabilities are these?
 ## Relevant populations
 
 ## Statistics in forensic evidence
+
+Now we have the foundation of statistics and probability theory to begin applying it to case situations. However, when applying these new thought techniques to case situations, there are practical procedural elements which also need to be followed. In the analysis of forensic scientific evidence, this means merging probability and statistics with contextual information from both the prosecution and defence. In particular, it is required to take into account what the prosecution and defence's version of events are when considering evidence which has been recovered. These statements are formalised into what are known as **propositions**, and this is the topic of the next chapter.
 
 ## More information
 
