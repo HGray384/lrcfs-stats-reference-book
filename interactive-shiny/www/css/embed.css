@@ -12,6 +12,10 @@ footer{
 .content-wrapper {
 	margin-left: 0px;			/* Fix margins for missing side menu */ 	
 	background-color: #FFF;		/* Make background colour white to blend in */
+	-webkit-transition-property: none;
+	-moz-transition-property: none;
+	-o-transition-property: none;
+	transition-property: none;
 }
     
 /* Coin Toss Tab
