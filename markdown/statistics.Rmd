@@ -214,11 +214,23 @@ As well as estimation using point estimates, we can perform estimation using **i
 
 Estimates are carefully selected so that they have desirable statistical properties and are supported by statistical theory as being "optimal" in some sense. For example, the sample proportion of heads can be thought of as the point estimate which maximises the probability of observing 7 out of 10 coins as heads (with some reasonable assumptions). In addition, a correctly constructed 95% confidence interval has the property that if enough samples are gathered and intervals calculated for each sample, then 95 out of every 100 of them will contain the population parameter. Individuals may disagree about what are "reasonable" assumptions or which criterion should be maximised and so there can be reasonable discrepencies between estimates --- there may be no "correct" answer. Transparency about these matters is key to intepreting and evaluating inferences.
 
-[maybe comment on prediction, hypothesis testing, evaluating scientific conclusions?]
+From this basis of estimation we can branch out into other forms of inference such as statistical hypothesis testing, making predictions about the future, and, most relevant to forensic science, evaluating scientific evidence. What is important before making any statistical inference is the data upon which the inference will be based. The quality of the inference can only be as good as the quality of the data. Assessing the quality of data is the topic of the next section.
 
 ## Data sources
 
-Statistics can be computed on any source of data. This grants them a wide range of applications but also a large potential to be misused. 
+A data source is something which contains data. This broad definition covers anything from extensive national criminal databases, which contain information about convicted criminals, to handwritten personal notes about the outcome of coin tosses. Examples between these extremes include academic journal articles detailing experiments related to forensic problems and their results, and proprietary in-house databases with images of footwear marks from crime scenes managed by commerical forensic service providers in England and Wales. Clearly there is a range in quality for these sources of data. A range in quality for the data means that the resulting statistical inferences will necessarily vary in quality. That is why it is important to be able to recognise the characteristics which contribute to a high quality data source when presented with any statistical inference.
+
+Statistics can be computed on any source of data. The source of data need not be personally collected. As we saw in the GSR example, the source of data can be second-hand from someone else's data collection. This grants statistics a wide range of applications, and means that so long as the data is accessible, then it can be analysed. When data is collected and analysed by the same individual or research team, then the experimental protocal and quality of the data is known by them. However, when data is analysed second-hand, then the experimental design is unknown and so is the quality of data. This makes transparancy and trust key. Transparancy can be achieved by detailing the conditions of the experiment or sampling methodology which are meaningful to the quality of the data and resulting data analysis. 
+
+As well as assessing the quality of a data source, another factor to consider is its relevance to the circumstances in which it is being used. This will vary on a case-by-case basis, depending on the question that is being addressed. For example, if we wanted to investigate the claim that life expectancy in the UK is increasing, then a relevant data source would be one which contains information directly related to life expectancy over time in the UK. Official national statistics provided by the ONS would be a relevant and high quality data source. Anecdote from an individual in the UK about many generations of their personal family history is also relevant, but lower in quality than official statistics. 
+
+Data sources can be highly relevant but low quality, and have low relevance but high quality. Both of these properties need to be assessed in order to evaluate the overall value of a data source to a question at hand.
+
+In order to fully assess the quality and relevance of a data source, it needs to be accessible to those assessing it. Maximum accessibility is achieved when data are published as open access, which means that anyone with an internet connection can gain access. This isn't widely practiced in reality. What often occurs is that access is given to a restricted group of individuals. These individuals might be accredited with a governing body to assure their quality and integrity, or members of a private group (e.g. forensic service providers) who collected and own the data. 
+
+A level of trust is required in these situations.
+
+Due to the varied nature of crimes, sometimes the only available data source in a forensic context might be the experience of an examiner. This presents challenges to accessibility, assessibility and quality, but it is the best information that might be available for a particular case. In a criminal case, comments on these proporties will be made in the expert witness's report and can therefore be explored pre-trial in meetinhgs between experts and in cross-examination.
 
 ## Example: real data sources
 
@@ -269,6 +281,8 @@ suppressWarnings(ruler.func(c(0.21,0.51,0.68, 0.9)))
 Whose probabilities are these?
 
 ## Relevant populations
+
+[absorb this into 4.2 Populations and Samples]
 
 ## Statistics in forensic evidence
 
