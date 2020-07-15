@@ -1,7 +1,7 @@
 tabCoinToss = tabItem(tabName = "tabCoinToss",
         fluidRow(
-          box(title="Coin Toss Example",
-              p("This is a test")
+          box(title="Coin Toss Example", width=12,
+              p("The classic example for demonstrating probability is tossing a two-sided coin. Before the coin has been tossed, the outcome is uncertain. We can consider some of the questions from the previous section to describe this uncertainty.")
           ),
           box(title="Inputs", width=12,
             column(6,
