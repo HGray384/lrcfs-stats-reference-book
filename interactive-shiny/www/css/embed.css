@@ -1,11 +1,30 @@
+body{
+	min-height: 100px !important;
+}
+
+/*Hide header, side menu and footer */
 header,
 aside,
-footer {
+footer{
 	display: none;
 }
 
 .content-wrapper {
-	margin-left: 0px;
-	/*background-color: #FFF;*/
+	margin-left: 0px;			/* Fix margins for missing side menu */ 	
+	background-color: #FFF;		/* Make background colour white to blend in */
 }
     
+/* Coin Toss Tab
+****************************************************************************/
+
+/* Hide top description */
+#shiny-tab-tabCoinToss > div:nth-child(1) > div:nth-child(1)
+{
+	display: none;
+}
+
+.box{
+	margin: 0px;
+	border-top: none;
+	box-shadow: none;
+}
