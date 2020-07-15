@@ -9,6 +9,9 @@ library(shinydashboardPlus)
 library(plotly)
 library(ggplot2)
 library(igraph)
+library(tidyverse)
+library(ggthemes)
+library(kableExtra)
 
 # library(plotly)
 # library(riskyr)
@@ -29,6 +32,7 @@ source("appConfig.R")
 #Load any "views" - files that control how the page looks (UI controls)
 source("views/view_coinToss.R")
 source("views/view_coinTree.R")
+source("views/view_likelyhood.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
@@ -36,18 +40,19 @@ ui = function(request) {
                     dashboardSidebar(
                       sidebarMenu(id = "sidebar",
                                   menuItem("Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
-                                  menuItem("Tree", tabName = "tabCoinTree", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
+                                  menuItem("Tree", tabName = "tabCoinTree", icon = icon("dashboard")),
+                                  menuItem("Likelyhood", tabName = "tabLikelyhood", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
                       ),
                       bookmarkButton(id='bookmarkButton')
                     ),
                     dashboardBody(
+                      uiOutput('embedStylesheet'),
                       tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/lrcfs.css")),
                       tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/style.css")),
-                      uiOutput('embedStylesheet'),
-                      
                       tabItems(
                         tabCoinToss,
-                        tabCoinTree
+                        tabCoinTree,
+                        tabLikelyhood
                       )
                     ),
                     footer = dashboardFooter(
@@ -81,6 +86,7 @@ server = function(input, output,session) {
   
   source("models/model_coinToss.R", local = TRUE)
   source("models/model_coinTree.R", local = TRUE)
+  source("models/model_likelyhood.R", local = TRUE)
 
 }
 

@@ -7,3 +7,5 @@ APP_LINK = "https://www.dundee.ac.uk/leverhulme/"
 
 HEADS_COLOUR = "#E69F00"
 TAILS_COLOUR = "#0072B2"
+
+COLOUR_PALLETE = colorblind_pal()(8)
