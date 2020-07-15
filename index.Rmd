@@ -8,6 +8,7 @@ bibliography: [bib/book.bib, bib/packages.bib, bib/stats-book.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This book is a learning resource for judges who would like to learn more about probability and statistics."
+always_allow_html: true
 ---
 
 # Preface {-}
