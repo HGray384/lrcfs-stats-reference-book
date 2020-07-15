@@ -4,7 +4,7 @@ output$display_coinTree_tree = renderPlot({
   
   total = totalNumTosses
   heads = totalNumTosses * expectedPorbability
-  tails = total - heads
+  tails = totalNumTosses * (1-expectedPorbability)
   
   
   
