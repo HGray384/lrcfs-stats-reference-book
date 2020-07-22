@@ -151,6 +151,7 @@ output$display_coinToss_plotlyGraph = renderPlotly({
     geom_line(aes(y = 0.5), color="steelblue", linetype="dash") +
     xlim(0, numberOfTosses) +
     ylim(0,1) +
+    xlim(0,500) +
     ylab("Overall Probabilty") +
     xlab("Coin Tosses")
   
