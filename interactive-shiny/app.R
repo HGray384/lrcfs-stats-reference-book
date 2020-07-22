@@ -33,6 +33,8 @@ source("appConfig.R")
 source("views/view_coinToss.R")
 source("views/view_coinTree.R")
 source("views/view_likelyhood.R")
+source("views/view_doubleCoinToss.R")
+source("views/view_doubleCoinTree.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
@@ -41,7 +43,9 @@ ui = function(request) {
                       sidebarMenu(id = "sidebar",
                                   menuItem("Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
                                   menuItem("Tree", tabName = "tabCoinTree", icon = icon("dashboard")),
-                                  menuItem("Likelyhood", tabName = "tabLikelyhood", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
+                                  menuItem("Likelyhood", tabName = "tabLikelyhood", icon = icon("dashboard")),
+                                  menuItem("Doube Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green"),
+                                  menuItem("Doube Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
                       ),
                       bookmarkButton(id='bookmarkButton')
                     ),
@@ -52,7 +56,9 @@ ui = function(request) {
                       tabItems(
                         tabCoinToss,
                         tabCoinTree,
-                        tabLikelyhood
+                        tabLikelyhood,
+                        tabDoubleCoinToss,
+                        tabDoubleCoinTree
                       )
                     ),
                     footer = dashboardFooter(
@@ -87,6 +93,8 @@ server = function(input, output,session) {
   source("models/model_coinToss.R", local = TRUE)
   source("models/model_coinTree.R", local = TRUE)
   source("models/model_likelyhood.R", local = TRUE)
+  source("models/model_doubleCoinToss.R", local = TRUE)
+  source("models/model_doubleCoinTree.R", local = TRUE)
 
 }
 

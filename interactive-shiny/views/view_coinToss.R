@@ -8,9 +8,6 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
                    sliderInput("coinToss_numberOfTosses", "Number of Coin Tosses:", 1, 500, 500),
                    
             ),
-            # column(1,
-            #        textInput("coinToss_numberOfTossesTEXT", label="",value="500")
-            # ),
             column(6,
                    sliderInput("coinToss_headsProbabilty", "Probability of Heads:", 0, 1, 0.5, step=0.1)
             )

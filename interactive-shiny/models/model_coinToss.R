@@ -61,10 +61,6 @@ GetCoinTosses = reactive({
   tosses = sample(coin, size=numberOfTosses, replace=TRUE, prob=sideProbabilites)
 })
 
-GetMyTosses = reactive({
-  return()
-})
-
 output$display_coinToss_overalWhisker = renderPlot({
   input$coinToss_rerunCoinToss
   input$coinToss_resetTotals

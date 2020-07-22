@@ -19,7 +19,7 @@ output$display_coinTree_tree = renderPlot({
   #                        colPal[7],
   #                        colPal[7],
   #                        colPal[4])
-  V(freqTree)$color <- c(rep("red", 3))
+  V(freqTree)$color <- c(rep(COLOUR_PALLETE[1], 7))
   par(mar = c(0, 0, 0, 0))
   plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
        vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
