@@ -22,7 +22,7 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
           )
         ),
         fluidRow(
-          box(title="Frequncy of Occurances (heads/tails) over number of Coin Tosses", width=12,
+          box(title="Frequency of Occurrences (heads/tails) over number of Coin Tosses", width=12,
               plotlyOutput("display_coinToss_plotlyGraph")
           )
         ),
