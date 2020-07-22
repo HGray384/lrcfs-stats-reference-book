@@ -13,7 +13,7 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                                   
                             ),
                             fluidRow(
-                              box(title=uiOutput("display_doubelCoinToss_totalNumTosses"), width=12,
+                              box(title=h3(HTML(paste0("First Toss Results (of ",uiOutput("display_doubelCoinToss_totalNumTosses", inline=TRUE)," tosses)"))), width=12,
                                   fluidRow(
                                     column(width=12,
                                            uiOutput("display_doubelCoinToss_firstToss")

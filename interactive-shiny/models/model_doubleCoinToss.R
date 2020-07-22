@@ -40,9 +40,7 @@ unorderedCoinTossWafflePlot = function(coinTosses)
 # Display properties
 ######################################
 output$display_doubelCoinToss_totalNumTosses = renderUI({
-  numberOfTosses = paste(input$doubleCoinToss_coinTosses)
-  string = paste0("Results of ",numberOfTosses," tosses")
-  return(string)
+  return(paste(input$doubleCoinToss_coinTosses))
 })
 
 
