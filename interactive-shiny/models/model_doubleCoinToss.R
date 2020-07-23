@@ -1,21 +1,15 @@
-overallCoinTosses = c()
-headsCoinTosses = c()
-headsCoinTosses_headsResults = 0
-headsCoinTosses_tailsResults = 0
-tailsCoinTosses = c()
-tailsCoinTosses_headsResults = 0
-tailsCoinTosses_tailsResults = 0
 
-# myReactives = reactiveValues(overallCoinTosses=c(),
-#                              headsCoinTosses=c(),
-#                              headsCoinTosses_headsResults=c(),
-#                              headsCoinTosses_tailsResults=c(),
-#                              tailsCoinTosses=c(),
-#                              tailsCoinTosses_headsResults=c(),
-#                              tailsCoinTosses_tailsResults=c())
+actualResults = reactiveValues(overallCoinTosses=c(),
+                             overallCoinTosses_headsResults=0,
+                             overallCoinTosses_tailsResults=0,
+                             headsCoinTosses=c(),
+                             headsCoinTosses_headsResults=0,
+                             headsCoinTosses_tailsResults=0,
+                             tailsCoinTosses=c(),
+                             tailsCoinTosses_headsResults=0,
+                             tailsCoinTosses_tailsResults=0)
 
-
-GetCoinTossNEw = function(numberOfCoinTosses, headsProbability)
+GenerateCoinToss = function(numberOfCoinTosses, headsProbability)
 {
   coin = c("heads","tails") #Create the coin object for tossing
   sideProbabilites = c(headsProbability,1-headsProbability) #Define the probabilities of each side of the coin
@@ -23,7 +17,22 @@ GetCoinTossNEw = function(numberOfCoinTosses, headsProbability)
   
   #Do our coin tosses
   tosses = sample(coin, size=numberOfTosses, replace=TRUE, prob=sideProbabilites)
-  #myReactives$overallCoinTosses = tosses
+  return(tosses)
+}
+
+PopulateCoinToss = function(numberOfCoinTosses, headsProbability)
+{
+  actualResults$overallCoinTosses = GenerateCoinToss(numberOfCoinTosses, headsProbability)
+  actualResults$overallCoinTosses_headsResults = length(which(actualResults$overallCoinTosses == "heads"))
+  actualResults$overallCoinTosses_tailsResults = length(which(actualResults$overallCoinTosses == "tails"))
+  
+  actualResults$headsCoinTosses = GenerateCoinToss(actualResults$overallCoinTosses_headsResults, headsProbability)
+  actualResults$headsCoinTosses_headsResults = length(which(actualResults$headsCoinTosses == "heads"))
+  actualResults$headsCoinTosses_tailsResults = length(which(actualResults$headsCoinTosses == "tails"))
+  
+  actualResults$tailsCoinTosses = GenerateCoinToss(actualResults$overallCoinTosses_tailsResults, headsProbability)
+  actualResults$tailsCoinTosses_headsResults = length(which(actualResults$tailsCoinTosses == "heads"))
+  actualResults$tailsCoinTosses_tailsResults = length(which(actualResults$tailsCoinTosses == "tails"))
 }
 
 unorderedCoinTossWafflePlot = function(coinTosses)
@@ -47,31 +56,6 @@ unorderedCoinTossWafflePlot = function(coinTosses)
 
 # Reactives
 ######################################
-
-# Actual Results
-#######################################################
-coin1HeadsResult = reactive({
-  input$doubleCoinToss_coinTosses
-  return(length(headsCoinTosses))
-})
-coin1HeadsResult_coin2HeadsResult = reactive({
-  return(length(which(headsCoinTosses == "heads")))
-})
-coin1HeadsResult_coin2TailsResult = reactive({
-  return(length(which(headsCoinTosses == "tails")))
-})
-
-
-coin1TailsResult = reactive({
-  return(length(tailsCoinTosses))
-})
-coin1TailsResult_coin2HeadsResult = reactive({
-  return(length(which(tailsCoinTosses == "heads")))
-})
-coin1TailsResult_coin2TailsResult = reactive({
-  return(length(which(tailsCoinTosses == "tails")))
-})
-
 
 # Expected Results
 ########################################################
@@ -124,29 +108,45 @@ output$display_doubelCoinToss_totalNumTosses = renderUI({
 })
 
 output$display_doubelCoinToss_coin1HeadsResult = renderUI({
-  return(paste(coin1HeadsResult()))
+  return(paste(actualResults$overallCoinTosses_headsResults))
+})
+
+output$display_doubelCoinToss_coin1HeadsResult2 = renderUI({
+  return(paste(actualResults$overallCoinTosses_headsResults))
 })
 
 output$display_doubelCoinToss_coin1TailsResult = renderUI({
-  return(paste(coin1TailsResult()))
+  return(paste(actualResults$overallCoinTosses_tailsResults))
+})
+output$display_doubelCoinToss_coin1TailsResult2 = renderUI({
+  return(paste(actualResults$overallCoinTosses_tailsResults))
 })
 
 output$display_doubelCoinToss_coin1HeadsResult_coin2HeadsResult = renderUI({
-  return(paste(coin1HeadsResult_coin2HeadsResult()))
+  return(paste(actualResults$headsCoinTosses_headsResults))
 })
 
 output$display_doubelCoinToss_coin1HeadsResult_coin2TailsResult = renderUI({
-  return(paste(coin1HeadsResult_coin2TailsResult()))
+  return(paste(actualResults$headsCoinTosses_tailsResults))
+})
+
+output$display_doubelCoinToss_coin1TailsResult_coin2HeadsResult = renderUI({
+  return(paste(actualResults$tailsCoinTosses_headsResults))
+})
+
+output$display_doubelCoinToss_coin1TailsResult_coin2TailsResult = renderUI({
+  return(paste(actualResults$tailsCoinTosses_tailsResults))
 })
 
 
 
+observeEvent(input$doubleCoinToss_coinTosses, {
+  PopulateCoinToss(input$doubleCoinToss_coinTosses, input$doubleCoinToss_headsProbability)
+})
 
-
-
-
-
-
+observeEvent(input$doubleCoinToss_headsProbability, {
+  PopulateCoinToss(input$doubleCoinToss_coinTosses, input$doubleCoinToss_headsProbability)
+})
 
 
 
@@ -158,117 +158,45 @@ output$display_doubelCoinToss_coin1HeadsResult_coin2TailsResult = renderUI({
 # First Toss
 #######################################
 output$display_doubelCoinToss_firstToss = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  overallCoinTosses <<- GetCoinTossNEw(numberOfTosses, headsProbability)
-  
-  return(unorderedCoinTossWafflePlot(overallCoinTosses))
-  
+  unorderedCoinTossWafflePlot(actualResults$overallCoinTosses)
 })
 
 # First Heads Results
 output$display_doubelCoinToss_firstTossHeads = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  headsResults = overallCoinTosses[which(overallCoinTosses == "heads")]
-
-  return(unorderedCoinTossWafflePlot(headsResults))
-  
+  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$overallCoinTosses_headsResults)))
 })
 
 # First Tails Results
 output$display_doubelCoinToss_firstTossTails = renderUI({
-
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  headsResults = overallCoinTosses[which(overallCoinTosses == "tails")]
-  
-  return(unorderedCoinTossWafflePlot(headsResults))
+  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$overallCoinTosses_tailsResults)))
 })
-
-
-
-
-
 
 # Second Toss Heads
 #######################################
 output$display_doubelCoinToss_secondTossHeads = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  numHeads = length(which(overallCoinTosses == "heads"))
-  
-  headsCoinTosses <<- GetCoinTossNEw(numHeads, headsProbability)
-  
-  return(unorderedCoinTossWafflePlot(headsCoinTosses))
+  unorderedCoinTossWafflePlot(actualResults$headsCoinTosses)
 })
 
 output$display_doubelCoinToss_secondTossHeads_headsResults = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  headsResults = headsCoinTosses[which(headsCoinTosses == "heads")]
-  
-  return(unorderedCoinTossWafflePlot(headsResults))
+  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$headsCoinTosses_headsResults)))
 })
 
 output$display_doubelCoinToss_secondTossHeads_tailsResults = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  tailsResults = headsCoinTosses[which(headsCoinTosses == "tails")]
-  
-  return(unorderedCoinTossWafflePlot(tailsResults))
+  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$headsCoinTosses_headsResults)))
 })
-
-
-
-
-
-
 
 # Second Toss Tails
 #######################################
 output$display_doubelCoinToss_secondTossTails = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  numTails = length(which(overallCoinTosses == "tails"))
-  
-  tailsCoinTosses <<- GetCoinTossNEw(numTails, headsProbability)
-  
-  return(unorderedCoinTossWafflePlot(tailsCoinTosses))
-  
+  unorderedCoinTossWafflePlot(actualResults$tailsCoinTosses)
 })
 
 output$display_doubelCoinToss_secondTossTails_headsResults = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  headsResults = tailsCoinTosses[which(tailsCoinTosses == "heads")]
-  
-  return(unorderedCoinTossWafflePlot(headsResults))
+  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$tailsCoinTosses_headsResults)))
 })
 
 output$display_doubelCoinToss_secondTossTails_tailsResults = renderUI({
-  
-  numberOfTosses = input$doubleCoinToss_coinTosses
-  headsProbability = input$doubleCoinToss_headsProbability
-  
-  tailsResults = tailsCoinTosses[which(tailsCoinTosses == "tails")]
-  
-  return(unorderedCoinTossWafflePlot(tailsResults))
+  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$tailsCoinTosses_tailsResults)))
 })
 
 
@@ -323,14 +251,13 @@ output$display_doubelCoinToss_actualFrequencyTree = renderPlot({
   
   numCoinTosses = input$doubleCoinToss_coinTosses
   headsProbability = input$doubleCoinToss_headsProbability
-  
-  
-  numHeadsCoinTosses = length(headsCoinTosses)
-  headsCoinTosses_headsResults = length(which(headsCoinTosses == "heads"))
-  headsCoinTosses_tailsResults = length(which(headsCoinTosses == "tails"))
-  numTailsCoinTosses = length(tailsCoinTosses)
-  tailsCoinTosses_headsResults = length(which(tailsCoinTosses == "heads"))
-  tailsCoinTosses_tailsResults = length(which(tailsCoinTosses == "tails"))
+
+  numHeadsCoinTosses = actualResults$overallCoinTosses_headsResults
+  headsCoinTosses_headsResults = actualResults$headsCoinTosses_headsResults
+  headsCoinTosses_tailsResults = actualResults$headsCoinTosses_tailsResults
+  numTailsCoinTosses = actualResults$overallCoinTosses_tailsResults
+  tailsCoinTosses_headsResults = actualResults$tailsCoinTosses_headsResults
+  tailsCoinTosses_tailsResults = actualResults$tailsCoinTosses_tailsResults
   
   e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
   v <- c(paste0(numCoinTosses,"\nTosses of Coin-1"),
@@ -364,12 +291,12 @@ output$display_doubelCoinToss_secondTossTails_parCoords = renderPlotly({
   numCoinTosses = input$doubleCoinToss_coinTosses
   headsProbability = input$doubleCoinToss_headsProbability
   
-  numHeadsCoinTosses = length(headsCoinTosses)
-  headsCoinTosses_headsResults = length(which(headsCoinTosses == "heads"))
-  headsCoinTosses_tailsResults = length(which(headsCoinTosses == "tails"))
-  numTailsCoinTosses = length(tailsCoinTosses)
-  tailsCoinTosses_headsResults = length(which(tailsCoinTosses == "heads"))
-  tailsCoinTosses_tailsResults = length(which(tailsCoinTosses == "tails"))
+  numHeadsCoinTosses = actualResults$overallCoinTosses_headsResults
+  headsCoinTosses_headsResults = actualResults$headsCoinTosses_headsResults
+  headsCoinTosses_tailsResults = actualResults$headsCoinTosses_tailsResults
+  numTailsCoinTosses = actualResults$overallCoinTosses_tailsResults
+  tailsCoinTosses_headsResults = actualResults$tailsCoinTosses_headsResults
+  tailsCoinTosses_tailsResults = actualResults$tailsCoinTosses_tailsResults
   
   fig = plot_ly(type = 'parcats', line = list(color = c('#005B8C',HEADS_COLOUR,TAILS_COLOUR,'#B07B00')),
                  dimensions = list(
