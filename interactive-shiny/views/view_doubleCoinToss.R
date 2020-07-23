@@ -13,7 +13,16 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                                   
                             ),
                             fluidRow(
-                              box(title=h3(HTML(paste0("First Toss Results (of ",uiOutput("display_doubelCoinToss_totalNumTosses", inline=TRUE)," tosses)"))), width=12,
+                              box(title="Expected Frequency Tree", width=6,
+                                  plotOutput("display_doubelCoinToss_expectedFrequencyTree")
+                              ),
+                              box(title="Actual Frequency Tree", width=6,
+                                  plotOutput("display_doubelCoinToss_actualFrequencyTree")
+                              )
+                            ),
+                            fluidRow(
+                              box(title="Visualisatoin of Tosses", width=12,
+                                  h3(HTML(paste0("First Toss Results (of ",uiOutput("display_doubelCoinToss_totalNumTosses", inline=TRUE)," tosses)"))),
                                   fluidRow(
                                     column(width=12,
                                            uiOutput("display_doubelCoinToss_firstToss")
@@ -21,7 +30,7 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                                   ),
                                   fluidRow(
                                     column(width=6,
-                                           h4("Number of Heads Thrown From First Toss"),
+                                           h4(HTML(paste0("Number of Heads Thrown From First Toss (",uiOutput("display_doubelCoinToss_coin1HeadsResult", inline=TRUE),")"))),
                                            uiOutput("display_doubelCoinToss_firstTossHeads"),
                                            h3("Second Toss of Coins that were Heads"),
                                            fluidRow(
@@ -64,9 +73,8 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                               )
                             ),
                             fluidRow(
-                              box(title=h3("Tree"), width=12,
-                                  plotOutput("display_doubelCoinToss_doubeCoinTossTree")
+                              box(title="Parrelel Coordinates Graph", width=12,
+                                  plotlyOutput("display_doubelCoinToss_secondTossTails_parCoords")
                               )
                             )
-                            
 )
