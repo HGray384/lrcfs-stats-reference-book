@@ -286,7 +286,7 @@ output$display_doubelCoinToss_actualFrequencyTree = renderPlot({
   
 })
 
-output$display_doubelCoinToss_secondTossTails_parCoords = renderPlotly({
+output$display_doubelCoinToss_parCoords = renderPlotly({
   
   numCoinTosses = input$doubleCoinToss_coinTosses
   headsProbability = input$doubleCoinToss_headsProbability
@@ -312,5 +312,53 @@ output$display_doubelCoinToss_secondTossTails_parCoords = renderPlotly({
                  counts=c(headsCoinTosses_headsResults, headsCoinTosses_tailsResults, tailsCoinTosses_headsResults, tailsCoinTosses_tailsResults)
   )
   return(fig)
+})
+
+output$display_doubelCoinToss_freqGraph = renderPlotly({
+  
+  numCoinTosses = input$doubleCoinToss_coinTosses
+  headsProbability = input$doubleCoinToss_headsProbability
+  headsHeadsProbabilty = headsProbability*headsProbability
+  
+  coin1Tosses = actualResults$overallCoinTosses
+  headsCoinTosses = actualResults$headsCoinTosses
+  tailsCoinTosses = actualResults$tailsCoinTosses
+
+  coinToss2and3Results = c()
+  headsIndex = 1
+  tailsIndex = 1
+  for(value in coin1Tosses)
+  {
+    if(value == "heads")
+    {
+      coinToss2and3Results = c(coinToss2and3Results,paste0("heads-",headsCoinTosses[headsIndex]))
+      headsIndex = headsIndex + 1
+    }
+    else
+    {
+      coinToss2and3Results = c(coinToss2and3Results,paste0("tails-",tailsCoinTosses[tailsIndex]))
+      tailsIndex = tailsIndex + 1
+    }
+  }
+
+  headsHeadsOccur = cumsum(coinToss2and3Results == "heads-heads") / 1:numCoinTosses
+  headsTailsOccur = cumsum(coinToss2and3Results == "heads-tails") / 1:numCoinTosses
+  tailsHeadsOccur = cumsum(coinToss2and3Results == "tails-heads") / 1:numCoinTosses
+  tailsTailsOccur = cumsum(coinToss2and3Results == "tails-tails") / 1:numCoinTosses
+  
+  ggplotGraph = ggplot(NULL, aes(x=1:numCoinTosses)) + 
+    geom_line(aes(y = headsHeadsOccur, text=lapply(paste0('<b>Heads/Heads Proability:</b>', headsHeadsOccur), HTML)), color = 'red') + 
+    geom_line(aes(y = headsTailsOccur, text=lapply(paste0('<b>Heads/Tails Proability:</b>', headsTailsOccur), HTML)), color = 'green') + 
+    geom_line(aes(y = tailsHeadsOccur, text=lapply(paste0('<b>Tails/Heads Proability:</b>', tailsHeadsOccur), HTML)), color = 'blue') + 
+    geom_line(aes(y = tailsTailsOccur, text=lapply(paste0('<b>Tails/Tails Proability:</b>', tailsTailsOccur), HTML)), color = 'pink') + 
+    geom_line(aes(y = headsHeadsProbabilty, text=lapply(paste0('<b>Expected Heads/Heads Proability:</b>', headsHeadsProbabilty), HTML)), color="steelblue", linetype="dash") +
+    xlim(0, numCoinTosses) +
+    ylim(0,1) +
+    ylab("Overall Probabilty") +
+    xlab("Coin Tosses")
+  
+  ggplotly(ggplotGraph, tooltip="text") %>% layout(hovermode = "x unified")
+  
+  
 })
 
