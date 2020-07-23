@@ -7,16 +7,16 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                                       column(width=6,
                                         sliderInput("doubleCoinToss_headsProbability", h3("Probabilty of Heads"), min=0, max=1, step=0.1, value = 0.5),
                                       )
-                                      
-                                      
-                                  ),
-                                  
+                                  )
                             ),
                             fluidRow(
-                              box(title="Expected Frequency Tree", width=6,
+                              box(title="Probability Tree", width=4,
+                                  plotOutput("display_doubelCoinToss_probabilityTree")
+                              ),
+                              box(title="Expected Frequency Tree", width=4,
                                   plotOutput("display_doubelCoinToss_expectedFrequencyTree")
                               ),
-                              box(title="Actual Frequency Tree", width=6,
+                              box(title="Actual Frequency Tree", width=4,
                                   plotOutput("display_doubelCoinToss_actualFrequencyTree")
                               )
                             ),
