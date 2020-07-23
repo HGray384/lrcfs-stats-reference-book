@@ -31,43 +31,39 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                                   fluidRow(
                                     column(width=6,
                                            h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1HeadsResult", inline=TRUE), " Coin-1 Heads"))),
-                                           uiOutput("display_doubelCoinToss_firstTossHeads"),
-                                           h3(HTML(paste0(uiOutput("display_doubelCoinToss_coin1HeadsResult2", inline=TRUE), " Tosses of Coin-2"))),
-                                           fluidRow(
-                                             column(width=12,
-                                                    uiOutput("display_doubelCoinToss_secondTossHeads")
-                                             )
-                                           ),
-                                           fluidRow(
-                                             column(width=6,
-                                                    h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1HeadsResult_coin2HeadsResult", inline=TRUE), " Coin-2 Heads"))),
-                                                    uiOutput("display_doubelCoinToss_secondTossHeads_headsResults")
-                                             ),
-                                             column(width=6,
-                                                    h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1HeadsResult_coin2TailsResult", inline=TRUE), " Coin-2 Tails"))),
-                                                    uiOutput("display_doubelCoinToss_secondTossHeads_tailsResults")
-                                             )
-                                           )
+                                           uiOutput("display_doubelCoinToss_firstTossHeads"), 
                                     ),
                                     column(width=6,
                                            h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1TailsResult", inline=TRUE), " Coin-1 Tails"))),
                                            uiOutput("display_doubelCoinToss_firstTossTails"),
+                                    )
+                                  ),
+                                  fluidRow(
+                                    column(width=6,
+                                           h3(HTML(paste0(uiOutput("display_doubelCoinToss_coin1HeadsResult2", inline=TRUE), " Tosses of Coin-2"))),
+                                           uiOutput("display_doubelCoinToss_secondTossHeads")
+                                    ),
+                                    column(width=6,
                                            h3(HTML(paste0(uiOutput("display_doubelCoinToss_coin1TailsResult2", inline=TRUE), " Tosses of Coin-2"))),
-                                           fluidRow(
-                                             column(width=12,
-                                                    uiOutput("display_doubelCoinToss_secondTossTails")
-                                             )
-                                           ),
-                                           fluidRow(
-                                             column(width=6,
-                                                    h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1TailsResult_coin2HeadsResult", inline=TRUE), " Coin-2 Heads"))),
-                                                    uiOutput("display_doubelCoinToss_secondTossTails_headsResults")
-                                             ),
-                                             column(width=6,
-                                                    h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1TailsResult_coin2TailsResult", inline=TRUE), " Coin-2 Tails"))),
-                                                    uiOutput("display_doubelCoinToss_secondTossTails_tailsResults")
-                                             )
-                                           )
+                                           uiOutput("display_doubelCoinToss_secondTossTails")
+                                    )
+                                  ),
+                                  fluidRow(
+                                    column(width=3,
+                                           h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1HeadsResult_coin2HeadsResult", inline=TRUE), " Coin-2 Heads"))),
+                                           uiOutput("display_doubelCoinToss_secondTossHeads_headsResults")
+                                    ),
+                                    column(width=3,
+                                           h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1HeadsResult_coin2TailsResult", inline=TRUE), " Coin-2 Tails"))),
+                                           uiOutput("display_doubelCoinToss_secondTossHeads_tailsResults")
+                                    ),
+                                    column(width=3,
+                                           h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1TailsResult_coin2HeadsResult", inline=TRUE), " Coin-2 Heads"))),
+                                           uiOutput("display_doubelCoinToss_secondTossTails_headsResults")
+                                    ),
+                                    column(width=3,
+                                           h4(HTML(paste0(uiOutput("display_doubelCoinToss_coin1TailsResult_coin2TailsResult", inline=TRUE), " Coin-2 Tails"))),
+                                           uiOutput("display_doubelCoinToss_secondTossTails_tailsResults")
                                     )
                                   )
                               )

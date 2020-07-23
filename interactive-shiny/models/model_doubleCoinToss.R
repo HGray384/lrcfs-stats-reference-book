@@ -35,18 +35,18 @@ PopulateCoinToss = function(numberOfCoinTosses, headsProbability)
   actualResults$tailsCoinTosses_tailsResults = length(which(actualResults$tailsCoinTosses == "tails"))
 }
 
-unorderedCoinTossWafflePlot = function(coinTosses)
+unorderedCoinTossWafflePlot = function(coinTosses,headsColour,tailsColour)
 {
   output = ""
   for (val in coinTosses)
   {
     if(val == "heads")
     {
-      output = paste0(output,"<div class='tossIcon tossIconHeads' style='background-color: ",HEADS_COLOUR,"'>H</div>");
+      output = paste0(output,"<div class='tossIcon tossIconHeads' style='background-color: ",headsColour,"'>H</div>");
     }
     else
     {
-      output = paste0(output,"<div class='tossIcon tossIconTails' style='background-color: ",TAILS_COLOUR,"'>T</div>");
+      output = paste0(output,"<div class='tossIcon tossIconTails' style='background-color: ",tailsColour,"'>T</div>");
     }
   }
   output = paste0(output, "<div style='clear: both'>&nbsp</div>")
@@ -158,45 +158,45 @@ observeEvent(input$doubleCoinToss_headsProbability, {
 # First Toss
 #######################################
 output$display_doubelCoinToss_firstToss = renderUI({
-  unorderedCoinTossWafflePlot(actualResults$overallCoinTosses)
+  unorderedCoinTossWafflePlot(actualResults$overallCoinTosses,HEADS_COLOUR,TAILS_COLOUR)
 })
 
 # First Heads Results
 output$display_doubelCoinToss_firstTossHeads = renderUI({
-  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$overallCoinTosses_headsResults)))
+  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$overallCoinTosses_headsResults)),HEADS_COLOUR,TAILS_COLOUR)
 })
 
 # First Tails Results
 output$display_doubelCoinToss_firstTossTails = renderUI({
-  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$overallCoinTosses_tailsResults)))
+  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$overallCoinTosses_tailsResults)),HEADS_COLOUR,TAILS_COLOUR)
 })
 
 # Second Toss Heads
 #######################################
 output$display_doubelCoinToss_secondTossHeads = renderUI({
-  unorderedCoinTossWafflePlot(actualResults$headsCoinTosses)
+  unorderedCoinTossWafflePlot(actualResults$headsCoinTosses,HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR)
 })
 
 output$display_doubelCoinToss_secondTossHeads_headsResults = renderUI({
-  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$headsCoinTosses_headsResults)))
+  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$headsCoinTosses_headsResults)),HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR)
 })
 
 output$display_doubelCoinToss_secondTossHeads_tailsResults = renderUI({
-  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$headsCoinTosses_headsResults)))
+  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$headsCoinTosses_tailsResults)),HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR)
 })
 
 # Second Toss Tails
 #######################################
 output$display_doubelCoinToss_secondTossTails = renderUI({
-  unorderedCoinTossWafflePlot(actualResults$tailsCoinTosses)
+  unorderedCoinTossWafflePlot(actualResults$tailsCoinTosses,TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)
 })
 
 output$display_doubelCoinToss_secondTossTails_headsResults = renderUI({
-  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$tailsCoinTosses_headsResults)))
+  unorderedCoinTossWafflePlot(c(rep("heads",actualResults$tailsCoinTosses_headsResults)),TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)
 })
 
 output$display_doubelCoinToss_secondTossTails_tailsResults = renderUI({
-  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$tailsCoinTosses_tailsResults)))
+  unorderedCoinTossWafflePlot(c(rep("tails",actualResults$tailsCoinTosses_tailsResults)),TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)
 })
 
 
@@ -233,8 +233,9 @@ output$display_doubelCoinToss_probabilityTree = renderPlot({
   V(freqTree)$name <- v
   
   black=COLOUR_PALLETE[1]
-  V(freqTree)$color <- c(black,HEADS_COLOUR,black,HEADS_COLOUR,TAILS_COLOUR,TAILS_COLOUR,black,HEADS_COLOUR,TAILS_COLOUR)
+  V(freqTree)$color <- c(black,HEADS_COLOUR,black,HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR,TAILS_COLOUR,black,TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)
   V(freqTree)$label.font <- c(1, 1, 1, 1, 1, 1, 1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",9))
   par(mar = c(0, 0, 0, 0))
   tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
               vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
@@ -273,8 +274,9 @@ output$display_doubelCoinToss_expectedFrequencyTree = renderPlot({
   V(freqTree)$name <- v
   
   black=COLOUR_PALLETE[1]
-  V(freqTree)$color <- c(black,HEADS_COLOUR,black,HEADS_COLOUR,TAILS_COLOUR,TAILS_COLOUR,black,HEADS_COLOUR,TAILS_COLOUR)
+  V(freqTree)$color <- c(black,HEADS_COLOUR,black,HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR,TAILS_COLOUR,black,TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)
   V(freqTree)$label.font <- c(1, 1, 1, 1, 1, 1, 1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",9))
   par(mar = c(0, 0, 0, 0))
   tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
               vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
@@ -314,8 +316,9 @@ output$display_doubelCoinToss_actualFrequencyTree = renderPlot({
   V(freqTree)$name <- v
   
   black=COLOUR_PALLETE[1]
-  V(freqTree)$color <- c(black,HEADS_COLOUR,black,HEADS_COLOUR,TAILS_COLOUR,TAILS_COLOUR,black,HEADS_COLOUR,TAILS_COLOUR)
+  V(freqTree)$color <- c(black,HEADS_COLOUR,black,HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR,TAILS_COLOUR,black,TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)
   V(freqTree)$label.font <- c(1, 1, 1, 1, 1, 1, 1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",9))
   par(mar = c(0, 0, 0, 0))
   tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
               vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
