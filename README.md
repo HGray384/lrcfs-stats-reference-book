@@ -11,4 +11,22 @@ install.packages("bookdown")
 rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
 ```
 
-Or, if you use RStudio, open [stats-reference-book.Rproj](stats-reference-book.Rproj), go to the Build tab on the top right panel, and "Build Book".
+Or, if you use RStudio, install the bookdown package as above and then open [stats-reference-book.Rproj](stats-reference-book.Rproj). Go to the Build tab on the top right-hand panel, and click "Build all".
+
+## To run the shiny application
+
+Part of the code in this repository contains a shiny application with interactive probability and statistics examples. To run this application and its graphical user interface, first install R shiny using 
+```
+# install shiny
+install.packages("shiny")
+```
+Then open the /interactive-shiny/app.R file and run the application. In RStudio, this is done by opening the file and clicking 'Run App' just above the editing panel. 
+
+## To run the interactive examples within the book
+
+The html version of the stats book embeds the shiny application within the relevant sections of its text. To make this run correctly, follow the steps above to run the shiny application first. 
+
+Once the shiny application is running, copy the http address at the top left of the shiny application, it should look something like "http://127.0.0.1:6319". This is the location of the application on your local machine. Once this is copied, open the /code/useful-variables.R file and paste the location into the assignment of variable `SHINY_HOST`. Build the book again with the shiny application still running and now the book will include interactive shiny examples. You will need to do this each time you open a new R session for the book as the location of the application will change.
+
+DO NOT PUSH CHANGES MADE TO THE `SHINY_HOST` VARIABLE TO GITHUB.
+
