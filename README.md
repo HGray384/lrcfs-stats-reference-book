@@ -30,3 +30,6 @@ Once the shiny application is running, copy the http address at the top left of 
 
 DO NOT PUSH CHANGES MADE TO THE `SHINY_HOST` VARIABLE TO GITHUB.
 
+## Common issues
+
+- A failed build will lead to the `stats-reference-book.Rmd` file being created in the base directory. This file needs to be manually deleted before the build will work (even after resolving your other error).
