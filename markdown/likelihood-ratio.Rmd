@@ -296,7 +296,13 @@ It can be seen that the LR updates beliefs about $H_p$ and $H_d$. Notice how bel
 
 ## Combining evidence
 
-LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Chapter ...), we can use the multiplication rule (Chapter ...) to multiply their individual LRs to obtain a combined LR. If the two pieces of evidence are labelled as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that $E_1$ **and** $E_2$ are observed if $H_p$ is true, rather than if $H_d$ is true. Combining evidence like this is the standard approach in DNA evidence evaluation. 
+LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Chapter ...), we can to multiply their individual LRs to obtain a combined LR. If the two pieces of evidence are labelled as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that $E_1$ **and** $E_2$ are observed if $H_p$ is true, rather than if $H_d$ is true. Combining evidence like this is the standard approach in DNA evidence evaluation. It is also becoming more popularto combine the LRs for multiple types of evidence, instead of presenting them individually. This can only be done when the propositions underlying the probability calculations are the same, and specifically are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. 
+
+It is paramount that the assumption of statistical independence is checked when combining the LRs from multiple evidence types in this way. Unfortunately, data sources which can help scientists to determine statistical independence between evidence types is scarce in the scientific literature at this moment in time. When the statistical independence assumption does not hold true, then more complex probabilistic methods needs to be used to construct the joint LRs.
+
+## Example: 
+
+
 
 ## Example: DNA loci
 
