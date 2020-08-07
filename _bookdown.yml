@@ -10,7 +10,6 @@ rmd_files: [
   "markdown/uncertainty.Rmd",
   "markdown/probability.Rmd",
   "markdown/statistics.Rmd",
-  "markdown/false-positives.Rmd",
   "markdown/propositions.Rmd",
   "markdown/likelihood-ratio.Rmd",
   "markdown/summary.Rmd",
