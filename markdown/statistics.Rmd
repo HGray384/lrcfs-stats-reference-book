@@ -9,7 +9,8 @@ needPackages("igraph",
              "tidyverse",
              "plotly",
              "grid",
-             "plyr")
+             "plyr",
+             "htmltools")
 # set some useful variables
 source("./code/useful-variables.R")
 ```
@@ -216,7 +217,7 @@ Estimates are carefully selected so that they have desirable statistical propert
 
 From this basis of estimation we can branch out into other forms of inference such as statistical hypothesis testing, making predictions about the future, and, most relevant to forensic science, evaluating scientific evidence. What is important before making any statistical inference is the data upon which the inference will be based. The quality of the inference can only be as good as the quality of the data. Assessing the quality of data is the topic of the next section.
 
-## Data sources
+## Data sources {#data-sources}
 
 A data source is something which contains data. This broad definition covers anything from extensive national criminal databases, which contain information about convicted criminals, to handwritten personal notes about the outcome of coin tosses. Examples between these extremes include academic journal articles detailing experiments related to forensic problems and their results, and proprietary in-house databases with images of footwear marks from crime scenes managed by commerical forensic service providers. Clearly there is a range in quality for these sources of data. A range in quality for the data means that the resulting statistical inferences will necessarily vary in quality. That is why it is important to be able to recognise the characteristics which contribute to a high quality data source when presented with any statistical inference.
 
@@ -256,7 +257,7 @@ The Ogden tables are an example of a high quality data source. The values contai
 
 Official statistics will often be aggregates of many data sources. This means that lots of data has been used even though single number summaries (e.g. medians) are all that are presented. This gives some guarantee that the data source is of an appropriate size. Not much information is presented in the tables about variability, as the values are single number summaries. A level of trust in the process of calculating these values is needed for this. This trust is easier to achieve with this data source due to the recognised and accredited nature of the organisations involved in creating the tables.
 
-The relevance of the Ogden tables depends upon the case at hand. The tables have been constructed to cover a range of common scenarios, e.g. claimant age and some common pension ages. When the claimant in question is covered by these common factors then the tables are a highly relevant (and endorsed) source of data. When the claimant in question is not sufficiently covered by these factors, then the tables cannot be used and are thus not a relevant source of data. This could occur because the claimant holds a more complex pension plan. In this situation the correct data source is a Fellow of the Institute and Faculty of Actuaries. 
+The relevance of the Ogden tables depends upon the case at hand. The tables have been constructed to cover a range of common scenarios, e.g. claimant age and some common pension ages. When the claimant in question is covered by these common factors then the tables are a highly relevant (and endorsed) source of data. When the claimant in question is not sufficiently covered by these factors, then the tables cannot be used and are thus not a relevant source of data. This could occur because the claimant holds a more complex pension plan. In this situation the guidance in the is to contact another data source, a Fellow of the Institute and Faculty of Actuaries. 
 
 <!-- The below Figure shows some probabilities for more tangible events than theoretical coin tosses. -->
 
@@ -305,15 +306,24 @@ The relevance of the Ogden tables depends upon the case at hand. The tables have
 <!-- Whose probabilities are these? -->
 
 
-## Applications to forensic science
+```{r, echo=FALSE}
+htmltools::tags$iframe(src = "video/SquareToCircle.mp4")
+```
 
-[journal articles; descriptive statistics, inferential statistics, data source]
+## Expert witness evidence
+
+The statistical ideas presented in this chapter will be present in expert witnesses' reports, but they might not be explicit. 
+
+Descriptive statistics might be used to describe the evidence from the case at hand. This could include a numerical summary of some trace evidence, such as the physical characteristics of recovered glass fragments or clothing fibres. Descriptive statistics might also be used to report summaries of information from other data sources, such as reporting on a characterisic from an internal database, or reporting the findings of a relevant academic journal article.
+
+Inferential statistics can be harder to recognise. 
+
+By way of example, consider an expert who has tested a recovered firearm's potential to accidentally misfire due to sudden force triggering a faulty firing mechanism. To test the suspect's statement, the expert attempted to smash the gun against a car window with considerable force in 15 replicated experiments. The faulty firing mechanism triggered the gun to accidentally misfire on the 15th experiment. When the expert reports this, are they only attempting to describe the results of the experiment, or are they making an implicit inference that the gun has a misfire rate (probability of misfiring) of 1 in 15 when making forceful contact with a surface? The latter is a statistical inference that is not substantiated by the experiment that the expert performed. If the inference is instead that it is possible for the gun to misfire under these conditions, then the experiment has substantiated this claim.
+
+Data sources will frequently be used in expert reports. The data sources can be explored by following the criteria from Section \@ref(data-sources) relating to quality and relevance. 
 
 
-
-[case work; descriptive statistics, inferential statistics, data source]
-
-Now we have the foundation of statistics and probability theory to begin considering case situations. However, these situations require more than just numerical theory as they also involve investigative processes. In the analysis of forensic scientific evidence, this means merging probability and statistics with contextual information from both the prosecution and defence. The prosecution and defence's version of events are required to fully evidence that has been recovered. These statements, which are the disputed aspects of the case, are formalised into what are known as **propositions**. Propositions are used as anchors to focus the interpretation of the evidence. Propositions are the topic of the next chapter.
+The previous two chapters have given a conceptual overview of the mathematical theory required to begin considering case situations. These situations require more than just numerical theory as they also involve investigative processes. In the analysis of forensic scientific evidence, this means merging probability and statistics with contextual case information, including statements from both the prosecution and defence. The prosecution and defence's proposed versions of events are required to fully assess evidence that has been recovered. These statements, which are the disputed aspects of the case, are formalised into what are known as **propositions**. Propositions are used as anchors to focus the interpretation of the evidence, and they are the topic of the next chapter.
 
 ## More information
 
@@ -326,4 +336,3 @@ Now we have the foundation of statistics and probability theory to begin conside
 <!-- Birthday: https://en.wikipedia.org/wiki/Birthday_problem -->
 
 ## Exercises
-
