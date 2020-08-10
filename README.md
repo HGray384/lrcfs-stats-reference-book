@@ -32,4 +32,6 @@ DO NOT PUSH CHANGES MADE TO THE `SHINY_HOST` VARIABLE TO GITHUB.
 
 ## Common issues
 
-- A failed build will lead to the `stats-reference-book.Rmd` file being created in the base directory. This file needs to be manually deleted before the build will work (even after resolving your other error).
+- Be sure to have the latest updates for R, Rstudio (if that's what you use), bookdown, and the other major packages that this book depends upon. When these packages have major updates, things can break. We are working on an efficient way to manage the required packages and their versions so that you don't have to.
+
+- A failed build will lead to the `stats-reference-book.Rmd` file being created in the base directory. This file needs to be **manually** deleted before the build will work (even after resolving the error which caused the build to fail initially).
