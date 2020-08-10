@@ -196,7 +196,7 @@ Odds which are used to update prior odds by conditioning on more information are
 
 Another reason that odds are useful is because of the simplicity that they give to a very important mathematical result, which we discuss in the next section. 
 
-## Bayes' rule
+## Bayes' rule {#bayes}
 
 **Bayes' rule** is a mathematical rule which links the **prior odds** to the **posterior odds**. Suppose we were considering odds of two events A and B, and we observe some new information from an event E. We want to compute the posterior odds of A and B conditioned on E. Bayes' rule states that this is done as follows:
 $$\text{posterior odds}=\frac{\text{probability of E conditioned on A}}{\text{probability of E conditioned on B}}\times \text{prior odds}.$$
