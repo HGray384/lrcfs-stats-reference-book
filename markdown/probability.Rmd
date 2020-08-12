@@ -395,7 +395,7 @@ This example outlines some statistical concepts that can lead to great insight w
 
 ## Example: doping {#exm-doping}
 
-The following example has been adapted from (insert Primer citation).
+The following example has been adapted from @statsprimer2020.
 
 It's easy to get confused with the technical terms in diagnostic tests and how they relate to the question we are interested in. Table \@ref(tab:test-table) and Figure \@ref(fig:freq-tree-test) present this information in a format which is easier to understand and base decisions on. However, it is often not presented this way in practice and so must first be `translated' from the raw numerical information. 
 
