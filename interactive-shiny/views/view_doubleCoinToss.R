@@ -5,7 +5,7 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                                         sliderInput("doubleCoinToss_coinTosses", h3("Number of Coin Tosses"), min=4, max=500, step=4, value = 200),
                                       ),
                                       column(width=6,
-                                        sliderInput("doubleCoinToss_headsProbability", h3("Probabilty of Heads"), min=0, max=1, step=0.1, value = 0.5),
+                                        sliderInput("doubleCoinToss_headsProbability", h3("Probability of Heads"), min=0, max=1, step=0.1, value = 0.5),
                                       )
                                   )
                             ),
@@ -16,7 +16,7 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                               box(title="Expected Frequency Tree", width=4,
                                   plotOutput("display_doubelCoinToss_expectedFrequencyTree")
                               ),
-                              box(title="Actual Frequency Tree", width=4,
+                              box(title="Sample Frequency Tree", width=4,
                                   plotOutput("display_doubelCoinToss_actualFrequencyTree")
                               )
                             ),

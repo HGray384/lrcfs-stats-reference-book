@@ -41,11 +41,11 @@ ui = function(request) {
                     dashboardHeaderPlus(title = APP_NAME),
                     dashboardSidebar(
                       sidebarMenu(id = "sidebar",
-                                  menuItem("Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
-                                  menuItem("Tree", tabName = "tabCoinTree", icon = icon("dashboard")),
-                                  menuItem("Likelyhood", tabName = "tabLikelyhood", icon = icon("dashboard")),
-                                  menuItem("Doube Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green"),
-                                  menuItem("Doube Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
+                                  menuItem("Single Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
+                                  menuItem("Single Coin Tree", tabName = "tabCoinTree", icon = icon("dashboard")),
+                                  menuItem("Likelihood ratio", tabName = "tabLikelyhood", icon = icon("dashboard")),
+                                  menuItem("Double Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green"),
+                                  menuItem("Double Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
                       ),
                       bookmarkButton(id='bookmarkButton')
                     ),

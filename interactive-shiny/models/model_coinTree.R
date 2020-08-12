@@ -9,21 +9,23 @@ output$display_coinTree_tree = renderPlot({
   
   
   e <- c(1, 2, 1, 3)
-  v <- c(paste0(total,"\ntosses"), paste0(heads,"\nheads"), paste0(tails,"\ntails"))
-  freqTree <- graph(edges=e, n=3, directed=FALSE)
+  v <- c(paste0(total,"\nTosses"), paste0(heads,"\nHeads"), paste0(tails,"\nTails"))
+  freqTree <- graph(edges=e, n=3, directed=TRUE)
   V(freqTree)$name <- v
-  
+  black <- COLOUR_PALLETE[1]
+  V(freqTree)$color <- c(black, HEADS_COLOUR, TAILS_COLOUR)
+  V(freqTree)$label.font <- c(1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",3))
   # the commented code below complicates the point
   # V(freqTree)$color <- c(rep(colPal[1], 3), 
   #                        colPal[4], 
   #                        colPal[7],
   #                        colPal[7],
   #                        colPal[4])
-  V(freqTree)$color <- c(rep(COLOUR_PALLETE[1], 7))
   par(mar = c(0, 0, 0, 0))
   plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
        vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
-       vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
+       vertex.label.cex=1.2, edge.color="black",  edge.width=1,
        layout=layout_as_tree(graph = freqTree, root = 1),
        vertex.size=50)
   # legend("bottomright", legend=c("True", "False"),

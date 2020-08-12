@@ -220,15 +220,15 @@ output$display_doubelCoinToss_probabilityTree = renderPlot({
   tailsCoinTosses_tailsResults = numTailsCoinTosses * (1-headsProbability)
   
   e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
-  v <- c(paste0("Probabilty of\n",numCoinTosses),
-         paste0("Probabilty of Heads\n",numHeadsCoinTosses),
+  v <- c(paste0("Probability of\n",numCoinTosses),
+         paste0("Probability of Heads\n",numHeadsCoinTosses),
          paste0("\nToss of Coin-2"),
-         paste0("Probabilty of\nHeads\\Heads\n",headsCoinTosses_headsResults),
-         paste0("Probabilty of\nHeads\\Tails\n",headsCoinTosses_tailsResults),
-         paste0("Probabilty of Tails\n",numTailsCoinTosses),
+         paste0("Probability of\nHeads\\Heads\n",headsCoinTosses_headsResults),
+         paste0("Probability of\nHeads\\Tails\n",headsCoinTosses_tailsResults),
+         paste0("Probability of Tails\n",numTailsCoinTosses),
          paste0("\nToss of Coin-2"),
-          paste0("Probabilty of\nTails\\Heads\n",tailsCoinTosses_headsResults),
-          paste0("Probabilty of\nTails\\Tails\n",tailsCoinTosses_tailsResults))
+          paste0("Probability of\nTails\\Heads\n",tailsCoinTosses_headsResults),
+          paste0("Probability of\nTails\\Tails\n",tailsCoinTosses_tailsResults))
   freqTree <- graph(edges=e, n=9, directed=TRUE)
   V(freqTree)$name <- v
   
@@ -391,14 +391,14 @@ output$display_doubelCoinToss_freqGraph = renderPlotly({
   tailsTailsOccur = cumsum(coinToss2and3Results == "tails-tails") / 1:numCoinTosses
   
   ggplotGraph = ggplot(NULL, aes(x=1:numCoinTosses)) + 
-    geom_line(aes(y = headsHeadsOccur, text=lapply(paste0('<b>Heads/Heads Proability:</b>', headsHeadsOccur), HTML)), color = HEADS_HEADS_COLOUR) + 
-    geom_line(aes(y = headsTailsOccur, text=lapply(paste0('<b>Heads/Tails Proability:</b>', headsTailsOccur), HTML)), color = HEADS_TAILS_COLOUR) + 
-    geom_line(aes(y = tailsHeadsOccur, text=lapply(paste0('<b>Tails/Heads Proability:</b>', tailsHeadsOccur), HTML)), color = TAILS_HEADS_COLOUR) + 
-    geom_line(aes(y = tailsTailsOccur, text=lapply(paste0('<b>Tails/Tails Proability:</b>', tailsTailsOccur), HTML)), color = TAILS_TAILS_COLOUR) + 
-    geom_line(aes(y = headsHeadsProbabilty, text=lapply(paste0('<b>Expected Heads/Heads Proability:</b>', headsHeadsProbabilty), HTML)), color="steelblue", linetype="dash") +
+    geom_line(aes(y = headsHeadsOccur, text=lapply(paste0('<b>Sample proportion of Heads/Heads:</b>', headsHeadsOccur), HTML)), color = HEADS_HEADS_COLOUR) + 
+    geom_line(aes(y = headsTailsOccur, text=lapply(paste0('<b>Sample proportion of Heads/Tails:</b>', headsTailsOccur), HTML)), color = HEADS_TAILS_COLOUR) + 
+    geom_line(aes(y = tailsHeadsOccur, text=lapply(paste0('<b>Sample proportion of Tails/Heads:</b>', tailsHeadsOccur), HTML)), color = TAILS_HEADS_COLOUR) + 
+    geom_line(aes(y = tailsTailsOccur, text=lapply(paste0('<b>Sample proportion of Tails/Tails:</b>', tailsTailsOccur), HTML)), color = TAILS_TAILS_COLOUR) + 
+    geom_line(aes(y = headsHeadsProbabilty, text=lapply(paste0('<b>Probability of Heads/Heads:</b>', headsHeadsProbabilty), HTML)), color="steelblue", linetype="dash") +
     xlim(0, numCoinTosses) +
     ylim(0,1) +
-    ylab("Overall Probabilty") +
+    ylab("Sample proportion") +
     xlab("Coin Tosses")
   
   ggplotly(ggplotGraph, tooltip="text") %>% layout(hovermode = "x unified")
