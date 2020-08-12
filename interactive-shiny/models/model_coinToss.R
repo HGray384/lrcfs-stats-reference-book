@@ -80,8 +80,8 @@ output$display_coinToss_overalWhisker = renderPlot({
   ggplot(dfAllTosses, aes(x=tosses, y=headsProbabilty, group=tosses)) + 
     geom_boxplot() +
     ylim(0,1) +
-    ylab("Overall Probabilty") +
-    xlab("Coin Tosses")
+    ylab("Sample proportion of Heads") +
+    xlab("Number of coin tosses")
 })
 
 
@@ -100,7 +100,7 @@ output$display_coinToss_tossResultsPie = renderPlot({
     geom_bar(stat="identity") +
     theme(legend.position='none') +
     scale_fill_manual(values = c("Heads" = HEADS_COLOUR, "Tails" = TAILS_COLOUR)) +
-    ylab("Total number of occurances") +
+    ylab("Total number of occurrences") +
     xlab("Side of Coin")
   
 })
@@ -142,13 +142,13 @@ output$display_coinToss_plotlyGraph = renderPlotly({
   dfHeadsOccur = data.frame(headsOccur)
   
   ggplotGraph = ggplot(dfHeadsOccur, aes(x=1:numberOfTosses)) + 
-    geom_line(aes(y = headsOccur, text=lapply(paste0('<b>Heads Proability:</b>', headsOccur), HTML)), color = HEADS_COLOUR) + 
-    geom_line(aes(y = tailsOccur, text=lapply(paste0('<b>Tails Proability:</b>', tailsOccur), HTML)), color = TAILS_COLOUR) + 
+    geom_line(aes(y = headsOccur, text=lapply(paste0('<b>Sample proportion of heads:</b>', headsOccur), HTML)), color = HEADS_COLOUR) + 
+    geom_line(aes(y = tailsOccur, text=lapply(paste0('<b>Sample proportion of tails:</b>', tailsOccur), HTML)), color = TAILS_COLOUR) + 
     geom_line(aes(y = 0.5), color="steelblue", linetype="dash") +
     xlim(0, numberOfTosses) +
     ylim(0,1) +
     xlim(0,500) +
-    ylab("Overall Probabilty") +
+    ylab("Sample proportion") +
     xlab("Coin Tosses")
   
   ggplotly(ggplotGraph, tooltip="text") %>% layout(hovermode = "x unified")

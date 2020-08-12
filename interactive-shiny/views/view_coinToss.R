@@ -19,7 +19,7 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
           )
         ),
         fluidRow(
-          box(title="Frequency of Occurrences (heads/tails) over number of Coin Tosses", width=12,
+          box(title="Sample proportion of heads/tails with each coin toss", width=12,
               plotlyOutput("display_coinToss_plotlyGraph")
           )
         ),
@@ -29,7 +29,7 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
           box(title="Total Number of Heads/Tails", width=6,
               plotOutput("display_coinToss_tossResultsPie")
           ),
-          box(title="Cumulative Probability of Heads", width=6,
+          box(title="Distribution of the sample proportion of Heads", width=6,
               plotOutput("display_coinToss_overalWhisker"),
               actionButton("coinToss_rerunCoinToss", "Re-run Coin Toss"),
               actionButton("coinToss_resetTotals", "Reset Totals")
