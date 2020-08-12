@@ -1,2 +1,26 @@
 # Introduction {#intro}
 
+
+[brief history of development of forensic science and evidence evaluation]
+
+[make the point that as scientific technology and knowledge sharing both increase, we are able to quantify more and move away from subjective opinion]
+
+[as technology continues to develop, so will quantitative analysis methods and this will make their appearance in the courtroom more commonplace, e.g. current scientific research is moving towards machine learning algorithms for pattern recognition, and whilst this might not have filtered through to standard forensic analysis pipelines yet, it is coming]
+
+[there's a need to raise everyone's statistical literacy to keep the technology understandable and accountable to public demand; this is moreso for judges who gatekeep evidence and administer justice]
+
+[this book aims to introduce key concepts in probability and statistics which relate to evidence evaluation, providing interactive examples and being responsive to feedback to meet the needs of its users]
+
+
+This book is organised as follows.
+
+In Chapter \@ref(uncertainty) we set the basis for using probability and statistics for scientific evidence: uncertainty. 
+
+In Chapter \@ref(probability) we show how the concept of probability can be used to quantify the uncertainty about events occurring.
+
+In Chapter \@ref(statistics) we introduce statistics as a way of describing empirical data and using that to make inferences about uncertainty. 
+
+In Chapter \@ref(propositions) we describe formal statements about events, known as propositions. This allows us to begin to describe asserted events in criminal cases, which are essential when evaluating evidence.
+
+Then, finally in Chapter \@ref(likelihood-ratio) we tie together the ideas from the previous Chapters in order to arrive at quantifying the value of scientific evidence using the likelihood ratio.
+
