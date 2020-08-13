@@ -35,6 +35,7 @@ source("views/view_coinTree.R")
 source("views/view_likelyhood.R")
 source("views/view_doubleCoinToss.R")
 source("views/view_doubleCoinTree.R")
+source("views/view_diseaseTest.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
@@ -44,8 +45,9 @@ ui = function(request) {
                                   menuItem("Single Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
                                   menuItem("Single Coin Tree", tabName = "tabCoinTree", icon = icon("dashboard")),
                                   menuItem("Likelihood ratio", tabName = "tabLikelyhood", icon = icon("dashboard")),
-                                  menuItem("Double Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green"),
-                                  menuItem("Double Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard"),  badgeLabel = "new", badgeColor = "green")
+                                  menuItem("Double Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard")),
+                                  menuItem("Double Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard")),
+                                  menuItem("Disease Test", tabName = "tabDiseaseTest", icon = icon("dashboard"), badgeLabel = "new", badgeColor = "green")
                       ),
                       bookmarkButton(id='bookmarkButton')
                     ),
@@ -58,7 +60,8 @@ ui = function(request) {
                         tabCoinTree,
                         tabLikelyhood,
                         tabDoubleCoinToss,
-                        tabDoubleCoinTree
+                        tabDoubleCoinTree,
+                        tabDiseaseTest
                       )
                     ),
                     footer = dashboardFooter(
@@ -95,6 +98,7 @@ server = function(input, output,session) {
   source("models/model_likelyhood.R", local = TRUE)
   source("models/model_doubleCoinToss.R", local = TRUE)
   source("models/model_doubleCoinTree.R", local = TRUE)
+  source("models/model_diseaseTest.R", local = TRUE)
 
 }
 
