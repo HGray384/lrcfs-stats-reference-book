@@ -222,13 +222,13 @@ output$display_doubelCoinToss_probabilityTree = renderPlot({
   e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
   v <- c(paste0("Probability of\n",numCoinTosses),
          paste0("Probability of Heads\n",numHeadsCoinTosses),
-         paste0("\nToss of Coin-2"),
-         paste0("Probability of\nHeads\\Heads\n",headsCoinTosses_headsResults),
-         paste0("Probability of\nHeads\\Tails\n",headsCoinTosses_tailsResults),
+         paste0("\nToss of Coin 2"),
+         paste0("Probability of\nHeads/Heads\n",headsCoinTosses_headsResults),
+         paste0("Probability of\nHeads/Tails\n",headsCoinTosses_tailsResults),
          paste0("Probability of Tails\n",numTailsCoinTosses),
-         paste0("\nToss of Coin-2"),
-          paste0("Probability of\nTails\\Heads\n",tailsCoinTosses_headsResults),
-          paste0("Probability of\nTails\\Tails\n",tailsCoinTosses_tailsResults))
+         paste0("\nToss of Coin 2"),
+          paste0("Probability of\nTails/Heads\n",tailsCoinTosses_headsResults),
+          paste0("Probability of\nTails/Tails\n",tailsCoinTosses_tailsResults))
   freqTree <- graph(edges=e, n=9, directed=TRUE)
   V(freqTree)$name <- v
   
@@ -261,15 +261,15 @@ output$display_doubelCoinToss_expectedFrequencyTree = renderPlot({
   tailsCoinTosses_tailsResults = numTailsCoinTosses * (1-headsProbability)
   
   e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
-  v <- c(paste0(numCoinTosses,"\nTosses of Coin-1"),
-         paste0(numHeadsCoinTosses,"\nCoin-1 Heads"),
-         paste0(numHeadsCoinTosses,"\nTosses of Coin-2"),
-         paste0(headsCoinTosses_headsResults,"\nCoin-2 Heads"),
-         paste0(headsCoinTosses_tailsResults,"\nCoin-2 Tails"),
-         paste0(numTailsCoinTosses,"\nCoin-1 Tails"),
-         paste0(numTailsCoinTosses,"\nTosses of Coin-2"),
-         paste0(tailsCoinTosses_headsResults,"\nCoin-2 Heads"),
-         paste0(tailsCoinTosses_tailsResults,"\nCoin-2 Tails"))
+  v <- c(paste0(numCoinTosses,"\nTosses of Coin 1"),
+         paste0(numHeadsCoinTosses,"\nCoin 1 Heads"),
+         paste0(numHeadsCoinTosses,"\nTosses of Coin 2"),
+         paste0(headsCoinTosses_headsResults,"\nCoin 2 Heads"),
+         paste0(headsCoinTosses_tailsResults,"\nCoin 2 Tails"),
+         paste0(numTailsCoinTosses,"\nCoin 1 Tails"),
+         paste0(numTailsCoinTosses,"\nTosses of Coin 2"),
+         paste0(tailsCoinTosses_headsResults,"\nCoin 2 Heads"),
+         paste0(tailsCoinTosses_tailsResults,"\nCoin 2 Tails"))
   freqTree <- graph(edges=e, n=9, directed=TRUE)
   V(freqTree)$name <- v
   
@@ -303,15 +303,15 @@ output$display_doubelCoinToss_actualFrequencyTree = renderPlot({
   tailsCoinTosses_tailsResults = actualResults$tailsCoinTosses_tailsResults
   
   e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
-  v <- c(paste0(numCoinTosses,"\nTosses of Coin-1"),
-          paste0(numHeadsCoinTosses,"\nCoin-1 Heads"),
-            paste0(numHeadsCoinTosses,"\nTosses of Coin-2"),
-             paste0(headsCoinTosses_headsResults,"\nCoin-2 Heads"),
-             paste0(headsCoinTosses_tailsResults,"\nCoin-2 Tails"),
-          paste0(numTailsCoinTosses,"\nCoin-1 Tails"),
-            paste0(numTailsCoinTosses,"\nTosses of Coin-2"),
-             paste0(tailsCoinTosses_headsResults,"\nCoin-2 Heads"),
-             paste0(tailsCoinTosses_tailsResults,"\nCoin-2 Tails"))
+  v <- c(paste0(numCoinTosses,"\nTosses of Coin 1"),
+          paste0(numHeadsCoinTosses,"\nCoin 1 Heads"),
+            paste0(numHeadsCoinTosses,"\nTosses of Coin 2"),
+             paste0(headsCoinTosses_headsResults,"\nCoin 2 Heads"),
+             paste0(headsCoinTosses_tailsResults,"\nCoin 2 Tails"),
+          paste0(numTailsCoinTosses,"\nCoin 1 Tails"),
+            paste0(numTailsCoinTosses,"\nTosses of Coin 2"),
+             paste0(tailsCoinTosses_headsResults,"\nCoin 2 Heads"),
+             paste0(tailsCoinTosses_tailsResults,"\nCoin 2 Tails"))
   freqTree <- graph(edges=e, n=9, directed=TRUE)
   V(freqTree)$name <- v
   
@@ -344,13 +344,13 @@ output$display_doubelCoinToss_parCoords = renderPlotly({
   
   fig = plot_ly(type = 'parcats', line = list(color = c(HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR,TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)),
                  dimensions = list(
-                   list(label = 'Coin-1 Tosses',
+                   list(label = 'Coin 1 Tosses',
                         values = c("toss","toss","toss","toss")),
-                   list(label = 'Coin-1 Toss Results',
+                   list(label = 'Coin 1 Toss Results',
                         values = c("heads","heads","tails","tails")),
-                   list(label = 'Coin-2 Tosses',
+                   list(label = 'Coin 2 Tosses',
                         values = c("heads-toss","heads-toss","tails-toss","tails-toss")),
-                   list(label = 'Coin-2 Toss Results',
+                   list(label = 'Coin 2 Toss Results',
                         values = c("heads-heads","heads-tails","tails-heads","tails-tails"))
                  ),
                  counts=c(headsCoinTosses_headsResults, headsCoinTosses_tailsResults, tailsCoinTosses_headsResults, tailsCoinTosses_tailsResults)

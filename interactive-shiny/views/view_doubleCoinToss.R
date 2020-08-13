@@ -21,7 +21,7 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                               )
                             ),
                             fluidRow(
-                              box(title="Visualisatoin of Tosses", width=12, collapsible = TRUE,
+                              box(title="Visualisation of Tosses", width=12, collapsible = TRUE,
                                   h3(HTML(paste0(uiOutput("display_doubelCoinToss_totalNumTosses", inline=TRUE), " Tosses of Coin-1"))),
                                   fluidRow(
                                     column(width=12,
@@ -69,12 +69,12 @@ tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                               )
                             ),
                             fluidRow(
-                              box(title="Parrelel Coordinates Graph", width=12, collapsible = TRUE,
+                              box(title="Parallel Coordinates Graph", width=12, collapsible = TRUE,
                                   plotlyOutput("display_doubelCoinToss_parCoords")
                               )
                             ),
                             fluidRow(
-                              box(title="Frequency Graph", width=12, collapsible = TRUE,
+                              box(title="Sample propotion of outcomes with each double toss", width=12, collapsible = TRUE,
                                   plotlyOutput("display_doubelCoinToss_freqGraph")
                               )
                             )
