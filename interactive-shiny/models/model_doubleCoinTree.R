@@ -11,27 +11,29 @@ output$display_doubleCoinTree_tree = renderPlot({
   coin1Tails_coin2Heads = coin1Tails * headsProbability
   coin1Tails_coin2Tails = coin1Tails * (1-headsProbability)
   
-  
-  
-  e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
-  v <- c(paste0(numCoinTosses,"\ntosses"),
-         paste0(coin1Heads,"\ncoin 1 heads"),
-         paste0(coin1Tails,"\ncoin 1 tails"),
-         paste0(coin1Heads_coin2Heads,"\ncoin 2 heads"),
-         paste0(coin1Heads_coin2Tails,"\ncoin 2 tails"),
-         paste0(coin1Tails_coin2Heads,"\ncoin 2 heads"),
-         paste0(coin1Tails_coin2Tails,"\ncoin 2 tails"))
-  freqTree <- graph(edges=e, n=7, directed=FALSE)
+  e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
+  v <- c(paste0(numCoinTosses,"\nTosses of Coin 1"),
+         paste0(coin1Heads,"\nCoin 1 Heads"),
+         paste0(coin1Heads,"\nTosses of Coin 2"),
+         paste0(coin1Heads_coin2Heads,"\nCoin 2 Heads"),
+         paste0(coin1Heads_coin2Tails,"\nCoin 2 Tails"),
+         paste0(coin1Tails,"\nCoin 1 Tails"),
+         paste0(coin1Tails,"\nTosses of Coin 2"),
+         paste0(coin1Tails_coin2Heads,"\nCoin 2 Heads"),
+         paste0(coin1Tails_coin2Tails,"\nCoin 2 Tails"))
+  freqTree <- graph(edges=e, n=9, directed=TRUE)
   V(freqTree)$name <- v
 
-  V(freqTree)$color <- c(rep(COLOUR_PALLETE[1], 7))
-  V(freqTree)$label.font <- c(2, 2, 1, 2, 1, 1, 1)
+  black=COLOUR_PALLETE[1]
+  V(freqTree)$color <- c(black,HEADS_COLOUR,black,HEADS_HEADS_COLOUR,HEADS_TAILS_COLOUR,TAILS_COLOUR,black,TAILS_HEADS_COLOUR,TAILS_TAILS_COLOUR)
+  V(freqTree)$label.font <- c(1, 1, 1, 1, 1, 1, 1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",9))
   par(mar = c(0, 0, 0, 0))
   tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
-       vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
-       vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
-       layout=layout_as_tree(graph = freqTree, root = 1),
-       vertex.size=50)
-  
+              vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+              vertex.label.cex=1.2, edge.color="black",  edge.width=1,
+              layout=layout_as_tree(graph = freqTree, root = 1),
+              vertex.size=50)
+
   return(tree)
 })
