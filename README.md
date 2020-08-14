@@ -1,5 +1,5 @@
 # LRCFS stats reference book for judges
-This is the repository for the reference book.
+This is the repository for the reference book. The book is built using the R package `bookdown` and interactive examples from `shiny`. Click on this link for the [bookdown documentation](https://bookdown.org/yihui/bookdown/).
 
 ## Build instructions
 To build the book, first clone or download this repository. Open R or RStudio in the base directory of the folder and run the following code:
