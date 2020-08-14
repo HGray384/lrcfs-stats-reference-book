@@ -19,5 +19,14 @@ tabDopingTest = tabItem(tabName = "tabDopingTest",
                            box(title="Expected doping and test results",
                                plotOutput("display_dopingTree_tree")
                            )
-                         )
+                         ),
+                        fluidRow(
+                          box(title="Likelihood Ratio and Bayes' Theorem",
+                              h3(HTML("Prior odds: ", paste0(uiOutput("display_priorOdds", inline = TRUE)))),
+                              br(),
+                              h3(HTML("Likelihood Ratio:", paste0(uiOutput("display_likelihoodRatio", inline = TRUE)))),
+                              br(),
+                              h3(HTML("Posterior odds: ", paste0(uiOutput("display_posteriorOdds", inline = TRUE))))
+                              )
+                        )
 )

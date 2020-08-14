@@ -1,17 +1,40 @@
-output$display_dopingTree_tree = renderPlot({
+# constants for this example
+
+populationSize <- 10000
+prevalence <- 0.02
+
+doping <- populationSize*prevalence
+notDoping <- populationSize-doping
+
+# reactive variables from slider input
+sensitivity <- reactive({input$dopingSensitivity}) # probability of testing positive given they are doping
+specificity <- reactive({input$dopingSpecificity}) # probability of testing negative given they are not doping
+
+dopingTestPositive <- reactive({doping*sensitivity()})
+dopingTestNegative <- reactive({doping-dopingTestPositive()})
+
+notDopingTestNegative <- reactive({notDoping*specificity()})
+notDopingTestPositive <- reactive({notDoping-notDopingTestNegative()})
+
+# displays
+output$display_priorOdds <- renderUI({return(paste(prevalence/(1-prevalence)))})
+
+output$display_likelihoodRatio <- renderUI({return(paste(input$dopingSensitivity/(1-input$dopingSpecificity)))})
+
+output$display_posteriorOdds <- renderUI({return(paste(prevalence/(1-prevalence)*input$dopingSensitivity/(1-input$dopingSpecificity)))})
+
+output$display_dopingTree_tree <- renderPlot({
   # constants for this example
-  
   populationSize <- 10000
-  
-  sensitivity <- input$dopingSensitivity # probability of testing positive given they are doping
-  specificity <- input$dopingSpecificity # probability of testing negative given they are not doping
-  
-  # reactive variables from slider input
   prevalence <- 0.02
   
   doping <- populationSize*prevalence
-  
   notDoping <- populationSize-doping
+  
+  
+  # reactive variables from slider input
+  sensitivity <- input$dopingSensitivity # probability of testing positive given they are doping
+  specificity <- input$dopingSpecificity # probability of testing negative given they are not doping
   
   dopingTestPositive <- doping*sensitivity
   dopingTestNegative <- doping-dopingTestPositive
