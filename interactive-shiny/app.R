@@ -36,6 +36,7 @@ source("views/view_likelyhood.R")
 source("views/view_doubleCoinToss.R")
 source("views/view_doubleCoinTree.R")
 source("views/view_diseaseTest.R")
+source("views/view_dopingTest.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
@@ -47,7 +48,8 @@ ui = function(request) {
                                   menuItem("Likelihood ratio", tabName = "tabLikelyhood", icon = icon("dashboard")),
                                   menuItem("Double Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard")),
                                   menuItem("Double Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard")),
-                                  menuItem("Disease Test", tabName = "tabDiseaseTest", icon = icon("dashboard"), badgeLabel = "new", badgeColor = "green")
+                                  menuItem("Disease Test", tabName = "tabDiseaseTest", icon = icon("dashboard"), badgeLabel = "new", badgeColor = "green"),
+                                  menuItem("Doping Test", tabName = "tabDopingTest", icon = icon("dashboard"), badgeLabel = "new", badgeColor = "green")
                       ),
                       bookmarkButton(id='bookmarkButton')
                     ),
@@ -61,7 +63,8 @@ ui = function(request) {
                         tabLikelyhood,
                         tabDoubleCoinToss,
                         tabDoubleCoinTree,
-                        tabDiseaseTest
+                        tabDiseaseTest,
+                        tabDopingTest
                       )
                     ),
                     footer = dashboardFooter(
@@ -99,7 +102,7 @@ server = function(input, output,session) {
   source("models/model_doubleCoinToss.R", local = TRUE)
   source("models/model_doubleCoinTree.R", local = TRUE)
   source("models/model_diseaseTest.R", local = TRUE)
-
+  source("models/model_dopingTest.R", local = TRUE)
 }
 
 enableBookmarking(store = "url")
