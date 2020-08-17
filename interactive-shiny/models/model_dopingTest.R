@@ -23,6 +23,10 @@ output$display_likelihoodRatio <- renderUI({return(paste(input$dopingSensitivity
 
 output$display_posteriorOdds <- renderUI({return(paste(prevalence/(1-prevalence)*input$dopingSensitivity/(1-input$dopingSpecificity)))})
 
+output$display_bayesTheorem <- renderUI({return(withMathJax(sprintf("$$\\text{Posterior Odds}= %f \\times %f$$", 
+                                                                    input$dopingSensitivity/(1-input$dopingSpecificity),
+                                                                    prevalence/(1-prevalence))))})
+
 output$display_dopingTree_tree <- renderPlot({
   # constants for this example
   populationSize <- 10000
@@ -46,11 +50,11 @@ output$display_dopingTree_tree <- renderPlot({
   e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
   v <- c(paste0(populationSize,"\nAthletes"),
          paste0(doping,"\nDoping"),
-         paste0(doping,"\nDoping Test"),
+         paste0(doping,"\nDopers Tested"),
          paste0(dopingTestPositive,"\nTest Positive"),
          paste0(dopingTestNegative,"\nTest Negative"),
          paste0(notDoping,"\nNot Doping"),
-         paste0(notDoping,"\nDoping Test"),
+         paste0(notDoping,"\nNon-dopers Tested"),
          paste0(notDopingTestPositive,"\nTest Positive"),
          paste0(notDopingTestNegative,"\nTest Negative"))
   freqTree <- graph(edges=e, n=9, directed=TRUE)

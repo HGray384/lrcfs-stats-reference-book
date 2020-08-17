@@ -22,6 +22,8 @@ tabDopingTest = tabItem(tabName = "tabDopingTest",
                          ),
                         fluidRow(
                           box(title="Likelihood Ratio and Bayes' Theorem",
+                              p(withMathJax("$$\\text{Posterior Odds}=\\text{Likelihood Ratio}\\times \\text{Prior Odds}$$")),
+                              uiOutput("display_bayesTheorem"),
                               h3(HTML("Prior odds: ", paste0(uiOutput("display_priorOdds", inline = TRUE)))),
                               br(),
                               h3(HTML("Likelihood Ratio:", paste0(uiOutput("display_likelihoodRatio", inline = TRUE)))),
