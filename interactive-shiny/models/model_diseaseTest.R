@@ -23,11 +23,11 @@ output$display_diseaseTree_tree = renderPlot({
   e <- c(1, 2, 1, 6, 2, 3, 3, 4, 3, 5, 6, 7, 7, 8, 7, 9)
   v <- c(paste0(populationSize,"\nPeople"),
          paste0(diseased,"\nDisease"),
-         paste0(diseased,"\nDisease Test"),
+         paste0(diseased,"\nDiseased Tested"),
          paste0(diseasedTestPositive,"\nTest Positive"),
          paste0(diseasedTestNegative,"\nTest Negative"),
          paste0(notDiseased,"\nNo Disease"),
-         paste0(notDiseased,"\nDisease Test"),
+         paste0(notDiseased,"\nDisease-free Tested"),
          paste0(notDiseasedTestPositive,"\nTest Positive"),
          paste0(notDiseasedTestNegative,"\nTest Negative"))
   freqTree <- graph(edges=e, n=9, directed=TRUE)
