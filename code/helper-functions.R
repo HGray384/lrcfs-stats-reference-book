@@ -14,3 +14,16 @@ needPackages = function(...) {
     lapply(missingLibraries,library,character.only=TRUE) #Once installed then run the library function to register them
   }
 }
+
+#Check to see if output is a "dynamic" format
+#Returns TRUE if output is dynamic
+isDynamicOutput = function()
+{
+  return(knitr:::pandoc_to() == "html")
+}
+
+getInteractiveLink = function(tabName, embed = FALSE)
+{
+  url = paste0(SHINY_HOST,'/?_inputs_&sidebar="',tabName,'"&embed=',embed)
+  return(url)
+}

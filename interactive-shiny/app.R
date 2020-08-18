@@ -89,7 +89,7 @@ server = function(input, output,session) {
     query = getQueryString()
     if("embed" %in% names(query))
     {
-      if(query["embed"] == "true")
+      if(query["embed"] == "TRUE")
       {
         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/embed.css"))
       }
