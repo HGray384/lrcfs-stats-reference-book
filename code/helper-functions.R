@@ -22,8 +22,13 @@ isDynamicOutput = function()
   return(knitr:::pandoc_to() == "html")
 }
 
-getInteractiveLink = function(tabName, embed = FALSE)
+getInteractiveLink = function(tabName = "", embed = FALSE)
 {
-  url = paste0(SHINY_HOST,'/?_inputs_&sidebar="',tabName,'"&embed=',embed)
+  if(tabName == "")
+  {
+    url = SHINY_HOST
+  }else{
+    url = paste0(SHINY_HOST,'/?_inputs_&sidebar=%22',tabName,'%22&embed=%22',embed,'%22')
+  }
   return(url)
 }

@@ -85,11 +85,11 @@ server = function(input, output,session) {
     session$doBookmark()
   })
   
-  output$embedStylesheet = renderUI({
+  output$embedStylesheet = renderUI({ 
     query = getQueryString()
     if("embed" %in% names(query))
     {
-      if(query["embed"] == "TRUE")
+      if(query["embed"] == "\"TRUE\"")
       {
         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/embed.css"))
       }
