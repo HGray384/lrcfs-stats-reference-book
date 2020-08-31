@@ -1,4 +1,4 @@
-# Propositions for facts-in-issue {#propositions}
+# Propositions to frame uncertainty {#propositions}
 
 This Chapter introduces propositions
 

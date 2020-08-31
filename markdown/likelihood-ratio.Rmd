@@ -1,4 +1,4 @@
-# Likelihood ratio as value of evidence {#likelihood-ratio}
+# Likelihood ratio to evaluate uncertainty {#likelihood-ratio}
 
 ```{r package-load-likelihood-ratio, include=FALSE}
 source("./code/helper-functions.R")
