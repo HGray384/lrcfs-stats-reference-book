@@ -1,6 +1,10 @@
 # Introduction {#intro}
 
+What is the value of scientific evidence after taking into account  assertions made by the prosecution and defence? That is the question which underlies the material in this book. 
 
+The answer depends upon the type of scientific evidence in question, 
+
+Strides were made in this direction with the Case Assessment and Interpretation (CAI) protocol...
 [brief history of development of forensic science and evidence evaluation]
 
 [make the point that as scientific technology and knowledge sharing both increase, we are able to quantify more and move away from subjective opinion]
@@ -11,6 +15,7 @@
 
 [this book aims to introduce key concepts in probability and statistics which relate to evidence evaluation, providing interactive examples and being responsive to feedback to meet the needs of its users]
 
+[chain of investigation (some CAI); roles within the courtroom]
 
 This book is organised as follows.
 
