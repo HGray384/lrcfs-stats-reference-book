@@ -22,13 +22,27 @@ isDynamicOutput = function()
   return(knitr:::pandoc_to() == "html")
 }
 
-getInteractiveLink = function(tabName = "", embed = FALSE)
+getInteractiveLink = function(tabName = NULL, parentTabName = NULL, embed = FALSE)
 {
-  if(tabName == "")
+  #If we don't have a tab name then just use the host
+  if(is.null(tabName))
   {
     url = SHINY_HOST
   }else{
-    url = paste0(SHINY_HOST,'/?_inputs_&sidebar=%22',tabName,'%22&embed=%22',embed,'%22')
+    url = paste0(SHINY_HOST,'/?_inputs_&sidebar=%22',tabName)
+    
+    if(!is.null(parentTabName))
+    {
+      url = paste0(url,'%22&sidebarItemExpanded=%22',parentTabName,'%22')
+    }
+    
+    if(embed)
+    {
+      url = paste0(url,'%22&embed=%22',embed,'%22')
+    }
   }
+  
+  
+  
   return(url)
 }

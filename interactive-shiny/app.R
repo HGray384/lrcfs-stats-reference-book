@@ -28,6 +28,7 @@ library(kableExtra)
 
 #Load a global config file for easy access to application variables (APP_NAME_SHORT, APP_VER etc are set in here)
 source("appConfig.R")
+source("appHelpers.R")
 
 #Load any "views" - files that control how the page looks (UI controls)
 source("views/view_coinToss.R")
@@ -36,7 +37,8 @@ source("views/view_likelyhood.R")
 source("views/view_doubleCoinToss.R")
 source("views/view_doubleCoinTree.R")
 source("views/view_diseaseTest.R")
-source("views/view_dopingTest.R")
+source("views/view_dopingTest_probabilities.R")
+source("views/view_dopingTest_likelihoodRatio.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
@@ -49,7 +51,15 @@ ui = function(request) {
                                   menuItem("Double Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard")),
                                   menuItem("Double Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard")),
                                   menuItem("Disease Test", tabName = "tabDiseaseTest", icon = icon("dashboard"), badgeLabel = "new", badgeColor = "green"),
-                                  menuItem("Doping Test", tabName = "tabDopingTest", icon = icon("dashboard"), badgeLabel = "new", badgeColor = "green")
+                                  menuItem('Doping Test',
+                                           icon = icon('line-chart'),
+                                           menuItem('Probabilites',
+                                                    tabName = 'tabDopingTest_probabilities',
+                                                    icon = icon('line-chart')),
+                                           menuItem('Likelihood Ratio',
+                                                    tabName = 'tabDopingTest_likelihoodRatio',
+                                                    icon = icon('line-chart'))
+                                  )
                       ),
                       bookmarkButton(id='bookmarkButton')
                     ),
@@ -64,7 +74,8 @@ ui = function(request) {
                         tabDoubleCoinToss,
                         tabDoubleCoinTree,
                         tabDiseaseTest,
-                        tabDopingTest
+                        tabDopingTest_probabilities,
+                        tabDopingTest_likelihoodRatio
                       )
                     ),
                     footer = dashboardFooter(
@@ -102,7 +113,9 @@ server = function(input, output,session) {
   source("models/model_doubleCoinToss.R", local = TRUE)
   source("models/model_doubleCoinTree.R", local = TRUE)
   source("models/model_diseaseTest.R", local = TRUE)
-  source("models/model_dopingTest.R", local = TRUE)
+  source("models/model_dopingTest.R", local = TRUE) #common variables for dopingTest
+  source("models/model_dopingTest_probabilities.R", local = TRUE)
+  source("models/model_dopingTest_likelihoodRatio.R", local = TRUE)
 }
 
 enableBookmarking(store = "url")

@@ -20,3 +20,8 @@
     .tossIconTails{
   
     }
+    
+.goodResult,
+.badResult{
+  font-weight: bold;
+}
