@@ -429,7 +429,7 @@ We haven't been given a relevant population size to use natural frequencies to d
 
 Assume, for clarity, that we have a relevant population of 10,000 athletes. Using the base rate, we expect 200 (2%) of these to be doping and 9,800 (98%) not to be doping. The sensitivity tells us that out of the expected 200 athletes who are doping, the test is expected to return positive for 190 (95%) of them and negative for 10 (5%) of them. We expect 10 false negatives. 
 
-Out of the expected 9,800 athletes who are not doping, the sensitivity tells us to expect 9,310 (95%) to test negative. We expect 490 (5%) of these non-doping athletes to test positive; we expect 490 false positives. 
+Out of the expected 9,800 athletes who are not doping, the specificity tells us to expect 9,310 (95%) to test negative. We expect 490 (5%) of these non-doping athletes to test positive; we expect 490 false positives.
 
 We expect a total of 680 positive tests and 190 (~28%) of those positive tests to be from an athlete who is doping. The answer to our original question is that given a positive test result, we expect the athlete to be doping roughly 28% of the time. This information is presented in the expected frequency tree in Figure \@ref(fig:freq-tree-doping). 
 
