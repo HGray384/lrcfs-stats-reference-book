@@ -27,29 +27,5 @@ tabDopingTest_probabilities = tabItem(tabName = "tabDopingTest_probabilities",
                           box(title="Expected doping and test results",
                               plotOutput("display_dopingTest_probabilities_tree")
                           )
-                        ),
-                        fluidRow(
-                          box(title="Prior Odds",
-                              p("Something")
-                          ),
-                          box(title="Prior Odds Calculations",
-                              uiOutput("display_dopingTest_priorOddsCalcs")
-                          )
-                        ),
-                        fluidRow(
-                          box(title="Likelihood Ratio",
-                              uiOutput("display_dopingTest_likelihoodRatioInfo")
-                          ),
-                          box(title="Likelihood Ratio Calculations",
-                              uiOutput("display_dopingTest_likelihoodRatioCalcs")
-                          )
-                        ),
-                        fluidRow(
-                          box(title="Posterior Odds",
-                              uiOutput("display_dopingTest_posteriorOddsInfo")
-                          ),
-                          box(title="Posterior Odds Calculations", width=6,
-                              uiOutput("display_dopingTest_posteriorOddsCalcs")
-                          )
                         )
 )

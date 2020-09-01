@@ -31,6 +31,7 @@ source("appConfig.R")
 source("appHelpers.R")
 
 #Load any "views" - files that control how the page looks (UI controls)
+source("views/view_home.R")
 source("views/view_coinToss.R")
 source("views/view_coinTree.R")
 source("views/view_likelyhood.R")
@@ -45,21 +46,25 @@ ui = function(request) {
                     dashboardHeaderPlus(title = APP_NAME),
                     dashboardSidebar(
                       sidebarMenu(id = "sidebar",
-                                  menuItem("Single Coin Toss", tabName = "tabCoinToss", icon = icon("dashboard")),
-                                  menuItem("Single Coin Tree", tabName = "tabCoinTree", icon = icon("dashboard")),
-                                  menuItem("Likelihood ratio", tabName = "tabLikelyhood", icon = icon("dashboard")),
-                                  menuItem("Double Coin Toss", tabName = "tabDoubleCoinToss", icon = icon("dashboard")),
-                                  menuItem("Double Coin Tree", tabName = "tabDoubleCoinTree", icon = icon("dashboard")),
-                                  menuItem("Disease Test", tabName = "tabDiseaseTest", icon = icon("dashboard"), badgeLabel = "new", badgeColor = "green"),
-                                  menuItem('Doping Test',
-                                           icon = icon('line-chart'),
-                                           menuItem('Probabilites',
-                                                    tabName = 'tabDopingTest_probabilities',
-                                                    icon = icon('line-chart')),
-                                           menuItem('Likelihood Ratio',
-                                                    tabName = 'tabDopingTest_likelihoodRatio',
-                                                    icon = icon('line-chart'))
-                                  )
+                                  
+                                  menuItem('Home', tabName ="tabHome", icon = icon('home')),
+
+                                  menuItem('Coin Toss', icon = icon('coins'),
+                                           menuItem("Single Toss Probabilities", tabName = "tabCoinTree", icon = icon("coins")),
+                                           menuItem("Double Toss Probabilities", tabName = "tabDoubleCoinTree", icon = icon("coins")),
+                                           menuItem("Single Toss Samples", tabName = "tabCoinToss", icon = icon("coins")),
+                                           menuItem("Double Toss Samples", tabName = "tabDoubleCoinToss", icon = icon("coins"))
+                                           ),
+                                  
+                                  menuItem("Disease Test", tabName = "tabDiseaseTest", icon = icon("capsules")),
+                                  
+                                  menuItem('Doping Test', icon = icon('prescription-bottle'),
+                                           menuItem('Probabilites', tabName = 'tabDopingTest_probabilities',icon = icon('prescription-bottle')),
+                                           menuItem('Likelihood Ratio', tabName = 'tabDopingTest_likelihoodRatio', icon = icon('prescription-bottle'))
+                                  ),
+                                  
+                                  menuItem("Likelihood ratio", tabName = "tabLikelyhood", icon = icon("chart-line"))
+                                  
                       ),
                       bookmarkButton(id='bookmarkButton')
                     ),
@@ -68,6 +73,7 @@ ui = function(request) {
                       tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/lrcfs.css")),
                       tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/style.css")),
                       tabItems(
+                        tabHome,
                         tabCoinToss,
                         tabCoinTree,
                         tabLikelyhood,

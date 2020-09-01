@@ -1,11 +1,16 @@
 tabDoubleCoinToss = tabItem(tabName = "tabDoubleCoinToss",
                             fluidRow(
-                                  box(width=12,
+                              box(title="Double Coin Toss - Samples", width=12,
+                                  p("Blah")
+                              )
+                            ),
+                            fluidRow(
+                                  box(title="Inputs", width=12,
                                       column(width=6,
-                                        sliderInput("doubleCoinToss_coinTosses", h3("Number of Coin Tosses"), min=4, max=500, step=4, value = 200),
+                                        sliderInput("doubleCoinToss_coinTosses", "Number of Coin Tosses", min=4, max=500, step=4, value = 200),
                                       ),
                                       column(width=6,
-                                        sliderInput("doubleCoinToss_headsProbability", h3("Probability of Heads"), min=0, max=1, step=0.1, value = 0.5),
+                                        sliderInput("doubleCoinToss_headsProbability", "Probability of Heads", min=0, max=1, step=0.1, value = 0.5),
                                       )
                                   )
                             ),

@@ -61,49 +61,108 @@ GetCoinTosses = reactive({
   tosses = sample(coin, size=numberOfTosses, replace=TRUE, prob=sideProbabilites)
 })
 
-output$display_coinToss_overalWhisker = renderPlot({
-  input$coinToss_rerunCoinToss
-  input$coinToss_resetTotals
-  numberOfTosses = input$coinToss_numberOfTosses
-  coinTosses = GetCoinTosses()
 
+
+
+
+
+
+#Display trees
+output$display_coinToss_treeProb = renderPlot({
+  
+  numCoinTosses = 1
+  headsProbability = input$coinToss_headsProbabilty
+  
+  numHeadsCoinTosses = numCoinTosses * headsProbability
+  numTailsCoinTosses = numCoinTosses * (1-headsProbability)
+  
+  edges <- c(1, 2, 1, 3)
+  v <- c(paste0("Probability of\n",numCoinTosses),
+         paste0("Probability of Heads\n",numHeadsCoinTosses),
+         paste0("Probability of Tails\n",numTailsCoinTosses))
+  freqTree <- graph(edges=edges, n=3, directed=TRUE)
+  V(freqTree)$name <- v
+  
+  black=COLOUR_PALLETE[1]
+  V(freqTree)$color <- c(black,HEADS_COLOUR,TAILS_COLOUR)
+  V(freqTree)$label.font <- c(1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",9))
+  par(mar = c(0, 0, 0, 0))
+  tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+              vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+              vertex.label.cex=1.2, edge.color="black",  edge.width=1,
+              layout=layout_as_tree(graph = freqTree, root = 1),
+              vertex.size=50)
+  
+  return(tree)
+  
+  
+})
+
+output$display_coinToss_treeExp = renderPlot({
+  totalNumTosses = input$coinToss_numberOfTosses
+  expectedPorbability = input$coinToss_headsProbabilty
+  
+  total = totalNumTosses
+  heads = totalNumTosses * expectedPorbability
+  tails = totalNumTosses * (1-expectedPorbability)
+  
+  e <- c(1, 2, 1, 3)
+  v <- c(paste0(total,"\nTosses"), paste0(heads,"\nHeads"), paste0(tails,"\nTails"))
+  freqTree <- graph(edges=e, n=3, directed=TRUE)
+  V(freqTree)$name <- v
+  black <- COLOUR_PALLETE[1]
+  V(freqTree)$color <- c(black, HEADS_COLOUR, TAILS_COLOUR)
+  V(freqTree)$label.font <- c(1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",3))
+  par(mar = c(0, 0, 0, 0))
+  plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+       vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+       vertex.label.cex=1.2, edge.color="black",  edge.width=1,
+       layout=layout_as_tree(graph = freqTree, root = 1),
+       vertex.size=50)
+})
+
+output$display_coinToss_treeSample = renderPlot({
+  numberOfTosses = input$coinToss_numberOfTosses
+  expectedPorbability = input$coinToss_headsProbabilty
+  
+  coinTosses = GetCoinTosses()
+  
+  #Get the number of occurrences of each side of the coin toss
   results = table(coinTosses)
-  headsOccur  = cumsum(coinTosses == "heads") / 1:numberOfTosses
-  
-  latestToss = data.frame(
-    tosses = numberOfTosses,
-    headsProbabilty = headsOccur[numberOfTosses]
-  )
-  
-  dfAllTosses <<- rbind(dfAllTosses, latestToss)
+  headsOccur  = results["heads"]
+  tailsOccur = results["tails"]
 
-  ggplot(dfAllTosses, aes(x=tosses, y=headsProbabilty, group=tosses)) + 
-    geom_boxplot() +
-    ylim(0,1) +
-    ylab("Sample proportion of Heads") +
-    xlab("Number of coin tosses")
+  e <- c(1, 2, 1, 3)
+  v <- c(paste0(numberOfTosses,"\nTosses"), paste0(headsOccur,"\nHeads"), paste0(tailsOccur,"\nTails"))
+  freqTree <- graph(edges=e, n=3, directed=TRUE)
+  V(freqTree)$name <- v
+  black <- COLOUR_PALLETE[1]
+  V(freqTree)$color <- c(black, HEADS_COLOUR, TAILS_COLOUR)
+  V(freqTree)$label.font <- c(1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",3))
+  par(mar = c(0, 0, 0, 0))
+  plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+       vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+       vertex.label.cex=1.2, edge.color="black",  edge.width=1,
+       layout=layout_as_tree(graph = freqTree, root = 1),
+       vertex.size=50)
 })
 
 
-output$display_coinToss_tossResultsPie = renderPlot({
-  input$coinToss_rerunCoinToss
-  
-  numberOfTosses = input$coinToss_numberOfTosses
-  
-  colours = c("Heads","Tails")
-  
-  coinTosses = GetCoinTosses()
-  coinTossesOverall = table(coinTosses)
-  dfCoinTossesOverall = data.frame(coinTossesOverall)
-  
-  ggplot(dfCoinTossesOverall, aes(x = coinTosses, y = Freq, fill = colours)) +
-    geom_bar(stat="identity") +
-    theme(legend.position='none') +
-    scale_fill_manual(values = c("Heads" = HEADS_COLOUR, "Tails" = TAILS_COLOUR)) +
-    ylab("Total number of occurrences") +
-    xlab("Side of Coin")
-  
-})
+
+
+
+
+
+
+
+
+
+
+
+
 
 output$display_coinToss_tossResultsWaffle = renderUI({
   input$coinToss_rerunCoinToss
@@ -152,4 +211,47 @@ output$display_coinToss_plotlyGraph = renderPlotly({
     xlab("Coin Tosses")
   
   ggplotly(ggplotGraph, tooltip="text") %>% layout(hovermode = "x unified")
+})
+
+output$display_coinToss_tossResultsPie = renderPlot({
+  input$coinToss_rerunCoinToss
+  
+  numberOfTosses = input$coinToss_numberOfTosses
+  
+  colours = c("Heads","Tails")
+  
+  coinTosses = GetCoinTosses()
+  coinTossesOverall = table(coinTosses)
+  dfCoinTossesOverall = data.frame(coinTossesOverall)
+  
+  ggplot(dfCoinTossesOverall, aes(x = coinTosses, y = Freq, fill = colours)) +
+    geom_bar(stat="identity") +
+    theme(legend.position='none') +
+    scale_fill_manual(values = c("Heads" = HEADS_COLOUR, "Tails" = TAILS_COLOUR)) +
+    ylab("Total number of occurrences") +
+    xlab("Side of Coin")
+  
+})
+
+output$display_coinToss_overalWhisker = renderPlot({
+  input$coinToss_rerunCoinToss
+  input$coinToss_resetTotals
+  numberOfTosses = input$coinToss_numberOfTosses
+  coinTosses = GetCoinTosses()
+  
+  results = table(coinTosses)
+  headsOccur  = cumsum(coinTosses == "heads") / 1:numberOfTosses
+  
+  latestToss = data.frame(
+    tosses = numberOfTosses,
+    headsProbabilty = headsOccur[numberOfTosses]
+  )
+  
+  dfAllTosses <<- rbind(dfAllTosses, latestToss)
+  
+  ggplot(dfAllTosses, aes(x=tosses, y=headsProbabilty, group=tosses)) + 
+    geom_boxplot() +
+    ylim(0,1) +
+    ylab("Sample proportion of Heads") +
+    xlab("Number of coin tosses")
 })

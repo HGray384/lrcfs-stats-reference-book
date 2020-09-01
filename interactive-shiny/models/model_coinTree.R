@@ -1,4 +1,36 @@
-output$display_coinTree_tree = renderPlot({
+output$display_coinTree_prob = renderPlot({
+  
+  numCoinTosses = 1
+  headsProbability = input$coinTree_expectedPorbability
+  
+  numHeadsCoinTosses = numCoinTosses * headsProbability
+  numTailsCoinTosses = numCoinTosses * (1-headsProbability)
+  
+  edges <- c(1, 2, 1, 3)
+  v <- c(paste0("Probability of\n",numCoinTosses),
+         paste0("Probability of Heads\n",numHeadsCoinTosses),
+         paste0("Probability of Tails\n",numTailsCoinTosses))
+  freqTree <- graph(edges=edges, n=3, directed=TRUE)
+  V(freqTree)$name <- v
+  
+  black=COLOUR_PALLETE[1]
+  V(freqTree)$color <- c(black,HEADS_COLOUR,TAILS_COLOUR)
+  V(freqTree)$label.font <- c(1, 1, 1)
+  V(freqTree)$label.family <- c(rep("sans",9))
+  par(mar = c(0, 0, 0, 0))
+  tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+              vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+              vertex.label.cex=1.2, edge.color="black",  edge.width=1,
+              layout=layout_as_tree(graph = freqTree, root = 1),
+              vertex.size=50)
+  
+  return(tree)
+  
+  
+})
+
+
+output$display_coinTree_freq = renderPlot({
   totalNumTosses = input$coinTree_numberOfTosses
   expectedPorbability = input$coinTree_expectedPorbability
   
@@ -32,6 +64,5 @@ output$display_coinTree_tree = renderPlot({
   #        col=colPal[c(4,7)], bty = "n",
   #        pch=16)
   #par(mar = defMar)
-  
   
 })
