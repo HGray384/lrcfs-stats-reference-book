@@ -95,22 +95,19 @@ ui = function(request) {
 }
 
 server = function(input, output,session) {
+  
+  output$embedStylesheet = renderUI({ 
+    query = getQueryString()
+    if("embed" %in% names(query) && query["embed"] == "\"TRUE\"")
+    {
+      tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/embed.css"))
+    }
+  })
 
   # Need to exclude the buttons from themselves being bookmarked
   setBookmarkExclude(c("bookmarkButton"))
   observeEvent(input$bookmarkButton, {
     session$doBookmark()
-  })
-  
-  output$embedStylesheet = renderUI({ 
-    query = getQueryString()
-    if("embed" %in% names(query))
-    {
-      if(query["embed"] == "\"TRUE\"")
-      {
-        tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/embed.css"))
-      }
-    }
   })
   
   source("models/model_coinToss.R", local = TRUE)

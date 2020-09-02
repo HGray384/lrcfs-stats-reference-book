@@ -12,13 +12,17 @@ tabDopingTest_probabilities = tabItem(tabName = "tabDopingTest_probabilities",
                           box(title="Doping Test Properties", width=12,
                               column(6,
                                 sliderInput("doping_prob_Sensitivity", "Test Sensitivity", min=0.01, max = 0.99, step=0.01, value = 0.95),
-                                dashboardLabel("A test sensitivity of 0.95 means that out of 100 doping atheletes mean 95 would test positive.", status = "info")
+                                div(class="infoBox", "A test sensitivity of 0.95 means that out of 100 doping atheletes mean 95 would test positive.", status = "info")
                               ),
                               column(6,
                                 sliderInput("doping_prob_Specificity", "Test Specificity", min=0.01, max = 0.99, step=0.01, value = 0.95),
-                                dashboardLabel("A test specificity of 0.95 means that out of 100 non-doping atheletes mean 95 would test negative.", status = "info")
+                                div(class="infoBox", "A test specificity of 0.95 means that out of 100 non-doping atheletes mean 95 would test negative.", status = "info")
                               )
                           )
+                        ),
+                        fluidRow(
+                          infoBoxOutput("display_dopingTest_probabilities_infoBoxPopulation", width = 6),
+                          infoBoxOutput("display_dopingTest_probabilities_infoBoxBaseRate", width = 6)
                         ),
                         fluidRow(
                           box(title = "Information",

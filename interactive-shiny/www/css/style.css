@@ -25,3 +25,11 @@
 .badResult{
   font-weight: bold;
 }
+
+.infoBox{
+  background: #9EDBEF;
+  border: 1px solid #27B2D9;
+  padding: 5px;
+  font-size: small;
+  font-weight: bold;
+}

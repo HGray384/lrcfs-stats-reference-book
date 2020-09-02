@@ -460,6 +460,19 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 par(mar = defMar)
 ```
 
+
+```{block eval=FALSE, include=isDynamicOutput()}
+### Interavtive Example
+
+Below is an interactive example showing doping stuff.
+
+```
+```{r echo=FALSE}
+if(isDynamicOutput()){
+  knitr::include_app(getInteractiveLink("tabDopingTest_probabilities","DopingTest",TRUE), height = '850px')
+}
+```
+
 Now that we have shown that the answer to the original question is roughly 28%, it is worth reflecting on the first sentence from the text again. 
 
 > A test designed to detect athletes who are doping is claimed to be '95% accurate'.

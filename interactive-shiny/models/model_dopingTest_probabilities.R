@@ -9,6 +9,16 @@ posteriorOdds = reactive({
 })
 
 # displays
+
+output$display_dopingTest_probabilities_infoBoxPopulation <- renderInfoBox({
+  infoBox("Population", populationSize, icon = icon("users"), color = "purple")
+})
+
+output$display_dopingTest_probabilities_infoBoxBaseRate <- renderInfoBox({
+  infoBox("Base Rate", baseRate, icon = icon("prescription-bottle"), color = "red")
+})
+
+
 output$display_dopingTest_probabilities_treeInfo = renderUI({
   
   # reactive variables from slider input

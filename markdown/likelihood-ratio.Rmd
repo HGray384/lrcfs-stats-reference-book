@@ -256,6 +256,18 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 par(mar = defMar)
 ```
 
+```{block eval=FALSE, include=isDynamicOutput()}
+### Interavtive Example
+
+Below is an interactive example showing doping stuff.
+
+```
+```{r echo=FALSE}
+if(isDynamicOutput()){
+  knitr::include_app(getInteractiveLink("tabDopingTest_likelihoodRatio","DopingTest",TRUE), height = '1650px')
+}
+```
+
 For the numerator of the LR, "assuming that the athlete is doping"  means that we are only looking at the branches of the tree for the doping athletes. We can see that 190 out of these 200 doping athletes test positive, a probability of 0.95 (this is also the sensitivity in the original example).
 
 For the denominator of the LR, "assuming that the athlete is not doping" means that we only look at the branches of the tree for non-doping athletes. We can see that 490 out of the 9,800 non-doping athletes tested positive, a probability of 0.05 (this is 1 minus the specificity from the original example).
