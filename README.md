@@ -1,7 +1,15 @@
 # LRCFS stats reference book for judges
 This is the repository for the reference book. The book is built using the R package `bookdown` and interactive examples from `shiny`. Click on this link for the [bookdown documentation](https://bookdown.org/yihui/bookdown/).
 
-## Build instructions
+## Accessing the book and shiny application
+
+For internal LRCFS access, the book and shiny application can be accessed in two steps:
+
+1. Connect to the University of Dundee VPN
+2. Click on this link <https://lrcfs-shiny.test.dundee.ac.uk/internal/stats-book/> for the book, and this link <https://lrcfs-shiny.test.dundee.ac.uk/internal/interactive-stats-book/> for the shiny application
+3. Sign in using your UoD login and explore the content
+
+## Build instructions (for developers)
 To build the book, first clone or download this repository. Open R or RStudio in the base directory of the folder and run the following code:
 ```
 # install bookdown and its dependencies
@@ -13,7 +21,7 @@ rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
 
 Or, if you use RStudio, install the bookdown package as above and then open [stats-reference-book.Rproj](stats-reference-book.Rproj). Go to the Build tab on the top right-hand panel, and click "Build all".
 
-## To run the shiny application
+## To run the shiny application (for developers)
 
 Part of the code in this repository contains a shiny application with interactive probability and statistics examples. To run this application and its graphical user interface, first install R shiny using 
 ```
@@ -22,7 +30,7 @@ install.packages("shiny")
 ```
 Then open the /interactive-shiny/app.R file and run the application. In RStudio, this is done by opening the file and clicking 'Run App' just above the editing panel. 
 
-## To run the interactive examples within the book
+## To run the interactive examples within the book (for developers)
 
 The html version of the stats book embeds the shiny application within the relevant sections of its text. To make this run correctly, follow the steps above to run the shiny application first. 
 
