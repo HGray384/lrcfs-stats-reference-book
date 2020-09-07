@@ -57,7 +57,7 @@ Below is an interactive example showing how coin tosses do things.
 ```
 ```{r echo=FALSE}
 if(isDynamicOutput()){
-  knitr::include_app(getInteractiveLink("tabCoinToss",TRUE), height = '1560px')
+  knitr::include_app(getInteractiveLink("tabCoinToss",NULL,TRUE), height = '1560px')
 }
 ```
   
@@ -103,7 +103,7 @@ par(mar = defMar)
 ```
 
 ```{r echo=FALSE}
-knitr::include_app(getInteractiveLink("tabCoinTree",TRUE), height = '490px')
+knitr::include_app(getInteractiveLink("tabCoinTree",NULL,TRUE), height = '490px')
 ```
 
 If we did not ignore some of the epistemic uncertainties about the coin toss (e.g. if we did not trust the coin flipper), then this probability might not accurately represent our belief.
