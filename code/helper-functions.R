@@ -46,3 +46,5 @@ getInteractiveLink = function(tabName = NULL, parentTabName = NULL, embed = FALS
   
   return(url)
 }
+
+source("./code/server-config.R", local = TRUE)
