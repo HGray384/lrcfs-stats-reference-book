@@ -1,6 +1,6 @@
 tabCoinTree = tabItem(tabName = "tabCoinTree",
                       fluidRow(
-                        box(title="Single Coin Toss - Probabilites", width=12,
+                        box(title="Single Coin Toss - Probabilities", width=12,
                             p("Blah")
                         )
                       ),
@@ -15,7 +15,7 @@ tabCoinTree = tabItem(tabName = "tabCoinTree",
                         )
                       ),
                       fluidRow(
-                        box(title="Probabilty Tree",
+                        box(title="Probability Tree",
                             plotOutput("display_coinTree_prob")
                         ),
                         box(title="Expected Frequency Tree",
