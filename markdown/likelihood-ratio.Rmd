@@ -418,13 +418,13 @@ plot(freqTreeNonKick, vertex.shape="none", vertex.label=V(freqTreeNonKick)$name,
 par(mar = defMar, mfrow=c(1, 1))
 ```
 
-```{r lr-pie-kick, echo=FALSE, fig.cap="Relative size of E given H_p versus E given H_d", out.width = '80%', fig.align = 'center'}
-df <- data.frame(prob=c("E given H_p", "E given H_d"), num=c(1000,1))
-bp<- ggplot(df, aes(x="", y=num, fill=prob))+
-geom_bar(width = 1, stat = "identity")
-pie <- bp + coord_polar("y", start=0) + scale_fill_manual(values=c(colPal[6], colPal[7])) + theme_minimal()
-pie
-```
+<!-- ```{r lr-pie-kick, echo=FALSE, fig.cap="Relative size of E given H_p versus E given H_d", out.width = '80%', fig.align = 'center'} -->
+<!-- df <- data.frame(prob=c("E given H_p", "E given H_d"), num=c(1000,1)) -->
+<!-- bp<- ggplot(df, aes(x="", y=num, fill=prob))+ -->
+<!-- geom_bar(width = 1, stat = "identity") -->
+<!-- pie <- bp + coord_polar("y", start=0) + scale_fill_manual(values=c(colPal[6], colPal[7])) + theme_minimal() -->
+<!-- pie -->
+<!-- ``` -->
 
 An accompanying verbal statement could be:
 
