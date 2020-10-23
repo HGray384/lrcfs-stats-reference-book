@@ -59,7 +59,7 @@ ui = function(request) {
                                   menuItem("Disease Test", tabName = "tabDiseaseTest", icon = icon("capsules")),
                                   
                                   menuItem('Doping Test', icon = icon('prescription-bottle'),
-                                           menuItem('Probabilites', tabName = 'tabDopingTest_probabilities',icon = icon('prescription-bottle')),
+                                           menuItem('Probabilities', tabName = 'tabDopingTest_probabilities',icon = icon('prescription-bottle')),
                                            menuItem('Likelihood Ratio', tabName = 'tabDopingTest_likelihoodRatio', icon = icon('prescription-bottle'))
                                   ),
                                   
