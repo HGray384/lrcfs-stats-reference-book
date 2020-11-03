@@ -179,7 +179,7 @@ Use the sliders below to change the probability of heads for both coins and also
 ```
 ```{r echo=FALSE}
 if(isDynamicOutput()){
-  knitr::include_app(getInteractiveLink("tabdoubleCoinTree",NULL,TRUE), height = '1000px')
+  knitr::include_app(getInteractiveLink("tabDoubleCoinTree",NULL,TRUE), height = '1000px')
 }
 ```
 
