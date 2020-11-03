@@ -53,3 +53,9 @@ stats-reference-book.rds
 
 # tex file
 stats-reference-book.tex
+
+# pdf output
+stats-reference-book.pdf
+
+# build log file
+stats-reference-book.log
