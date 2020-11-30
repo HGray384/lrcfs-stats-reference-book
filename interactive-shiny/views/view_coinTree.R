@@ -19,10 +19,12 @@ tabCoinTree = tabItem(tabName = "tabCoinTree",
                       fluidRow(
                         box(title="Inputs", width=12,
                             column(width=6,
-                                   sliderInput("coinTree_numberOfTosses", "Number of Coin Tosses:", 1, 500, 50)
+                                   sliderInput("coinTree_numberOfTosses", "Number of Coin Tosses:", min=0, max=500,
+                                               value=200, step=50)
                             ),
                             column(width=6,
-                                   sliderInput("coinTree_expectedPorbability", "Probability Of Heads:", 0, 1, 0.5)
+                                   sliderInput("coinTree_expectedPorbability", "Probability Of Heads:", min=0, max=1,
+                                               value=0.5, step=0.05)
                             )
                         )
                       ),

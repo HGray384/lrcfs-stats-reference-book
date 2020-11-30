@@ -16,10 +16,12 @@ tabDoubleCoinTree = tabItem(tabName = "tabDoubleCoinTree",
                             fluidRow(
                               box(title="Inputs", width=12,
                                   column(width=6,
-                                         sliderInput("doubleCoinTree_coinTosses", "Number of Coin Tosses", min=4, max=500, step=4, value = 200),
+                                         sliderInput("doubleCoinTree_coinTosses", "Number of Coin Tosses", 
+                                                     min=0, max=500, step=20, value = 200),
                                   ),
                                   column(width=6,
-                                         sliderInput("doubleCoinTree_headsProbability", "Probability of Heads", min=0, max=1, step=0.1, value = 0.5),
+                                         sliderInput("doubleCoinTree_headsProbability", "Probability of Heads", 
+                                                     min=0, max=1, step=0.1, value = 0.5),
                                   )
                               )
                             ),
