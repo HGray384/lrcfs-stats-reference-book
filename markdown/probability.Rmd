@@ -1,4 +1,4 @@
-# Probability to describe uncertainty {#probability}.
+# Probability to describe uncertainty {#probability}
 
 ```{r package-load-probability, include=FALSE}
 source("./code/helper-functions.R")
