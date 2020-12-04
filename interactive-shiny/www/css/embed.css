@@ -29,7 +29,8 @@ footer{
 #shiny-tab-tabDoubleCoinTree > div:nth-child(1),
 #shiny-tab-tabDiseaseTest > div:nth-child(1),
 #shiny-tab-tabDopingTest_probabilities > div:nth-child(1),
-#shiny-tab-tabDopingTest_likelihoodRatio > div:nth-child(1)
+#shiny-tab-tabDopingTest_likelihoodRatio > div:nth-child(1),
+.hideIfEmbedded
 {
 	display: none;
 }
