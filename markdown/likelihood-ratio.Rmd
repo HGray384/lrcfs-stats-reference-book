@@ -12,18 +12,20 @@ needPackages("igraph",
 source("./code/useful-variables.R")
 ```
 
-This Chapter introduces the likelihood ratio
+Using the theory of probability and propositions, we have seen how uncertainty can be described and framed around the key facts of a criminal case. The final idea is to evaluate the uncertainty surrounding evidence in a way which satisfies probability theory, so that it remains logically consistent, and also so that it assists the court in determining the truth of key propositions. This is achieved using the likelihood ratio, which has been mentioned in previous chapters. 
+
+In this chapter, we focus on the likelihood ratio in detail. We revisit how it relates to probabilities, propositions, and evidence, how it used to quantify probative value, what factors can affect its robustness, and how it is categorised and communicated to the court.
 
 ## Relative support for competing propositions
 
-Suppose that we have two competing propositions, A and B, as in the previous chapter. We observe an event E, and wish to know whether E was more likely assuming A or B. If E is more likely assuming A was true, then we say that E provides more support for A than B, and vice versa if E is more likely assuming B to be true. The likelihood ratio (LR) quantifies this support.
+Suppose that there are two competing propositions, $H_p$ for the prosecution and $H_d$ for the defence. There is observed evidence E, and the expert needs to determine whether E was more likely assuming $H_p$ or $H_d$, since this will assist the court in assessing the truth of $H_p$ or $H_d$. If E is more likely assuming $H_p$ were true compared to if $H_d$ were true, then the evidence E provides more support for $H_p$ than $H_d$, and vice versa if E is more likely assuming $H_d$ to be true compared to $H_p$. The likelihood ratio (LR) quantifies the magnitude of this support.
 
-The LR consists of the probability of observing E conditioned on A being true, divided by the probability of observing E conditioned on B being true. As a formula it is written as
-$$\text{LR}=\frac{\text{probability of E assuming A is true}}{\text{probability of E assuming B is true}}.$$
+The LR is the relative size of the probability of observing E conditioned on $H_p$, compared to the probability of observing E conditioned on $H_d$. Mathematically, this is equivalent to dividing the probability of observing E conditioned on $H_p$, by the probability of observing E conditioned on $H_d$. As a formula it is written as
+$$\text{LR}=\frac{\text{probability of E assuming }H_p \text{ is true}}{\text{probability of E assuming }H_d \text{ is true}}.$$
 
-The trick here is that by assuming each proposition to be true in turn, we can see how much more likely E was to occur in A's version of events compared to B's.
+By assuming each of the competing propositions to be true, we can see how much more likely E was to occur in the prosecution's version of events compared to the defence's.
 
-Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support for A compared to B, since it means that the probability of E assuming that A is true is greater than the probability of E assuming B is true. Values of the LR which are less than 1 indicate relative support for B compared to A, since it means that the probability of E assuming that B is true is greater than the probability of E assuming A is true. Values of the LR which are equal to 1 indicate that E provides equal support for A and B when compared to each other. This is shown in Table \@ref(tab:lr-meaning-table).
+Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support in favour of $H_p$ compared to $H_d$, since it means that the probability of E assuming that $H_p$ is true is greater than the probability of E assuming $H_d$ is true. Values of the LR which are less than 1 indicate relative support in favour of $H_d$ compared to $H_p$, since it means that the probability of E assuming that $H_d$ is true is greater than the probability of E assuming $H_p$ is true. Values of the LR which are equal to 1 indicate that E provides equal support for $H_p$ and $H_d$ when compared to each other. This is shown in Table \@ref(tab:lr-meaning-table).
 
 ```{r lr-meaning-df, include=FALSE}
 lrDf <- tibble("LR" = c("less than 1",
@@ -45,7 +47,7 @@ lrDf %>%
 
 ## Strength of support
 
-The magnitude of the LR conveys the strength of the support which E provides for A or B when compared to each other. LRs of 1,000,000 and 10 both provide support for proposition A compared to B, but the LR of 1,000,000 provides much stronger support than the LR of 10 does. Similarly, LRs of 0.0000001 and 0.1 provide support for proposition B compared to A, but the LR of 0.0000001 provides much stronger support than the LR of 0.1 does. As the value of the LR gets further away from 1, the stronger the support is for proposition A or B (depending on whether the LR is greater or less than 1) when compared to its competitor.
+The magnitude of the LR conveys the strength of the support which E provides for $H_p$ or $H_d$ in comparison to each other. LRs of 1,000,000 and 10 both provide support in favour of proposition $H_p$ compared to $H_d$, but the LR of 1,000,000 provides much stronger support than the LR of 10 does. Similarly, LRs of 0.0000001 and 0.1 provide support in favour of proposition $H_d$ compared to $H_p$, but the LR of 0.0000001 provides much stronger support than the LR of 0.1 does. As the value of the LR gets further away from 1, the stronger the support is in favour of proposition $H_p$ or $H_d$ (depending on whether the LR is greater or less than 1) when compared to its competitor.
 
 One method to convey the numerical strength of an LR is to place it into a category of verbal expressions based on its numerical magnitude. Multiple suggested categorisations exist, such as the example given below in Table \@ref(tab:verbal-scale-table).
 
@@ -90,9 +92,9 @@ vsDf %>%
 
 ```
 
-The LR is determined by the values of the conditional probabilities which underly it. Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities.
+The LR is determined by the values of its underlying conditional probabilities. Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities. Hover your mouse over the graph to see the values of the conditional probabilities and the resulting LR. 
 
-```{r lr-function, echo=FALSE, fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support for A compared to B, and orange is support for B compared to A. White is equal support for both.", out.width = '100%', fig.align = 'center'}
+```{r lr-function, echo=FALSE, fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support in favour of $H_p$ compared to $H_d$, and orange is support for $H_d$ compared to $H_p$. White means equal support for both.", out.width = '100%', fig.align = 'center'}
 gridVals <- 101
 prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1]
 vars <- expand.grid(prob1, prob2)
@@ -100,11 +102,11 @@ lrDf <- tibble(prob1 = vars$Var1, prob2 = vars$Var2)%>%
   mutate(lr = prob1/prob2)
 
 graph = ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
-  geom_tile(aes(text = paste('probability of E assuming A is true: ', prob1,
-                             '<br>probability of E assuming B is true:', prob2,
+  geom_tile(aes(text = paste('probability of E assuming Hp is true: ', prob1,
+                             '<br>probability of E assuming Hd is true:', prob2,
                              '<br>LR: ',lr))) +
-  xlab("probability of E assuming B is true") +
-  ylab("probability of E assuming A is true") +
+  xlab("probability of E assuming Hd is true") +
+  ylab("probability of E assuming Hp is true") +
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
   scale_fill_gradientn(colors = c(colPal[7],
@@ -126,27 +128,21 @@ ggplotly(graph, tooltip = "text")
   
 ```
 
-Figure \@ref(fig:lr-function) highlights some important properties of the LR:
-
-- LR values close to 1 tell us nothing about the values of their conditional probabilities other than that they are roughly equal. So long as the probabilities are similar in size, extremely unlikely situations will be assigned the same LR as absolutely certain ones. This can be seen by the white strip across the diagonal of the figure.
-- Most values for the probabilities lead to LRs which are no more than "moderate support" for either proposition in light of Table \@ref(tab:verbal-scale-table). This is the consequence of the probabilities being less than 1; if the probability of E conditioned on B is 0.25, then we know the LR can have a maximum value 4, since the probability of E conditioned on A is at most 1.
-- Following on from the previous point, large or small LRs can only be obtained when one probability is small, i.e. when E is highly unlikely conditioned on one of the propositions. This can be seen by the block of darker colour for the smallest value of each of the probabilities. In order to see large or small LRs, we would really have to zoom into the areas of this plot where one probability is tiny, and this cannot be seen using the same scale of this current plot.
-
 ## Example: DNA match
 
-Suppose a high quality full DNA profile is recovered from a blood stain at a crime scene. This is known as the **questioned profile**. The profile is analysed and is determined to contain only one person's DNA, making it a **single donor profile**. A suspect is detained and their DNA profile is taken. This is known as the **reference profile**. The reference profile is found to 'match' the questioned profile. Consider the following competing source-level propositions:
+Suppose that a high quality full DNA profile is recovered from a blood stain at a crime scene. This is known as the **questioned profile**. The profile is analysed and is determined to contain only one person's DNA, making it a **single donor profile**. A suspect is detained and their DNA profile is taken. This is known as the **reference profile**. The reference profile is found to 'match' the questioned profile. Consider the following competing source-level propositions:
 
-- the suspect is the source (of the questioned profile)
-- someone other than the suspect is the source (of the questioned profile).
+- $H_p$: the suspect is the source (of the questioned profile),
+- $H_d$: someone other than the suspect is the source (of the questioned profile).
 
-In this situation the DNA 'match' is the observation for which we would like probabilities conditional on the above propositions. The LR is given by
+In this situation the DNA 'match' is the evidence for which we would like probabilities conditioned on the above propositions. The LR is given by
 
 $$\text{LR}=\frac{\text{probability of a match assuming the suspect is the source}}{\text{probability of a match assuming someone other than the suspect is the source}}.$$
-To obtain the LR, we need to obtain values for the above conditional probabilities. Let's consider the numerator first. 
+To obtain the LR, we need to obtain values for the above conditional probabilities. Consider the numerator first. 
 
-The probability of obtaining a match assuming that the suspect is the source is usually set to 1; it is considered to be certain that a match would be obtained if the suspect was the source. This is reasonable although it is not strictly true. There is always the risk of a false positive or other laboratory or technical errors occuring, but it is assumed that the risks of these errors are negligible, especially for high-quality single donor full profiles. 
+The probability of obtaining a match assuming that the suspect is the source is usually set to 1; it is considered to be certain that a match would be obtained if the suspect were truly the source. This is reasonable although it is not strictly true. There is always the risk of a false positive or other laboratory or technical errors occurring, but in practice it is typically assumed that the risks of these errors are negligible, especially for high-quality single donor full profiles. If the questioned profile is not high quality, or another factor affecting the integrity of the match is present for a given case, then the expert might assign a probability of less than 1 to this expression.
 
-The denominator, the probability of obtaining a match assuming that someone other than the suspect is the source, is more nuanced. This is known as the **random match probability** (RMP). The RMP reflects how common the recovered profile is in the relevant population for the case. The more common the profile, the higher the RMP and the lower the LR when the formula is applied. The logic behind this is the following: the more common a characteristic is in a population, the worse that characteristic is at discriminating between propositions. Applied in this case, the previous logic states that more common DNA profiles are worse at discriminating between source-level propositions and so they decrease LRs accordingly. Figure \@ref(fig:freq-tree-rmp) visualises an RMP of 1 in 40 million for a population of 40 million and 1 people, which also includes the guilty individual.
+The probability of obtaining a match assuming that someone other than the suspect is the source is more complex to assign a value to. This is known as the **random match probability** (RMP). The RMP reflects how common the recovered profile is in the relevant population for the case. The more common the profile, the higher the RMP and the lower the LR when the formula is applied; The LR is inversely related to the RMP. The logic behind this is the following: the more common a characteristic is in a population, the worse that characteristic is at discriminating between source level propositions. More common DNA profiles are worse at discriminating between source-level propositions and so they result in smaller LRs when compared to uncommon profiles. Figure \@ref(fig:freq-tree-rmp) displays the expected frequency tree for a RMP of 1 in 40 million in a population of 40 million and 1 people (which includes the guilty individual).
 
 ```{r freq-tree-rmp, echo=FALSE,fig.cap="Out of 40 million innocent people, 1 DNA profile matches. The RMP is 1 in 40 million. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
@@ -174,37 +170,35 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 par(mar = defMar)
 ```
 
-The RMP is calculated using known frequencies of profiles from specific ethnic groups of people, since ethnic group is a large factor in determining genetic variation. The genetics behind DNA evidence is highly discriminating between individuals, so the RMP is usually very small (it can be in the order of 1 in 1 billion). This results in LRs in the order of millions or billions for competing source level propositions for single donor full profiles. 
+The figure highlights that this RMP reflects the belief that out of 40 million innocent individuals from a relevant population, it is expected that 1 will match the questioned profile. 
+
+In this example, the LR is 40 million. This means that the DNA match is 40 million times more likely if the suspect were the source of the bloodstain compared to if they were not. From the verbal scale in Table \@ref(tab:verbal-scale-table), this LR translates into extremely strong support for $H_p$ compared to $H_d$. Note that this LR is for competing source level propositions. If the propositions were moved to the activity level, then the LR could be considerably reduced depending on the case circumstances. It is important to keep in mind the specific competing propositions to which any given LR refers.
+
+The RMP is calculated using frequency databases of profiles from specific ethnic groups of people, since ethnic group is a large factor in determining genetic variation. The genetics behind DNA evidence is highly discriminating between individuals, so the RMP is usually very small. This results in LRs which can be very large for competing source level propositions for single donor full profiles. 
 
 In the below interactive example, you can change the value for the RMP and see what affect that has on the LR.
 
 [Interactive example with RMP; display graph of LR as a function of the RMP, the user can highlight points on the graph or input values of the RMP to see what the corresponding LR is.]
 
-In the above discussion, we simplified things by ignoring an important issue of relatedness. For example, the degree of relatedness in a population affects the RMP. This is known as the **population sub-structure** or **co-ancestry**. It is a numerical factor which adjusts the RMP to take account of the co-ancestry present in the relevant population, which again often differs by ethnic background.
+The RMP is also affected by other factors, such as the degree of relatedness in a population. This is known as the **population sub-structure** or **co-ancestry**. It is a numerical factor which adjusts the RMP to take account of the co-ancestry present in the relevant population, which can also differ depending on ethnic background.
 
-We also did not consider direct blood relatives. Our second proposition considered *anyone* other than the suspect. But if we considered close genetic relationships, such as siblings and parents of the suspect, then the RMP would not reflect the probability of matching them. The genetic similarity between these individuals would mean the probability of a match is much higher than the RMP. For this reason, and when there is no reason to suspect close relatives of the suspect, the proposition advocating non-guilt is sometimes changed to
+We did not consider direct blood relatives in our propositions. $H_d$ considered *anyone* other than the suspect. But if there was reason to suspect close relatives of the suspect, such as their siblings or parents, then the RMP as calculated from population frequency databases alone would not reflect the required probability. The genetic similarity between these individuals would mean the probability of a match is higher than the RMP. For this reason, and when there is no reason to suspect close relatives of the suspect, the defence proposition is sometimes constructed as
 
-- someone unrelated to the suspect is the source (of the questioned profile),
+- $H_d$: someone unrelated to the suspect is the source (of the questioned profile).
 
-and the RMP is used to calculate the LR as usual.
-
-There are also other corrective factors that are applied to calculate the conditional probabilities which feed into the LR in the context of DNA evidence, but they are not not mentioned here.
+There are other corrective factors that are applied to calculate the conditional probabilities which feed into the LR in the context of DNA evidence, but they are not not mentioned here. To learn more about DNA evidence and resulting LR calculations, please see @dnaprimer2017 and @puch2012. 
 
 ## Updating odds
 
-The LR has a very clear interpretation from Bayes' theorem (Chapter ...)
+The LR has a very clear interpretation from Bayes' rule, which was introduced in Chapter \@ref(probability). The rule states that
 $$\text{posterior odds} = \text{LR} \times \text{prior odds}.$$
-It is the numerical factor by which we multiply odds before particular information (prior odds) in order to obtain odds conditioned on that information (posterior odds); the LR tells us *how much* to update beliefs in light of information. 
+The LR is the numerical factor by which we multiply prior odds in order to obtain posterior odds. The LR tells us *how much* to update odds in light of new information. 
 
-We saw in Table \@ref(tab:lr-meaning-table) that values of the LR equal to 1 meant that the event provided equal support for both propositions when compared to each other. Logically, if an event provides equal support for two competing propositions, then it should not update any beliefs we had prior to observing it. If we look at Bayes' theorem above and plug in an LR of 1, then this is exactly what happens. The prior odds between the propositions is equal to the posterior odds between them; observing the event did not change the odds. 
+We saw in Table \@ref(tab:lr-meaning-table) that values of the LR equal to 1 meant that the evidence provided equal support for both propositions when compared to each other. Logically, if evidence provides equal support for two competing propositions, then it should not update any odds prior to having observed it. If we look at Bayes' theorem above and plug in an LR of 1, then this is exactly what happens. The prior odds between the propositions is equal to the posterior odds between them; observing the event did not change the odds. 
 
-We also saw that when the LR is greater than 1, then the event E provides more support for proposition A than proposition B. The intuition behind that statement is that, after observing E, we should update our prior belief to be more in favour of proposition A (than B) than it was. This is confirmed with Bayes' theorem above; when the LR is greater than 1, then the prior odds in favour of A *increases* to become the posterior odds. Observing the event E was found to be more probable assuming A than B, and so the odds were increased in favour of A by a specific factor, which is given by the LR.
+We also saw that when the LR is greater than 1, then the evidence provides more support for $H_p$ than proposition $H_d$. The intuition is that the evidence should increase the odds to be more in favour of $H_p$ (compared to $H_d$) than it previously was. This is confirmed with Bayes' rule above; when the LR is greater than 1, then the prior odds in favour of $H_p$ *increases* when becoming the posterior odds. Observing the evidence was found to be more probable assuming $H_p$ than $H_d$, and so the odds were increased in favour of $H_p$ by a factor equal to the LR.
 
-[example in which LR>1 and can be changed with fixed prior odds]
-
-We lastly discuss when the LR is less than 1. In this situation, the event provides more support for proposition B than proposition A. This tells us that we should update our prior belief to be more in favour of proposition B (than A) that it was. Looking at Bayes' theorem, this is exactly what happens; an LR less than 1 means that the prior odds in favour of A are *reduced* to become the posterior odds. Reducing the odds in favour of A means *increasing* the odds in favour of B and so our intuition is confirmed. Observing the event E was found to be more probable assuming B than A, and so the odds were reduced in favour of A (increased in favour of B) by a specific factor, which is given by the LR.
-
-[example with changable LR<1 with fixed prior odds]
+When the LR is less than 1, the evidence provides more support for $H_d$ than $H_p$. This tells us that we should update our prior odds to be more in favour of proposition $H_d$ (compared to $H_p$) that it previously was. According to Bayes' rule, this is exactly what happens; an LR less than 1 means that the prior odds in favour of $H_p$ are *reduced* when becoming the posterior odds. Reducing the odds in favour of $H_p$ means *increasing* the odds in favour of $H_d$. Observing the evidence was found to be more probable assuming $H_d$ than $H_d$, and so the odds were reduced in favour of $H_p$ (increased in favour of $H_d$) by a factor equal to the LR.
 
 ## Example: doping (revisited)
 
@@ -308,7 +302,7 @@ It can be seen that the LR updates beliefs about $H_p$ and $H_d$. Notice how bel
 
 ## Combining evidence
 
-LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Chapter ...), we can to multiply their individual LRs to obtain a combined LR. If the two pieces of evidence are labelled as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that $E_1$ **and** $E_2$ are observed if $H_p$ is true, rather than if $H_d$ is true. Combining evidence like this is the standard approach in DNA evidence evaluation. It is also becoming more popularto combine the LRs for multiple types of evidence, instead of presenting them individually. This can only be done when the propositions underlying the probability calculations are the same, and specifically are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. 
+LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Chapter ...), we can to multiply their individual LRs to obtain a combined LR. If the two pieces of evidence are labelled as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that $E_1$ **and** $E_2$ are observed if $H_p$ is true, rather than if $H_d$ is true. Combining evidence like this is the standard approach in DNA evidence evaluation. It is also becoming more popular to combine the LRs for multiple types of evidence, instead of presenting them individually. This can only be done when the propositions underlying the probability calculations are the same, and specifically are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. 
 
 It is paramount that the assumption of statistical independence is checked when combining the LRs from multiple evidence types in this way. Unfortunately, data sources which can help scientists to determine statistical independence between evidence types is scarce in the scientific literature at this moment in time. When the statistical independence assumption does not hold true, then more complex probabilistic methods needs to be used to construct the joint LRs.
 
