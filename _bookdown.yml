@@ -9,7 +9,6 @@ rmd_files: [
   "markdown/intro.Rmd",
   "markdown/uncertainty.Rmd",
   "markdown/probability.Rmd",
-  "markdown/statistics.Rmd",
   "markdown/propositions.Rmd",
   "markdown/likelihood-ratio.Rmd",
   "markdown/summary.Rmd",
