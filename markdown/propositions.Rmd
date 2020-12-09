@@ -249,7 +249,7 @@ Consider the probative value of a match between the claimant's DNA profile and t
 
 Evidence which is highly probative at the source level may have its value diminished at the activity level. For this reason, it is important to have clear and unambiguous propositions which are addressed at the appropriate proposition level (usually activity). 
 
-## Probabilities for propositions
+## Probabilities for propositions {#prosecutor-fallacy}
 
 In this Chapter we have been careful to refer to **probabilities for evidence** conditioned on propositions. We reasoned that the probative value of evidence is related to the probabilities for evidence assuming, in turn, competing propositions and then comparing the probabilities with each other. We explicitly did not state **probabilities for propositions**, and particularly not probabilities for competing propositions conditioned on evidence. 
 
