@@ -290,7 +290,7 @@ Bayes' rule dictates that the posterior odds must be equal to the prior odds mul
 
 In this example we could calculate the posterior odds easily without using Bayes' rule, this meant that we could verify the probability assignment. In many real situations, the posterior odds are hard to quantify in a way that guarantees that they satisfy Bayes' rule without using Bayes' rule itself to derive them. This is where Bayes' rule is most powerful, because all that is required is to quantify prior odds and the likelihood ratio in order to obtain logically coherent posterior odds.
 
-## Reliable probabilities
+## Reliable probabilities {#reliable-probabilities}
 
 Using our notion of probability, anyone is capable of assigning a probability to their personal uncertainties. But even if everyone does this to the best of their ability, some people simply have more information about some events than others. This is clear from the idea of experts versus non-experts: the expert's probability assignment will be more **reliable** than that of the non-expert. Reliability here refers to the fact that the expert's knowledge is closer to all the available knowledge about a given topic, and so their best assessment is better than an uninformed non-expert's. This is the idea of the expert witness. Reliability of probability assignments is a key part to interpreting and using expert evidence.
 
