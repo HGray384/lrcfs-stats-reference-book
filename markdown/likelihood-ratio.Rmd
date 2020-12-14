@@ -18,38 +18,40 @@ In this chapter, we focus on the likelihood ratio in detail. We revisit how it r
 
 ## Relative support for competing propositions
 
-Suppose that there are two competing propositions, $H_p$ for the prosecution and $H_d$ for the defence. There is observed evidence E, and the expert needs to determine whether E was more likely assuming $H_p$ or $H_d$, since this will assist the court in assessing the truth of $H_p$ or $H_d$. If E is more likely assuming $H_p$ were true compared to if $H_d$ were true, then the evidence E provides more support for $H_p$ than $H_d$, and vice versa if E is more likely assuming $H_d$ to be true compared to $H_p$. The likelihood ratio (LR) quantifies the magnitude of this support.
+Suppose that there are two competing propositions, $H_p$ for the prosecution and $H_d$ for the defence. There is observed evidence $E$, and the expert needs to determine whether $E$ was more likely assuming $H_p$ or $H_d$, since this will assist the court in assessing the truth of $H_p$ or $H_d$. If $E$ is more likely assuming $H_p$ were true compared to if $H_d$ were true, then the evidence $E$ provides more support for $H_p$ than $H_d$, and vice versa if $E$ is more likely assuming $H_d$ to be true compared to $H_p$. The likelihood ratio (LR) quantifies the magnitude of this support.
 
-The LR is the relative size of the probability of observing E conditioned on $H_p$, compared to the probability of observing E conditioned on $H_d$. Mathematically, this is equivalent to dividing the probability of observing E conditioned on $H_p$, by the probability of observing E conditioned on $H_d$. As a formula it is written as
-$$\text{LR}=\frac{\text{probability of E assuming }H_p \text{ is true}}{\text{probability of E assuming }H_d \text{ is true}}.$$
+The LR is the relative size of the probability of observing $E$ conditioned on $H_p$, compared to the probability of observing $E$ conditioned on $H_d$. Mathematically, this is equivalent to dividing the probability of observing $E$ conditioned on $H_p$, by the probability of observing $E$ conditioned on $H_d$. As a formula it is written as
+$$\text{LR}=\frac{\text{probability of }E\text{ assuming }H_p \text{ is true}}{\text{probability of }E\text{ assuming }H_d \text{ is true}}.$$
 
-By assuming each of the competing propositions to be true, we can see how much more likely E was to occur in the prosecution's version of events compared to the defence's.
+By assuming each of the competing propositions to be true, we can see how much more likely $E$ was to occur in the prosecution's version of events compared to the defence's.
 
-Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support in favour of $H_p$ compared to $H_d$, since it means that the probability of E assuming that $H_p$ is true is greater than the probability of E assuming $H_d$ is true. Values of the LR which are less than 1 indicate relative support in favour of $H_d$ compared to $H_p$, since it means that the probability of E assuming that $H_d$ is true is greater than the probability of E assuming $H_p$ is true. Values of the LR which are equal to 1 indicate that E provides equal support for $H_p$ and $H_d$ when compared to each other. This is shown in Table \@ref(tab:lr-meaning-table).
+Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support in favour of $H_p$ compared to $H_d$, since it means that the probability of $E$ assuming that $H_p$ is true is greater than the probability of E assuming $H_d$ is true. Values of the LR which are less than 1 indicate relative support in favour of $H_d$ compared to $H_p$, since it means that the probability of $E$ assuming that $H_d$ is true is greater than the probability of $E$ assuming $H_p$ is true. Values of the LR which are equal to 1 indicate that $E$ provides equal support for $H_p$ and $H_d$ when compared to each other. This is shown in Table \@ref(tab:lr-meaning-table).
 
 ```{r lr-meaning-df, include=FALSE}
 lrDf <- tibble("LR" = c("less than 1",
                         "equal to 1",
                         "greater than 1"),
-                  "Meaning"=c("More support for B compared to A",
+                  "Meaning"=c("More support for Hd compared to Hp",
                               "Equal support for both when compared to each other",
-                              "More support for A compared to B"))
+                              "More support for Hp compared to Hd"))
 ```
 
 ```{r lr-meaning-table, echo=FALSE}
 options(kableExtra.html.bsTable = T)
 lrDf %>%
   knitr::kable(booktabs = TRUE, escape = F, align = "c",
-             caption = 'Meaning of values of the LR for event E.') %>%
+             caption = 'Meaning of values of the LR for evidence E.') %>%
   kable_styling(c("striped", "condensed"), 
                 latex_options = "striped")
 ```
 
-## Strength of support
+## Quantifying probative value
 
-The magnitude of the LR conveys the strength of the support which E provides for $H_p$ or $H_d$ in comparison to each other. LRs of 1,000,000 and 10 both provide support in favour of proposition $H_p$ compared to $H_d$, but the LR of 1,000,000 provides much stronger support than the LR of 10 does. Similarly, LRs of 0.0000001 and 0.1 provide support in favour of proposition $H_d$ compared to $H_p$, but the LR of 0.0000001 provides much stronger support than the LR of 0.1 does. As the value of the LR gets further away from 1, the stronger the support is in favour of proposition $H_p$ or $H_d$ (depending on whether the LR is greater or less than 1) when compared to its competitor.
+The magnitude of the LR conveys the strength of the support that $E$ provides for $H_p$ or $H_d$ relative to each other. LRs of 1,000,000 and 10 both provide support in favour of proposition $H_p$ compared to $H_d$, but the LR of 1,000,000 provides much stronger support than the LR of 10 does. Similarly, LRs of 0.0000001 and 0.1 provide support in favour of proposition $H_d$ compared to $H_p$, but the LR of 0.0000001 provides much stronger support than the LR of 0.1 does. As the value of the LR gets further away from 1, the stronger the support is in favour of proposition $H_p$ or $H_d$ (depending on whether the LR is greater or less than 1) when compared to its competitor.
 
-One method to convey the numerical strength of an LR is to place it into a category of verbal expressions based on its numerical magnitude. Multiple suggested categorisations exist, such as the example given below in Table \@ref(tab:verbal-scale-table).
+Since the LR provides a numerical value for the relative support that a piece of evidence provides for $H_p$ against $H_d$, it can be seen as quantifying the **probative value** of a piece of evidence for those propositions. This interpretation of the LR is one of the reasons why it is advocated as a tool to quantify expert evidence. It is the role of the expert witness to present the probative value of scientific evidence within their domain of expertise to the court. The LR provides a logical means to achieve this. The fact finder can then use the probative value of evidence given by the LR to reason about the truth of $H_p$ and $H_d$.
+
+LRs are often placed into a category of verbal expressions based on their numerical magnitude. Multiple suggested categorisations exist, such as the example given below in Table \@ref(tab:verbal-scale-table).
 
 ```{r verbal-scale-df, include=FALSE}
 strength <- c("weak",
@@ -59,10 +61,10 @@ strength <- c("weak",
               "very strong",
               "extremely strong")
 strengthSup <- paste(strength, "support")
-props <- c("for A compared to B",
-           "for B compared to A")
+props <- c("for Hp compared to Hd",
+           "for Hd compared to Hp")
 verbExpr <- c(paste(rev(strengthSup), props[2]),
-              "equal support for A and B",
+              "equal support for Hp and Hd",
               paste(strengthSup, props[1]))
 lrRange <- c("less than 0.000001",
              "at least 0.000001 but less than 0.0001",
@@ -198,31 +200,31 @@ We saw in Table \@ref(tab:lr-meaning-table) that values of the LR equal to 1 mea
 
 We also saw that when the LR is greater than 1, then the evidence provides more support for $H_p$ than proposition $H_d$. The intuition is that the evidence should increase the odds to be more in favour of $H_p$ (compared to $H_d$) than it previously was. This is confirmed with Bayes' rule above; when the LR is greater than 1, then the prior odds in favour of $H_p$ *increases* when becoming the posterior odds. Observing the evidence was found to be more probable assuming $H_p$ than $H_d$, and so the odds were increased in favour of $H_p$ by a factor equal to the LR.
 
-When the LR is less than 1, the evidence provides more support for $H_d$ than $H_p$. This tells us that we should update our prior odds to be more in favour of proposition $H_d$ (compared to $H_p$) that it previously was. According to Bayes' rule, this is exactly what happens; an LR less than 1 means that the prior odds in favour of $H_p$ are *reduced* when becoming the posterior odds. Reducing the odds in favour of $H_p$ means *increasing* the odds in favour of $H_d$. Observing the evidence was found to be more probable assuming $H_d$ than $H_d$, and so the odds were reduced in favour of $H_p$ (increased in favour of $H_d$) by a factor equal to the LR.
+When the LR is less than 1, the evidence provides more support for $H_d$ than $H_p$. This tells us to should update the prior odds to be more in favour of proposition $H_d$ (compared to $H_p$) than it previously was. According to Bayes' rule, this is exactly what happens; an LR less than 1 means that the prior odds in favour of $H_p$ are *reduced* when becoming the posterior odds. Reducing the odds of $H_p$ means *increasing* the odds in favour of $H_d$. Observing the evidence was found to be more probable assuming $H_d$ than $H_p$, and so the odds of $H_p$ were reduced (increased in favour of $H_d$) by a factor equal to the LR.
 
 ## Example: doping (revisited)
 
-Recall the example of detecting doping athletes from Chapter \@ref(exm-doping).
+Recall the example of detecting doping athletes from Section \@ref(exm-doping).
 
-The test returns positive for 95 out of every 100 doping athletes. The test returns negative for 95 out of every 100 non-doping athletes. It was speculated that 2 out of every 100 athletes are doping. We used these numbers to work out the probability of an athlete doping given that they tested positive as around 28%.
+The test returns positive for 95 out of every 100 doping athletes (95% sensitivity). The test returns negative for 95 out of every 100 non-doping athletes (95% specificity). It was speculated that 2 out of every 100 athletes are doping (2% base rate). We used these numbers to work out the probability of an athlete doping given that they tested positive as around 28%.
 
-A related question is this: How much more likely are we to see a positive test result when the athlete is doping compared to when the athlete is not doping? This question is important as it tells us how informative a positive test result is directly in relation to the information we're interested in: doping versus non-doping. And this is precisely the type of question that an LR can be used to address. 
+A related question is this: How much more likely are we to see a positive test result when the athlete is doping compared to when the athlete is not doping? This question is important as it tells us how informative a positive test result is. This is the type of question that an LR is used to address. 
 
-In order to think about an LR, we need to break this question down into its implied competing propositions and the available evidence. 
+First break down the question down into competing propositions and the available evidence. 
 
 Competing propositions:
 
-- the athlete is doping
-- the athlete is not doping
+- $H_p$: the athlete is doping,
+- $H_d$: the athlete is not doping.
 
-Event: 
+Evidence: 
 
-- a positive test result
+- $E$: a positive test result.
 
 The likelihood ratio is given by
 $$\text{LR} = \frac{\text{probability of a positive test result assuming the athlete is doping}}{\text{probability of a positive test result assuming the athlete is not doping}}.$$
 
-Note how this is the ratio of the probabilities for the evidence having conditioned upon the competing propositions. The conditional probabilities which contribute to this LR can be extracted from Figure \@ref(fig:freq-tree-lr-doping), in which we assume a population of 10,000 athletes. 
+The conditional probabilities which contribute to this LR can be extracted from the expected frequency tree in which we assumed a population of 10,000 athletes, replicated in Figure \@ref(fig:freq-tree-lr-doping). 
 ```{r freq-tree-lr-doping, echo=FALSE,fig.cap="The terms which contribute to the LR are shown in bold font. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000 \nathletes", "200\ndoping", "9,800\nnot doping", "190\npositive", "10\nnegative", "490\npositive", "9,310\nnegative")
@@ -250,8 +252,34 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 par(mar = defMar)
 ```
 
+For the numerator of the LR, "assuming that the athlete is doping" means that we are only looking at the branches of the tree for the doping athletes. We can see that 190 out of these 200 doping athletes test positive, a proportion of 0.95. This is given by the sensitivity of the test.
+
+For the denominator of the LR, "assuming that the athlete is not doping" means that we only look at the branches of the tree for non-doping athletes. We can see that 490 out of the 9,800 non-doping athletes tested positive, a proportion of 0.05. This is given by 1 minus the specificity of the test.
+
+The likelihood ratio in this example is equal to $\frac{\text{sensitivity}}{1-\text{specificity}}=\frac{0.95}{0.05}=19$. The meaning of this can be expressed in a number of equivalent ways:
+
+- a positive test result increases the prior odds that the athlete is doping by a factor of 19,
+- a positive test result is 19 times more likely to be observed from doping athletes than from non-doping athletes,
+- a positive test result provides 19 times more support for the proposition that the athlete is doping compared to not doping. 
+
+All of these expressions comment on the relative probability of observing a positive test result under the assumptions of the athlete doping and not doping. They do **not** state a value for the probabilities of the athlete doping or not, and they do **not** state that the athlete is 19 times more likely to be doping than not (this is an example of the prosecutor's fallacy from Section \@ref(prosecutor-fallacy)). 
+
+Now let's look at the posterior odds: what are the odds of the athlete doping versus not doping given a positive result of the test?
+
+From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of a randomly selected athlete doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and also expressed as odds of $1:49$, or 49 to 1 against doping. These prior odds represent the base rate of 2% after converting from a probability to odds.
+
+Using Bayes' rule and the LR, the posterior odds are
+\begin{align}
+  \text{posterior odds} &= \text{LR} \times \text{prior odds}, \\
+  \text{posterior odds} &= 19 \times \frac{1}{49}, \\
+  \text{posterior odds} &= \frac{19}{49},
+\end{align}
+corresponding to posterior odds of $19:49$, or 49 to 19 against doping given a positive test result. Converting this back to probability gives $\frac{19}{19+49}=0.2794118$, about 28%. This is the same as the answer in Section \@ref(exm-doping).
+
+Notice that the likelihood ratio for a positive test gave support in favour of $H_p$ (the athlete doping) but the posterior odds were still in favour of $H_d$ (the athlete not doping). This was because the prior odds were more heavily in favour of $H_d$ than the factor by which the LR supported $H_p$. Committing the prosecutor's fallacy here would not only give an inaccurate answer for the posterior odds of doping, but it would mistake the odds as being in favour of $H_p$ when they are actually in favour of $H_d$. This is an important point; the likelihood ratio alone does not tell us anything about the posterior odds in favour of a proposition, it only tells us the relative size of the posterior odds compared to the prior odds. For the fact finder, this confirms that LRs should be used to **update** beliefs about competing propositions (as well as using other evidence), and not **as** beliefs about competing propositions.
+
 ```{block eval=FALSE, include=isDynamicOutput()}
-### Interavtive Example
+### Interactive Example
 
 Below is an interactive example showing doping stuff.
 
@@ -262,111 +290,60 @@ if(isDynamicOutput()){
 }
 ```
 
-For the numerator of the LR, "assuming that the athlete is doping"  means that we are only looking at the branches of the tree for the doping athletes. We can see that 190 out of these 200 doping athletes test positive, a probability of 0.95 (this is also the sensitivity in the original example).
-
-For the denominator of the LR, "assuming that the athlete is not doping" means that we only look at the branches of the tree for non-doping athletes. We can see that 490 out of the 9,800 non-doping athletes tested positive, a probability of 0.05 (this is 1 minus the specificity from the original example).
-
-The likelihood ratio is then $\frac{0.95}{0.05}=19$. The meaning of this can be expressed in a number of equivalent ways:
-
-- a positive test updates our prior odds that the athlete is doping, increasing them by a factor of 19,
-- a positive test is 19 times more likely to be observed from doping athletes than a positive result from non-doping athletes,
-- a positive test result provides 19 times more support for the proposition that the athlete is doping compared to not doping. 
-
-All of these expressions comment on the relative probability of observing a positive test result under the assumptions of the athlete doping and not doping. They do **not** state a value for the probabilities of the athlete doping or not, and they do **not** state that the athlete is 19 times more likley to be doping than not. To believe the latter would be to illegitimately transpose the conditional and commit the prosecutor's fallacy [insert section reference]. 
-
-To finish this example, let's take a look at the odds formulation of the question from Section \@ref(exm-doping): what are the odds of the athlete doping versus not doping given a positive result of the test?
-
-From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of a randomly selected athlete doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and also expressed as odds of $1:49$, or 49 to 1 against doping.
-
-Now, using Bayes' theorem and the LR, we find the posterior odds to be
-\begin{align}
-  \text{posterior odds} &= \text{LR} \times \text{prior odds}, \\
-  \text{posterior odds} &= 19 \times \frac{1}{49}, \\
-  \text{posterior odds} &= \frac{19}{49},
-\end{align}
-corresponding to posterior odds of $19:49$, or 49 to 19 against doping given a positive test result. Converting this back to probability gives $\frac{19}{19+49}=0.2794118$, about 28%. This is the same as the answer that we worked out in Section \@ref(exm-doping).
-
-Even though the likelihood ratio for a positive test gave support in favour of the athlete doping, the posterior probability for the proposition that the athlete is doping is still rather small. This is an important point; the likelihood ratio alone does not tell us anything about the absolute value of the posterior probability for a proposition, it only tells us the relative value compared to the prior probability. 
-
-## Quantifying probative value
-
-So far we have considered a generic event E and propositions A and B. When we view this framework from the perspective of a forensic evaluation, the event E can be seen as a piece of evidence and the propositions A and B are the propositions put forward by the prosecution and defence, hereon referred to as $H_p$ and $H_d$. These can be thought of as the prosecution and defence's claimed version of events, the truth of which we are uncertain.
-
-Within this specific situation, the LR tells us the relative support that a piece of evidence provides for $H_p$ or $H_d$. In this sense, the LR conveys the **probative value** of a piece of evidence. It tells us how much more likely a piece of evidence is under the prosecution's version of events when compared to the defence's version of events.
-
-This interpretation of the LR is one of the reasons why it is advocated as a tool to quantify expert testimony. It is the role of the expert witness to present the probative value of scientific evidence within their domain of expertise to the court. The LR provides a logical means to achieve this. The fact finder can then use the probative value of evidence given by the LR to reason about the truth of $H_p$ or $H_d$. This process can clearly be seen using Bayes' theorem again, expanded on below.
-
-Using E as a specific piece of evidence and the specific propositions $H_p$ and $H_d$, the odds form of Bayes' theorem becomes
-$$\frac{\text{probability of } H_p \text{ having accounted for the evidence}}{\text{probability of } H_d \text{ having accounted for the evidence}}=\text{LR}\times\frac{\text{prior probability of } H_p}{\text{prior probability of } H_d}.$$
-It can be seen that the LR updates beliefs about $H_p$ and $H_d$. Notice how beliefs about $H_p$ and $H_d$ are for the fact finder to determine, and the LR is provided by the expert witness. This is the role that the LR plays with the fact finder: the expert witness provides the LR, and in doing so provides the quantitative factor by which the fact finder should update their odds of each counsel's version of events.
 
 ## Combining evidence
 
-LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Chapter ...), we can to multiply their individual LRs to obtain a combined LR. If the two pieces of evidence are labelled as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that $E_1$ **and** $E_2$ are observed if $H_p$ is true, rather than if $H_d$ is true. Combining evidence like this is the standard approach in DNA evidence evaluation. It is also becoming more popular to combine the LRs for multiple types of evidence, instead of presenting them individually. This can only be done when the propositions underlying the probability calculations are the same, and specifically are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. 
+LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Section \@ref(double-coin-toss)), their individual LRs can be multiplied to obtain a combined LR. Labelling two pieces of evidence as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that both $E_1$ **and** $E_2$ would have been observed if $H_p$ is true, rather than if $H_d$ is true. This approach is becoming more popular amongst some scientific groups as more methodology is being developed. It can only be done when the propositions underlying the probability calculations are the same, and specifically when they are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. When the proposition levels are different, then a more complex approach may be required.
 
-It is paramount that the assumption of statistical independence is checked when combining the LRs from multiple evidence types in this way. Unfortunately, data sources which can help scientists to determine statistical independence between evidence types is scarce in the scientific literature at this moment in time. When the statistical independence assumption does not hold true, then more complex probabilistic methods needs to be used to construct the joint LRs.
+It is paramount that the assumption of statistical independence is checked when combining the LRs from multiple evidence types. Data sources that can help scientists to determine statistical independence between evidence types are limited in the scientific literature at this time. When the statistical independence assumption does not hold true, then more complex probabilistic methods need to be used. One such method for achieving this is through the use of Bayesian Networks, which are introduced in Book 3 of the RSS practitioner guides [@roberts2014]. 
 
-## Example: 
+<!-- ## Example:  -->
 
+<!-- ## Example: DNA loci -->
+<!-- Combining evidence like this is the standard approach underlying DNA evidence evaluation. -->
 
+## Robustness of LRs
 
-## Example: DNA loci
+The LR is based upon two underlying conditional probabilities. Each of these probabilities has its own degree of reliability, which depends on the information upon which it is based (Section \@ref(reliable-probabilities)). The degree to which these probabilities are reliable determines the overall robustness of an LR. The more reliable each of the probabilities are, the more robust the LR that is produced. It is worth noting that an LR which is not robust might still be the best available LR in the case circumstances, e.g. if there is limited data and expertise to fully inform the probability assignments. 
 
+Any critical assessment of an LR is a critical assessment of its underlying probabilities. If an expert gives an LR as an order of magnitude, then the underlying order of magnitude assignments of the probabilities should be coherent with this. For example, if the LR is thought to be between 100-1000, then the order of magnitude assignments of the conditional probabilities which form the LR must be consistent with this, i.e. the probability of $E$ assuming $H_d$ cannot be 0.01-0.1 as this would constrain the LR to be between 10-100.
 
+Assessing the robustness of an LR is aided by making a distinction between types of information that the expert uses when constructing conditional probabilities. In the Judicial Statistics Primer [@statsprimer2020] this information is divided into two categories:
 
-## Robustness
-
-The LR is open to the same type of scrutiny as most other statistics. Two main reasons for this are:
-
-1. The LR is formed using empirical observations where possible. These may be limited in their sample size and precision, they may contain bias, and they may also vary over time amongst other factors.
-2. LRs formed using an expert's opinion are always subjective. Even if an opinion is widely held within a particular community of expertise, it is still subjective (though it may be less subjective than a widely disputed belief).
-
-The degree to which an LR can withstand scrutiny due to the above reasons is termed its robustness. If an LR still seems reasonable and reliable after having assessed it from multiple perspectives (e.g. the sample size of a database which has been informed it, how appropriate that database was for the specific case circumstances, etc.) then it is robust. If an LR does not seem reasonable and reliable after this assessment process, then it is not robust. It is worth noting that an LR which is not robust might still be the best LR in the case circumstances, e.g. if there is a severe lack of data and expertise to inform the LR in the first place. 
-
-An LR is only as robust as the probabilities from which it is formed. Any critical assessment of an LR is only a critical assessment of its underlying probabilities. It is not an assessment of the inherent properties that taking a ratio of two probabilities might give rise to. If an expert gives an LR as an order of magnitude, then the underlying order of magnitude assignments of the probabilities should be coherent with this. For example, if the LR is thought to be between 100-1000, then an order of magnitude assignment of the probability of $E$ assuming $H_d$ cannot be 0.01-0.1 as this would constrain the LR to be between 10-100.
-
-Assessing the robustness of an LR is aided by making a distinction between types of information that the expert uses when constructing conditional probabilities. In the Primer (citation) this information is divided into two categories:
-
--[S]: knowledge derived from robust systematic studies, ideally published, where the relevant features have been measured and studied statistically.
+-[S]: knowledge derived from robust systematic studies, ideally published, where the relevant features have been measured and studied statistically
 
 -[E]: knowledge derived from personal experience, i.e. the expert's training and professional experience in the forensic specialism.
 
-Robustness of an LR informed by knowledge from the [S] category can be assessed by focussing on the quoted studies and data therein. The study design (observational, randomised controlled trial, etc.) and its limitations might be relevant, as well as its applicability to the present case's circumstances. The robustness of studies and databases can be affected by factors such as sample size, precision of measurements, sampling bias, etc.
+The robustness of an LR that has been informed by the [S] category can be assessed using the quoted studies and their data. The study design (observational, randomised controlled trial, etc.) and its limitations might be relevant, as well as its applicability to the case circumstances at hand. The robustness of studies and databases can be affected by factors such as the study sample size, the precision of collected measurements, any bias in sampling methodology, as well as others.
 
-Robustness of an LR informed by knowledge from the [E] category can be assessed by focussing on the reliability of the expert's personal experience. This could involve the expert detailing their previous experience and its relevance. The reliability of an expert's personal experience may be informed, for example, by previous proficiency or calibration tests in which the expert has participated. The robustness of these tests may also be assessed, such as whether they were conducted blind and without knowledge that an assessment was taking place, how many times they were repeated, etc.
-
-The [E] category is also more likely to be where expert's dispute, since it contains more subjective knowledge than [S] does. Beliefs in this category may be fringe or generally accepted amongst certain subgroups within the field of expertise. Disagreements between experts may be reasonable and can be presented to the court for examination.
+The robustness of an LR that has been informed by the [E] category can be assessed by focussing on the experience of the expert. This could involve the expert detailing their previous experience and its relevance the present case. This evidence could include previous proficiency or calibration tests in which the expert has participated. The robustness of these tests may be assessed by considering their study design, such as whether the tests were conducted blind and without knowledge that an assessment was taking place, how realistic the study conditions were to regular casework, how many times the study tasks were repeated, as well as other factors. This category is also more likely to be where different experts disagree, since it contains more subjective knowledge than [S] does. Since this category is more subjective, there might be varying degrees of consensus within the expert's scientific field. Disagreements between experts may be reasonable and can be presented to the court for examination.
 
 The robustness of a particular LR can also be empirically assessed. This involves changing the input values of either the probabilities which determine the LR, or the values which themselves contribute to those probabilities, and inspecting how sensitive the LR is to these changes. This could also involve defining a set of reasonable values which could determine the LR, and then seeing the range of values the LR takes for this reasonable set. 
 
-If the LR is practically unaffected by reasonable changes, or has a small range within the set of reasonable input values, then it is robust. If the LR is highly affected by minor changes, or has a large range within the set of reasonable input values, then it not so robust. 
-
-[interactive example changing probability inputs to the LR]
+If the LR is practically unaffected by reasonable changes, or has a small range within the set of reasonable input values, then it is robust. If the LR is highly affected by minor changes, or has a large range within the set of reasonable input values, then it not as robust. 
 
 ## Communication
 
-We have looked at the calculation and conceptual meaning of the LR, as well as how to assess its robustness. We now turn our attention to communicating the LR to others. Whereas the previous stages of this chapter may be conducted before evidence is presented to the court, the communication of the LR is present within the courtroom itself and it is not left to the expert witness alone. 
+When the LR is chosen as the appropriate tool to convey the value of scientific evidence, it must still be understood by the fact finder in order to be effective. This means that the LR needs to be successfully communicated **to** fact-finders and legal counsel, as well as effectively communicated **by** expert witnesses, legal counsel, and the judge if it is contained within their guidance to jurors for a particular case. The expert determines the LR but accurately communicating its meaning is a shared responsibility.
 
-It cannot be stressed how important this communication stage is; even if it is agreed that the LR is the appropriate tool to convey the value of scientific evidence, its effectiveness is nothing without it being understood by those who have to use it to make decisions. This means that the LR needs to be effectively communicated **to** fact-finders and legal counsel, as well as effectively communicated **by** expert witnesses, legal counsel, and the judge if it is contained within their instructions to jurors for a particular case. It is a shared responsibility.
+There are currently two prominent strategies for communicating LRs as an expert: numerically and verbally. 
 
-As shown in this chapter, LRs can be communicated using a number of different strategies. We finish the chapter with a short recap of those strategies. [Would be nice to include some of the evidence supporting each of them too.]
-
-Suppose the following scenario:
+Suppose the following evidence and competing propositions:
 
 Evidence:
 
-- $E$: Blood-spatter pattern on the defendant's jeans. The blood has been accepted by both counsels as originating from the complainant. 
+- $E$: Blood-spatter pattern on the defendant's jeans. The blood is thought to originate from the complainant, which is a claim supported by DNA analysis, and this is not disputed by the defence. 
 
 Propositions:
 
 - $H_p$: the defendant kicked the complainant
-- $H_d$: the defendant did not kick the complainant but was present during the attack. The defendant claims to have been standing some distance from the attack.
+- $H_d$: the defendant did not kick the complainant. They claim to have been present but standing some distance from the attack.
 
-An expert witness has stated that the probability of $E$ assuming $H_p$ to be true is 0.1. The expert also stated that the probability of observing $E$ assuming $H_d$ to be true (and based on information such as where the defendant claims to have been standing during the attack) is 0.0001. This gives an LR of $\frac{0.1}{0.0001}=1000$. 
+Suppose also that an expert has assigned an LR of 1000 in favour of $H_p$ compared to $H_d$. 
 
 The most raw form of communicating this LR is in its numerical format. Such a statement could read like this:
 
-> This pattern of blood-staining is 1000 times more likely to be seen if the defendant kicked the complainant, rather than if the defendant did not kick the complainant but was present during the attack and was standing in the location as described in their statement.
+> This pattern of blood spatter is 1000 times more likely to be seen if the defendant kicked the complainant, rather than if the defendant did not kick the complainant but was present during the attack and was standing in the location as described in their statement.
 
 Converting an LR of 1000 into a verbal statement using Table \@ref(tab:verbal-scale-table) could lead to a statement such as:
 
@@ -412,21 +389,13 @@ plot(freqTreeNonKick, vertex.shape="none", vertex.label=V(freqTreeNonKick)$name,
 par(mar = defMar, mfrow=c(1, 1))
 ```
 
-<!-- ```{r lr-pie-kick, echo=FALSE, fig.cap="Relative size of E given H_p versus E given H_d", out.width = '80%', fig.align = 'center'} -->
-<!-- df <- data.frame(prob=c("E given H_p", "E given H_d"), num=c(1000,1)) -->
-<!-- bp<- ggplot(df, aes(x="", y=num, fill=prob))+ -->
-<!-- geom_bar(width = 1, stat = "identity") -->
-<!-- pie <- bp + coord_polar("y", start=0) + scale_fill_manual(values=c(colPal[6], colPal[7])) + theme_minimal() -->
-<!-- pie -->
-<!-- ``` -->
-
 An accompanying verbal statement could be:
 
 > Out of 10,000 kickers in an equivalent situation to the defendant in the prosecution's version of events, this blood pattern would be found on 1000 of them. Out of 10,000 non-kickers in an equivalent situation to the defendant in the defence's version of events, this blood pattern would be found on 1 of them. 
 
 Notice how the expert did not specify a prior probability of being the kicker or not, and so we had to split the trees into two groups, one for the kickers, and one for the non-kickers.
 
-In expert reports, the currently endorsed approach by the Forensic Science Regulator is to communicate LRs using their numerical value possibly converted into the verbal statements given in Table \@ref(tab:verbal-scale-table). The effectiveness of this method of communicating the LR (as well as others) is an active area of scientific research, and has the potential to change as we gather a better understanding of how those communications are received and used by those within the courtroom.
+In expert reports, the currently endorsed approach by the Forensic Science Regulator is to communicate LRs using their numerical value possibly converted into the verbal statements given in Table \@ref(tab:verbal-scale-table). The effectiveness of communicating the LR is an active area of scientific research and has shown mixed results in some studies. Other methods of communication or evidence evaluation are likely to develop as we gather a better understanding of how communications are received and used by those within the courtroom.
 
 ## More information
 
