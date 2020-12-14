@@ -1,11 +1,12 @@
 # Introduction {#intro}
 
-What is the value of scientific evidence after taking into account  assertions made by the prosecution and defence? That is the question which underlies the material in this book. 
+This book aims to assist non-experts in the method of evaluating forensic scientific evidence known as the likelihood ratio (LR) approach. The LR approach relies upon the theory of probability, statistics, and the application of forensic logic to criminal investigations. To many people (including subject experts), these topics are difficult to understand. This is because they really are difficult to understand; they require demanding and unfamiliar logic, abstract mathematical ideas, and can often produce counter-intuitive conclusions. These challenges lead experts and non-experts alike to a variety of misunderstandings, mistakes, and reasonable disagreements about the exact application of probability theory, and specifically the LR approach, to criminal investigations. Nonetheless, the LR approach is used routinely in forensic investigations worldwide and is presented to non-experts in the courtroom - so it must be understood.
 
-The answer depends upon the type of scientific evidence in question, 
-
-Strides were made in this direction with the Case Assessment and Interpretation (CAI) protocol...
-[brief history of development of forensic science and evidence evaluation]
+Improving the understanding of the LR approach amongst all of the key actors in the courtroom has clear benefits. For forensic scientists as expert witnesses, mastery of the LR approach will lead to improved communication in the courtroom. This comes with being able to precisely address questions from advocates about the merits and limitations of an LR in the context of a case as well as clearer communication. An improved understanding of the LR approach by advocates unlocks greater value from expert evidence. This is produced by more pertinent questioning and clearer communication to the fact finder. These benefits also hold for judges in their capacity of gatekeeping evidence. As for the fact-finding capacity of a judge, an improved understanding allows for LRs to be considered more robustly. Finally, a greater understanding from all parties allows for more open, equitable, and accurate discussion about the ongoing role of probabilistic methods (including the LR approach) in the criminal justice process.
+ 
+The fundamental question that the LR approach addresses is a useful one for the court: which is more likely, the evidence  if the prosecution's assertions are true or the evidence if the defence's assertions are true?
+ 
+What is the value of scientific evidence after taking into account assertions made by the prosecution and defence? That is the question which underlies the material in this book. 
 
 [make the point that as scientific technology and knowledge sharing both increase, we are able to quantify more and move away from subjective opinion]
 
@@ -15,17 +16,6 @@ Strides were made in this direction with the Case Assessment and Interpretation 
 
 [this book aims to introduce key concepts in probability and statistics which relate to evidence evaluation, providing interactive examples and being responsive to feedback to meet the needs of its users]
 
-[chain of investigation (some CAI); roles within the courtroom]
+This book is organised as follows. In Chapter \@ref(uncertainty) we outline the nature of uncertainty in forensic science, which provides the motivation for using the mathematical tool of describing uncertainty: probability. In Chapter \@ref(probability) we define what probability is and how it is used to quantify uncertainty. In Chapter \@ref(propositions) we show formalised so-called propositions allow probability to be framed around key disputed facts in order to be applied in forensic investigations. Finally in Chapter \@ref(likelihood-ratio), we show how probability, propositions, and evidence are combined  using the LR approach in order to quantify the value of a piece of scientific evidence in criminal investigations.
 
-This book is organised as follows.
-
-In Chapter \@ref(uncertainty) we set the basis for using probability and statistics for scientific evidence: uncertainty. 
-
-In Chapter \@ref(probability) we show how the concept of probability can be used to quantify the uncertainty about events occurring.
-
-In Chapter \@ref(statistics) we introduce statistics as a way of describing empirical data and using that to make inferences about uncertainty. 
-
-In Chapter \@ref(propositions) we describe formal statements about events, known as propositions. This allows us to begin to describe asserted events in criminal cases, which are essential when evaluating evidence.
-
-Then, finally in Chapter \@ref(likelihood-ratio) we tie together the ideas from the previous Chapters in order to arrive at quantifying the value of scientific evidence using the likelihood ratio.
-
+Reading through this book and completing the activities it contains will not convert a non-expert in the LR approach to an expert. However, it should provide more insight and develop understanding of the strengths and weaknesses of the LR approach 
