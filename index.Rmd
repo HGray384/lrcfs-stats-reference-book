@@ -29,7 +29,7 @@ High quality resources can already be found on this topic, which have been autho
 
 This book follows the main content from the Royal Statistical Society's Fundamentals of Probability and Statistical Evidence in Criminal Proceedings book [@aitken2010] and then portions of The Logic of Forensic Proof [@roberts2014]. We have also provided motivation for the use of probability and statistics by drawing from the uncertainty communication literature, and in particular adapting the advocated model from @vanderbles2019 to forensic science. Put together, this resource provides an intermediate overview of why and how we use probability and statistics in evaluating forensic evidence, including examples and exercises to reinforce understanding.
 
-This book can be used to supplement the online course content from [cite MOOC]. This way, learners can progress through more formalised training (with video, audio, and graded tests), and simply use this book as a resource to see further examples. The order and presentation of the material is different to what appears in the course, although most of the same ideas appear here. 
+This book can be used to supplement the online course content from [cite MOOC]. This way, learners can progress through more formalised training (with video, audio, and graded tests), and simply use this book as a resource to see further examples. The order and presentation of the material is different to what appears in the course, although most of the same ideas appear here.
 
 The interactive examples in the online version of this book can be found as their own tool at [cite shiny app]. This is to provide a standalone resource for those who are not using the book e.g. a wider audience, and also so that those who prefer to use a printed version of this book can still have fast access to the examples they need. 
 
@@ -93,7 +93,7 @@ Major versions in planning:
 
 - Second draft, after more internal feedback
 
-- Version 1, after feedback from internal students and some external practioners
+- Version 1, after feedback from internal students and some external practitioners
 
 - Version 2, after wider external feedback
 
