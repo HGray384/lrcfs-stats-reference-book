@@ -295,16 +295,16 @@ if(isDynamicOutput()){
 
 LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Section \@ref(double-coin-toss)), their individual LRs can be multiplied to obtain a combined LR. Labelling two pieces of evidence as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that both $E_1$ **and** $E_2$ would have been observed if $H_p$ is true, rather than if $H_d$ is true. This approach is becoming more popular amongst some scientific groups as more methodology is being developed. It can only be done when the propositions underlying the probability calculations are the same, and specifically when they are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. When the proposition levels are different, then a more complex approach may be required.
 
-It is paramount that the assumption of statistical independence is checked when combining the LRs from multiple evidence types. Data sources that can help scientists to determine statistical independence between evidence types are limited in the scientific literature at this time. When the statistical independence assumption does not hold true, then more complex probabilistic methods need to be used. One such method for achieving this is through the use of Bayesian Networks, which are introduced in Book 3 of the RSS practitioner guides [@roberts2014]. 
+It is paramount that the assumption of statistical independence is checked when combining the LRs from multiple evidence types. Data sources that can help scientists to determine statistical independence between evidence types are limited in the scientific literature at this time. When the statistical independence assumption does not hold true, then more complex probabilistic methods need to be used. One such method for achieving this is Bayesian Networks, which are introduced in Book 3 of the RSS practitioner guides [@roberts2014] and are a planned extension to this text. 
 
 <!-- ## Example:  -->
 
 <!-- ## Example: DNA loci -->
 <!-- Combining evidence like this is the standard approach underlying DNA evidence evaluation. -->
 
-## Robustness of LRs
+## Robustness
 
-The LR is based upon two underlying conditional probabilities. Each of these probabilities has its own degree of reliability, which depends on the information upon which it is based (Section \@ref(reliable-probabilities)). The degree to which these probabilities are reliable determines the overall robustness of an LR. The more reliable each of the probabilities are, the more robust the LR that is produced. It is worth noting that an LR which is not robust might still be the best available LR in the case circumstances, e.g. if there is limited data and expertise to fully inform the probability assignments. 
+The LR is based upon two underlying conditional probabilities. Each of these probabilities has its own degree of reliability, which depends on the information upon which it is based (Section \@ref(reliable-probabilities)). The degree to which these probabilities are reliable determines the overall robustness of an LR. The more reliable each of the probabilities are, the more robust the LR that is produced. It is worth noting that an LR which is not robust might still be the best available LR in the case circumstances, e.g. if there is limited data and expertise with which to inform the probability assignments. 
 
 Any critical assessment of an LR is a critical assessment of its underlying probabilities. If an expert gives an LR as an order of magnitude, then the underlying order of magnitude assignments of the probabilities should be coherent with this. For example, if the LR is thought to be between 100-1000, then the order of magnitude assignments of the conditional probabilities which form the LR must be consistent with this, i.e. the probability of $E$ assuming $H_d$ cannot be 0.01-0.1 as this would constrain the LR to be between 10-100.
 
@@ -316,17 +316,17 @@ Assessing the robustness of an LR is aided by making a distinction between types
 
 The robustness of an LR that has been informed by the [S] category can be assessed using the quoted studies and their data. The study design (observational, randomised controlled trial, etc.) and its limitations might be relevant, as well as its applicability to the case circumstances at hand. The robustness of studies and databases can be affected by factors such as the study sample size, the precision of collected measurements, any bias in sampling methodology, as well as others.
 
-The robustness of an LR that has been informed by the [E] category can be assessed by focussing on the experience of the expert. This could involve the expert detailing their previous experience and its relevance the present case. This evidence could include previous proficiency or calibration tests in which the expert has participated. The robustness of these tests may be assessed by considering their study design, such as whether the tests were conducted blind and without knowledge that an assessment was taking place, how realistic the study conditions were to regular casework, how many times the study tasks were repeated, as well as other factors. This category is also more likely to be where different experts disagree, since it contains more subjective knowledge than [S] does. Since this category is more subjective, there might be varying degrees of consensus within the expert's scientific field. Disagreements between experts may be reasonable and can be presented to the court for examination.
+The robustness of an LR that has been informed by the [E] category can be assessed by focussing on the experience of the expert. This could involve the expert detailing their previous experience and its relevance to the present case. This evidence could include previous proficiency or calibration tests in which the expert has participated. The robustness of these tests may be assessed by considering their study design, such as whether the tests were conducted blind and without knowledge that an assessment was taking place, how realistic the study conditions were to regular casework, how many times the study tasks were repeated, as well as other factors. This category is also more likely to be where different experts disagree, since it contains more subjective knowledge than [S] does. Since this category is more subjective, there might be varying degrees of consensus within the expert's scientific field. Disagreements between experts may be reasonable and can be presented to the court for examination.
 
-The robustness of a particular LR can also be empirically assessed. This involves changing the input values of either the probabilities which determine the LR, or the values which themselves contribute to those probabilities, and inspecting how sensitive the LR is to these changes. This could also involve defining a set of reasonable values which could determine the LR, and then seeing the range of values the LR takes for this reasonable set. 
+The robustness of a particular LR can also be empirically assessed by performing a sensitivity analysis. This involves making reasonable changes to the probabilities underlying the LR and observing how the LR varies with these changes. The changes in the probabilities are made to reflect uncertainty that might reasonably have been unaccounted for. This could include making minor adjustments to the data by which the probability was informed, using a range of reasonable values to inform the probability where previously a single value was used, or perhaps changing a key assumption that was made in the original probability assignment. A sensitivity analysis shows how sensitive the LR is to the method or data which was used to calculate the LR. An LR whose value does not meaningfully vary with reasonable changes to its underlying models and assumptions is more robust than one which does vary. Exactly what it meant by 'meaningful changes' will depend on the case circumstances and might be decided by the expert.
 
-If the LR is practically unaffected by reasonable changes, or has a small range within the set of reasonable input values, then it is robust. If the LR is highly affected by minor changes, or has a large range within the set of reasonable input values, then it not as robust. 
+There are two other ways in which an expert may assign more robust LRs. The first is by assigning the LR to an interval of values rather than a single value. This might be done in situations in which the expert is unable to precise values for some sources of uncertainty, for example where relevant data is limited. The intervals shown in Table \@ref(tab:verbal-scale-table) are used for this purpose as well as for consistency of language. The second method is by assigning LRs conservatively in favour of the defence. This means assigning the LR to a minimum reasonable value, e.g. the smallest value from an interval which may have resulted from an interval assignment or sensitivity analysis. Doing so ensures that the LR is protected from overestimation that might unreasonably be biased against the accused.
 
 ## Communication
 
-When the LR is chosen as the appropriate tool to convey the value of scientific evidence, it must still be understood by the fact finder in order to be effective. This means that the LR needs to be successfully communicated **to** fact-finders and legal counsel, as well as effectively communicated **by** expert witnesses, legal counsel, and the judge if it is contained within their guidance to jurors for a particular case. The expert determines the LR but accurately communicating its meaning is a shared responsibility.
+When the LR is chosen as the appropriate tool to convey the value of scientific evidence, it must still be understood by the fact finder in order to be effective. This means that the LR needs to be successfully communicated **to** fact-finders and legal counsel, as well as effectively communicated **by** expert witnesses, legal counsel, and the judge if it is the subject of any clarifications or guidance to jurors for a particular case. The expert determines the LR, but accurately communicating its meaning is a shared responsibility.
 
-There are currently two prominent strategies for communicating LRs as an expert: numerically and verbally. 
+There are currently two prominent strategies for communicating LRs as an expert: numerically and verbally. In expert reports, the currently endorsed approach by the Forensic Science Regulator is to communicate LRs using their numerical value possibly converted into the verbal statements given in Table \@ref(tab:verbal-scale-table).
 
 Suppose the following evidence and competing propositions:
 
@@ -347,55 +347,55 @@ The most raw form of communicating this LR is in its numerical format. Such a st
 
 Converting an LR of 1000 into a verbal statement using Table \@ref(tab:verbal-scale-table) could lead to a statement such as:
 
-> This pattern of blood-staining provides strong support for the defendant having kicked the complainant, rather than the defendant not having kicked the complainant but having been present during the attack and was standing in the location as described in their statement.
+> This pattern of blood-staining provides strong support for the defendant having kicked the complainant, rather than the defendant not having kicked the complainant but having been present during the attack and standing some distance away.
 
-Since the conditional probabilities which determine the LR are made explicit in this example (this is not common practice), then the LR can also be communicated visually using natural frequencies in Figure \@ref(fig:freq-tree-lr-kicking):
+<!-- Since the conditional probabilities which determine the LR are made explicit in this example (this is not common practice), then the LR can also be communicated visually using natural frequencies in Figure \@ref(fig:freq-tree-lr-kicking): -->
 
-```{r freq-tree-lr-kicking, echo=FALSE,fig.cap="The terms which contribute to the LR are shown in bold font. Since the populations we assumed are the same size, the LR is just 1000 divided by 1, or just 1000.", out.width = '80%', fig.align = 'center'}
-e <- c(1, 2, 1, 3)
-v <- c("10,000\nkickers", "10,000\nnon-kickers", "1000\nthis\npattern", "9000\nnot this\npattern", "1\nthis\npattern", "9999\nnot this\npattern")
-freqTreeKick <- graph(edges=e, n=3, directed=FALSE)
-freqTreeNonKick <- graph(edges=e, n=3, directed=FALSE)
-V(freqTreeKick)$name <- v[c(1, 3, 4)]
-V(freqTreeNonKick)$name <- v[c(2, 5, 6)]
+<!-- ```{r freq-tree-lr-kicking, echo=FALSE,fig.cap="The terms which contribute to the LR are shown in bold font. Since the populations we assumed are the same size, the LR is just 1000 divided by 1, or just 1000.", out.width = '80%', fig.align = 'center'} -->
+<!-- e <- c(1, 2, 1, 3) -->
+<!-- v <- c("10,000\nkickers", "10,000\nnon-kickers", "1000\nthis\npattern", "9000\nnot this\npattern", "1\nthis\npattern", "9999\nnot this\npattern") -->
+<!-- freqTreeKick <- graph(edges=e, n=3, directed=FALSE) -->
+<!-- freqTreeNonKick <- graph(edges=e, n=3, directed=FALSE) -->
+<!-- V(freqTreeKick)$name <- v[c(1, 3, 4)] -->
+<!-- V(freqTreeNonKick)$name <- v[c(2, 5, 6)] -->
 
-colPal <- colorblind_pal()(8)
-# the commented code below complicates the point
-# V(freqTree)$color <- c(rep(colPal[1], 3), 
-#                        colPal[4], 
-#                        colPal[7],
-#                        colPal[7],
-#                        colPal[4])
-treeCol <- c(rep(colPal[1], 3))
-V(freqTreeKick)$color <- treeCol
-V(freqTreeNonKick)$color <- treeCol
-treeFont <- c(2, 2, 1)
-V(freqTreeKick)$label.font <- treeFont
-V(freqTreeNonKick)$label.font <- treeFont
-par(mar = c(0, 0, 0, 0), mfrow=c(1, 2))
-plot(freqTreeKick, vertex.shape="none", vertex.label=V(freqTreeKick)$name,
-     vertex.label.color=V(freqTreeKick)$color, vertex.label.font=V(freqTreeKick)$label.font,
-     vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
-     layout=layout_as_tree(graph = freqTreeKick, root = 1),
-     vertex.size=50)
-# legend("bottomright", legend=c("True", "False"),
-#        col=colPal[c(4,7)], bty = "n",
-#        pch=16)
-plot(freqTreeNonKick, vertex.shape="none", vertex.label=V(freqTreeNonKick)$name,
-     vertex.label.color=V(freqTreeNonKick)$color, vertex.label.font=V(freqTreeNonKick)$label.font,
-     vertex.label.cex=1.2, edge.color="grey70",  edge.width=2,
-     layout=layout_as_tree(graph = freqTreeNonKick, root = 1),
-     vertex.size=50)
-par(mar = defMar, mfrow=c(1, 1))
-```
+<!-- colPal <- colorblind_pal()(8) -->
+<!-- # the commented code below complicates the point -->
+<!-- # V(freqTree)$color <- c(rep(colPal[1], 3),  -->
+<!-- #                        colPal[4],  -->
+<!-- #                        colPal[7], -->
+<!-- #                        colPal[7], -->
+<!-- #                        colPal[4]) -->
+<!-- treeCol <- c(rep(colPal[1], 3)) -->
+<!-- V(freqTreeKick)$color <- treeCol -->
+<!-- V(freqTreeNonKick)$color <- treeCol -->
+<!-- treeFont <- c(2, 2, 1) -->
+<!-- V(freqTreeKick)$label.font <- treeFont -->
+<!-- V(freqTreeNonKick)$label.font <- treeFont -->
+<!-- par(mar = c(0, 0, 0, 0), mfrow=c(1, 2)) -->
+<!-- plot(freqTreeKick, vertex.shape="none", vertex.label=V(freqTreeKick)$name, -->
+<!--      vertex.label.color=V(freqTreeKick)$color, vertex.label.font=V(freqTreeKick)$label.font, -->
+<!--      vertex.label.cex=1.2, edge.color="grey70",  edge.width=2, -->
+<!--      layout=layout_as_tree(graph = freqTreeKick, root = 1), -->
+<!--      vertex.size=50) -->
+<!-- # legend("bottomright", legend=c("True", "False"), -->
+<!-- #        col=colPal[c(4,7)], bty = "n", -->
+<!-- #        pch=16) -->
+<!-- plot(freqTreeNonKick, vertex.shape="none", vertex.label=V(freqTreeNonKick)$name, -->
+<!--      vertex.label.color=V(freqTreeNonKick)$color, vertex.label.font=V(freqTreeNonKick)$label.font, -->
+<!--      vertex.label.cex=1.2, edge.color="grey70",  edge.width=2, -->
+<!--      layout=layout_as_tree(graph = freqTreeNonKick, root = 1), -->
+<!--      vertex.size=50) -->
+<!-- par(mar = defMar, mfrow=c(1, 1)) -->
+<!-- ``` -->
 
-An accompanying verbal statement could be:
+<!-- An accompanying verbal statement could be: -->
 
-> Out of 10,000 kickers in an equivalent situation to the defendant in the prosecution's version of events, this blood pattern would be found on 1000 of them. Out of 10,000 non-kickers in an equivalent situation to the defendant in the defence's version of events, this blood pattern would be found on 1 of them. 
+<!-- > Out of 10,000 kickers in an equivalent situation to the defendant in the prosecution's version of events, this blood pattern would be found on 1000 of them. Out of 10,000 non-kickers in an equivalent situation to the defendant in the defence's version of events, this blood pattern would be found on 1 of them.  -->
 
-Notice how the expert did not specify a prior probability of being the kicker or not, and so we had to split the trees into two groups, one for the kickers, and one for the non-kickers.
+<!-- Notice how the expert did not specify a prior probability of being the kicker or not, and so we had to split the trees into two groups, one for the kickers, and one for the non-kickers. -->
 
-In expert reports, the currently endorsed approach by the Forensic Science Regulator is to communicate LRs using their numerical value possibly converted into the verbal statements given in Table \@ref(tab:verbal-scale-table). The effectiveness of communicating the LR is an active area of scientific research and has shown mixed results in some studies. Other methods of communication or evidence evaluation are likely to develop as we gather a better understanding of how communications are received and used by those within the courtroom.
+The effectiveness of communicating the LR is an active area of scientific research and has shown mixed results in some studies. Other methods of communication or evidence evaluation are likely to develop as we gather a better understanding of how LR communications are received and used by those within the courtroom.
 
 ## More information
 
