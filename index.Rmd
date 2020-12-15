@@ -1,5 +1,5 @@
 --- 
-title: "The statistics reference book for judges"
+title: "Probability and the likelihood ratio for non-experts"
 author: "Harry Gray"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,13 +7,13 @@ documentclass: book
 bibliography: [bib/book.bib, bib/packages.bib, bib/stats-book.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This book is a learning resource for judges who would like to learn more about probability and statistics."
+description: "This book is a learning resource for statistical non-experts who would like to learn more about how probability is used to evaluate scientific evidence in the courtroom."
 always_allow_html: true
 ---
 
 # Preface {-}
 
-This book by the Leverhulme Research Centre for Forensic Science provides a learning and reference resource for judges on the topic of evaluating forensic science evidence using probability and statistics. It aims to provide the stepping stones required to become comfortable with likelihood ratio-based evaluations of evidence, as endorsed by the European Network of Forensic Science Institutes, and the Forensic Science Regulator of the UK.
+This book produced by the Leverhulme Research Centre for Forensic Science provides a learning and reference resource for those without statistical expertise on the topic of evaluating forensic science evidence using the likelihood ratio approach. It aims to provide the stepping stones required to become comfortable with likelihood ratio-based evaluations of evidence, as endorsed by the European Network of Forensic Science Institutes, and the Forensic Science Regulator of the UK.
 
 ## Why this book {-}
 
@@ -27,23 +27,21 @@ High quality resources can already be found on this topic, which have been autho
 
 4. by being based online to allow feedback to be easily given and regularly actioned upon, and for content updates to be easily made as scientific thinking develops and current practices change - see the sections below on how to contribute.
 
-This book follows the main content from the Royal Statistical Society's Fundamentals of Probability and Statistical Evidence in Criminal Proceedings book [@aitken2010] and then portions of The Logic of Forensic Proof [@roberts2014]. We have also provided motivation for the use of probability and statistics by drawing from the uncertainty communication literature, and in particular adapting the advocated model from @vanderbles2019 to forensic science. Put together, this resource provides an intermediate overview of why and how we use probability and statistics in evaluating forensic evidence, including examples and exercises to reinforce understanding.
+This book follows the main content from the Royal Statistical Society's Fundamentals of Probability and Statistical Evidence in Criminal Proceedings book [@aitken2010] and then portions of The Logic of Forensic Proof [@roberts2014]. We have also provided motivation for the use of probability and statistics by drawing from the uncertainty communication literature, and in particular adapting the advocated model from @vanderbles2019 to forensic science. Put together, this resource provides an intermediate overview of why and how we use probability and the likelihood ratio for evaluating forensic evidence, including examples and exercises to reinforce understanding.
 
 This book can be used to supplement the online course content from [cite MOOC]. This way, learners can progress through more formalised training (with video, audio, and graded tests), and simply use this book as a resource to see further examples. The order and presentation of the material is different to what appears in the course, although most of the same ideas appear here.
 
 The interactive examples in the online version of this book can be found as their own tool at [cite shiny app]. This is to provide a standalone resource for those who are not using the book e.g. a wider audience, and also so that those who prefer to use a printed version of this book can still have fast access to the examples they need. 
 
-The content presented here is not a comprehensive guide to the evaluation of all forensic evidence. For example in the UK (as of writing this in August 2020), the numerical evaluation of impression evidence (such as fingerprints) is not widely practised compared to say, how it is done in The Netherlands. In addition, each evidence type is currently at a different stage of scientific understanding. As a result, the exact statistical considerations for each evidence type differ, even if the general evaluation methodology is the same or similar. More information on the state of each type of evidence can be found in the judicial Primers series commissioned by the Royal Society and the Royal Society of Edinburgh [@dnaprimer2017; @gaitprimer2017; @statsprimer2020].
+The content presented here is not a comprehensive guide to the evaluation of all forensic evidence. For example in the UK (as of writing this in August 2020), the numerical evaluation of impression evidence (such as fingerprints) is not widely practised compared to say, how it is done in other jurisdictions such as The Netherlands. In addition, each evidence type is currently at a different stage of scientific understanding. As a result, the exact statistical considerations for each evidence type differ, even if the general evaluation methodology is similar. More information on the state of each type of evidence can be found in the judicial Primers series commissioned by the Royal Society and the Royal Society of Edinburgh [@dnaprimer2017; @gaitprimer2017; @statsprimer2020].
 
 ## Who this is for {-}
 
-This book is primarily aimed at judges, but in the UK that covers at least two distinct domains: criminal and civil. The skills required to understand the statistical evidence in both of these domains is sufficiently different to be given separate educational treatments. This book (as of the current version) is dominated by statistical content to help with forensic evidence in criminal cases. As time progresses and we receive feedback, and in particular if there is demand for it, we may add content to aid understanding of using the Ogden tables for calculation of damages due to injury, and also to help with understanding epidemiological evidence, e.g. for causation of illness.
+This book is primarily aimed at judges, but in the UK that covers at least two distinct domains: criminal and civil. The skills required to understand the statistical evidence in both of these domains is sufficiently different to be given separate  treatments. This book (as of the current version) is dominated by content to help with forensic evidence in criminal cases. As time progresses and we receive feedback, and in particular if there is demand for it, we may add content to aid understanding of civil applications of statistics too, e.g. epidemiological evidence.
 
-There is a wider audience who might also benefit from this material. In a professional capacity, this includes legal counsel, students of law, and students of forensic science who are relatively new to statistics and its application in evaluating evidence. Our hope is that this can be an engaging resource to supplement professional development and formal study.
+There is a wider audience who might also benefit from this material. This includes legal counsel, students of law, and students of forensic science who are relatively new to statistics and its application in evaluating evidence. Our hope is that this can be an engaging resource to supplement professional development and formal study.
 
-Outside of that, we hope that this resource might be an interesting introduction for members of the public who are curious about how forensic scientists determine the value of scientific evidence and present that to the court.
-
-We welcome feedback from anyone, which can be used to improve the content of this book and for the development of other resources too, see the notes on how to contribute and and how to contact us in the corresponding sections below.
+We welcome feedback and contributions so that we can improve the content of this book. See the notes on how to contribute and and how to contact us in the sections below.
 
 ## How to contribute {-}
 
@@ -61,11 +59,7 @@ Any further correspondence can be addressed below.
 
 ### Email {-}
 
-Feel free to email h.w.gray@dundee.ac.uk with your feedback on the book. When making a contribution, please be sure to reference specific sections of the book so that I can make a change. If you have disagreements with the content then feel free to raise these, but please be respectful and provide references so that I can best engage with your feedback. Remember to mention your name and affiliation so that I can add you to the list of contributors below.
-
-## Getting in contact {-}
-
-Please do get in contact with h.w.gray@dundee.ac.uk with any thoughts and suggestions about this book and future content. We particularly welcome thoughts of members of the UK judiciary as we work towards improving this resource and providing further resources.
+Please email h.w.gray@dundee.ac.uk with your feedback on the book, including any thoughts and suggestions for future content. We particularly welcome thoughts of members of the judiciary. When making a contribution, please be sure to reference specific sections of the book so that it can be reviewed efficiently. If you have disagreements with the content then please raise these. Remember to provide your name and affiliation so that you can be added to the list of contributors below.
 
 ## Acknowledgements {-}
 
@@ -75,7 +69,9 @@ The primary author of this book was funded by the David and Claudia Harding foun
 
 ### Contributors {-}
 
-Roy Mudie at LRCFS has developed the R Shiny application which accompanies this book. This allows the html version of this book to contain interactive examples which we hope (and soon will test to see!) enhance the users' learning experience. The Shiny application can also be used as a standalone tool to engage with our statistical content. Roy has helped with many of the technical issues which have arisen behind the scenes and helped with how to visualise some of our content in a way that was intuitive. Thanks a lot for all of your work, Roy!
+Roy Mudie at LRCFS has developed the R Shiny application which accompanies this book. This allows the html version of this book to contain interactive examples which we hope (and soon will test to see!) enhance the users' learning experience. This application can also be used as a standalone tool to engage with our statistical content. Roy has helped with many of the technical issues which have arisen behind the scenes and helped with how to visualise some of our content in a way that is intuitive. Thanks a lot for all of your work, Roy!
+
+A big thanks goes to Pauline Mack, Joyce Klu, Heather Doran, Emma Comrie, Lucina Hackman, and Niamh Nic Daiéd as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
 
 ### Software {-}
 
@@ -83,15 +79,13 @@ This book was written using the **bookdown** package [@R-bookdown], which was bu
 
 ## Updates and versions {-}
 
-### About this version (1st draft) {-}
+### About this version (2nd draft) {-}
 
-The book is currently in first draft stage. This means that the content has finished its first review and has received minor edits from an internal review team.
+The book is currently in its second draft. This means that the content has received and implemented edits from an internal review team and is still under development.
 
 ### Planned versions {-}
 
 Major versions in planning:
-
-- Second draft, after more internal feedback
 
 - Version 1, after feedback from internal students and some external practitioners
 
@@ -105,11 +99,13 @@ Major versions in planning:
 
 08/2020 - First draft of the book
 
+12/2020 - Second draft of the book
+
 ### Future content {-}
 
 - Interactive exercises with feedback for each chapter
 
-- Case Assessment and Interpretation protocol basics
+- Case Assessment and Interpretation protocol introduction
 
 - A Bayesian network primer
 
