@@ -278,17 +278,17 @@ corresponding to posterior odds of $19:49$, or 49 to 19 against doping given a p
 
 Notice that the likelihood ratio for a positive test gave support in favour of $H_p$ (the athlete doping) but the posterior odds were still in favour of $H_d$ (the athlete not doping). This was because the prior odds were more heavily in favour of $H_d$ than the factor by which the LR supported $H_p$. Committing the prosecutor's fallacy here would not only give an inaccurate answer for the posterior odds of doping, but it would mistake the odds as being in favour of $H_p$ when they are actually in favour of $H_d$. This is an important point; the likelihood ratio alone does not tell us anything about the posterior odds in favour of a proposition, it only tells us the relative size of the posterior odds compared to the prior odds. For the fact finder, this confirms that LRs should be used to **update** beliefs about competing propositions (as well as using other evidence), and not **as** beliefs about competing propositions.
 
-```{block eval=FALSE, include=isDynamicOutput()}
-### Interactive Example
+<!-- ```{block eval=FALSE, include=isDynamicOutput()} -->
+<!-- ### Interactive Example -->
 
-Below is an interactive example showing doping stuff.
+<!-- Below is an interactive example showing doping stuff. -->
 
-```
-```{r echo=FALSE}
-if(isDynamicOutput()){
-  knitr::include_app(getInteractiveLink("tabDopingTest_likelihoodRatio","DopingTest",TRUE), height = '1650px')
-}
-```
+<!-- ``` -->
+<!-- ```{r echo=FALSE} -->
+<!-- if(isDynamicOutput()){ -->
+<!--   knitr::include_app(getInteractiveLink("tabDopingTest_likelihoodRatio","DopingTest",TRUE), height = '1650px') -->
+<!-- } -->
+<!-- ``` -->
 
 
 ## Combining evidence
@@ -326,28 +326,33 @@ There are two other ways in which an expert may assign more robust LRs. The firs
 
 When the LR is chosen as the appropriate tool to convey the value of scientific evidence, it must still be understood by the fact finder in order to be effective. This means that the LR needs to be successfully communicated **to** fact-finders and legal counsel, as well as effectively communicated **by** expert witnesses, legal counsel, and the judge if it is the subject of any clarifications or guidance to jurors for a particular case. The expert determines the LR, but accurately communicating its meaning is a shared responsibility.
 
-There are currently two prominent strategies for communicating LRs as an expert: numerically and verbally. In expert reports, the currently endorsed approach by the Forensic Science Regulator is to communicate LRs using their numerical value possibly converted into the verbal statements given in Table \@ref(tab:verbal-scale-table).
+There are currently two prominent strategies for communicating LRs as an expert: numerically and verbally. In expert reports, the currently endorsed approach by the European Network for Forensic Science Institutes is to communicate LRs using their numerical value possibly converted into the verbal statements given in Table \@ref(tab:verbal-scale-table).
 
 Suppose the following evidence and competing propositions:
 
-Evidence:
-
 - $E$: Blood-spatter pattern on the defendant's jeans. The blood is thought to originate from the complainant, which is a claim supported by DNA analysis, and this is not disputed by the defence. 
 
-Propositions:
-
-- $H_p$: the defendant kicked the complainant
-- $H_d$: the defendant did not kick the complainant. They claim to have been present but standing some distance from the attack.
+- $H_p$: the defendant kicked the complainant,
+- $H_d$: the defendant did not kick the complainant. They claim to have been present but standing at least 5 metres away from the attack.
 
 Suppose also that an expert has assigned an LR of 1000 in favour of $H_p$ compared to $H_d$. 
 
 The most raw form of communicating this LR is in its numerical format. Such a statement could read like this:
 
-> This pattern of blood spatter is 1000 times more likely to be seen if the defendant kicked the complainant, rather than if the defendant did not kick the complainant but was present during the attack and was standing in the location as described in their statement.
+> This pattern of blood spatter is 1000 times more likely to be seen if the defendant kicked the complainant, rather than if the defendant did not kick the complainant but was present during the attack standing at least 5 metres away.
 
 Converting an LR of 1000 into a verbal statement using Table \@ref(tab:verbal-scale-table) could lead to a statement such as:
 
-> This pattern of blood-staining provides strong support for the defendant having kicked the complainant, rather than the defendant not having kicked the complainant but having been present during the attack and standing some distance away.
+> This pattern of blood-staining provides strong support for the defendant having kicked the complainant, rather than the defendant not having kicked the complainant but having been present during the attack standing at least 5 metres away.
+
+Which of these statements is selected is a decision made by the expert, and may be determined by the practice used by the expert's employer. In any case, a justification for the LR being 1000 should be made clear in the expert's report. If any data have been used then this should be detailed. Any expert knowledge and experience should also be detailed so that it is available for audit in court. For example, an LR of 1000 may have been assigned as the most conservative value in favour of the defence based upon a combination of findings in academic literature and internal experiments to replicate the case circumstances - details of which could be disclosed in the report. This would represent a combination of information from systematic studies and personal experience and so from the more objective [S] and more subjective [E] categories from the previous section. The robustness of this LR can be more clearly tested using this information.
+
+Suppose now that the expert had not detailed an LR of 1000 and instead opted to communicate the probative value using only the corresponding verbal category of 'strong support'. This could mean one of two things:
+
+1. An LR has been assigned to a single value within the range of the verbal category and this was not communicated,
+2. The LR has been assigned to an interval covered by the verbal category and this was not communicated.
+
+The reasons for the expert to choose either of the above options could be useful in exploring the robustness of this LR. Using an interval for the LR represents uncertainty that may or may not have been accounted for when assigning a single value. On the other hand, the single value may have been a conservative assignment. Any data or experience that the expert has used should still be made clear in their report.
 
 <!-- Since the conditional probabilities which determine the LR are made explicit in this example (this is not common practice), then the LR can also be communicated visually using natural frequencies in Figure \@ref(fig:freq-tree-lr-kicking): -->
 
@@ -395,7 +400,7 @@ Converting an LR of 1000 into a verbal statement using Table \@ref(tab:verbal-sc
 
 <!-- Notice how the expert did not specify a prior probability of being the kicker or not, and so we had to split the trees into two groups, one for the kickers, and one for the non-kickers. -->
 
-The effectiveness of communicating the LR is an active area of scientific research and has shown mixed results in some studies. Other methods of communication or evidence evaluation are likely to develop as we gather a better understanding of how LR communications are received and used by those within the courtroom.
+The effectiveness of communicating the LR is an active area of scientific research. Communication using the numerical and verbal scales presented in this section has shown mixed results in scientific studies employing experiments with mock jurors. Other methods of communication or evidence evaluation are likely to develop as we gather a better understanding of how LR communications are received and actioned upon by those within the courtroom.
 
 ## More information
 
