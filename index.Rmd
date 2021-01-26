@@ -71,7 +71,7 @@ The primary author of this book was funded by the David and Claudia Harding foun
 
 Roy Mudie at LRCFS has developed the R Shiny application which accompanies this book. This allows the html version of this book to contain interactive examples which we hope (and soon will test to see!) enhance the users' learning experience. This application can also be used as a standalone tool to engage with our statistical content. Roy has helped with many of the technical issues which have arisen behind the scenes and helped with how to visualise some of our content in a way that is intuitive. Thanks a lot for all of your work, Roy!
 
-A big thanks goes to Pauline Mack, Joyce Klu, Heather Doran, Emma Comrie, Lucina Hackman, and Niamh Nic Daiéd as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
+A big thanks goes to Pauline Mack, Joyce Klu, Heather Doran, Emma Comrie, Lucina Hackman, and Niamh Nic Daéid as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
 
 ### Software {-}
 
