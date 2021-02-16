@@ -104,7 +104,7 @@ Propositions are mostly grouped into four categories (or levels): offence, activ
 Level <- c(rep("Offence", 4),
            rep("Activity", 4),
            rep("Source", 4),
-           rep("Sub-source", 4))
+           rep("Sub-source", 2))
 Examples <- c("$H_p^1$: The defendant committed murder",
               "$H_d^1$: The defendant did not commit murder",
               "$H_p^2$: The defendant assaulted the claimant",
@@ -117,10 +117,8 @@ Examples <- c("$H_p^1$: The defendant committed murder",
               "$H_d^5$: The glass from the defendant's clothing originated from some other source",
               "$H_p^6$: The blood on the defendant's shoes came from the claimant",
               "$H_d^6$: The blood on the defendant's shoes came from someone else",
-              "$H_p^7$: NA",
-              "$H_d^7$: NA",
-              "$H_p^8$: The DNA on the claimant's clothing came from the defendant",
-              "$H_d^8$: The DNA on the claimant's clothing came from someone else")
+              "$H_p^7$: The DNA on the claimant's clothing came from the defendant",
+              "$H_d^7$: The DNA on the claimant's clothing came from someone else")
 propsDf <- dplyr::tibble(Level, Examples)
 ```
 
@@ -178,8 +176,8 @@ The **sub-source level** is a particular version of the source level. It makes s
 
 This distinction between source and sub-source level can be key in case circumstances because it leaves open questions of how the DNA came to be there. The sub-source level propositions in Table \@ref(tab:propositions-table) are:
 
-- $H_p^8$: The DNA on the claimant's clothing came from the defendant,
-- $H_d^8$: The DNA on the claimant's clothing came from someone else.
+- $H_p^7$: The DNA on the claimant's clothing came from the defendant,
+- $H_d^7$: The DNA on the claimant's clothing came from someone else.
 
 DNA found on clothing may be explained by direct contact and indirect transfer, which might be reasonable in any given case. This means that more obstacles are encountered than source level propositions when trying to move to the activity level. If blood has been found on an item, and so the source level can be addressed, then there are far fewer mechanisms of it coming to be there compared to finding traces of DNA alone. 
 
@@ -197,7 +195,7 @@ Practice identifying the correct proposition level with the examples below.
 
 The **probative value** of evidence is the degree to which a piece of evidence can discriminate between competing propositions. When the evidence is scientific in nature, its probative value is determined by the expert and communicated to the court. The fact finder then decides the truth of the competing propositions based upon this and any other evidence that is relevant to the propositions. 
 
-In order to to determine how much the evidence discriminates between competing propositions, the expert considers the competing propositions from counsel and interprets how likely the observed evidence would have been assuming each proposition to be true. This logic addresses the questions: how likely would the observations have been if the prosecution's assertions are true? and how likely would the observations have been if the defence's assertions are true? Both of these questions reflect uncertainty in the evidence conditioned on the propositions of the prosecution and defence. This means that they can also be described as conditional probabilities: probabilities of the evidence conditioned on the propositions and any background information (such as agreed facts).
+In order to determine how much the evidence discriminates between competing propositions, the expert considers the competing propositions from counsel and determines how likely the observed evidence would have been assuming each proposition to be true. This logic addresses the questions: how likely would the observations have been if the prosecution's assertions are true? and how likely would the observations have been if the defence's assertions are true? Both of these questions reflect uncertainty in the evidence conditioned on the propositions of the prosecution and defence. This means that they can also be described as conditional probabilities: probabilities of the evidence conditioned on the propositions and any background information (such as agreed facts).
 
 Highly discriminatory evidence, or high probative value, is achieved when there is a large difference between the probabilities under each proposition. If a piece of evidence cannot discriminate between propositions then it is not probative for those propositions, but it may still be probative of other propositions. Little-to-no probative value occurs when there is little to no difference between the conditional probabilities under each proposition. 
 
@@ -206,20 +204,20 @@ Consider the following propositions from Table \@ref(tab:propositions-table):
 - $H_p^5$: The glass from the defendant's clothing originated from the smashed window,
 - $H_d^5$: The glass from the defendant's clothing originated from some other source,
 
-- $H_p^6$: The blood on the defendant's shoes came from the accuser,
+- $H_p^6$: The blood on the defendant's shoes came from the claimant,
 - $H_d^6$: The blood on the defendant's shoes came from someone else.
 
 Suppose there are also the following three pieces of scientific evidence whose probative value is to be determined:
 
 - $E_1$: glass analysis reveals a "match" between the fragments found on the defendant's clothing and the smashed window,
-- $E_2$: DNA analysis of the blood on the defendant's shoes does not match the accuser's DNA,
+- $E_2$: DNA analysis of the blood on the defendant's shoes does not match the claimant's DNA,
 - $E_3$: gun shot residue particles were found on the defendant's clothing.
 
 Evidence $E_1$ is highly relevant to the source level propositions $H_p^5$/$H_d^5$. Intuitively, we would expect a match if $H_p^5$ is true. This belief translates to a probability for $E_1$ conditioned on $H_p^5$ of 1 or very close to 1. However, there might also reasonably be a match if $H_d^5$ is true. This would occur when the same type of glass has been used for both the smashed window and the other source. One factor which will affect our expectation is how common the type of glass is in other uses, e.g. are all household windows made from that type of glass? The more common the glass, the more probable a match is if the glass originates from another source and so the probability for $E_1$ conditioned on $H_d^5$ gets closer to 1. The rarer the glass is, the less probable a match is if the glass originates from another source, and so the probability for $E_1$ conditioned on $H_d^5$ gets closer to 0. Rarer glass types result in a greater difference between the conditional probabilities of the evidence $E_1$ under $H_p^5$/$H_d^5$ and therefore higher probative value. 
 
-Evidence $E_2$ is highly relevant to source level propositions $H_p^6$/$H_d^6$. In this case, $H_p^6$ is incompatible with the evidence: if the claimant truly is the source of the blood then a "no match" is near impossible. The only situation in which this is not true is if there has been a mistake with handling and analysing the sample, so that it becomes severely contaminated or switched with another sample. With sufficient evidence-gathering and analysis protocols in place, it is assumed that this is not the case unless there is reasonable evidence to suggest otherwise. This belief translates into a probability for evidence $E_2$ conditioned on proposition $H_p^6$ of close to 0. On the other hand, we would expect "no match" if the claimant is not the source, i.e. if $H_d^6$ is true. This is a probability for the evidence $E_2$ conditioned on proposition $H_d^6$ of close to 0. Since the conditional probabilities under each source level proposition are so different, this evidence clearly discriminates between them and so it has high probative value.
+Evidence $E_2$ is highly relevant to source level propositions $H_p^6$/$H_d^6$. In this case, $H_p^6$ is incompatible with the evidence: if the claimant truly is the source of the blood then a "no match" is near impossible. The only situation in which this is not true is if there has been a mistake with handling and analysing the sample, so that it becomes contaminated or is switched with another sample. With sufficient evidence-gathering and analysis protocols in place, it is assumed that this is not the case unless there is reasonable evidence to suggest otherwise (i.e. this is background information). This belief translates into a probability for evidence $E_2$ conditioned on proposition $H_p^6$ of close to 0. On the other hand, we would expect "no match" if the claimant is not the source, i.e. if $H_d^6$ is true. This is a probability for the evidence $E_2$ conditioned on proposition $H_d^6$ of close to 1. Since the conditional probabilities under each source level proposition are so different, this evidence clearly discriminates between them and so it has high probative value.
 
-Evidence $E_3$ does not appear to be relevant to either pair of competing source level propositions with the lack of contextual information that we have given here. Since it is not relevant, then it also has no probative value for those propositions. However, if case circumstances involved propositions about firearms, e.g. $H_p^3$/$H_d^3$, then it could be highly probative for them. 
+Evidence $E_3$ does not appear to be relevant to either pair of competing source level propositions with the lack of contextual information that we have given here. Since it is not relevant, then it also has no probative value for those propositions. However, if case circumstances involved other propositions about firearms, e.g. $H_p^3$/$H_d^3$, then it could be highly probative for them. 
 
 The preceding analysis shows that propositions are key in defining the probative value of scientific evidence. The same piece of evidence can have different values for its conditional probabilities depending upon the competing propositions on which it is conditioned. The same piece of evidence can also have no probative value for one set of competing propositions but may be highly probative for another. 
 
@@ -245,7 +243,7 @@ Similarly, changing the level in the hierarchy of propositions almost definitely
 - $H_p^6$: The blood on the defendant's shoes came from the claimant,
 - $H_d^6$: The blood on the defendant's shoes came from someone else.
 
-Consider the probative value of a match between the claimant's DNA profile and the blood found on the defendant's shoes. The probability of obtaining this match conditioned on $H_p^6$ is much higher than the probability of the match conditioned on $H_d^6$. This makes the evidence highly probative of these competing propositions. However, it is of more interest to the court to determine whether the defendant kicked the claimant or not. This makes it more important to consider the probative value of the evidence with respect to propositions $H_p^4$/$H_d^4$. Depending on the case circumstances, the evidence of a match may be of little value when considering $H_p^4$/$H_d^4$. For example, the defendant may claim to have been absent for the kicking but helped the claimant after noticing them injured in the street. The defendant claims that the blood must have transferred to their shoes whilst they were helping. The defence proposition should then be altered to reflect this new information and the expert might reasonably determine that the probability of observing a match conditional on this new information is close to 1. This would make the probative value of the match low for propositions $H_p^4$/$H_d^4$. Other evidence, such as blood spatter analysis might then be commissioned for its probative value for these propositions instead.
+Consider the probative value of a match between the claimant's DNA profile and the blood found on the defendant's shoes. The probability of obtaining this match conditioned on $H_p^6$ is much higher than the probability of the match conditioned on $H_d^6$. This makes the evidence highly probative of these competing propositions. However, it is of more interest to the court to determine whether the defendant kicked the claimant or not. This makes it more important to consider the probative value of the evidence with respect to activity level propositions $H_p^4$/$H_d^4$. Depending on the case circumstances, the evidence of a match may be of little value when considering $H_p^4$/$H_d^4$. For example, the defendant may claim to have been absent for the kicking but helped the claimant after noticing them injured in the street. The defendant claims that the blood must have transferred to their shoes whilst they were helping. The defence proposition should then be altered to reflect this new information and the expert might reasonably determine that the probability of observing a match conditional on this new information is close to 1. This would make the probative value of the match low for propositions $H_p^4$/$H_d^4$. Other evidence, such as blood spatter analysis might then be commissioned for its probative value for these propositions instead.
 
 Evidence which is highly probative at the source level may have its value diminished at the activity level. For this reason, it is important to have clear and unambiguous propositions which are addressed at the appropriate proposition level (usually activity). 
 
