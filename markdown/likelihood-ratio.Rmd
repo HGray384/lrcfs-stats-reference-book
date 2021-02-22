@@ -402,6 +402,6 @@ The reasons for the expert to choose either of the above options could be useful
 
 The effectiveness of communicating the LR is an active area of scientific research. Communication using the numerical and verbal scales presented in this section has shown mixed results in scientific studies employing experiments with mock jurors. Other methods of communication or evidence evaluation are likely to develop as we gather a better understanding of how LR communications are received and actioned upon by those within the courtroom.
 
-## More information
+<!-- ## More information -->
 
-## Exercises
+<!-- ## Exercises -->
