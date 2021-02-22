@@ -1,7 +1,7 @@
 APP_DEV = "Leverhulme Research Centre for Forensic Science"
 APP_DEV_SHORT = "LRCFS"
-APP_NAME = "Interactive Statistics and Probability Application"
-APP_NAME_SHORT = "Stats Pro"
+APP_NAME = "Interactive Probability and Statistics Application"
+APP_NAME_SHORT = "IPSA"
 APP_VER = "0.0.1"
 APP_LINK = "https://www.dundee.ac.uk/leverhulme/"
 
