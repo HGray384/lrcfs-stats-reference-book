@@ -185,11 +185,11 @@ DNA found on clothing may be explained by direct contact and indirect transfer, 
 
 It's worth mentioning that the hierarchy of propositions is a general conceptual framework which is helpful when considering different propositions. Individual case circumstances will determine how important each level of proposition is and the degree to which the scientist can consider them. In some cases, source level propositions may effectively address the offence level propositions based on the case circumstances and witness testimony.
 
-## Example: proposition levels
+<!-- ## Example: proposition levels -->
 
-Practice identifying the correct proposition level with the examples below. 
+<!-- Practice identifying the correct proposition level with the examples below.  -->
 
-<iframe src="https://h5p.org/h5p/embed/1008610" width="1090" height="478" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
+<!-- <iframe src="https://h5p.org/h5p/embed/1008610" width="1090" height="478" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script> -->
 
 ## Probative value of evidence {#probative-value}
 
@@ -257,6 +257,6 @@ One well-known error of reasoning regarding conditional probabilities is the **p
 
 <!-- [worked example - edit prior odds and see how much error is induced] -->
 
-## More information
+<!-- ## More information -->
 
-## Exercises
+<!-- ## Exercises -->
