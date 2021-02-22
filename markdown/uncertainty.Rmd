@@ -5,6 +5,7 @@ source("./code/helper-functions.R")
 # check and load the libraries
 needPackages("igraph",
              "ggthemes",
+             "gdtools",
              "kableExtra",
              "tidyverse",
              "plotly")
