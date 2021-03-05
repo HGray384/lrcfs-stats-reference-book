@@ -1,5 +1,19 @@
 # Propositions to frame uncertainty {#propositions}
 
+```{r package-load-propositions, include=FALSE}
+source("./code/helper-functions.R")
+# check and load the libraries
+needPackages("igraph",
+             "ggthemes",
+             "kableExtra",
+             "tidyverse",
+             "plotly",
+             "grid",
+             "plyr")
+# set some useful variables
+source("./code/useful-variables.R")
+```
+
 When applying probability theory in the context of a legal case, it is important that the assertions from both sides of counsel are made precise. This is because they will be used to compare against each other as conditioning information in conditional probabilities. Innocent mistakes in proposing imprecise conditioning information can have large effects on the resulting value of the conditional probability. More importantly, such mistakes can lead to completely incorrect interpretations of conditional probabilities, such as incorrect beliefs about which events may have occurred and which did not.
 
 In this chapter, we will define what is meant by a proposition, how propositions are useful for framing uncertainty about events, and how propositions are combined with probability to determine the probative value of evidence. 
@@ -185,11 +199,28 @@ DNA found on clothing may be explained by direct contact and indirect transfer, 
 
 It's worth mentioning that the hierarchy of propositions is a general conceptual framework which is helpful when considering different propositions. Individual case circumstances will determine how important each level of proposition is and the degree to which the scientist can consider them. In some cases, source level propositions may effectively address the offence level propositions based on the case circumstances and witness testimony.
 
-<!-- ## Example: proposition levels -->
+## Example: proposition levels
 
-<!-- Practice identifying the correct proposition level with the examples below.  -->
+Practice identifying the correct proposition level with the examples below.
 
-<!-- <iframe src="https://h5p.org/h5p/embed/1008610" width="1090" height="478" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script> -->
+<!-- # ```{r proposition-levels-quiz, echo=FALSE} -->
+<!-- # quiz(caption="Proposition levels", -->
+<!-- #      question("Glass fragments that were found inside the vehicle came from the broken window of the office.", -->
+<!-- #               answer("Offence"), -->
+<!-- #               answer("Activity"), -->
+<!-- #               answer("Source", correct = TRUE), -->
+<!-- #               answer("Sub-source") -->
+<!-- #      ), -->
+<!-- #      question("The suspect was present at the crime scene.", -->
+<!-- #               answer("Offence"), -->
+<!-- #               answer("Activity"), -->
+<!-- #               answer("Source", correct = TRUE), -->
+<!-- #               answer("Sub-source") -->
+<!-- #      ) -->
+<!-- # ) -->
+<!-- # ``` -->
+
+<!-- <!-- <iframe src="https://h5p.org/h5p/embed/1008610" width="1090" height="478" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script> -->
 
 ## Probative value of evidence {#probative-value}
 
