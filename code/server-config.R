@@ -5,3 +5,6 @@ SHINY_HOST = "http://127.0.0.1:5555" #development
 #SHINY_HOST = "https://lrcfs.dundee.ac.uk/apps/interactive-lr"           #Production Server
 #SHINY_HOST = "https://lrcfs-shiny.test.dundee.ac.uk/apps/interactive-lr" #Test Server
 #SHINY_HOST = "http://127.0.0.1:5555" #development                        #Example development path
+
+#Base URL for interactive questions
+QUESTIONS_HOST = "https://lrcfs.dundee.ac.uk/lr-book-questions/"
