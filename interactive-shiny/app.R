@@ -12,6 +12,7 @@ library(igraph)
 library(tidyverse)
 library(ggthemes)
 library(kableExtra)
+library(learnr)
 
 # library(plotly)
 # library(riskyr)
@@ -40,6 +41,7 @@ source("views/view_doubleCoinTree.R")
 source("views/view_diseaseTest.R")
 source("views/view_dopingTest_probabilities.R")
 source("views/view_dopingTest_likelihoodRatio.R")
+source("views/view_propLevel.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
@@ -63,6 +65,8 @@ ui = function(request) {
                                            menuItem('Likelihood Ratio', tabName = 'tabDopingTest_likelihoodRatio', icon = icon('prescription-bottle'))
                                   ),
                                   
+                                  menuItem("Propositions", tabName = "tabPropLevel", icon = icon("comment")),
+                                  
                                   menuItem("Likelihood ratio", tabName = "tabLikelyhood", icon = icon("chart-line"))
                                   
                       ),
@@ -81,7 +85,8 @@ ui = function(request) {
                         tabDoubleCoinTree,
                         tabDiseaseTest,
                         tabDopingTest_probabilities,
-                        tabDopingTest_likelihoodRatio
+                        tabDopingTest_likelihoodRatio,
+                        tabPropLevel
                       )
                     ),
                     footer = dashboardFooter(
@@ -118,6 +123,7 @@ server = function(input, output,session) {
   source("models/model_diseaseTest.R", local = TRUE)
   source("models/model_dopingTest.R", local = TRUE) #common variables for dopingTest
   source("models/model_dopingTest_probabilities.R", local = TRUE)
+  # source("models/model_propLevel.R", local = TRUE)
   source("models/model_dopingTest_likelihoodRatio.R", local = TRUE)
 }
 
