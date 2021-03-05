@@ -11,6 +11,7 @@ description: "This book is a learning resource for those who would like to learn
 always_allow_html: true
 ---
 
+
 # Preface {-}
 
 This book produced by the Leverhulme Research Centre for Forensic Science provides a learning and reference resource for those without statistical expertise on the topic of evaluating forensic science evidence using the likelihood ratio approach. It aims to provide the stepping stones required to become comfortable with likelihood ratio-based evaluations of evidence, as endorsed by the European Network of Forensic Science Institutes, and the Forensic Science Regulator of the UK.
