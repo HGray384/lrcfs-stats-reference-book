@@ -110,6 +110,12 @@ This proposition is still competing with $H_p^3$, and $H_p^3$ and $H_d^{3^*}$ ar
 
 These properties of propositions are important when we begin to consider probabilities associated with them in Section \@ref(probative-value). Before we consider probability though, we first look at different categories of propositions for criminal investigations. 
 
+## Example: exhaustivity and mutual exclusivity
+
+``` {r exhaustive-mutually-exclusive-questions, echo=FALSE}
+knitr::include_url(paste0(QUESTIONS_HOST,"Exhaustive-Mutually-Exclusive-Propositions.html"), height=800)
+```
+
 ## Hierarchy of propositions
 
 Propositions are mostly grouped into four categories (or levels): offence, activity, source, and sub-source. This is known as the **hierarchy of propositions**, since each category is generally more or less important than the others when considering the case as a whole. Categorising propositions into these levels is particularly helpful when interpreting scientific evidence since the value of this evidence heavily depends on the proposition level. Examples of competing propositions for each of these levels are shown in Table \@ref(tab:propositions-table) below.
@@ -203,7 +209,7 @@ It's worth mentioning that the hierarchy of propositions is a general conceptual
 
 Practice identifying the correct proposition level with the examples below.
 
-``` {r questions, echo=FALSE}
+``` {r proposition-level-questions, echo=FALSE}
 knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Examples.html"), height=500)
 ```
 
