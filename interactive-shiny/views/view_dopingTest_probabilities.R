@@ -1,8 +1,8 @@
 tabDopingTest_probabilities = tabItem(tabName = "tabDopingTest_probabilities",
                         fluidRow(
-                          box(title="Doping Testing Example with Probabilites", width=12,
+                          box(title="Doping Test Example with Probabilities", width=12,
                               p("In this example we will explore the effectiveness of tests and how that affects conditional probabilities."),
-                              p("There are athletes who are doping in order to improve their performance. A test has been developed to try to detect whether the athletes is doping or not. The test can return positive or negative for doping, but there is always uncertainty about its results."),
+                              p("There are athletes who are doping in order to improve their performance. A test has been developed to try to detect whether an athlete is doping or not. The test can return positive or negative for doping, but there is always uncertainty about its results."),
                               p("The sensitivity of a test is the probability that it returns a positive test result when the athlete is truly doping."),
                               p("The specificity of a test is the probability that the test returns a negative result when the athlete is truly not doping."),
                               p("Change these properties of the test using the slider below and see how that affects the number of mistakes the test is expected to make.")
@@ -12,11 +12,11 @@ tabDopingTest_probabilities = tabItem(tabName = "tabDopingTest_probabilities",
                           box(title="Doping Test Properties", width=12,
                               column(6,
                                 sliderInput("doping_prob_Sensitivity", "Test Sensitivity", min=0.01, max = 0.99, step=0.01, value = 0.95),
-                                div(class="infoBox", "A test sensitivity of 0.95 means that out of 100 doping atheletes mean 95 would test positive.", status = "info")
+                                div(class="infoBox", "A test sensitivity of 0.95 means that out of 100 doping athletes 95 would test positive.", status = "info")
                               ),
                               column(6,
                                 sliderInput("doping_prob_Specificity", "Test Specificity", min=0.01, max = 0.99, step=0.01, value = 0.95),
-                                div(class="infoBox", "A test specificity of 0.95 means that out of 100 non-doping atheletes mean 95 would test negative.", status = "info")
+                                div(class="infoBox", "A test specificity of 0.95 means that out of 100 non-doping athletes 95 would test negative.", status = "info")
                               )
                           )
                         ),
