@@ -1,19 +1,17 @@
 <html>
 <head>
+	<title>Propositions Questions</title>
 	<meta charset="utf-8" />
-    <title>Propositions-Examples Questions</title>
-    <script src="main.bundle.js" type="text/javascript"></script>
+	<script src="main.bundle.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="custom/style.css">
 </head>
 <body>
-    <div id='q1'></div>
-	<!--<div id='q2'></div>-->
+	<div id="questionsContainer" />
     <script type="text/javascript">
-        const q1 = new H5PStandalone.H5P(document.getElementById('q1'), './questions/proposition-levels');
-		/*
-		q1.then((() => {
-			return new H5PStandalone.H5P(document.getElementById('q2'), './questions/another-question');
-		}))
-		*/
+		var questionFolders = [
+			"proposition-levels",
+		];
     </script>
+	<script src="custom/app.js" type="text/javascript"></script>
 </body>
 </html>
