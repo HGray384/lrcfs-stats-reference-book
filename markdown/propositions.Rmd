@@ -221,6 +221,8 @@ In order to determine how much the evidence discriminates between competing prop
 
 Highly discriminatory evidence, or high probative value, is achieved when there is a large difference between the probabilities under each proposition. If a piece of evidence cannot discriminate between propositions then it is not probative for those propositions, but it may still be probative of other propositions. Little-to-no probative value occurs when there is little to no difference between the conditional probabilities under each proposition. 
 
+In the examples in this section, we will use the idea of a match. The word **match** has a specific meaning when referring to a comparison between a questioned sample and a reference sample, such as comparing a finger mark found at a crime scene with a fingerprint taken from a person of interest to an investigation. A match generally means that a selected number of features have been compared between the two samples and that a critical number of those features have been determined as indistinguishable. For example, comparative features of fingerprint examination include skin ridges on the finger such as the ending of a ridge or the splitting of a ridge into two ridges (known as bifurcation), as well as scars and other damage to the skin. The features that are compared and the critical number that determines a match differ between evidence types. The interpretation of a match requires care because it does not necessarily mean that the two samples originate from the same source or that an alleged activity occurred. We work through the ideas behind this interpretation in the following examples.
+
 Consider the following propositions from Table \@ref(tab:propositions-table):
 
 - $H_p^5$: The glass from the defendant's clothing originated from the smashed window,
@@ -231,7 +233,7 @@ Consider the following propositions from Table \@ref(tab:propositions-table):
 
 Suppose there are also the following three pieces of scientific evidence whose probative value is to be determined:
 
-- $E_1$: glass analysis reveals a "match" between the fragments found on the defendant's clothing and the smashed window,
+- $E_1$: glass analysis reveals a match between the fragments found on the defendant's clothing and the smashed window,
 - $E_2$: DNA analysis of the blood on the defendant's shoes does not match the claimant's DNA,
 - $E_3$: gun shot residue particles were found on the defendant's clothing.
 
