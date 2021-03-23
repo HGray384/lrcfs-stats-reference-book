@@ -116,9 +116,7 @@ Probability assignments which are based upon less reliable or less generally agr
 
 For repeatable events like the coin toss we can check and update our probabilities using empirical data, e.g. repeated flips of the coin. This can be seen as eliminating epistemic uncertainty about the biasedness of the flipper or gaining a better understanding of the aleatory uncertainty about the distribution of the outcomes. With enough repetition, personal probabilities which were initially different between individuals can converge to the same value. This would happen for example when all epistemic uncertainty is eliminated and there are enough data to agree on the nature of the aleatory uncertainty. Repeating the process about which there is uncertainty makes personal probabilities more easily assessable, as beliefs which are coherent with or contradictory to available information become clearer.
 
-In criminal cases, the opportunity to repeat events and gather scientific data from the case circumstances can be limited (and undesirable for harmful processes). The events are uncertain and one-off, and so it might be not feasible to assess probabilities by empirical repetition alone. Probabilities can still be informed by other available empirical data however, e.g. by observations from similar circumstances. 
-
-[EXAMPLE WITH BLOOD SPATTER]
+In criminal cases, the opportunity to repeat events and gather scientific data from the same case circumstances can be limited. This is because some events are one-off and difficult (if not impossible) to completely replicate in scientific experiments. Repeating some case circumstances might also be undesirable when they are harmful. For example, it would be harmful to exactly replicate the case circumstances of stabbings in order to examine the resulting blood patterns on nearby surfaces. In these situations, it is not feasible to assign probabilities by empirical repetition alone. Probabilities can still be informed by other available empirical data however, e.g. by observations from similar circumstances, and can also still be informed by expert knowledge. This knowledge should be disclosed and be available for audit by the court. In the blood pattern example above, scientists perform experiments using mannequins and animal blood in order to understand potential blood patterns resulting from attacks with weapons.
 
 ## Conditioning on information
 
@@ -245,29 +243,21 @@ Despite being logical, Bayes' rule can lead to highly counter-intuitive results.
 
 ## Example: guessing coin 1
 
-The double coin toss example above was extended to a game in which player 1 won if two heads were tossed and player 2 won if two tails were tossed. They drew if there was any combination of head and tail. When thinking about the probabilities of each player winning, we conditioned on coin 1 showing a head and also on coin 1 showing a tail. In each conditioning, one of the players' probabilities of winning reduced to 0 and the other's increased to 0.5.
+The double coin toss example in Section \@ref(double-coin-toss) introduced a game in which player 1 won if two heads were tossed and player 2 won if two tails were tossed. The game ended in a draw if there was any combination of head and tail from the two tosses. We conditioned on the two possible outcomes from coin 1 in order to understand the probabilities of each player winning after the result of coin 1 was known. In each conditioning, one of the players' probabilities of winning reduced to 0 and the other's increased to 0.5. In this example we alter this game slightly.
 
-Suppose the game is altered slightly so that player 1 now tosses the coins and does not show player 2 which sides were facing up. As part of the background information in this example, assume that player 1 always tells the truth and is tossing the coins in such a way to guarantee 0.5 probability of a head for either coin. After tossing the coins, player 1 only tells player 2 whether player 2 has won or not, i.e. whether double tails were tossed or not. If player 2 does not win, then they are given another chance to win by guessing the result of coin 1's toss. If they guess correctly, they win this new game. What should player 2 guess?
+Suppose that player 1 now tosses the coins and hides the outcomes from player 2. After tossing the coins, player 1 only tells player 2 whether player 2 has won the original game or not, i.e. whether double tails were tossed or not. If player 2 does not win, then they are given another chance to win by guessing the result of coin 1's toss. If their guess is correct, then player 2 wins this new game. As part of the background information, assume that player 1 always tells the truth and is tossing the coins in such a way that the odds are even for heads and tails for each coin. What should player 2's guess be?
 
-Begin by describing the uncertainty for player 2:
+This is a classic situation of epistemic uncertainty. Before the coin tosses, there is aleatory uncertainty - an unavoidable randomness to the future outcomes of these coin tosses. After the coin tosses, there is only epistemic uncertainty - player 1 knows the outcomes but player 2 does not. 
 
-- **object**: outcome of coin 1 after learning that both coins were not tails,
-- **source**: lack of knowledge about the outcome of coin 1 (player 1 knows),
-- **type**: epistemic,
-- **level**: direct,
-- **magnitude**: this is what we need to find.
+After the coin tosses, there are two possible situations:
 
-This is a classic situation of epistemic uncertainty. Before the coin tosses, there is aleatory uncertainty - there is an unavoidable randomness to the future outcomes of these coin tosses. Focussing only on the uncertainty of coin 1, both a head and a tail for coin 1 have equal probability of 0.5. These are prior odds of evens, or 1:1.
+1. Player 2 is told that they have won, in which case there is no uncertainty for them any longer because they know that the toss of coin 1 must have resulted in tails.
 
-After the coin tosses, there are two possible situations.
+2. Player 2 is told that they did not win, and now they have epistemic uncertainty about the results of both coin tosses. Player 2 is now offered the opportunity to guess the outcome of coin 1 to win. This is direct uncertainty about the toss of coin 1 and can be easily quantified with or without the use of Bayes' rule. 
 
-1. Player 2 is told that they have won, in which case there is no uncertainty for them any longer because they know that coin 1 must have resulted in tails.
+Player 2 can use probabilities to make the best guess for the second situation above. We will show both ways that this can be done. The possible outcomes of the double coin toss are presented as an expected frequency tree in Figure \@ref(fig:freq-tree-double-coin-bet-2) below.
 
-2. Player 2 is told that they did not win, and now they have epistemic uncertainty about the results of both coin tosses. Player 2 is now offered the opportunity to guess coin 1 to win. This is direct uncertainty about the toss of coin 1 and can be easily quantified. 
-
-The outcomes of the double coin toss are presented as an expected frequency tree in Figure \@ref(fig:freq-tree-double-coin-bet-2) below.
-
-```{r freq-tree-double-coin-bet-2, echo=FALSE,fig.cap="Player 2 expects not to win in 7500 out of the original 10,000 tosses. Out of those 7500 non-winning double tosses, 2500 came from coin 1 being tails, and 5000 came from coin 1 being heads. The posterior odds of coin 1 being a head are 2:1.", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-double-coin-bet-2, echo=FALSE,fig.cap="Player 2 expects not to win in 7500 out of the original 10,000 tosses (highlighted in bold). Out of those 7500 non-winning double tosses, 2500 came from coin 1 being tails, and 5000 came from coin 1 being heads. Since twice as many possible outcomes originate from coin 1 being heads the posterior odds of coin 1 being a head are 2:1.", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000\ntosses", "5000\ncoin 1 heads", "5000\ncoin 1 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -293,19 +283,40 @@ plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
 par(mar = defMar)
 ```
 
-Player 2 knows that one of the following three outcomes must have occurred: either coin 1 was a head and then coin 2 was either a head or a tail, or coin 1 was a tail and coin 2 was a head. For every 10,000 double tosses, these outcomes are expected in 7500 cases. Out of these 7500 non-winning double tosses, coin 1 is expected to be heads in 5000 of them, and coin 1 is expected to be tails in 2500 of them. This represents posterior odds, having conditioned on the information that the outcome was not double tails, that coin 1 is heads of 2:1, since 5000 is twice as large as 2500. Player 2 should therefore always guess a head when given the choice in this game, since the odds will be in their favour. This result might seem counter-intuitive at first glance. The key thing to understand is that the information of player 2 not winning via double tails should update their belief about the possible outcomes of the tosses. We will now apply Bayes' rule to this problem to see this more clearly.
 
-We can verify that posterior odds of 2:1 in favour of coin being heads are correct by using Bayes' rule. Event A from Bayes' rule in this example is coin 1 being a head and event B is coin 1 being a tail. Event E is the knowledge that the result was not a double tails. To apply Bayes' rule, we need to calculate the prior odds of coin 1 being a head compared to coin 1 being a tail and also the likelihood ratio for this situation.
+**Reasoning without using Bayes' rule**
 
-The likelihood ratio in this example considers the following question: how much more (or less) probable is it to **not** toss double tails if coin 1 is a head compared to if coin 1 is a tail? To calculate this, we need to first calculate two probabilities. The first is the probability of not tossing double tails conditional on coin 1 being a head. This probability is 1. If coin 1 shows up heads, then it is certain that a double tails will not be tossed.
+Player 2 knows that one of the following three outcomes must have occurred: 
 
-The second probability we need is the probability of not tossing a double tails conditional on coin 1 being a tail. Out of every 5000 tosses in which coin 1 is tails, we expect 2500 to lead to coin 2 being heads and 2500 to lead to coin 2 being tails. The probability is 0.5. Using these two probabilities results in a likelihood ratio of $\frac{1}{0.5}=2$; an outcome other than double tails is twice as likely when coin 1 is a head compared to when coin 1 is a tail.
+1. *either* coin 1 was a head and coin 2 was a head, 
+2. *or* coin 1 was a head and coin 2 was a tail, 
+3. *or* coin 1 was a tail and coin 2 was a head. 
 
-The second component of Bayes' rule that we needed was the prior odds of coin 1 being a head. We reasoned that these odds were evens because before we toss coin 1 there is an equal probability of a head and a tail. The prior odds of coin 1 showing a head are 1:1.
+For every 10,000 double tosses, the three outcomes above are expected in 7500 cases. In 5000 of these 7500, coin 1 is a head. In the other 2500, coin 1 is a tail. There are twice as many outcomes in which coin 1 is a head (5000 compared to 2500) and so the odds are 2:1 in favour of heads. These represent posterior odds, with the conditioning information being the fact that double tails has not occurred (or otherwise player 2 would have won the original game).
 
-Bayes' rule dictates that the posterior odds must be equal to the prior odds multiplied by the likelihood ratio. With a likelihood ratio of 2 and prior odds of 1:1, we obtain posterior odds of 2:1 in favour of a head; coin 1 is twice as likely to be a head when we know the outcome was not double tails. This result is the same as when we reasoned without using Bayes' rule, and so we have verified that it satisfies Bayes' rule. 
+This means that player 2 should always guess a head when given the choice in this game, since the odds will be in their favour. This result might seem counter-intuitive at first glance. The key thing to understand is that the information of player 2 not winning via double tails should update their belief about the possible outcomes of the tosses. We will now apply Bayes' rule to this problem to see this more clearly.
 
-In this example we could calculate the posterior odds without using Bayes' rule, this meant that we could verify the probability assignment. In many real situations, the posterior odds are hard to quantify in a way that guarantees that they satisfy Bayes' rule without using Bayes' rule itself to derive them. This is where Bayes' rule is most powerful, because all that is required is to quantify prior odds and the likelihood ratio in order to obtain logically coherent posterior odds.
+**Reasoning using Bayes' rule**
+
+We can verify that posterior odds of 2:1 in favour of coin being heads are correct by using Bayes' rule. Event A from Bayes' rule in this example is coin 1 being a head and event B is coin 1 being a tail. Event E is the knowledge that the result was not a double tails, since this is the information that player 1 reveals. This results in the following application of Bayes' rule:
+$$\text{posterior odds of coin 1 head to coin 1 tail}=\text{LR} \times \text{prior odds of coin 1 head to coin 1 tail},$$
+where the likelihood ratio (LR) equals the following conditional probabilities
+$$\text{LR}=\frac{\text{probability of no double tails conditioned on coin 1 head}}{\text{probability of no double tails conditioned on coin 1 tail}}$$
+To apply Bayes' rule, we need to calculate the probabilities underlying the LR and the prior odds of coin 1 head to coin 1 tail.
+
+The likelihood ratio in this example considers the following question: how much more (or less) probable is it to toss something other than double tails if coin 1 is a head compared to if coin 1 is a tail? To calculate this, we need to calculate the two probabilities in the equation above.
+
+**LR - numerator**: The first is the probability of no double tails conditioned on coin 1 being a head. This probability is 1. If coin 1 shows up heads, then it is certain that a double tails will not be tossed.
+
+**LR - denominator**: The second probability we need is the probability of no double tails conditioned on coin 1 being a tail. Out of every 5000 tosses in which coin 1 is tails, we expect 2500 to lead to coin 2 being heads and 2500 to lead to coin 2 being tails. The probability is 0.5. 
+
+**LR**: Using these two probabilities results in a likelihood ratio of $\frac{1}{0.5}=2$; an outcome other than double tails is twice as likely when coin 1 is a head compared to when coin 1 is a tail.
+
+**Prior odds**: The second component of Bayes' rule that we needed was the prior odds of coin 1 being a head. These odds are evens as they were given by the background information for the tosses of the coins, i.e. the coins are tossed so as to guarantee even odds of heads and tails. The prior odds of coin 1 showing a head are 1:1.
+
+Bayes' rule states that the posterior odds must be equal to the prior odds multiplied by the likelihood ratio. With a likelihood ratio of 2 and prior odds of 1:1, we obtain posterior odds of 2:1 in favour of a head; coin 1 is twice as likely to be a head when we know the outcome is not double tails. This result is the same as when we reasoned without using Bayes' rule, and so we have verified that it satisfies Bayes' rule. 
+
+In this example it was possible to calculate the posterior odds without using Bayes' rule. This meant that the odds could be verified. In many real situations, the posterior odds are hard to quantify without using Bayes' rule. Bayes' rule offers an powerful and elegant solution to this problem since the prior odds and LR are often easier to quantify.
 
 ## Reliable probabilities {#reliable-probabilities}
 
