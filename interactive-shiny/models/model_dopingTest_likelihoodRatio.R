@@ -34,8 +34,8 @@ output$display_dopingTest_likelihoodratio_treeInfo = renderUI({
   tagList(
     h4(paste0("Population: ", populationSize)),
     h4(paste0("Base Rate: ", baseRate)),
-    p(paste0("In our interactive example we have a relevenat population of ",populationSize," atheletes. Using the base rate of ",baseRate," we expect ",doping," of these to be doping and ",notDoping," not to be doping.")),
-    p(HTML(paste0("By testing our ",populationSize," atheletes we are testing our ",doping," dopers. With a sensitivity of ",sensitivity," we know that out of the ",doping," athletes who are doping, the test is expected to return positive for <span class='goodResult' style='color:",GOOD_RESULT,"'>",dopingTestPositive,"</span> of them and negative for <span class='badResult' style='color:",BAD_RESULT,"'>",dopingTestNegative,"</span> of them."))),
+    p(paste0("In our interactive example we have a relevant population of ",populationSize," athletes. Using the base rate of ",baseRate," we expect ",doping," of these to be doping and ",notDoping," not to be doping.")),
+    p(HTML(paste0("By testing our ",populationSize," athletes we are testing our ",doping," dopers. With a sensitivity of ",sensitivity," we know that out of the ",doping," athletes who are doping, the test is expected to return positive for <span class='goodResult' style='color:",GOOD_RESULT,"'>",dopingTestPositive,"</span> of them and negative for <span class='badResult' style='color:",BAD_RESULT,"'>",dopingTestNegative,"</span> of them."))),
     p(HTML(paste0("Out of the ",notDoping," athletes who are not doping, the specificity of ",specificity," tells us to expect <span class='goodResult' style='color:",GOOD_RESULT,"'>",notDopingTestNegative,"</span> to test negative but we also expect <span class='badResult' style='color:",BAD_RESULT,"'>",notDopingTestPositive,"</span> of these non-doping athletes to test positive.")))
   )
   
@@ -98,8 +98,8 @@ output$display_dopingTest_likelihoodratio_priorOddsCalcs = renderUI({
 output$display_dopingTest_likelihoodratio_likelihoodRatioInfo = renderUI({
   
   tagList(
-    p(paste0("Blah1 ",populationSize," atheletes.")),
-    p(paste0("By testing our ",populationSize," atheletes we are testing our ",doping," dopers.")),
+    p(paste0("Blah1 ",populationSize," athletes.")),
+    p(paste0("By testing our ",populationSize," athletes we are testing our ",doping," dopers.")),
   )
   
   
@@ -120,8 +120,8 @@ output$display_dopingTest_likelihoodratio_likelihoodRatioCalcs = renderUI({
 output$display_dopingTest_likelihoodratio_posteriorOddsInfo = renderUI({
   
   tagList(
-    p(paste0("Blah2 ",populationSize," atheletes.")),
-    p(paste0("By testing our ",populationSize," atheletes we are testing our ",doping," dopers.")),
+    p(paste0("Blah2 ",populationSize," athletes.")),
+    p(paste0("By testing our ",populationSize," athletes we are testing our ",doping," dopers.")),
   )
   
 })
