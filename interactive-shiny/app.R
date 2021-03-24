@@ -42,6 +42,7 @@ source("views/view_diseaseTest.R")
 source("views/view_dopingTest_probabilities.R")
 source("views/view_dopingTest_likelihoodRatio.R")
 source("views/view_propLevel.R")
+source("views/view_lrCalc.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
@@ -67,7 +68,10 @@ ui = function(request) {
                                   
                                   menuItem("Propositions", tabName = "tabPropLevel", icon = icon("comment")),
                                   
-                                  menuItem("Likelihood ratio", tabName = "tabLikelyhood", icon = icon("chart-line"))
+                                  menuItem("Likelihood ratio",  icon = icon("divide"),
+                                           menuItem("LR visualisation", tabName = "tabLikelyhood", icon = icon("divide")),
+                                           menuItem("LR Calculator", tabName = "tabLRCalc", icon = icon("divide"))
+                                           )
                                   
                       ),
                       bookmarkButton(id='bookmarkButton')
@@ -86,7 +90,8 @@ ui = function(request) {
                         tabDiseaseTest,
                         tabDopingTest_probabilities,
                         tabDopingTest_likelihoodRatio,
-                        tabPropLevel
+                        tabPropLevel,
+                        tabLRCalc
                       )
                     ),
                     footer = dashboardFooter(
@@ -114,7 +119,7 @@ server = function(input, output,session) {
   observeEvent(input$bookmarkButton, {
     session$doBookmark()
   })
-  
+
   source("models/model_coinToss.R", local = TRUE)
   source("models/model_coinTree.R", local = TRUE)
   source("models/model_likelyhood.R", local = TRUE)
@@ -125,6 +130,7 @@ server = function(input, output,session) {
   source("models/model_dopingTest_probabilities.R", local = TRUE)
   # source("models/model_propLevel.R", local = TRUE)
   source("models/model_dopingTest_likelihoodRatio.R", local = TRUE)
+  source("models/model_lrCalc.R", local = TRUE)
 }
 
 enableBookmarking(store = "url")
