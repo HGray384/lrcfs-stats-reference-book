@@ -69,7 +69,7 @@ ui = function(request) {
                                   menuItem("Propositions", tabName = "tabPropLevel", icon = icon("comment")),
                                   
                                   menuItem("Likelihood ratio",  icon = icon("divide"),
-                                           menuItem("LR visualisation", tabName = "tabLikelyhood", icon = icon("divide")),
+                                           menuItem("LR Visualisation", tabName = "tabLikelyhood", icon = icon("divide")),
                                            menuItem("LR Calculator", tabName = "tabLRCalc", icon = icon("divide"))
                                            )
                                   
