@@ -243,7 +243,7 @@ Despite being logical, Bayes' rule can lead to highly counter-intuitive results.
 
 ## Example: guessing coin 1
 
-The double coin toss example in Section \@ref(double-coin-toss) introduced a game in which player 1 won if two heads were tossed and player 2 won if two tails were tossed. The game ended in a draw if there was any combination of head and tail from the two tosses. We conditioned on the two possible outcomes from coin 1 in order to understand the probabilities of each player winning after the result of coin 1 was known. In each conditioning, one of the players' probabilities of winning reduced to 0 and the other's increased to 0.5. In this example we alter this game slightly.
+The double coin toss example in Section \@ref(double-coin-toss) introduced a game in which player 1 won if two heads were tossed and player 2 won if two tails were tossed. The game ended in a draw if there was any combination of head and tail from the two tosses. We conditioned on the two possible outcomes from coin 1 in order to understand the probabilities of each player winning after the result of coin 1 was known. After each conditioning, one of the players' probabilities of winning reduced to 0 and the other's increased to 0.5. In this example we alter this game slightly.
 
 Suppose that player 1 now tosses the coins and hides the outcomes from player 2. After tossing the coins, player 1 only tells player 2 whether player 2 has won the original game or not, i.e. whether double tails were tossed or not. If player 2 does not win, then they are given another chance to win by guessing the result of coin 1's toss. If their guess is correct, then player 2 wins this new game. As part of the background information, assume that player 1 always tells the truth and is tossing the coins in such a way that the odds are even for heads and tails for each coin. What should player 2's guess be?
 
@@ -253,7 +253,7 @@ After the coin tosses, there are two possible situations:
 
 1. Player 2 is told that they have won, in which case there is no uncertainty for them any longer because they know that the toss of coin 1 must have resulted in tails.
 
-2. Player 2 is told that they did not win, and now they have epistemic uncertainty about the results of both coin tosses. Player 2 is now offered the opportunity to guess the outcome of coin 1 to win. This is direct uncertainty about the toss of coin 1 and can be easily quantified with or without the use of Bayes' rule. 
+2. Player 2 is told that they did not win, and now they have epistemic uncertainty about the results of both coin tosses. Player 2 is now offered the opportunity to guess the outcome of coin 1 to win. This is direct uncertainty about the toss of coin 1 and can be quantified with or without the use of Bayes' rule. 
 
 Player 2 can use probabilities to make the best guess for the second situation above. We will show both ways that this can be done. The possible outcomes of the double coin toss are presented as an expected frequency tree in Figure \@ref(fig:freq-tree-double-coin-bet-2) below.
 
@@ -300,17 +300,17 @@ This means that player 2 should always guess a head when given the choice in thi
 
 We can verify that posterior odds of 2:1 in favour of coin being heads are correct by using Bayes' rule. Event A from Bayes' rule in this example is coin 1 being a head and event B is coin 1 being a tail. Event E is the knowledge that the result was not a double tails, since this is the information that player 1 reveals. This results in the following application of Bayes' rule:
 $$\text{posterior odds of coin 1 head to coin 1 tail}=\text{LR} \times \text{prior odds of coin 1 head to coin 1 tail},$$
-where the likelihood ratio (LR) equals the following conditional probabilities
-$$\text{LR}=\frac{\text{probability of no double tails conditioned on coin 1 head}}{\text{probability of no double tails conditioned on coin 1 tail}}$$
+where the likelihood ratio (LR) equals the following ratio of conditional probabilities
+$$\text{LR}=\frac{\text{probability of no double tails conditioned on coin 1 head}}{\text{probability of no double tails conditioned on coin 1 tail}}.$$
 To apply Bayes' rule, we need to calculate the probabilities underlying the LR and the prior odds of coin 1 head to coin 1 tail.
 
 The likelihood ratio in this example considers the following question: how much more (or less) probable is it to toss something other than double tails if coin 1 is a head compared to if coin 1 is a tail? To calculate this, we need to calculate the two probabilities in the equation above.
 
-**LR - numerator**: The first is the probability of no double tails conditioned on coin 1 being a head. This probability is 1. If coin 1 shows up heads, then it is certain that a double tails will not be tossed.
+**LR - numerator**: The first is the probability of no double tails conditioned on coin 1 being a head. If coin 1 is a head, then it is certain that a double tails will not be tossed. That means that this probability is 1.
 
-**LR - denominator**: The second probability we need is the probability of no double tails conditioned on coin 1 being a tail. Out of every 5000 tosses in which coin 1 is tails, we expect 2500 to lead to coin 2 being heads and 2500 to lead to coin 2 being tails. The probability is 0.5. 
+**LR - denominator**: The second probability we need is the probability of no double tails conditioned on coin 1 being a tail. Out of every 5000 tosses in which coin 1 is tails, we expect 2500 to lead to coin 2 being heads and 2500 to lead to coin 2 being tails. The outcomes are evenly split and so the probability is 0.5. 
 
-**LR**: Using these two probabilities results in a likelihood ratio of $\frac{1}{0.5}=2$; an outcome other than double tails is twice as likely when coin 1 is a head compared to when coin 1 is a tail.
+**LR**: Using these two probabilities results in a likelihood ratio of $\frac{1}{0.5}=2$. In other words, an outcome other than double tails is twice as likely when coin 1 is a head compared to when coin 1 is a tail.
 
 **Prior odds**: The second component of Bayes' rule that we needed was the prior odds of coin 1 being a head. These odds are evens as they were given by the background information for the tosses of the coins, i.e. the coins are tossed so as to guarantee even odds of heads and tails. The prior odds of coin 1 showing a head are 1:1.
 
