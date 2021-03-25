@@ -97,7 +97,7 @@ vsDf %>%
 
 
 ```{block eval=FALSE, include=isDynamicOutput()}
-### LR calculator
+### LR calculator {#lr-calc}
 
 The LR is determined by the values of its underlying conditional probabilities. Type probability values into the calculator below to see how they affect the resulting LR.
 ```
@@ -322,7 +322,7 @@ It is paramount that the assumption of statistical independence is checked when 
 
 The LR is based upon two underlying conditional probabilities. Each of these probabilities has its own degree of reliability, which depends upon factors listed in Section \@ref(reliable-probabilities). The degree to which these probabilities are reliable determines the overall robustness of an LR. The more reliable each of the probabilities is, the more robust the LR that is produced. It is worth noting that an LR which is not robust might still be the best available LR in the case circumstances, e.g. if there is limited data and expertise with which to inform the probability assignments. 
 
-Any critical assessment of an LR is a critical assessment of its underlying probabilities. If an expert gives an LR as an order of magnitude, then the underlying order of magnitude assignments of the probabilities should be consistent with this. For example, if the LR is thought to be between 100-1000, then the order of magnitude assignments of the conditional probabilities which form the LR must be consistent with this, i.e. the probability of $E$ assuming $H_d$ cannot be 0.01-0.1 as this would constrain the LR to be between 10-100.
+Any critical assessment of an LR is a critical assessment of its underlying probabilities. If an expert gives an LR as an order of magnitude, then the underlying probability assignments should be still consistent with this. For example, if the LR is between 100-1000, then the conditional probabilities which form this LR must be consistent with this value. Using this range of values for the LR, the greatest possible value for the probability of $E$ assuming $H_d$ would lie between 0.001-0.01. Otherwise, in order to make an LR or 100-1000, the probability of $E$ assuming $H_p$ would need to be greater than 1 which is impossible for a probability. You can explore these values as well as others using the LR calculator from Section \@ref(lr-calc). Notice how if you fix the probability of $E$ assuming $H_d$ to be 0.01 then it is impossible to get an LR of more than 100.
 
 Assessing the robustness of an LR is aided by making a distinction between types of information that the expert uses when constructing conditional probabilities. In the Judicial Statistics Primer [@statsprimer2020] this information is divided into two categories:
 
