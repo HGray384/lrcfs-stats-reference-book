@@ -52,7 +52,7 @@ The magnitude of the LR conveys the strength of the support that $E$ provides fo
 
 Since the LR provides a numerical value for the relative support that a piece of evidence provides for $H_p$ against $H_d$, it can be seen as quantifying the **probative value** of a piece of evidence for those propositions. This interpretation of the LR is one of the reasons why it is advocated as a tool to quantify expert evidence. It is the role of the expert witness to present the probative value of scientific evidence within their domain of expertise to the court. The LR provides a logical means to achieve this. The fact finder can then use the probative value of evidence given by the LR to reason about the truth of $H_p$ and $H_d$.
 
-LRs are often categorised verbally instead of quoting the numerical value, using categories such as ‘strong support for H_p compared to H_d’. Table \@ref(tab:verbal-scale-table) shows an example set of categories, but others, some with fewer categories, are also in common use.
+LRs are often categorised verbally instead of quoting the numerical value, using categories such as ‘strong support for $H_p$ compared to $H_d$’. Table \@ref(tab:verbal-scale-table) shows an example set of categories, but others, some with fewer categories, are also in common use.
 
 ```{r verbal-scale-df, include=FALSE}
 strength <- c("weak",
@@ -95,9 +95,23 @@ vsDf %>%
 
 ```
 
-The LR is determined by the values of its underlying conditional probabilities. Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities. Hover your mouse over the graph to see the values of the conditional probabilities and the resulting LR. 
 
-```{r lr-function, echo=FALSE, fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support in favour of $H_p$ compared to $H_d$, and orange is support for $H_d$ compared to $H_p$. White means equal support for both.", out.width = '100%', fig.align = 'center'}
+```{block eval=FALSE, include=isDynamicOutput()}
+### LR calculator
+
+The LR is determined by the values of its underlying conditional probabilities. Type probability values into the calculator below to see how they affect the resulting LR.
+```
+```{r echo=FALSE, include=isDynamicOutput()}
+  knitr::include_app(getInteractiveLink("tabLRCalc",NULL,TRUE), height = '410px')
+```
+
+
+```{block eval=FALSE, include=isDynamicOutput()}
+### LR visualisation
+
+Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities. Hover your mouse over the graph to see the values of the conditional probabilities and the resulting LR. 
+```
+```{r lr-function, echo=FALSE, warning=FALSE, include=isDynamicOutput(), fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support in favour of $H_p$ compared to $H_d$, and orange is support for $H_d$ compared to $H_p$. White means equal support for both.", out.width = '100%', fig.align = 'center'}
 gridVals <- 101
 prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1]
 vars <- expand.grid(prob1, prob2)
@@ -105,11 +119,11 @@ lrDf <- tibble(prob1 = vars$Var1, prob2 = vars$Var2)%>%
   mutate(lr = prob1/prob2)
 
 graph = ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
-  geom_tile(aes(text = paste('probability of E assuming Hp is true: ', prob1,
-                             '<br>probability of E assuming Hd is true:', prob2,
+  geom_tile(aes(text = paste('probability of E assuming H<sub>p</sub> is true: ', prob1,
+                             '<br>probability of E assuming H<sub>d</sub> is true:', prob2,
                              '<br>LR: ',lr))) +
-  xlab("probability of E assuming Hd is true") +
-  ylab("probability of E assuming Hp is true") +
+  xlab("probability of E assuming H<sub>d</sub> is true") +
+  ylab("probability of E assuming H<sub>p</sub> is true") +
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
   scale_fill_gradientn(colors = c(colPal[7],
@@ -130,6 +144,7 @@ graph = ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
 ggplotly(graph, tooltip = "text")
   
 ```
+
 
 ## Example: DNA match
 
