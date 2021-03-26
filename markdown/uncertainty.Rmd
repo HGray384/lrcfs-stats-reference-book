@@ -104,6 +104,12 @@ It is recommended practice that these magnitudes of uncertainty (when quantified
 
 In the example above, we only focussed on one possible object of uncertainty. In reality, there are many more objects that the expert has to consider and combine when interpreting evidence. The reasons for each of these objects of uncertainty will be case-dependent and is complicated by the complex nature of real-life criminal activities. This makes assessing uncertainty challenging. The expert might reasonably ignore some uncertainties to make this task more feasible. Many possible uncertainties can be excluded by only considering the sequence of events put forth by the prosecution and defence.
 
+## Drag and Drop: uncertainty
+
+``` {r uncertainty-questions, echo=FALSE}
+knitr::include_url(paste0(QUESTIONS_HOST,"Uncertainty-Examples.html"), height=600)
+```
+
 ## Communicating uncertainty
 
 Accurately communicating uncertainty in forensic science is crucial in order for the fact finder to fully assess the evidence. This depends upon the extent to which the scientist is able to assess the uncertainty so that they can then communicate it. As we stated in the previous sections, there is limited scientific knowledge about the properties of some evidence types, e.g. how traces of materials are shed and transferred through contact, and so this can limit the scientist's ability to assess the uncertainty.
