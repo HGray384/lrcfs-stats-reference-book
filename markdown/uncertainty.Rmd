@@ -132,6 +132,14 @@ Since assessing uncertainty plays an important role in evaluating forensic scien
 
 <!-- ## End of chapter survey -->
 
+## Summary: uncertainty
+
+Use the activity below to create a summary of the key points from this chapter.
+
+``` {r uncertainty-summary, echo=FALSE}
+knitr::include_url(paste0(QUESTIONS_HOST,"Uncertainty-Summary.html"), height=800)
+```
+
 ## More information
 
 GRADE: https://www.gradeworkinggroup.org/
