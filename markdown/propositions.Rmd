@@ -210,7 +210,7 @@ It's worth mentioning that the hierarchy of propositions is a general conceptual
 Practice identifying the correct proposition level with the examples below.
 
 ``` {r proposition-level-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Examples.html"), height=500)
+knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Examples.html"), height=550)
 ```
 
 ## Probative value of evidence {#probative-value}
