@@ -128,18 +128,18 @@ Indirect uncertainties in forensic evidence are usually given as a subjective ve
 
 Since assessing uncertainty plays an important role in evaluating forensic scientific evidence, it is important that there is common ground when it comes to communicating it. This can be achieved through using a standardised framework for assessing uncertainty that is logically coherent. One example of coherence in this context can be making sure that inferences made using uncertainties are consistent and obey transparent logical rules. This means that inferences made within the standardised framework are logical, can be accurately described to others, and are able to be assessed by others - all of which are important for communication. These desirable properties (as well as others) are contained within the mathematical language of probability, and that is why it is used as a common means to handle uncertainty. The main utility of probability is not because it quantifies uncertainty, but because it is a complete and common framework for logical inference. Probability is the focus of the next chapter. 
 
-<!-- ## Try it yourself -->
-
-<!-- ## End of chapter survey -->
-
 ## Summary: uncertainty
 
 Use the activity below to create a summary of the key points from this chapter.
 
-``` {r uncertainty-summary, echo=FALSE}
+``` {r uncertainty-summary-questions, echo=FALSE}
 knitr::include_url(paste0(QUESTIONS_HOST,"Uncertainty-Summary.html"), height=800)
 ```
 
 ## More information
 
 GRADE: https://www.gradeworkinggroup.org/
+
+## Research study
+
+If you are taking part in our research study, please return to the survey now to answer the questions about this chapter.
