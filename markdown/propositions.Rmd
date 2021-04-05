@@ -3,13 +3,13 @@
 ```{r package-load-propositions, include=FALSE}
 source("./code/helper-functions.R")
 # check and load the libraries
-needPackages("igraph",
-             "ggthemes",
-             "kableExtra",
-             "tidyverse",
-             "plotly",
-             "grid",
-             "plyr")
+library("igraph")
+library("ggthemes")
+library("kableExtra")
+library("tidyverse")
+library("plotly")
+library("grid")
+library("plyr")
 # set some useful variables
 source("./code/useful-variables.R")
 ```

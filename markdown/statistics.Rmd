@@ -3,15 +3,15 @@
 ```{r package-load-statistics, include=FALSE}
 source("./code/helper-functions.R")
 # check and load the libraries
-needPackages("igraph",
-             "ggthemes",
-             "gdtools",
-             "kableExtra",
-             "tidyverse",
-             "plotly",
-             "grid",
-             "plyr",
-             "htmltools")
+library("igraph")
+library("ggthemes")
+library("gdtools")
+library("kableExtra")
+library("tidyverse")
+library("plotly")
+library("grid")
+library("plyr")
+library("htmltools")
 # set some useful variables
 source("./code/useful-variables.R")
 ```
