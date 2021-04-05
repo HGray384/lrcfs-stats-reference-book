@@ -283,4 +283,14 @@ One well-known error of reasoning regarding conditional probabilities is the **p
 
 <!-- ## More information -->
 
-<!-- ## Exercises -->
+## Summary: propositions
+
+Use the activity below to create a summary of the key points from this chapter.
+
+``` {r propositions-summary-questions, echo=FALSE}
+knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Summary.html"), height=800)
+```
+
+## Research study
+
+If you are taking part in our research study, please return to the survey now to answer the questions about this chapter.
