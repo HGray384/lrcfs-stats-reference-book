@@ -1,6 +1,6 @@
 tabHome = tabItem(tabName = "tabHome",
                   fluidRow(
-                    box(title="Welcome to the Interactive probability and statistics app!", width = 12,
+                    box(title="Welcome to the Interactive Probability and Statistics Application (IPSA)", width = 12,
                         p("This application is used for understanding the probabilistic and statistical concepts used in evaluating evidence in forensic science."),
                         p("The application uses interactive examples so that you can explore how different values and assumptions can affect probabilistic and statistical conclusions."),
                         p("On the tab to the left of the application you can find the different examples. Within each tab there are some sub-tabs, which demonstrate different ideas using similar scenarios."),
