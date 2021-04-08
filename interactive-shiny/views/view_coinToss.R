@@ -1,6 +1,6 @@
 tabCoinToss = tabItem(tabName = "tabCoinToss",
                       fluidRow(
-                              box(title="Single Coin Toss - Samples", width=12,
+                              box(title="Single Coin Toss - Samples", width=12, collapsible = TRUE,
                                   p("In this example we consider both the expected outcomes of the coin toss as well as actual outcomes of the tosses."),
                                   p("When we assign a probability of a coin toss resulting in a head, we have an expectation for the number of heads that will be acheived for a certain number of tosses. However, this number of heads is not guaranteed to occur when the coin is actually tossed."),
                                   p("When the coin is tossed a number of times and the results are recorded then this is known as a sample."),
@@ -21,12 +21,15 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
                       ),
                       fluidRow(
                               box(title="Probability Tree", width=4,
+                                  p("This tree displays the probability for each outcome."),
                                   plotOutput("display_coinToss_treeProb")
                               ),
                               box(title="Expected Frequency Tree", width=4,
+                                  p("This tree displays the expected frequency of each outcome for a certain number of tosses."),
                                   plotOutput("display_coinToss_treeExp")
                               ),
                               box(title="Sample Frequency Tree", width=4,
+                                  p("This tree displays the sample frequency of each outcome for a certain number of tosses."),
                                   plotOutput("display_coinToss_treeSample")
                               )
                       ),
