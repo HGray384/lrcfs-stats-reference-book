@@ -41,7 +41,7 @@ source("views/view_doubleCoinTree.R")
 source("views/view_diseaseTest.R")
 source("views/view_dopingTest_probabilities.R")
 source("views/view_dopingTest_likelihoodRatio.R")
-source("views/view_propLevel.R")
+# source("views/view_propLevel.R")
 source("views/view_lrCalc.R")
 
 ui = function(request) {
@@ -66,7 +66,7 @@ ui = function(request) {
                                            menuItem('Likelihood Ratio', tabName = 'tabDopingTest_likelihoodRatio', icon = icon('prescription-bottle'))
                                   ),
                                   
-                                  menuItem("Propositions", tabName = "tabPropLevel", icon = icon("comment")),
+                                  # menuItem("Propositions", tabName = "tabPropLevel", icon = icon("comment")),
                                   
                                   menuItem("Likelihood ratio",  icon = icon("divide"),
                                            menuItem("LR Visualisation", tabName = "tabLikelyhood", icon = icon("divide")),
