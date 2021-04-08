@@ -80,7 +80,7 @@ Funding was obtained from the David and Claudia Harding foundation and the Lever
 
 Mr Roy Mudie at LRCFS has been instrumental in developing the R Shiny application and interactive elements which accompany this book. This allows the html version of this book to contain interactive examples and questions which we hope enhance the users' learning experience. The application can also be used as a standalone tool to engage with other statistical content. Roy has helped with many of the technical issues which have arisen behind the scenes and has helped to visualise some of our examples in a way that is intuitive.
 
-A big thanks goes to Dr Pat Dugard, Ms Pauline Mack, Dr Joyce Klu, Dr Heather Doran, Dr Emma Comrie, Professor Lucina Hackman, and Professor Niamh Nic Daéid as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
+Thanks also to Dr Pat Dugard, Ms Pauline Mack, Dr Joyce Klu, Dr Heather Doran, Dr Emma Comrie, Professor Lucina Hackman, and Professor Niamh Nic Daéid as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
 
 ### Software {-}
 
