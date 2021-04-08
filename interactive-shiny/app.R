@@ -35,7 +35,7 @@ source("appHelpers.R")
 source("views/view_home.R")
 source("views/view_coinToss.R")
 source("views/view_coinTree.R")
-source("views/view_likelyhood.R")
+# source("views/view_likelyhood.R")
 source("views/view_doubleCoinToss.R")
 source("views/view_doubleCoinTree.R")
 source("views/view_diseaseTest.R")
@@ -69,7 +69,7 @@ ui = function(request) {
                                   # menuItem("Propositions", tabName = "tabPropLevel", icon = icon("comment")),
                                   
                                   menuItem("Likelihood ratio",  icon = icon("divide"),
-                                           menuItem("LR Visualisation", tabName = "tabLikelyhood", icon = icon("divide")),
+                                           # menuItem("LR Visualisation", tabName = "tabLikelyhood", icon = icon("divide")),
                                            menuItem("LR Calculator", tabName = "tabLRCalc", icon = icon("divide"))
                                            )
                                   
@@ -84,13 +84,13 @@ ui = function(request) {
                         tabHome,
                         tabCoinToss,
                         tabCoinTree,
-                        tabLikelyhood,
+                        # tabLikelyhood,
                         tabDoubleCoinToss,
                         tabDoubleCoinTree,
                         tabDiseaseTest,
                         tabDopingTest_probabilities,
                         tabDopingTest_likelihoodRatio,
-                        tabPropLevel,
+                        # tabPropLevel,
                         tabLRCalc
                       )
                     ),
@@ -122,7 +122,7 @@ server = function(input, output,session) {
 
   source("models/model_coinToss.R", local = TRUE)
   source("models/model_coinTree.R", local = TRUE)
-  source("models/model_likelyhood.R", local = TRUE)
+  # source("models/model_likelyhood.R", local = TRUE)
   source("models/model_doubleCoinToss.R", local = TRUE)
   source("models/model_doubleCoinTree.R", local = TRUE)
   source("models/model_diseaseTest.R", local = TRUE)
