@@ -5,7 +5,7 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
                                   p("When we assign a probability of a coin toss resulting in a head, we have an expectation for the number of heads that will be acheived for a certain number of tosses. However, this number of heads is not guaranteed to occur when the coin is actually tossed."),
                                   p("When the coin is tossed a number of times and the results are recorded then this is known as a sample."),
                                   p("Use the sliders below to change the number of tosses and the probability of heads for the coin to generate a sample of tosses and view the results in the graphs below."),
-                                  p("The outcomes for the sample have been added to a new tree diagram which represents the sample number of heads and tails (also known as the sample frequency).")
+                                  p("The outcomes for the sample have been added to a new tree diagram which represents the sample number (also known as the sample frequency) of heads and tails.")
                               )
                       ),
                       fluidRow(
