@@ -1,6 +1,6 @@
 --- 
-title: "Probability, statistics, and the likelihood ratio for non-experts [in development]"
-author: "Harry Gray"
+title: "Probability, statistics, and the likelihood ratio for non-experts [draft]"
+author: "Dr. Harry Gray"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -14,9 +14,9 @@ always_allow_html: true
 
 # Preface {-}
 
-This book produced by the Leverhulme Research Centre for Forensic Science provides a learning and reference resource for those without statistical expertise on the topic of evaluating forensic science evidence using the likelihood ratio approach. It aims to provide the stepping stones required to become comfortable with likelihood ratio-based evaluations of evidence, as endorsed by the European Network of Forensic Science Institutes, and the Forensic Science Regulator of the UK.
+This book produced by the Leverhulme Research Centre for Forensic Science (LRCFS) provides a learning and reference resource for those without statistical expertise on the topic of evaluating forensic science evidence using the likelihood ratio approach. It aims to provide the stepping stones required to become comfortable with likelihood ratio-based evaluations of evidence, as endorsed by the European Network of Forensic Science Institutes, and the Forensic Science Regulator of the UK.
 
-## Why this book {-}
+## Why this book? {-}
 
 High quality resources can already be found on this topic, which have been authored by the founders of systematic approaches to forensic evidence evaluation and which have been endorsed by national-level organisations. These include @aitken2010, @puch2012, @roberts2014, @jackson2015, @icca2017, and @statsprimer2020. This resource aims to complement and extend the existing texts in the following ways:
 
@@ -30,7 +30,7 @@ High quality resources can already be found on this topic, which have been autho
 
 This book follows the main content from the Royal Statistical Society's Fundamentals of Probability and Statistical Evidence in Criminal Proceedings book [@aitken2010] and then portions of The Logic of Forensic Proof [@roberts2014]. We have also provided motivation for the use of probability and statistics by drawing from the uncertainty communication literature, and in particular adapting the advocated model from @vanderbles2019 to forensic science. Put together, this resource provides an intermediate overview of why and how we use probability and the likelihood ratio for evaluating forensic evidence, including examples and exercises to reinforce understanding.
 
-This book can be used to supplement the online course content from [cite MOOC]. This way, learners can progress through more formal training (with video, audio, and graded tests), and simply use this book as a resource to see further examples. The order and presentation of the material is different to what appears in the course, although most of the same ideas appear here.
+<!-- This book can be used to supplement the online course content from [cite MOOC]. This way, learners can progress through more formal training (with video, audio, and graded tests), and simply use this book as a resource to see further examples. The order and presentation of the material is different to what appears in the course, although most of the same ideas appear here. -->
 
 The interactive examples in the online version of this book can be found as part of an interactive application found [here](https://lrcfs.dundee.ac.uk/apps/interactive-lr/). This is to provide a standalone resource for those who are not using the book e.g. a wider audience, and also so that those who prefer to use a printed version of this book can still have fast access to the examples they need. 
 
@@ -52,17 +52,19 @@ There are three ways to contribute, detailed below.
 
 ### Participate in our research studies {-}
 
-We conduct research studies involving this book and its accompanying interactive application. When studies are being run the details for participating will appear here. If you would like to find out more about these studies or wish to register your interest in taking part in future studies, then contact Harry using the email address in the section below.
+We conduct research studies involving this book and its accompanying interactive application. When studies are being run the details for participating will appear here. If you would like to find out more about these studies or wish to register your interest in taking part in future studies, then contact Professor Niamh Nic Daéid using the email address in the section below.
 
 ### Email {-}
 
-Please email Harry at h.w.gray@dundee.ac.uk with your feedback on the book, including any thoughts and suggestions for future content. We particularly welcome thoughts of members of the judiciary. When making a contribution, please be sure to reference specific sections of the book so that it can be reviewed efficiently. If you have disagreements with the content then please raise these. Remember to provide your name and affiliation so that you can be added to the list of contributors below.
+Do not follow the instructions in this section if you are taking part in our anonymous research study. Instead, use the questions in the survey to communicate your feedback.
+
+Please email Professor Niamh Nic Daéid [n.nicdaeid@dundee.ac.uk] with your feedback on the book, including any thoughts and suggestions for future content. We particularly welcome thoughts of members of the judiciary. When making a contribution, please be sure to reference specific sections of the book so that it can be reviewed efficiently. If you have disagreements with the content then please raise these. Remember to provide your name and affiliation so that you can be added to the list of contributors below.
 
 ### Github {-}
 
 If you don't know what 'Github' is, then skip this section.
 
-All of the code to generate this book (and its content) can be found [here on the LRCFS Github](https://github.com/LRCFS/lrcfs-stats-reference-book). Please note that the code repository will be private until the book is officially released.
+All of the code to generate this book (and its content) can be found [here on the LRCFS Github](https://github.com/LRCFS/lrcfs-stats-reference-book). Please note that the code repository will not be accessible until the book is officially released.
 
 Please use the Issue function to raise any problems or suggested content changes. If your change is minor and you can do it quickly yourself (e.g. a spelling correction, a minor rewording, etc.) then feel free to make a Pull request.
 
@@ -72,17 +74,17 @@ Any further correspondence can be addressed via email using the details in the s
 
 ### Funders {-}
 
-Harry is funded by the David and Claudia Harding foundation on grant [enter grant number], and is a postdoctoral research assistant at LRCFS which is funded by the Leverhulme Trust. Thanks go to these funding bodies, who have made this non-traditional academic output possible. It is our intention that this resource will contribute to raising statistical and probabilistic literacy within forensic science by embracing emerging technology and positively disrupting the traditional way we engage others with statistical ideas.
+Funding was obtained from the David and Claudia Harding foundation and the Leverhulme Trust by Professor Niamh Nic Daéid who is principal investigator for this work. Dr Harry Gray was funded by the David and Claudia Harding foundation, and is a postdoctoral research assistant at LRCFS which is funded by the Leverhulme Trust. Thanks go to these funding bodies, who have made this non-traditional academic output possible. It is our intention that this resource will contribute to raising statistical and probabilistic literacy within forensic science by embracing emerging technology and positively disrupting the traditional way we engage others with statistical ideas.
 
 ### Contributors {-}
 
-Roy Mudie at LRCFS has helped to develop the R Shiny application which accompanies this book. This allows the html version of this book to contain interactive examples which we hope (and soon will test to see!) enhance the users' learning experience. The application can also be used as a standalone tool to engage with other statistical content. Roy has helped with many of the technical issues which have arisen behind the scenes and has helped to visualise some of our examples in a way that is intuitive. Thanks a lot for all of your work, Roy!
+Mr Roy Mudie at LRCFS has been instrumental in developing the R Shiny application and interactive elements which accompany this book. This allows the html version of this book to contain interactive examples and questions which we hope enhance the users' learning experience. The application can also be used as a standalone tool to engage with other statistical content. Roy has helped with many of the technical issues which have arisen behind the scenes and has helped to visualise some of our examples in a way that is intuitive.
 
-A big thanks goes to Pat Dugard, Pauline Mack, Joyce Klu, Heather Doran, Emma Comrie, Lucina Hackman, and Niamh Nic Daéid as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
+A big thanks goes to Dr Pat Dugard, Ms Pauline Mack, Dr Joyce Klu, Dr Heather Doran, Dr Emma Comrie, Professor Lucina Hackman, and Professor Niamh Nic Daéid as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
 
 ### Software {-}
 
-This book was written using the **bookdown** package [@R-bookdown], which was built on top of R Markdown and **knitr** [@xie2015]. This fantastic free and well-documented software has allowed this book to be developed hassle-free in a completely reproducible way. Thank you Yihui for your work to support open software and open science.
+This book was written using the **bookdown** package [@R-bookdown], which was built on top of R Markdown and **knitr** [@xie2015]. This free and well-documented software has allowed this book to be developed hassle-free in a completely reproducible way. Thank you Yihui for your work to support open software and open science.
 
 ## Updates and versions {-}
 
@@ -106,9 +108,11 @@ Major versions in planning:
 
 12/2020 - Second draft of the book
 
-### Future content {-}
+03/2021 - Interactive questions and summary sections added
 
-- Interactive exercises with feedback for each chapter
+04/2021 - Research study launched
+
+### Future content {-}
 
 - Comment/Discussion section at the end of each chapter
 
