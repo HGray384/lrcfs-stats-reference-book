@@ -46,7 +46,7 @@ source("views/view_lrCalc.R")
 
 ui = function(request) {
   dashboardPagePlus(title=paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT," - v",APP_VER),
-                    dashboardHeaderPlus(title = APP_NAME),
+                    dashboardHeaderPlus(title = paste0(APP_DEV_SHORT," - ",APP_NAME_SHORT)),
                     dashboardSidebar(
                       sidebarMenu(id = "sidebar",
                                   
@@ -97,7 +97,7 @@ ui = function(request) {
                     footer = dashboardFooter(
                       left_text = HTML(paste0("<div class='footerItem'>",APP_NAME," (v",APP_VER,") &copy;",format(Sys.time(), "%Y"),"</div>
                                            <div class='footerItem'><a href='https://www.dundee.ac.uk/leverhulme/'>Developed by ", APP_DEV_SHORT, "</a></div>
-                                           <div class='footerItem'><a href='https://www.leverhulme.ac.uk/'>Funded by The Leverhulme Trust</a></div>")),
+                                           <div class='footerItem'>Funded by <a href='https://www.leverhulme.ac.uk/'>The Leverhulme Trust</a> and the David And Claudia Harding Foundation</div>")),
                       right_text = HTML("<div class='footerLogo'><a href='https://www.dundee.ac.uk/leverhulme/'><img src='images/lrcfs-logo-colour.png'  alt='Visit LRCFS website' /></a></div>
                                             <div class='footerLogo'><a href='https://www.leverhulme.ac.uk'><img src='images/lt-logo-colour.png' alt='Visit The Leverhulme Trust website' /></a></div>")
                     )
