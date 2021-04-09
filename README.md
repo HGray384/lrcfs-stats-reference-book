@@ -83,3 +83,5 @@ DO NOT PUSH CHANGES MADE TO THE `SHINY_HOST` VARIABLE TO GITHUB. Simply delete t
 - A failed build will lead to the `stats-reference-book.Rmd` file being created in the base directory. This file needs to be **manually** deleted before the build will work (even after resolving the error which caused the build to fail initially).
 
 - After making edits to the shiny application /views files, you need to make a final edit in the app.R file before reload the app in order to make the changes appear. If you edit the /models files, then you can just reload the app as normal.
+
+- Viewing new `h5p` examples within the book is not yet possible until they have been added to the live server. We are working on changing this.
