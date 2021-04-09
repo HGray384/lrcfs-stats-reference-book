@@ -98,8 +98,10 @@ output$display_dopingTest_likelihoodratio_priorOddsCalcs = renderUI({
 output$display_dopingTest_likelihoodratio_likelihoodRatioInfo = renderUI({
   
   tagList(
-    p(paste0("Blah1 ",populationSize," athletes.")),
-    p(paste0("By testing our ",populationSize," athletes we are testing our ",doping," dopers.")),
+    p(paste0("The box opposite contains the calculations for the LR for a positive test result. The LR compares the probability of obtaining a positive test result conditioned on the athlete doping with the probability of a positive test result conditioned on the athlete not doping.")),
+    p(paste0("The probability of a positive test result conditioned on the athlete doping is just the sensitivity, ", input$doping_like_Sensitivity, ".")),
+    p(paste0("The probability of a positive test result conditioned on the athlete not doping is equal to 1 minus the probability of a negative test result conditioned on the athlete not doping since these two probabilities are mutually exclusive and exhaustive. This means that is equal to 1 minus the specificity, ", input$doping_like_Specificity), "."),
+    p(paste0("Comparing the size of these two probabilities gives the LR."))
   )
   
   
@@ -120,8 +122,10 @@ output$display_dopingTest_likelihoodratio_likelihoodRatioCalcs = renderUI({
 output$display_dopingTest_likelihoodratio_posteriorOddsInfo = renderUI({
   
   tagList(
-    p(paste0("Blah2 ",populationSize," athletes.")),
-    p(paste0("By testing our ",populationSize," athletes we are testing our ",doping," dopers.")),
+    p(paste0("The box opposite contains the calculation for the posterior odds. Bayes' rule states that the posterior odds must be equal to the prior odds multiplied by the LR.")),
+    p(paste0("This means that the prior odds, ",formatNumberForDisplay(priorOdds),", are updated through multiplication by the LR, ",formatNumberForDisplay(dopingTest_likelihoodratio_likelihoodRatio())," to obtain the posterior odds.")),
+    p(paste0("This can be interpreted as the athlete being ", formatNumberForDisplay(dopingTest_likelihoodratio_posteriorOdds()), " times more likely to be doping than not doping after learning their test result.")),
+    p(paste0("When the posterior odds are below 1 then the odds are still in favour of the athlete not doping. When they are greater than 1 then they are in favour of the athlete doping."))
   )
   
 })
@@ -130,8 +134,8 @@ output$display_dopingTest_likelihoodratio_posteriorOddsCalcs = renderUI({
   
   posteriorOdds= formatNumberForDisplay(dopingTest_likelihoodratio_posteriorOdds())
   
-  formulas = c(paste0("\\text{Posterior Odds} &= \\text{Prior Odds} * \\text{Likelihood Ratio}"))
-  formulas = c(formulas, paste0("&= ",formatNumberForDisplay(priorOdds),"*",formatNumberForDisplay(dopingTest_likelihoodratio_likelihoodRatio())))
+  formulas = c(paste0("\\text{Posterior Odds} &= \\text{Prior Odds} \\times \\text{Likelihood Ratio}"))
+  formulas = c(formulas, paste0("&= ",formatNumberForDisplay(priorOdds),"\\times",formatNumberForDisplay(dopingTest_likelihoodratio_likelihoodRatio())))
   formulas = c(formulas, paste0("&=",posteriorOdds))
   output = mathJaxAligned(formulas)
   
