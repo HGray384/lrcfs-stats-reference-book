@@ -20,7 +20,7 @@ Copyright &copy; 2020-2021 LRCFS
 
 ## Why this book? {-}
 
-High quality resources can already be found on this topic, which have been authored by the founders of systematic approaches to forensic evidence evaluation and which have been endorsed by national-level organisations. These include @aitken2010, @puch2012, @roberts2014, @jackson2015, @icca2017, and @statsprimer2020. This resource aims to complement and extend the existing texts in the following ways:
+High quality resources can already be found on this topic, which have been authored by the founders of systematic approaches to forensic evidence evaluation and which have been endorsed by national-level organisations. These include @aitken2010, @puch2012, @roberts2014, @jackson2015, @enfsi2016, @icca2017, and @statsprimer2020. This resource aims to complement and extend the existing texts in the following ways:
 
 1. by providing more examples for each of the core concepts so that learners can see the theory in action
 
