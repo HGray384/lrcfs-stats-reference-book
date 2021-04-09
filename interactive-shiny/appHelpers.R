@@ -38,7 +38,7 @@ mathJaxAligned = function(formulas, lineSpacing = 20, breakingSpace = 50)
 
 #Takes any number and formats it in either scientific notation or rounded to a specified number of decimal places
 #Can also handle a vector
-formatNumberForDisplay = function(number, numDecimalPlaces = 5, useScientificNotationIfLessThan = 0.0001, useScientificNotationIfMoreThan = 1000000, numOfScientificNotationDigits = 6)
+formatNumberForDisplay = function(number, numDecimalPlaces = 20, useScientificNotationIfLessThan = 0.00000000001, useScientificNotationIfMoreThan = 100000000000, numOfScientificNotationDigits = 4)
 {
   #If it's got a length then lets apply the whole function again to the vector
   if(length(number) > 1)
@@ -64,19 +64,20 @@ formatNumberForDisplay = function(number, numDecimalPlaces = 5, useScientificNot
     formattedNumber = 0;
   }
   #If it's less than some value (e.g. 0.0001) then use scientific notation
-  else if(number < useScientificNotationIfLessThan)
+  else if(abs(number) < useScientificNotationIfLessThan)
   {
     formattedNumber = formatC(number, format = "e", digits = numOfScientificNotationDigits)
   }
   #If it's more than some value (e.g. 1,000,000) then use scientific notation
-  else if(number > useScientificNotationIfMoreThan)
+  else if(abs(number) > useScientificNotationIfMoreThan)
   {
     formattedNumber = formatC(number, format = "e", digits = numOfScientificNotationDigits)
   }
   #Else, lets round the number
   else
   {
-    formattedNumber = round(number, numDecimalPlaces)
+    num = round(number, numDecimalPlaces)
+    formattedNumber = formatC(num, format = "fg", digits=str_length(num)-1)
   }
   
   return(formattedNumber)
