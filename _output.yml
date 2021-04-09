@@ -4,7 +4,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Probability, statistics, and the likelihood ratio for non-experts [in development]</a></li>
+        <li><a href="./">Probability, statistics, and the likelihood ratio for non-experts [draft]</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]
