@@ -1,6 +1,16 @@
 # LRCFS statistics reference book
 This is the repository for the LRCFS statistics reference book, which can be viewed [here](https://lrcfs.dundee.ac.uk/lr-book/). The book is built using the R package `bookdown` with interactive examples from an R `shiny` application and `h5p` javascript snippets. Click on this link for the [bookdown documentation](https://bookdown.org/yihui/bookdown/).
 
+## Table of contents
+* [Folder structure](#folder-structure)
+* [Accessing the book and shiny application](#accessing-the-book-and-shiny-application)
+* [Build instructions](#build-instructions-for-development-version)
+* [Running the shiny application in development version](#running-the-shiny-application-in-development-version)
+* [Running the shiny examples within the book in development version](#running-the-shiny-examples-within-the-book-in-development-version)
+* [Common issues](#common-issues)
+
+## Folder structure
+
 ## Accessing the book and shiny application
 
 The book has three versions in its development life cycle: development, test, and live.
@@ -21,7 +31,7 @@ This is the version that lives in this repository and is stored on the LRCFS int
 
 This is the version that can be publicly accessed on the LRCFS website. The book can be found [here](https://lrcfs.dundee.ac.uk/lr-book/) and the shiny application can be found [here](https://lrcfs.dundee.ac.uk/apps/interactive-lr/). 
 
-## Build instructions (for development version)
+## Build instructions for development version
 To build the book on your local machine, first clone or download this repository. Open R or RStudio in the base directory of the folder and run the following code:
 ```
 # install bookdown and its dependencies
@@ -35,7 +45,7 @@ Or, if you use RStudio, install the `bookdown` package as above and then open [s
 
 Following these instructions will build the book but will not load the interactive examples from the `shiny` application. To do this you must follow the instructions in the next two sections below.
 
-## To run the shiny application (for development version)
+## Running the shiny application in development version
 
 Part of the code in this repository contains a shiny application with interactive probability and statistics examples. To run this application and its graphical user interface, first install R `shiny` using 
 ```
@@ -46,7 +56,7 @@ Then open the /interactive-shiny/app.R file and run the application. In RStudio,
 
 If you use RStudio, simply open the ./interactive-shiny/interactive-shiny.Rproj file in a new window of RStudio and work with the `shiny` application from there.
 
-## To run the interactive examples within the book (for development version)
+## Running the shiny examples within the book in development version
 
 The html version of the stats book embeds the `shiny` application within the relevant sections of its text. To make this run correctly, follow the steps above to run the `shiny` application first, preferably in a separate window of RStudio using the `shiny` Rproj file described above. 
 
