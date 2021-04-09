@@ -194,9 +194,9 @@ In this example, the LR is 40 million. This means that the DNA match is 40 milli
 
 The RMP is calculated using frequency databases of profiles from specific ethnic groups of people, since ethnic group is a large factor in determining genetic variation. The genetics behind DNA evidence is highly discriminating between individuals, so the RMP is usually very small. This results in LRs which can be very large for competing source level propositions for single donor full profiles. 
 
-In the interactive example below, you can change the value for the RMP and see what effect that has on the LR.
+<!-- In the interactive example below, you can change the value for the RMP and see what effect that has on the LR. -->
 
-[Interactive example with RMP; display graph of LR as a function of the RMP, the user can highlight points on the graph or input values of the RMP to see what the corresponding LR is.]
+<!-- [Interactive example with RMP; display graph of LR as a function of the RMP, the user can highlight points on the graph or input values of the RMP to see what the corresponding LR is.] -->
 
 The RMP is also affected by other factors, such as the degree of relatedness in a population. This is known as the **population sub-structure** or **co-ancestry**. It is a numerical factor which adjusts the RMP to take account of the co-ancestry present in the relevant population, which can also differ depending on ethnic background.
 
