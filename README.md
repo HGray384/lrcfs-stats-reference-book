@@ -1,5 +1,5 @@
 # LRCFS statistics reference book
-This is the repository for the LRCFS statistics reference book, which can be viewed [here](https://lrcfs.dundee.ac.uk/lr-book/). The book is built using the R package `bookdown` with interactive examples from an R `shiny` application and `h5p` javascript snippets. Click on this link for the [bookdown documentation](https://bookdown.org/yihui/bookdown/).
+This is the repository for the LRCFS statistics reference book, which can be viewed [here](https://lrcfs.dundee.ac.uk/lr-book/). The book is built using the R package `bookdown` with interactive examples from an R `shiny` application and `h5p` javascript snippets. Click on this link for the [`bookdown` documentation](https://bookdown.org/yihui/bookdown/).
 
 ## Table of contents
 * [Folder structure](#folder-structure)
@@ -10,6 +10,18 @@ This is the repository for the LRCFS statistics reference book, which can be vie
 * [Common issues](#common-issues)
 
 ## Folder structure
+
+To understand the structure of the base directory of this repository, please see the [`bookdown` documentation](https://bookdown.org/yihui/bookdown/). This documentation explains the majority of folders and files found in the base directory.
+
+The `markdown` files which combine to form the chapters of the book can be found in the ./markdown/ folder.
+
+Useful global helper functions and variables for the book can be found in the ./code/ folder.
+
+The `shiny` application that accompanies this book can be found in the ./interactive-shiny/ folder.
+
+The code for the self-hosted `h5p` interactive questions can be found in the ./interactive-questions/ folder.
+
+Any data files used to generate examples in the book is stored in the ./dat/ folder. Please note that this is not currently in use in the live version of the book.
 
 ## Accessing the book and shiny application
 
