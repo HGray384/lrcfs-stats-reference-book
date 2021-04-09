@@ -16,6 +16,8 @@ always_allow_html: true
 
 This book produced by the Leverhulme Research Centre for Forensic Science (LRCFS) provides a learning and reference resource for those without statistical expertise on the topic of evaluating forensic science evidence using the likelihood ratio approach. It aims to provide the stepping stones required to become comfortable with likelihood ratio-based evaluations of evidence, as endorsed by the European Network of Forensic Science Institutes, and the Forensic Science Regulator of the UK.
 
+Copyright &copy; 2020-2021 LRCFS
+
 ## Why this book? {-}
 
 High quality resources can already be found on this topic, which have been authored by the founders of systematic approaches to forensic evidence evaluation and which have been endorsed by national-level organisations. These include @aitken2010, @puch2012, @roberts2014, @jackson2015, @icca2017, and @statsprimer2020. This resource aims to complement and extend the existing texts in the following ways:
