@@ -4,7 +4,7 @@ author: "Dr. Harry Gray"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [bib/book.bib, bib/packages.bib, bib/stats-book.bib]
+bibliography: [bib/packages.bib, bib/stats-book.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This book is a learning resource for those who would like to learn more about how probability and statistics are used to evaluate scientific evidence in the courtroom without being subject-matter experts."
@@ -86,7 +86,7 @@ Thanks also to Dr Pat Dugard, Ms Pauline Mack, Dr Joyce Klu, Dr Heather Doran, D
 
 ### Software {-}
 
-This book was written using the **bookdown** package [@R-bookdown], which was built on top of R Markdown and **knitr** [@xie2015]. This free and well-documented software has allowed this book to be developed hassle-free in a completely reproducible way. Thank you Yihui for your work to support open software and open science.
+This book was written using the **bookdown** package [@R-bookdown], which was built on top of R Markdown and **knitr** [@knitr2015]. This free and well-documented software has allowed this book to be developed hassle-free in a completely reproducible way. Thank you Yihui for your work to support open software and open science.
 
 ## Updates and versions {-}
 
