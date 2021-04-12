@@ -79,7 +79,7 @@ output$display_dopingTest_probabilities_tree <- renderPlot({
                layout=layout_as_tree(graph = freqTree, root = 1),
                vertex.size=50)
   return(tree)
-})
+}, width = IMAGE_WIDTH)
 
 
 

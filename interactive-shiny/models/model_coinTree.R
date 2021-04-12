@@ -27,7 +27,7 @@ output$display_coinTree_prob = renderPlot({
   return(tree)
   
   
-})
+}, width = IMAGE_WIDTH)
 
 
 output$display_coinTree_freq = renderPlot({
@@ -65,4 +65,4 @@ output$display_coinTree_freq = renderPlot({
   #        pch=16)
   #par(mar = defMar)
   
-})
+}, width = IMAGE_WIDTH)

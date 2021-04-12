@@ -36,7 +36,7 @@ output$display_doubleCoinTree_tree_prob = renderPlot({
   
   return(tree)
   
-})
+}, width = IMAGE_WIDTH)
 
 
 
@@ -80,4 +80,4 @@ output$display_doubleCoinTree_tree_freq = renderPlot({
               vertex.size=50)
 
   return(tree)
-})
+}, width = IMAGE_WIDTH)
