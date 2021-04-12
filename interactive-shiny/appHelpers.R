@@ -33,12 +33,9 @@ mathJaxAligned = function(formulas, lineSpacing = 20, breakingSpace = 50)
   return(withMathJax(output))
 }
 
-
-
-
 #Takes any number and formats it in either scientific notation or rounded to a specified number of decimal places
 #Can also handle a vector
-formatNumberForDisplay = function(number, numDecimalPlaces = 20, useScientificNotationIfLessThan = 0.00000000001, useScientificNotationIfMoreThan = 100000000000, numOfScientificNotationDigits = 4)
+formatNumberForDisplay = function(number, numDecimalPlaces = 4, useScientificNotationIfLessThan = 0.0001, useScientificNotationIfMoreThan = 100000000, numOfScientificNotationDigits = 4)
 {
   #If it's got a length then lets apply the whole function again to the vector
   if(length(number) > 1)

@@ -17,7 +17,6 @@ tabHome = tabItem(tabName = "tabHome",
                   ),
                   fluidRow(
                     box(title = "Development information", width = 12,
-                        p("This application is being developed by Mr Roy Mudie (Application Specialist) and Dr Harry Gray (Harding Fellow) at the Leverhulme Research Centre for Forensic Science (LRCFS). The principal investigator for this project is Professor Niamh Nic Daéid.")  
-                    )
+                        p(HTML("This application is being developed by Mr Roy Mudie (Application Specialist) and Dr Harry Gray (Harding Fellow) at the Leverhulme Research Centre for Forensic Science (LRCFS). The principal investigator for this project is Professor Niamh Nic Da&eacute;id."))                      )
                   )
 )
