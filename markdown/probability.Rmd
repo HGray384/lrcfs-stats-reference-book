@@ -56,7 +56,7 @@ Now that we have beliefs for the outcome of the coin toss, we have a probabilist
 
 In the example below, there are two tree diagrams. The probability tree displays the degree of belief for the coin toss in terms of the probabilities for the outcomes. The expected frequency tree displays the expected number of heads and tails corresponding to those probabilities for a fixed number of coin tosses. 
 
-Use the sliders below to change the probability of heads for the coin toss and also the number of tosses with which to view the expected outcomes. Firstly, fix the probability of heads to 0.5, since this is what we did in the example above. Then change the number of tosses to see that the expected number of heads and tails are equal. Next, fix the probability of heads to another number and see how this affects the expected outcomes.
+Use the sliders below to change the probability of heads for the coin toss and also the number of tosses with which to view the expected outcomes. Firstly, fix the probability of heads to 0.5, since this is what we did in the example above. Then change the number of tosses to see that the expected number of heads and tails are equal. Next, fix the probability of heads to another number and see how this affects the expected outcomes. If the plots are not displaying correctly, then please refresh your page.
 
 ```
 ```{r echo=FALSE}
@@ -175,7 +175,7 @@ The probabilities of coin 2 in this example are unaffected by conditioning on th
 
 The example below displays the probability and expected frequency trees for the double coin toss.  
 
-Use the sliders below to change the probability of a head for both coins and also the number of double tosses for the expected outcomes. Firstly, fix the probability of a head to be 0.5, since this is what we did in the example above. Then change the number of tosses to see that the expected number of double heads and double tails are still equal. Next, fix the probability of heads to another number and see how this affects the expected outcomes.
+Use the sliders below to change the probability of a head for both coins and also the number of double tosses for the expected outcomes. Firstly, fix the probability of a head to be 0.5, since this is what we did in the example above. Then change the number of tosses to see that the expected number of double heads and double tails are still equal. Next, fix the probability of heads to another number and see how this affects the expected outcomes. If the plots are not displaying correctly, then please refresh your page.
 
 ```
 ```{r echo=FALSE}
@@ -492,7 +492,7 @@ par(mar = defMar)
 ```{block eval=FALSE, include=isDynamicOutput()}
 ### Interactive Example
 
-Below is an interactive tool for the doping example.
+Below is an interactive tool for the doping example. If the plots are not displaying correctly, then please refresh your page.
 
 ```
 ```{r echo=FALSE}
