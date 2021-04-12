@@ -61,7 +61,7 @@ Use the sliders below to change the probability of heads for the coin toss and a
 ```
 ```{r echo=FALSE}
 if(isDynamicOutput()){
-  knitr::include_app(getInteractiveLink("tabCoinTree",NULL,TRUE), height = '700px')
+  knitr::include_app(getInteractiveLink("tabCoinTree",NULL,TRUE), height = '750px')
 }
 ```
   
@@ -180,7 +180,7 @@ Use the sliders below to change the probability of a head for both coins and als
 ```
 ```{r echo=FALSE}
 if(isDynamicOutput()){
-  knitr::include_app(getInteractiveLink("tabDoubleCoinTree",NULL,TRUE), height = '1000px')
+  knitr::include_app(getInteractiveLink("tabDoubleCoinTree",NULL,TRUE), height = '800px')
 }
 ```
 
@@ -497,7 +497,7 @@ Below is an interactive tool for the doping example.
 ```
 ```{r echo=FALSE}
 if(isDynamicOutput()){
-  knitr::include_app(getInteractiveLink("tabDopingTest_probabilities","DopingTest",TRUE), height = '850px')
+  knitr::include_app(getInteractiveLink("tabDopingTest_probabilities","DopingTest",TRUE), height = '1100px')
 }
 ```
 

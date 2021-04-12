@@ -102,7 +102,7 @@ vsDf %>%
 The LR is determined by the values of its underlying conditional probabilities. Type probability values into the calculator below to see how they affect the resulting LR.
 ```
 ```{r echo=FALSE, include=isDynamicOutput()}
-  knitr::include_app(getInteractiveLink("tabLRCalc",NULL,TRUE), height = '410px')
+  knitr::include_app(getInteractiveLink("tabLRCalc",NULL,TRUE), height = '440px')
 ```
 
 

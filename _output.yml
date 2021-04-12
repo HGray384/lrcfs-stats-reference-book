@@ -6,11 +6,9 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Probability, statistics, and the likelihood ratio for non-experts [draft]</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    #download: ["pdf", "epub", "docx"]
-    download:
-    sharing:
-      github: yes
+        <li><a href="https://uod.ac.uk/lrcfs" target="blank">Copyright &copy; 2020-2021 LRCFS</a></li>
+    download: no
+    sharing: false
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
