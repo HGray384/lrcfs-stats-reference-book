@@ -1,5 +1,5 @@
 # LRCFS statistics reference book
-This is the repository for the LRCFS statistics reference book, which can be viewed [here](https://lrcfs.dundee.ac.uk/lr-book/). The book is built using the R package `bookdown` with interactive examples from an R `shiny` application and `h5p` javascript snippets. Click on this link for the [`bookdown` documentation](https://bookdown.org/yihui/bookdown/).
+This is the repository for the [LRCFS statistics reference book](https://lrcfs.dundee.ac.uk/lr-book/). The book is built using the R package [`bookdown`]https://bookdown.org/yihui/bookdown/) with embedded interactive examples from the [LRCFS Interactive Probability and Statistics Application](https://lrcfs.dundee.ac.uk/apps/interactive-lr/) made using [R `shiny`](https://shiny.rstudio.com/) and interactive questions made using [`h5p`](https://h5p.org/) javascript snippets.
 
 ## Table of contents
 * [Folder structure](#folder-structure)
@@ -36,12 +36,12 @@ This is the version that lives on your local computer. Clone this repository to 
 This is the version that lives in this repository and is stored on the LRCFS internal test server. Webhooks automatically sync the code in this repository with the test server. For internal LRCFS access to the test server, the book and shiny application can be accessed in two steps:
 
 1. Connect to the University of Dundee VPN
-2. Click on this link <https://lrcfs-shiny.test.dundee.ac.uk/internal/stats-book/> for the book, and this link <https://lrcfs-shiny.test.dundee.ac.uk/internal/interactive-stats-book/> for the shiny application
+2. Go to the [test server book](https://lrcfs-shiny.test.dundee.ac.uk/internal/stats-book/), and the [test server app](https://lrcfs-shiny.test.dundee.ac.uk/internal/interactive-stats-book/).
 3. Sign in using your UoD login and explore the resources
 
 ### Live version
 
-This is the version that can be publicly accessed on the LRCFS website. The book can be found [here](https://lrcfs.dundee.ac.uk/lr-book/) and the shiny application can be found [here](https://lrcfs.dundee.ac.uk/apps/interactive-lr/). 
+This is the version that can be publicly accessed on the LRCFS website. Here are the links for the [book](https://lrcfs.dundee.ac.uk/lr-book/) and [app](https://lrcfs.dundee.ac.uk/apps/interactive-lr/).
 
 ## Build instructions for development version
 To build the book on your local machine, first clone or download this repository. Open R or RStudio in the base directory of the folder and run the following code:
@@ -74,7 +74,7 @@ If you use RStudio, simply open the ./interactive-shiny/interactive-shiny.Rproj 
 
 The html version of the stats book embeds the `shiny` application within the relevant sections of its text. To make this run correctly, follow the steps above to run the `shiny` application first, preferably in a separate window of RStudio using the `shiny` Rproj file described above. 
 
-Once the shiny application is running, keep it open and copy the http address at the top left of the shiny application, it should look something like "http://127.0.0.1:6319". This is the location of the running application instance on your local machine. Once this is copied, open the /code/useful-variables.R file and paste the location into the assignment of variable `SHINY_HOST`. Build the book again with the shiny application still running and now the book will include interactive `shiny` examples. You will need to do this each time you open a new R session as the location of the application will change.
+Once the shiny application is running, keep it open and copy the http address at the top left of the shiny application, it should look something like `http://127.0.0.1:6319`. This is the location of the running application instance on your local machine. Once this is copied, open the [code/useful-variables.R](code/useful-variables.R) file and paste the location into the `SHINY_HOST` variable. Build the book again with the shiny application still running and now the book will include interactive `shiny` examples. You will need to do this each time you open a new R session as the location of the application will change.
 
 DO NOT PUSH CHANGES MADE TO THE `SHINY_HOST` VARIABLE TO GITHUB. Simply delete the change when you decide to commit any other code.
 
