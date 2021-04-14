@@ -1,5 +1,5 @@
 # LRCFS statistics reference book
-This is the repository for the [LRCFS statistics reference book](https://lrcfs.dundee.ac.uk/lr-book/). The book is built using the R package [`bookdown`]https://bookdown.org/yihui/bookdown/) with embedded interactive examples from the [LRCFS Interactive Probability and Statistics Application](https://lrcfs.dundee.ac.uk/apps/interactive-lr/) made using [R `shiny`](https://shiny.rstudio.com/) and interactive questions made using [`h5p`](https://h5p.org/) javascript snippets.
+This is the repository for the [LRCFS statistics reference book](https://lrcfs.dundee.ac.uk/lr-book/). The book is built using the R package [`bookdown`](https://bookdown.org/yihui/bookdown/) with embedded interactive examples from the [LRCFS Interactive Probability and Statistics Application](https://lrcfs.dundee.ac.uk/apps/interactive-lr/) made using [R `shiny`](https://shiny.rstudio.com/) and interactive questions made using [`h5p`](https://h5p.org/) javascript snippets.
 
 ## Table of contents
 * [Folder structure](#folder-structure)
