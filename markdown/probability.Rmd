@@ -442,7 +442,7 @@ If a randomly selected individual from this population tests positive, then it i
 This phenomenon is caused by the very low **base rate** (prior probability) of the disease. This is the same as the risk of having the disease for people within the population, which was 1%. A randomly selected individual has a very low probability of having the disease prior to being tested. The test has very high sensitivity and so it is able to detect almost all of the true positives. The issue was that it tested many people who didn't have the disease, and so even a low error rate led to many false positives. Due to the **base rate** being so low, the number of true positives (99) was much smaller than the number of false positives (495). This meant that the positive results largely consisted of false positives.
 
 ```{block eval=FALSE, include=isDynamicOutput()}
-### Interactive Example
+### Interactive disease testing example
 
 The example above made the point that the base rate was an important factor in determining the proportion of true positive tests. This effect is demonstrated in the interactive tool below. By changing the base rate from low to high and vice versa, you may compare the number of true positive tests to the number of false positive ones as a function of the base rate of the disease. If the plots are not displaying correctly, then please refresh your page.
 
@@ -502,7 +502,7 @@ par(mar = defMar)
 
 
 ```{block eval=FALSE, include=isDynamicOutput()}
-### Interactive Example
+### Interactive Doping Example
 
 Below is an interactive tool for the doping example. If the plots are not displaying correctly, then please refresh your page.
 
