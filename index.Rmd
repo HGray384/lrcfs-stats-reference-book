@@ -86,7 +86,9 @@ Thanks also to Dr Pat Dugard, Ms Pauline Mack, Dr Joyce Klu, Dr Heather Doran, D
 
 ### Software {-}
 
-This book was written using the **bookdown** package [@R-bookdown], which was built on top of R Markdown and **knitr** [@knitr2015]. This free and well-documented software has allowed this book to be developed hassle-free in a completely reproducible way. Thank you Yihui for your work to support open software and open science.
+This book was written using the **bookdown** package [@bookdown2016], which was built on top of R **Rmarkdown** [@rmarkdown2018] and **knitr** [@knitr2015]. This free and well-documented software has allowed this book to be developed hassle-free in a completely reproducible way. Thank you Yihui for your work to support open software and open science.
+
+Other R packages that have been used throughout this book: [@igraph2006; @tidyverse2019; @R-ggthemes; @R-kableExtra]. 
 
 ## Updates and versions {-}
 
