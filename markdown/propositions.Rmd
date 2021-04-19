@@ -110,10 +110,13 @@ This proposition is still competing with $H_p^3$, and $H_p^3$ and $H_d^{3^*}$ ar
 
 These properties of propositions are important when we begin to consider probabilities associated with them in Section \@ref(probative-value). Before we consider probability though, we first look at different categories of propositions for criminal investigations. 
 
+```{block eval=FALSE, include=isDynamicOutput()}
 ## Example: exhaustivity and mutual exclusivity
-
+```
 ``` {r exhaustive-mutually-exclusive-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Exhaustive-Mutually-Exclusive-Propositions.html"), height=800)
+if(isDynamicOutput()){
+  knitr::include_url(paste0(QUESTIONS_HOST,"Exhaustive-Mutually-Exclusive-Propositions.html"), height=800)
+}
 ```
 
 ## Hierarchy of propositions
@@ -205,12 +208,16 @@ DNA found on clothing may be explained by direct contact and indirect transfer, 
 
 It's worth mentioning that the hierarchy of propositions is a general conceptual framework which is helpful when considering different propositions. Individual case circumstances will determine how important each level of proposition is and the degree to which the scientist can consider them. In some cases, source level propositions may effectively address the offence level propositions based on the case circumstances and witness testimony.
 
+
+```{block eval=FALSE, include=isDynamicOutput()}
 ## Example: proposition levels
 
 Practice identifying the correct proposition level with the examples below.
-
+```
 ``` {r proposition-level-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Examples.html"), height=550)
+if(isDynamicOutput()){
+  knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Examples.html"), height=550)
+}
 ```
 
 ## Probative value of evidence {#probative-value}
@@ -283,12 +290,15 @@ One well-known error of reasoning regarding conditional probabilities is the **p
 
 <!-- ## More information -->
 
+```{block eval=FALSE, include=isDynamicOutput()}
 ## Summary: propositions
 
 Use the activity below to create a summary of the key points from this chapter.
-
+```
 ``` {r propositions-summary-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Summary.html"), height=800)
+if(isDynamicOutput()){
+  knitr::include_url(paste0(QUESTIONS_HOST,"Propositions-Summary.html"), height=800)
+}
 ```
 
 ## Research study

@@ -513,12 +513,15 @@ if(isDynamicOutput()){
 }
 ```
 
+```{block eval=FALSE, include=isDynamicOutput()}
 ## Summary: probability
 
 Use the activity below to create a summary of the key points from this chapter.
-
+```
 ``` {r probability-summary-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Probability-Summary.html"), height=800)
+if(isDynamicOutput()){
+  knitr::include_url(paste0(QUESTIONS_HOST,"Probability-Summary.html"), height=800)
+}
 ```
 
 <!-- ## More information -->

@@ -104,10 +104,13 @@ It is recommended practice that these magnitudes of uncertainty (when quantified
 
 In the example above, we only focussed on one possible object of uncertainty. In reality, there are many more objects that the expert has to consider and combine when interpreting evidence. The reasons for each of these objects of uncertainty will be case-dependent and is complicated by the complex nature of real-life criminal activities. This makes assessing uncertainty challenging. The expert might reasonably ignore some uncertainties to make this task more feasible. Many possible uncertainties can be excluded by only considering the sequence of events put forth by the prosecution and defence.
 
+```{block eval=FALSE, include=isDynamicOutput()}
 ## Drag and Drop: uncertainty
-
+```
 ``` {r uncertainty-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Uncertainty-Examples.html"), height=600)
+if(isDynamicOutput()){
+  knitr::include_url(paste0(QUESTIONS_HOST,"Uncertainty-Examples.html"), height=600)
+}
 ```
 
 ## Communicating uncertainty
@@ -128,12 +131,15 @@ Indirect uncertainties in forensic evidence are usually given as a subjective ve
 
 Since assessing uncertainty plays an important role in evaluating forensic scientific evidence, it is important that there is common ground when it comes to communicating it. This can be achieved through using a standardised framework for assessing uncertainty that is logically coherent. One example of coherence in this context can be making sure that inferences made using uncertainties are consistent and obey transparent logical rules. This means that inferences made within the standardised framework are logical, can be accurately described to others, and are able to be assessed by others - all of which are important for communication. These desirable properties (as well as others) are contained within the mathematical language of probability, and that is why it is used as a common means to handle uncertainty. The main utility of probability is not because it quantifies uncertainty, but because it is a complete and common framework for logical inference. Probability is the focus of the next chapter. 
 
+```{block eval=FALSE, include=isDynamicOutput()}
 ## Summary: uncertainty
 
 Use the activity below to create a summary of the key points from this chapter.
-
+```
 ``` {r uncertainty-summary-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Uncertainty-Summary.html"), height=800)
+if(isDynamicOutput()){
+  knitr::include_url(paste0(QUESTIONS_HOST,"Uncertainty-Summary.html"), height=800)
+}
 ```
 
 ## More information

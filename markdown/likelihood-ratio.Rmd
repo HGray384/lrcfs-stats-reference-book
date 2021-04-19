@@ -420,12 +420,15 @@ The effectiveness of communicating the LR is an active area of scientific resear
 
 <!-- ## More information -->
 
+```{block eval=FALSE, include=isDynamicOutput()}
 ## Summary: likelihood ratio
 
 Use the activity below to create a summary of the key points from this chapter.
-
+```
 ``` {r likelihood-ratio-summary-questions, echo=FALSE}
-knitr::include_url(paste0(QUESTIONS_HOST,"Likelihood-Ratio-Summary.html"), height=800)
+if(isDynamicOutput()){
+  knitr::include_url(paste0(QUESTIONS_HOST,"Likelihood-Ratio-Summary.html"), height=800)
+}
 ```
 
 ## Research study
