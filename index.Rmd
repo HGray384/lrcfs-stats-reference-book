@@ -90,6 +90,8 @@ This book was written using the **bookdown** package [@bookdown2016], which was 
 
 Other R packages that have been used throughout this book: [@igraph2006; @tidyverse2019; @R-ggthemes; @R-kableExtra]. 
 
+Interactive questions in this book have been made using a self-hosted instance of [h5p](https://h5p.org) Copyright &copy; 2016 Joubel AS. The h5p content is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) and the code is available under an MIT license (see the [LRCFS Github repository](https://github.com/LRCFS/lrcfs-stats-reference-book)).
+
 ## Updates and versions {-}
 
 ### About this version (2nd draft) {-}
