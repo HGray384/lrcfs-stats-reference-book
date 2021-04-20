@@ -524,7 +524,9 @@ if(isDynamicOutput()){
 }
 ```
 
-<!-- ## More information -->
+## More information
+
+In this chapter on Probability we focussed on probability models and the expectations that a probability model forms for real events, e.g. a number of coin tosses. However, these expectations are often not exactly what is observed in practice, e.g. with real tosses of the coin. Analysing empirical events such as this moves from the field of probability to the field of statistics, and is currently outside the content of this book. If you would like to explore statistics for the coin toss examples presented in this chapter, then you may do so in the [interactive application](https://lrcfs.dundee.ac.uk/apps/interactive-lr/) which accompanies this book under the 'Coin Toss - Single Toss Samples' and 'Coin Toss - Double Toss Samples' tabs.
 
 ## Research study
 
