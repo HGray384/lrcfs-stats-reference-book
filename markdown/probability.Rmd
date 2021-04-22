@@ -73,7 +73,7 @@ Below is an example of an expected frequency tree. The expected frequency tree d
 A probability of heads of 0.5 means that we expect 5000 or every 10,000 tosses to result in heads, and the other 5000 to result in tails.
 
 ```
-```{r echo=FALSE, freq-tree-coin-toss, echo=FALSE,fig.cap="Out of 10,000 cosses, we expect 5000 to be heads and 5000 to be tails. The probability of heads is 0.5 and is equal to the probability of tails. ", out.width = '80%', fig.align = 'center'}
+```{r echo=FALSE, freq-tree-coin-toss, echo=FALSE, fig.cap="An expected frequency tree diagram of the coin toss example. Out of 10,000 cosses, we expect 5000 to be heads and 5000 to be tails. The probability of heads is 0.5 and is equal to the probability of tails. ", out.width = '80%', fig.align = 'center'}
 if(!isDynamicOutput()){
 e <- c(1, 2, 1, 3)
 v <- c("10,000\ntosses", "5000\nheads", "5000\ntails")
@@ -138,7 +138,7 @@ Suppose that the background information is that both coins are tossed in such a 
 
 Figure \@ref(fig:freq-tree-double-coin) shows this information in an expected frequency tree for the double coin toss.
 
-```{r freq-tree-double-coin, echo=FALSE,fig.cap="Out of every 10,000 double coin tosses, we expect 2500 to be double heads. The probability of getting two heads is 0.25.", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-double-coin, echo=FALSE,fig.cap="An expected frequency tree diagram of the double coin toss example. Out of every 10,000 double coin tosses, we expect 2500 to be double heads. The probability of getting two heads is 0.25.", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000 \ntosses", "5000\ncoin 1 heads", "5000\ncoin 1 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -186,7 +186,7 @@ if(isDynamicOutput()){
 
 We can also consider two events for the same example which are not independent. Suppose there is a game that is decided by the result of the double coin toss. Player 1 wins if the coin tosses result in double heads and player 2 wins if the coin tosses result in double tails. If neither player wins then a draw is called and the coins are tossed again. Since double heads is just as likely as double tails, the probability is 0.25 for each, then both players are equally likely to win prior to the first coin being tossed. We can see this from the highlighted Figure \@ref(fig:freq-tree-double-coin-bet) below.
 
-```{r freq-tree-double-coin-bet, echo=FALSE,fig.cap="Out of every 10,000 tosses, 2500 are double heads and 2500 are double tails. This means that wthe players have equal probability of winning of 0.25 each. The remaining 5000 tosses result in a draw and so the probability of a draw is 0.5.", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-double-coin-bet, echo=FALSE,fig.cap="An expected frequency tree diagram of the double coin toss game. Out of every 10,000 tosses, 2500 are double heads and 2500 are double tails. This means that wthe players have equal probability of winning of 0.25 each. The remaining 5000 tosses result in a draw and so the probability of a draw is 0.5.", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000\ntosses", "5000\ncoin 1 heads", "5000\ncoin 1 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -257,7 +257,7 @@ After the coin tosses, there are two possible situations:
 
 Player 2 can use probabilities to make the best guess for the second situation above. We will show both ways that this can be done. The possible outcomes of the double coin toss are presented as an expected frequency tree in Figure \@ref(fig:freq-tree-double-coin-bet-2) below.
 
-```{r freq-tree-double-coin-bet-2, echo=FALSE,fig.cap="Player 2 expects not to win in 7500 out of the original 10,000 tosses (highlighted in bold). Out of those 7500 non-winning double tosses, 2500 came from coin 1 being tails, and 5000 came from coin 1 being heads. Since twice as many possible outcomes originate from coin 1 being heads the posterior odds of coin 1 being a head are 2:1.", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-double-coin-bet-2, echo=FALSE,fig.cap="An expected frequency tree diagram of the coin guessing game. Player 2 expects not to win in 7500 out of the original 10,000 tosses (highlighted in bold). Out of those 7500 non-winning double tosses, 2500 came from coin 1 being tails, and 5000 came from coin 1 being heads. Since twice as many possible outcomes originate from coin 1 being heads the posterior odds of coin 1 being a head are 2:1.", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000\ntosses", "5000\ncoin 1 heads", "5000\ncoin 1 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails", "2500\ncoin 2 heads", "2500\ncoin 2 tails")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -411,7 +411,7 @@ Look back to the columns of Table \@ref(tab:test-table). Consider the negative r
 
 Now consider the positive results. A total of 594 people from our population of 10,000 tested positive. Out of these 594 who tested positive, only 99 (~17%) actually have the disease. The large majority of people who tested positive, 495 (~83%) of the 594, do not really have the disease. This can be seen more clearly in Figure \@ref(fig:freq-tree-test).
 
-```{r freq-tree-test, echo=FALSE,fig.cap="Out of the 594 people who test positive (shown in bold font), 99 (~17%) have the disease. ", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-test, echo=FALSE,fig.cap="An expected frequency tree diagram of the disease testing example. Out of the 594 people who test positive (shown in bold font), 99 (~17%) have the disease. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000 \npeople", "100\ndisease", "9,900\nno disease", "99\npositive", "1\nnegative", "495\npositive", "9,405\nnegative")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -473,7 +473,7 @@ Out of the expected 9,800 athletes who are not doping, the specificity tells us 
 
 We expect a total of 680 positive tests and 190 (~28%) of those positive tests to be from an athlete who is doping. The answer to our original question is that given a positive test result, we expect the athlete to be doping roughly 28% of the time. This information is presented in the expected frequency tree in Figure \@ref(fig:freq-tree-doping). 
 
-```{r freq-tree-doping, echo=FALSE,fig.cap="Out of the 680 athletes who test positive (shown in bold font), 190 (~28%) are doping. ", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-doping, echo=FALSE,fig.cap="An expected frequency tree diagram of the doping example. Out of the 680 athletes who test positive (shown in bold font), 190 (~28%) are doping. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000 \nathletes", "200\ndoping", "9,800\nnot doping", "190\npositive", "10\nnegative", "490\npositive", "9,310\nnegative")
 freqTree <- graph(edges=e, n=7, directed=FALSE)

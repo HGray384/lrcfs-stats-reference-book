@@ -111,7 +111,7 @@ The LR is determined by the values of its underlying conditional probabilities. 
 
 Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities. Hover your mouse over the graph to see the values of the conditional probabilities and the resulting LR. 
 ```
-```{r lr-function, echo=FALSE, warning=FALSE, include=isDynamicOutput(), fig.cap="LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue is support in favour of $H_p$ compared to $H_d$, and orange is support for $H_d$ compared to $H_p$. White means equal support for both.", out.width = '100%', fig.align = 'center'}
+```{r lr-function, echo=FALSE, warning=FALSE, include=isDynamicOutput(), fig.cap="A heatmap of the LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue (above the diagonal) is support in favour of $H_p$ compared to $H_d$, and orange (below the diagonal) is support for $H_d$ compared to $H_p$. White (along the diagonal) means equal support for both.", out.width = '100%', fig.align = 'center'}
 gridVals <- 101
 prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1]
 vars <- expand.grid(prob1, prob2)
@@ -162,7 +162,7 @@ The probability of obtaining a match assuming that the suspect is the source is 
 
 The probability of obtaining a match assuming that someone other than the suspect is the source is more complex to assign a value to. It requires the probability of a match if we compare the questioned profile with that from a person other than the suspect plucked at random from the population to which the suspect belongs. This is known as the **random match probability** (RMP). The RMP reflects how common the recovered profile is in the relevant population for the case. The more common the profile, the higher the RMP and the lower the LR when the formula is applied; The LR is inversely related to the RMP. The logic behind this is the following: the more common a characteristic is in a population, the worse that characteristic is at discriminating between source level propositions. More common DNA profiles are worse at discriminating between source-level propositions and so they result in smaller LRs when compared to uncommon profiles. Figure \@ref(fig:freq-tree-rmp) displays the expected frequency tree for a RMP of 1 in 40 million in a population of 40 million and 1 people (which includes the guilty individual).
 
-```{r freq-tree-rmp, echo=FALSE,fig.cap="Out of 40 million innocent people, 1 DNA profile matches. The RMP is 1 in 40 million. ", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-rmp, echo=FALSE,fig.cap="An expected frequency tree for the RMP. Out of 40 million innocent people, 1 DNA profile matches. The RMP is 1 in 40 million. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("40,000,001 \npeople", "1\nguilty", "40,000,000\ninnocent", "1\nmatch", "0\nno match", "1\nmatch", "39,999,999\nno match")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
@@ -241,7 +241,7 @@ The likelihood ratio is given by
 $$\text{LR} = \frac{\text{probability of a positive test result assuming the athlete is doping}}{\text{probability of a positive test result assuming the athlete is not doping}}.$$
 
 The conditional probabilities which contribute to this LR can be extracted from the expected frequency tree in which we assumed a population of 10,000 athletes, replicated in Figure \@ref(fig:freq-tree-lr-doping). 
-```{r freq-tree-lr-doping, echo=FALSE,fig.cap="The terms which contribute to the LR are shown in bold font. ", out.width = '80%', fig.align = 'center'}
+```{r freq-tree-lr-doping, echo=FALSE,fig.cap="An expected frequency tree for the doping example. The terms which contribute to the LR of a positive test are those who test positive and this is shown in bold font. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
 v <- c("10,000 \nathletes", "200\ndoping", "9,800\nnot doping", "190\npositive", "10\nnegative", "490\npositive", "9,310\nnegative")
 freqTree <- graph(edges=e, n=7, directed=FALSE)
