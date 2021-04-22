@@ -3,48 +3,6 @@ myTosses <<- vector()
 dfAllTosses <<- data.frame()
 ##################################################
 
-# observeEvent(input$coinToss_numberOfTossesTEXT, {
-#   sldrVal = input$coinToss_numberOfTosses
-#   txtval = input$coinToss_numberOfTossesTEXT
-#   if ((as.numeric(txtval) != sldrVal) &
-#       txtval != "" &  sldrVal != "")
-#   {
-#     updateSliderInput(
-#       session = session,
-#       inputId = 'coinToss_numberOfTosses',
-#       value = txtval
-#     )
-#   } else {
-#     if (txtval == "") {
-#       updateSliderInput(session = session,
-#                         inputId = 'coinToss_numberOfTosses',
-#                         value = 1)
-#     }
-#   }
-# })
-# 
-# observeEvent(input$coinToss_numberOfTosses, {
-#   sldrVal = as.numeric(input$coinToss_numberOfTosses)
-#   txtVal = as.numeric(input$coinToss_numberOfTossesTEXT)
-#   if((sldrVal != txtVal) &
-#      !is.na(sldrVal) &
-#      !is.na(txtVal))
-#   {
-#     updateTextInput(
-#       session = session,
-#       inputId = 'coinToss_numberOfTossesTEXT',
-#       value = sldrVal
-#     )
-#   }
-#   else{
-#     updateTextInput(
-#       session = session,
-#       inputId = 'coinToss_numberOfTossesTEXT',
-#       value = 1
-#     )
-#   }
-# })
-
 observeEvent(input$coinToss_resetTotals, {
   myTosses <<- vector()
   dfAllTosses <<- data.frame()
@@ -76,27 +34,14 @@ output$display_coinToss_treeProb = renderPlot({
   numHeadsCoinTosses = numCoinTosses * headsProbability
   numTailsCoinTosses = numCoinTosses * (1-headsProbability)
   
-  edges <- c(1, 2, 1, 3)
+  e <- c(1, 2, 1, 3)
   v <- c(paste0("Probability of\n",numCoinTosses),
-         paste0("Probability of Heads\n",numHeadsCoinTosses),
-         paste0("Probability of Tails\n",numTailsCoinTosses))
-  freqTree <- graph(edges=edges, n=3, directed=TRUE)
-  V(freqTree)$name <- v
-  
+         paste0("Probability of\nHeads\n",numHeadsCoinTosses),
+         paste0("Probability of\nTails\n",numTailsCoinTosses))
   black=COLOUR_PALLETE[1]
-  V(freqTree)$color <- c(black,HEADS_COLOUR,TAILS_COLOUR)
-  V(freqTree)$label.font <- c(1, 1, 1)
-  V(freqTree)$label.family <- c(rep("sans",9))
-  par(mar = c(0, 0, 0, 0))
-  tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
-              vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
-              vertex.label.cex=1.2, edge.color="black",  edge.width=1,
-              layout=layout_as_tree(graph = freqTree, root = 1),
-              vertex.size=50)
+  c <- c(black,HEADS_COLOUR,TAILS_COLOUR)
   
-  return(tree)
-  
-  
+  return(createBinaryTree(e,v,c))
 })
 
 output$display_coinToss_treeExp = renderPlot({
@@ -109,18 +54,10 @@ output$display_coinToss_treeExp = renderPlot({
   
   e <- c(1, 2, 1, 3)
   v <- c(paste0(total,"\nTosses"), paste0(heads,"\nHeads"), paste0(tails,"\nTails"))
-  freqTree <- graph(edges=e, n=3, directed=TRUE)
-  V(freqTree)$name <- v
   black <- COLOUR_PALLETE[1]
-  V(freqTree)$color <- c(black, HEADS_COLOUR, TAILS_COLOUR)
-  V(freqTree)$label.font <- c(1, 1, 1)
-  V(freqTree)$label.family <- c(rep("sans",3))
-  par(mar = c(0, 0, 0, 0))
-  plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
-       vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
-       vertex.label.cex=1.2, edge.color="black",  edge.width=1,
-       layout=layout_as_tree(graph = freqTree, root = 1),
-       vertex.size=50)
+  c <- c(black, HEADS_COLOUR, TAILS_COLOUR)
+  
+  return(createBinaryTree(e,v,c))
 })
 
 output$display_coinToss_treeSample = renderPlot({
@@ -136,18 +73,9 @@ output$display_coinToss_treeSample = renderPlot({
 
   e <- c(1, 2, 1, 3)
   v <- c(paste0(numberOfTosses,"\nTosses"), paste0(headsOccur,"\nHeads"), paste0(tailsOccur,"\nTails"))
-  freqTree <- graph(edges=e, n=3, directed=TRUE)
-  V(freqTree)$name <- v
   black <- COLOUR_PALLETE[1]
-  V(freqTree)$color <- c(black, HEADS_COLOUR, TAILS_COLOUR)
-  V(freqTree)$label.font <- c(1, 1, 1)
-  V(freqTree)$label.family <- c(rep("sans",3))
-  par(mar = c(0, 0, 0, 0))
-  plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
-       vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
-       vertex.label.cex=1.2, edge.color="black",  edge.width=1,
-       layout=layout_as_tree(graph = freqTree, root = 1),
-       vertex.size=50)
+  c <- c(black, HEADS_COLOUR, TAILS_COLOUR)
+  return(createBinaryTree(e,v,c))
 })
 
 

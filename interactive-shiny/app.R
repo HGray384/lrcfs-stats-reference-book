@@ -14,19 +14,6 @@ library(ggthemes)
 library(kableExtra)
 library(learnr)
 
-# library(plotly)
-# library(riskyr)
-# library(waffle)
-# library(dplyr)
-# library(hrbrthemes)
-# library(igraph)
-# library(ggthemes)
-# library(kableExtra)
-# library(tidyverse)
-# library(grid)
-# library(plyr)
-# library(LSD)
-
 #Load a global config file for easy access to application variables (APP_NAME_SHORT, APP_VER etc are set in here)
 source("appConfig.R")
 source("appHelpers.R")
@@ -73,8 +60,7 @@ ui = function(request) {
                                            menuItem("LR Calculator", tabName = "tabLRCalc", icon = icon("divide"))
                                            )
                                   
-                      ),
-                      bookmarkButton(id='bookmarkButton')
+                      )#,bookmarkButton(id='bookmarkButton')
                     ),
                     dashboardBody(
                       uiOutput('embedStylesheet'),
@@ -106,13 +92,32 @@ ui = function(request) {
 
 server = function(input, output,session) {
   
-  output$embedStylesheet = renderUI({ 
+  GRAPH_BG_COLOUR = rgb(1,1,1,1)
+  
+  output$embedStylesheet = renderUI({
     query = getQueryString()
     if("embed" %in% names(query) && query["embed"] == "\"TRUE\"")
     {
-      tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/embed.css"))
+      GRAPH_BG_COLOUR <<- rgb(0.956,0.956,0.956,1) #matches background colour in CSS for embeded boxes
+      return(tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "css/embed.css")))
     }
   })
+  
+  createBinaryTree = function(edges, verts, colours, fontSize = 1.3){
+    freqTree <- graph(edges=edges, n=length(verts), directed=TRUE)
+    V(freqTree)$name <- verts
+    
+    V(freqTree)$color <- colours
+    V(freqTree)$label.font <- c(rep(1,length(verts)))
+    V(freqTree)$label.family <- c(rep("sans",length(verts)))
+    par(mar = c(0, 0, 0, 0), bg = GRAPH_BG_COLOUR)
+    tree = plot(freqTree, vertex.shape="none", vertex.label=V(freqTree)$name,
+                vertex.label.color=V(freqTree)$color, vertex.label.font=V(freqTree)$label.font,
+                vertex.label.cex=fontSize, edge.color="black",  edge.width=1,
+                layout=layout_as_tree(graph = freqTree, root = 1),
+                vertex.size=50)
+    return(tree)
+  }
 
   # Need to exclude the buttons from themselves being bookmarked
   setBookmarkExclude(c("bookmarkButton"))

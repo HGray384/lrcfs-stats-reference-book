@@ -1,6 +1,7 @@
 # Propositions to frame uncertainty {#propositions}
 
 ```{r package-load-propositions, include=FALSE}
+source("./code/useful-variables.R")
 source("./code/helper-functions.R")
 # check and load the libraries
 library("igraph")
@@ -10,8 +11,7 @@ library("tidyverse")
 library("plotly")
 library("grid")
 library("plyr")
-# set some useful variables
-source("./code/useful-variables.R")
+
 ```
 
 When applying probability theory in the context of a legal case, it is important that the assertions from both sides of counsel are made precise. This is because they will be used to compare against each other as conditioning information in conditional probabilities. Innocent mistakes in proposing imprecise conditioning information can have large effects on the resulting value of the conditional probability. More importantly, such mistakes can lead to completely incorrect interpretations of conditional probabilities, such as incorrect beliefs about which events may have occurred and which did not.

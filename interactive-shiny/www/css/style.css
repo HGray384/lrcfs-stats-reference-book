@@ -38,7 +38,8 @@
 #display_doubleCoinTree_tree_freq img,
 #display_coinTree_prob img,
 #display_coinTree_freq img,
-#display_dopingTest_probabilities_tree img{
+#display_dopingTest_probabilities_tree img,
+#display_diseaseTree_tree img{
   width: 100% !important;
   object-fit: contain !important;
 }
