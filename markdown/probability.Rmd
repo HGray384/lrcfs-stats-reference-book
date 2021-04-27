@@ -181,7 +181,7 @@ Bayes' rule gives us another mathematical expression that probability assignment
 
 Bayes' rule allows us to switch the conditioning information as we move from the likelihood ratio to the posterior odds. Probabilities for $E$ which are conditioned on $A$ and $B$, the likelihood ratio, are switched to probabilities for $A$ and $B$ conditioned on $E$, the posterior odds. This switching of conditioning information is known as **transposing the conditional**. Bayes' rule gives us the correct way to transpose the conditional, i.e. by using the prior odds. Incorrectly transposing the conditional is a tempting mistake which is easy to make in practice. The most famous example of this in the legal domain is known as the **prosecutor's fallacy**, which we will revisit in Chapter \@ref(propositions).
 
-Despite being logical, Bayes' rule can lead to highly counter-intuitive results. 
+Despite being logical, Bayes' rule can lead to counter-intuitive results. 
 
 ## Example: guessing coin 1
 
