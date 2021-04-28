@@ -172,7 +172,40 @@ Another reason that odds are useful is because of the simplicity that they give 
 
 ## Bayes' rule {#bayes}
 
-**Bayes' rule** is a mathematical rule which links the **prior odds** to the **posterior odds**. Suppose we are considering the odds of an event $A$ compared to an event $B$, and we observe some new information from an event $E$. It is a natural idea to update the prior odds for $A$ to $B$ with the new information gained from $E$ in order to obtain posterior odds - the odds obtained by conditioning on $E$. Bayes' rule states that this is done as follows:
+Suppose we have a probability assigned for an event $A$ and we observe an event $E$ that is relevant to $A$. An example is assigning a probability that it will rain next Saturday, followed by actually observing rain on the Friday evening. Your probability assignment might increase now that you have observed rain on the evening prior to your original prediction. But by how much exactly? How should the probability assignment for $A$ be updated in light of $E$? This is a useful question that is answered using Bayes' rule.
+
+**Bayes' rule** is a mathematical rule for updating probability assignments in light of new information. As well as providing a rule for updating probabilities, we shall show that it also provides the rule updating the **prior odds** into the **posterior odds**. We will follow three steps required to get the probability form of Bayes' rule and convert it to the odds form of Bayes' rule:
+
+1. use the multiplication rule of probability to derive Bayes' rule for the probability of an event $A$ in light of information from an event $E$,
+2. state Bayes' rule for the probability of another event $B$ in light of information from the same event $E$,
+3. divide the conditional probability from step 1 by the conditional probability from step 2 in order to obtain posterior odds of $A$ to $B$ in light of $E$.
+
+We go through these steps below in order to gain an intuition behind Bayes' rule.
+
+**1. use the multiplication rule of probability to derive Bayes' rule for the probability of an event $A$ in light of information from an event $E$**
+
+For events $A$ and $E$, the multiplication rule from Section \@ref(double-coin-toss) states that the joint probability of $A$ and $E$ co-occurring is
+$$\text{probability of }A \text{ and }E = \text{probability of }A \text{ conditioned on }E \times \text{probability of }E.$$
+The joint probability can be expressed differently by conditioning on $A$ instead of $E$:
+$$\text{probability of }A \text{ and }E = \text{probability of }E \text{ conditioned on }A \times \text{probability of }A.$$
+These two expressions are equivalent since they describe the same joint probability. This means that we can write the following:
+\begin{align*}
+  &\text{probability of }A \text{ conditioned on }E \times \text{probability of }E  \notag \\
+  &=\text{probability of }E \text{ conditioned on }A \times \text{probability of }A.
+\end{align*}
+Since we are interested in an expression for the probability of $A$ conditioned on $E$, we can isolate that term by dividing both sides of the equation above by the probability of $E$ (assuming it is not equal to zero). This gives Bayes' rule:
+$$ \text{probability of }A\text{ conditioned on }E = \frac{\text{probability of }E\text{ conditioned on }A \times \text{probability of }A}{\text{probability of }E}.$$
+
+**2. state Bayes' rule for the probability of another event $B$ in light of information from the same event $E$**
+
+Similarly for another event $B$, that is also related to $E$, Bayes' rule states:
+$$ \text{probability of }B\text{ conditioned on }E = \frac{\text{probability of }E\text{ conditioned on }B \times \text{probability of }B}{\text{probability of }E}.$$
+
+**3. divide the conditional probability from step 1 by the conditional probability from step 2 in order to obtain posterior odds of $A$ to $B$ in light of $E$**
+
+Dividing the terms in the equation for $A$ by the equation for $B$ gives a formula for the ratio of the probabilities of $A$ and $B$:
+$$ \frac{\text{probability of }A\text{ conditioned on }E}{\text{probability of }B\text{ conditioned on }E}=\frac{\text{probability of }E\text{ conditioned on }A}{\text{probability of }E\text{ conditioned on }B}\times \frac{\text{probability of }A}{\text{probability of }B},$$
+where the probability of $E$ from both equations cancels out and so is ignored. The terms on the left hand side of the equation are the posterior odds of $A$ to $B$ conditioned on $E$. The ratio on the far right hand side is the prior odds of $A$ to $B$. When expressed like this, Bayes' rule provides a link between the prior and posterior odds:  
 $$\text{posterior odds of }A\text{ to } B=\frac{\text{probability of }E\text{ conditioned on }A}{\text{probability of }E\text{ conditioned on }B}\times \text{prior odds of }A\text{ to }B.$$
 
 This rule states that the posterior odds of $A$ to $B$ (conditioned on $E$) are a product of the prior odds of $A$ to $B$ multiplied by a ratio of probabilities for $E$ conditioned on $A$ and $B$, respectively. This ratio is known as the **Bayes factor**, or **likelihood ratio** in this instance. From the formula above, the likelihood ratio behaves as the updating factor for the prior odds due to the event $E$. In this sense, the likelihood ratio describes the relative support of events $A$ and $B$ for the event $E$: how much more (or less) probable was event $E$ when conditioned on $A$ compared to when it was conditioned on $B$? Understanding the likelihood ratio is the main goal of this book and it is revisited in Chapter \@ref(likelihood-ratio). Bayes' rule describes how prior odds must be updated in light of new conditioning information.
