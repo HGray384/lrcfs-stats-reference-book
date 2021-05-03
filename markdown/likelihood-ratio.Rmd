@@ -9,6 +9,7 @@ library("gdtools")
 library("kableExtra")
 library("tidyverse")
 library("plotly")
+library("DiagrammeR")
 # set some useful variables
 source("./code/useful-variables.R")
 ```
@@ -272,9 +273,80 @@ if(isDynamicOutput()){
 
 ## Combining evidence
 
-LRs can also be used to consider the value of multiple pieces of evidence together. When the individual pieces of evidence are regarded as statistically independent (Section \@ref(double-coin-toss)), their individual LRs can be multiplied to obtain a combined LR. Labelling two pieces of evidence as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that both $E_1$ **and** $E_2$ would have been observed if $H_p$ is true, rather than if $H_d$ is true. This approach is becoming more popular amongst some scientific groups as more methodology is being developed, e.g. @koeijer2020. It can only be done when the propositions underlying the probability calculations are the same, and specifically when they are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. When the proposition levels are different, then a more complex approach may be required.
+LRs can also be used to consider the combined value of multiple pieces of evidence together. This is useful when multiple pieces of evidence relate to the same pair of competing propositions. It is also useful for moving from the source level of proposition up to the activity level.
 
-It is paramount that the assumption of statistical independence is checked when combining the LRs from multiple evidence types. Data sources that can help scientists to determine statistical independence between evidence types are limited in the scientific literature at this time. When the statistical independence assumption does not hold true, then more complex probabilistic methods need to be used. One such method for achieving this is Bayesian Networks, which are introduced in Book 3 of the RSS practitioner guides [@roberts2014] and are a planned extension to this text. 
+It is easier to see the connection between multiple pieces of evidence and competing propositions by using a graphical model. A graphical model is a visual representation of the evidence and case circumstances. This approach is becoming more popular amongst some scientific groups as more methodology is being developed, e.g. @koeijer2020. An example of a simple graphical model with multiple pieces of evidence is shown below:
+
+```{r serial-evidence-chain-diagram, echo=FALSE, fig.cap="An example of a serial evidence chain diagram. Nodes on the diagram depend upon previous nodes and this dependence should be accounted for in probability and LR calculations.", out.width = '100%', fig.align = 'center'}
+# create simple graph of serial evidence chain (e.g. fig. 3 from de Koeijer 2020)
+DiagrammeR::grViz("
+digraph {
+  # a graph statement
+  graph [rankdir = LR, fontsize = 10]
+  
+  # node font statement
+  node [fontname = 'Sans-serif']
+  
+  # node statement for suspect
+  node [shape = oval]
+  A [label = 'Suspect']
+
+  # node statement for items
+  node [shape = rectangle]
+  B [label  = 'Item 1']
+  C [label = 'Item 2']
+  
+  # node statement for activity
+  node [shape = diamond]
+  D [label = 'Activity']
+  
+  # edge statements
+  edge [fontname = 'Sans-serif']
+  A->B [label = 'E@_{1}']
+  B->C [label = 'E@_{2}']
+  C->D [label = 'E@_{3}']
+}
+")
+```
+
+
+parallel evidence chain
+```{r parallel-evidence-chain-diagram, echo=FALSE, fig.cap="An example of a parallel evidence chain diagram. Item 1 and 2 from the chain of evidence only depend on each other through the suspect and so could be considered as independent conditional on the suspect having committed the activity, $H_p$.", out.width='100%', fig.align='center'}
+# create simple graph of parallel evidence chain (e.g. fig. 4 de Koeijer 2020)
+DiagrammeR::grViz("
+digraph {
+   # a graph statement
+  graph [rankdir = LR, fontsize = 10]
+  
+  # node font statement
+  node [fontname = 'Sans-serif']
+  
+  # node statement for suspect
+  node [shape = oval]
+  A [label = 'Suspect']
+
+  # node statement for items
+  node [shape = rectangle]
+  B [label  = 'Item 1']
+  C [label = 'Item 2']
+  
+  # node statement for activity
+  node [shape = diamond]
+  D [label = 'Activity']
+  
+  # edge statements
+  edge [fontname = 'Sans-serif']
+  A->B [label = 'E@_{1}']
+  B->D [label = 'E@_{2}']
+  A->C [label = 'E@_{3}']
+  C->D [label = 'E@_{4}']
+}
+")
+```
+
+When the individual pieces of evidence are regarded as statistically independent (Section \@ref(double-coin-toss)), their individual LRs can be multiplied to obtain a combined LR. Labelling two pieces of evidence as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that both $E_1$ **and** $E_2$ would have been observed if $H_p$ is true, rather than if $H_d$ is true. This approach is becoming more popular amongst some scientific groups as more methodology is being developed, e.g. @koeijer2020. It can only be done when the propositions underlying the probability calculations are the same, and specifically when they are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. When the proposition levels are different, then a more complex approach may be required.
+
+Assuming statistical independence leads to convenient probability and LR calculations. However, when this assumption is incorrect then it leads to inaccurate probability and LR values and therefore to potentially misleading conclusions. For this reason, assumptions of statistical independence should be justified whenever they are made. Data sources, such as scientific experiments can be used to establish whether two events are (conditionally) statistically independent. Data sources that can help scientists to determine statistical independence between evidence types are limited in the scientific literature at this time. When the statistical independence assumption does not hold true, then more complex probabilistic methods need to be used. One such method for achieving this is Bayesian Networks, which are introduced in Book 3 of the RSS practitioner guides [@roberts2014]. Bayesian Networks provide a probabilistic graphical model for handling multiple evidence types and are a planned extension to this text. 
 
 <!-- ## Example:  -->
 
