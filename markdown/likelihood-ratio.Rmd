@@ -275,12 +275,13 @@ if(isDynamicOutput()){
 
 LRs can also be used to consider the combined value of multiple pieces of evidence together. This is useful when multiple pieces of evidence relate to the same pair of competing propositions. It is also useful for moving from the source level of proposition up to the activity level.
 
-It is easier to see the connection between multiple pieces of evidence and competing propositions by using a graphical model. A graphical model is a visual representation of the evidence and case circumstances. This approach is becoming more popular amongst some scientific groups as more methodology is being developed, e.g. @koeijer2020. An example of a simple graphical model with multiple pieces of evidence is shown below:
+It is easier to see the connection between multiple pieces of evidence and competing propositions by using a graphical model. A graphical model is a visual representation of the evidence and case circumstances. Seeing the logical dependencies between the different pieces of evidence and the propositions allows us to clearly see the statistical dependencies that should be accounted for in the probability model of the evidence. This means that the probability and LR calculations can be made in the confidence that they accurately affect the case circumstances. This approach is becoming more popular amongst some scientific groups as more methodology is being developed. For example,  @koeijer2020 present an approach that is useful for an interdisciplinary forensic examination at the Netherlands Forensic Institute.
 
-```{r serial-evidence-chain-diagram, echo=FALSE, fig.cap="An example of a serial evidence chain diagram. Nodes on the diagram depend upon previous nodes and this dependence should be accounted for in probability and LR calculations.", out.width = '100%', fig.align = 'center'}
+An example of a simple graphical model with multiple pieces of evidence is shown below:
+```{r serial-evidence-chain-diagram, echo=FALSE, fig.cap="An example of a serial evidence scheme in a graphical model. Nodes on the graph depend upon previous nodes and this dependence should be accounted for in probability and LR calculations.", out.width = '100%', fig.align = 'center'}
 # create simple graph of serial evidence chain (e.g. fig. 3 from de Koeijer 2020)
 DiagrammeR::grViz("
-digraph {
+graph {
   # a graph statement
   graph [rankdir = LR, fontsize = 10]
   
@@ -302,19 +303,22 @@ digraph {
   
   # edge statements
   edge [fontname = 'Sans-serif']
-  A->B [label = 'E@_{1}']
-  B->C [label = 'E@_{2}']
-  C->D [label = 'E@_{3}']
+  A--B [label = 'E@_{1}']
+  B--C [label = 'E@_{2}']
+  C--D [label = 'E@_{3}']
 }
 ")
 ```
 
+The graphical model in Figure \@ref(fig:serial-evidence-chain-diagram) shows a generic example of linking together the suspect, the forensic evidence, the physical items to which the evidence relates, and a proposition of interest to the case - in this case an activity. Each type of object on the graph is represented with a different shaped box in order to clearly show that they differ in nature. For example, physical items to which the forensic evidence relates are shown within a rectangular box, whilst the proposition of interest is shown within a diamond-shaped box. The edges indicate the forensic induction process between the objects. For example, $E_1$ above provides a link between the suspect and item 1 whilst $E_2$ provides a link between item 1 and item 2. etc. leading to a logical sequence that links the suspect to the activity. 
 
-parallel evidence chain
-```{r parallel-evidence-chain-diagram, echo=FALSE, fig.cap="An example of a parallel evidence chain diagram. Item 1 and 2 from the chain of evidence only depend on each other through the suspect and so could be considered as independent conditional on the suspect having committed the activity, $H_p$.", out.width='100%', fig.align='center'}
+The graphical model in Figure \@ref(fig:serial-evidence-chain-diagram) also shows a specific type of evidence scheme. Objects along this type of scheme logically depend upon those which come before them in order to construct the sequence in the graph. For example, without $E_2$ there is no longer a chain of evidence between the suspect and the activity since there is no longer a link between item 1, which we can directly link to the suspect, and item 2. This type of evidence scheme is known as a serial evidence scheme [@koeijer2020] because of the serial nature of the evidence chain that it represents. This logical structure of the evidence must be accounted for in the probability model for this evidence chain and in the LR calculations. More specifically, this graph indicates that $E_1$ and $E_2$ cannot be considered as statistically independent conditional on the case circumstances and propositions because there is a clear dependence between $E_1$ and $E_2$ through item 1. The probability calculations to model these dependencies and output an LR can be complex and often use advanced probabilistic modelling methods such as Bayesian Networks, which are introduced in Book 3 of the RSS practitioner guides [@roberts2014]. Bayesian Networks provide a probabilistic graphical model for handling multiple evidence types and are a planned extension to this text.
+
+Another type of evidence scheme is shown in the graphical model of Figure \@ref(fig:parallel-evidence-chain-diagram) below.
+```{r parallel-evidence-chain-diagram, echo=FALSE, fig.cap="An example of a parallel evidence scheme in a graphical model. Item 1 and 2 from the chain of evidence only depend on each other through the activity and suspect and so could be considered as independent conditional on the suspect having perpetrated the activity, usually $H_p$.", out.width='100%', fig.align='center'}
 # create simple graph of parallel evidence chain (e.g. fig. 4 de Koeijer 2020)
 DiagrammeR::grViz("
-digraph {
+graph {
    # a graph statement
   graph [rankdir = LR, fontsize = 10]
   
@@ -336,13 +340,15 @@ digraph {
   
   # edge statements
   edge [fontname = 'Sans-serif']
-  A->B [label = 'E@_{1}']
-  B->D [label = 'E@_{2}']
-  A->C [label = 'E@_{3}']
-  C->D [label = 'E@_{4}']
+  A--B [label = 'E@_{1}']
+  B--D [label = 'E@_{2}']
+  A--C [label = 'E@_{3}']
+  C--D [label = 'E@_{4}']
 }
 ")
 ```
+
+The evidence scheme in Figure \@ref(fig:parallel-evidence-chain-diagram) represents a so-called parallel evidence scheme [@koeijer2020]. This is due to the two (or more) chains of evidence running in parallel to each other.
 
 When the individual pieces of evidence are regarded as statistically independent (Section \@ref(double-coin-toss)), their individual LRs can be multiplied to obtain a combined LR. Labelling two pieces of evidence as $E_1$ and $E_2$, then the interpretation of the LR becomes: how much more likely is it that both $E_1$ **and** $E_2$ would have been observed if $H_p$ is true, rather than if $H_d$ is true. This approach is becoming more popular amongst some scientific groups as more methodology is being developed, e.g. @koeijer2020. It can only be done when the propositions underlying the probability calculations are the same, and specifically when they are at the same proposition level. For example, there might be both glass and DNA evidence which can address an activity level proposition of the suspect breaking and entering a residential home. When the proposition levels are different, then a more complex approach may be required.
 
