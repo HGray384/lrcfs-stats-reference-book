@@ -312,6 +312,6 @@ if(isDynamicOutput()){
 }
 ```
 
-## Research study
+<!-- ## Research study -->
 
-If you are taking part in our research study, please return to the survey now to answer the questions about this chapter.
+<!-- If you are taking part in our research study, please return to the survey now to answer the questions about this chapter. -->
