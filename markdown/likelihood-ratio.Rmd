@@ -413,52 +413,6 @@ Suppose now that the expert had not detailed an LR of 1000 and instead opted to 
 
 The reasons for the expert to choose either of the above options could be useful in exploring the robustness of this LR. Using an interval for the LR represents uncertainty that may or may not have been accounted for when assigning a single value. On the other hand, the single value may have been a conservative assignment. Any data or experience that the expert has used should still be made clear in their report.
 
-<!-- Since the conditional probabilities which determine the LR are made explicit in this example (this is not common practice), then the LR can also be communicated visually using natural frequencies in Figure \@ref(fig:freq-tree-lr-kicking): -->
-
-<!-- ```{r freq-tree-lr-kicking, echo=FALSE,fig.cap="The terms which contribute to the LR are shown in bold font. Since the populations we assumed are the same size, the LR is just 1000 divided by 1, or just 1000.", out.width = '80%', fig.align = 'center'} -->
-<!-- e <- c(1, 2, 1, 3) -->
-<!-- v <- c("10,000\nkickers", "10,000\nnon-kickers", "1000\nthis\npattern", "9000\nnot this\npattern", "1\nthis\npattern", "9999\nnot this\npattern") -->
-<!-- freqTreeKick <- graph(edges=e, n=3, directed=FALSE) -->
-<!-- freqTreeNonKick <- graph(edges=e, n=3, directed=FALSE) -->
-<!-- V(freqTreeKick)$name <- v[c(1, 3, 4)] -->
-<!-- V(freqTreeNonKick)$name <- v[c(2, 5, 6)] -->
-
-<!-- colPal <- colorblind_pal()(8) -->
-<!-- # the commented code below complicates the point -->
-<!-- # V(freqTree)$color <- c(rep(colPal[1], 3),  -->
-<!-- #                        colPal[4],  -->
-<!-- #                        colPal[7], -->
-<!-- #                        colPal[7], -->
-<!-- #                        colPal[4]) -->
-<!-- treeCol <- c(rep(colPal[1], 3)) -->
-<!-- V(freqTreeKick)$color <- treeCol -->
-<!-- V(freqTreeNonKick)$color <- treeCol -->
-<!-- treeFont <- c(2, 2, 1) -->
-<!-- V(freqTreeKick)$label.font <- treeFont -->
-<!-- V(freqTreeNonKick)$label.font <- treeFont -->
-<!-- par(mar = c(0, 0, 0, 0), mfrow=c(1, 2)) -->
-<!-- plot(freqTreeKick, vertex.shape="none", vertex.label=V(freqTreeKick)$name, -->
-<!--      vertex.label.color=V(freqTreeKick)$color, vertex.label.font=V(freqTreeKick)$label.font, -->
-<!--      vertex.label.cex=1.2, edge.color="grey70",  edge.width=2, -->
-<!--      layout=layout_as_tree(graph = freqTreeKick, root = 1), -->
-<!--      vertex.size=50) -->
-<!-- # legend("bottomright", legend=c("True", "False"), -->
-<!-- #        col=colPal[c(4,7)], bty = "n", -->
-<!-- #        pch=16) -->
-<!-- plot(freqTreeNonKick, vertex.shape="none", vertex.label=V(freqTreeNonKick)$name, -->
-<!--      vertex.label.color=V(freqTreeNonKick)$color, vertex.label.font=V(freqTreeNonKick)$label.font, -->
-<!--      vertex.label.cex=1.2, edge.color="grey70",  edge.width=2, -->
-<!--      layout=layout_as_tree(graph = freqTreeNonKick, root = 1), -->
-<!--      vertex.size=50) -->
-<!-- par(mar = defMar, mfrow=c(1, 1)) -->
-<!-- ``` -->
-
-<!-- An accompanying verbal statement could be: -->
-
-<!-- > Out of 10,000 kickers in an equivalent situation to the defendant in the prosecution's version of events, this blood pattern would be found on 1000 of them. Out of 10,000 non-kickers in an equivalent situation to the defendant in the defence's version of events, this blood pattern would be found on 1 of them.  -->
-
-<!-- Notice how the expert did not specify a prior probability of being the kicker or not, and so we had to split the trees into two groups, one for the kickers, and one for the non-kickers. -->
-
 The effectiveness of communicating the LR is an active area of scientific research. Communication using the numerical and verbal scales presented in this section has shown mixed results in scientific studies employing experiments with mock jurors. Other methods of communication or evidence evaluation are likely to develop as we gather a better understanding of how LR communications are received and actioned upon by those within the courtroom.
 
 <!-- ## More information -->
@@ -474,6 +428,6 @@ if(isDynamicOutput()){
 }
 ```
 
-## Research study
+<!-- ## Research study -->
 
-If you are taking part in our research study, please return to the survey now to answer the questions about this chapter.
+<!-- If you are taking part in our research study, please return to the survey now to answer the questions about this chapter. -->
