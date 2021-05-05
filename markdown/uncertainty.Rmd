@@ -144,7 +144,7 @@ if(isDynamicOutput()){
 
 ## More information
 
-GRADE: https://www.gradeworkinggroup.org/
+GRADE evidenc protocol: https://www.gradeworkinggroup.org/
 
 <!-- ## Research study -->
 
