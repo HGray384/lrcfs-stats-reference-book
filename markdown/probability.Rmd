@@ -190,7 +190,7 @@ The joint probability can be expressed differently by conditioning on $A$ instea
 $$\text{probability of }A \text{ and }E = \text{probability of }E \text{ conditioned on }A \times \text{probability of }A.$$
 These two expressions are equivalent since they describe the same joint probability. This means that we can write the following:
 \begin{align*}
-  &\text{probability of }A \text{ conditioned on }E \times \text{probability of }E  \notag \\
+  &\text{probability of }A \text{ conditioned on }E \times \text{probability of }E \\
   &=\text{probability of }E \text{ conditioned on }A \times \text{probability of }A.
 \end{align*}
 Since we are interested in an expression for the probability of $A$ conditioned on $E$, we can isolate that term by dividing both sides of the equation above by the probability of $E$ (assuming it is not equal to zero). This gives Bayes' rule:
