@@ -92,20 +92,20 @@ In this example, we consider some generic uncertainties encountered by a fibre e
 
 Suppose that the expert is tasked with interpreting fibres recovered from the suspect's clothing (the reference sample) and fibres recovered from the crime scene (the questioned sample). There are many potential objects of uncertainty for the fibre examiner to address in this general situation, and in practice the examiner is usually directed as to which objects of uncertainty to address. In this example, we select the **object** of uncertainty to be whether or not the suspect was at the crime scene. This is an example of epistemic uncertainty. 
 
-- **Object** of uncertainty: whether or not the suspect was at the crime scene.
-- **Reason** for uncertainty:
+* **Object** of uncertainty: whether or not the suspect was at the crime scene.
+* **Reason** for uncertainty:
   + two credible alternative events presented by prosecution and defence,
   + variability in fibre recovery, transfer, and persistence,
   + limited relevant scientific studies.
-- **Level** of uncertainty for each of the above reasons:
+* **Level** of uncertainty for each of the above reasons:
   + direct,
   + direct,
   + indirect.
-- **Magnitude** of uncertainty: the expert can take into account relevant case circumstances as well as what is known about the variability in fibre recovery, transfer, and persistence to determine, for example, that
+* **Magnitude** of uncertainty: the expert can take into account relevant case circumstances as well as what is known about the variability in fibre recovery, transfer, and persistence to determine, for example, that
   + out of every 1000 similar case circumstances they would expect 200 of them to yield the questioned sample of fibres if the suspect had truly been at the crime scene,
   + out of every 1000 similar case circumstances they would expect only 2 to yield the questioned sample of fibres if the suspect had truly not been at the crime scene,
   + limited relevant scientific studies present uncertainty that is difficult to quantify.
-- **Communication** of uncertainty: the expert can compare the quantified uncertainty and caveat the qualitative uncertainty to state that
+* **Communication** of uncertainty: the expert can compare the quantified uncertainty and caveat the qualitative uncertainty to state that
   + it is 100 times more likely (200 out of 1000 times compared to 2 out of 1000 times) that the fibre evidence would have been observed if the suspect had been at the crime scene rather than if they had not,
   + there are limitations to the available scientific studies, and state them.
 
@@ -136,11 +136,9 @@ if(isDynamicOutput()){
 
 Accurately communicating uncertainty in forensic science is crucial in order for the fact finder to fully assess the evidence. There is consensus from the UK Forensic Science Regulator and ENFSI that a likelihood ratio, range of likelihood ratios, or an equivalent verbal statement should be used to communicate direct uncertainties about the evidence. Examples include: 
 
-- single number: the recovered number of indistinguishable fibres provide 50 times more support for the hypothesis that the questioned activity took place in the living room compared to the bedroom. 
-
-- range of numbers: the recovered number of indistinguishable fibres provide between 10 to 100 times more support for the hypothesis that the questioned activity took place in the living room compared to the bedroom.
-
-- verbal qualifier: the recovered number of indistinguishable fibres provide moderate support for the hypothesis that the questioned activity took place in the living room compared to the bedroom.
+* single number: the recovered number of indistinguishable fibres provide 50 times more support for the hypothesis that the questioned activity took place in the living room compared to the bedroom. 
+* range of numbers: the recovered number of indistinguishable fibres provide between 10 to 100 times more support for the hypothesis that the questioned activity took place in the living room compared to the bedroom.
+* verbal qualifier: the recovered number of indistinguishable fibres provide moderate support for the hypothesis that the questioned activity took place in the living room compared to the bedroom.
 
 The resulting statement is always relative, in that it gives the fact finder information about the scientific evidence in light of the prosecution's assertions versus those of the defence. 
 
