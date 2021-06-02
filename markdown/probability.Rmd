@@ -330,11 +330,13 @@ Factors that affect the reliability of a probability assignment include:
   
 None of the above properties can guarantee that a reliable probability assignment has been made under all circumstances. They only provide a general idea of what to consider when assessing reliability. Assignments in real cases require assessing the above properties as well as others not listed here.
 
-## False positives {#false-positives}
+## Base rates and error rates {#false-positives}
 
-False positives and false negatives are terms to describe mistakes in uncertain categorical assignments. Typically these are binary assignments where something or someone is either labelled as a **positive** case or a **negative** case, and the truth about them actually being a positive or negative case is unknown.
+The **base rate** of a characteristic of interest is the probability of randomly selecting that specified characteristic from a relevant population. For example, in a population of 100 people 50 of whom have brown hair and 50 of whom have blonde hair, the base rate for brown hair is 0.5. The odds of brown:blonde hair are evens and so the prior odds of any one randomly selected individual having brown hair are evens. Base rates express prior probabilities/odds. In the context of diseases, the base rate is also known as the disease **prevalence**. 
 
-If the truth is that they are a negative case, but they were mistakenly labelled as a positive case, then the assignment is a **false positive**. If the truth is that they are a positive case, but they were mistakenly labelled as a negative case, then the assignment is a **false negative**. If the labels were correct, then the assignment was a **true positive** or **true negative**, respectively. This information is presented in Table \@ref(tab:intro-fp-table).
+**Error rates** are used to quantify the uncertainty in making incorrect or inaccurate decisions and their exact definition depends upon context. An important context in forensic science is the error rate of binary decision: classifying a result as positive/negative, inclusion/exclusion, etc. In this context, the error rate describes the probability of making an incorrect classification. Error rates inform likelihood ratios.
+
+Errors for binary classifications are often known as false positives and false negatives. If the truth is that there is a negative case, and it is mistakenly labelled as a positive case, then the assignment is a **false positive**. If the truth is that there is a positive case, and it is mistakenly labelled as a negative case, then the assignment is a **false negative**. If the classification is correct, then the assignment was a **true positive** or **true negative**, respectively. This information is presented in Table \@ref(tab:intro-fp-table).
 
 ```{r intro-data, include=FALSE}
 introDf <- tibble("Truth" = c("Positive", "Negative"),
@@ -361,15 +363,7 @@ introDf %>%
 
 ```
 
-For example, when testing someone for a specific disease, we are uncertain about whether or not they have the disease before applying the test. The test results categorise them as either positive or negative for the disease, but it is never absolutely guaranteed to be correct. Even the most reliable tests make mistakes, even if that's only very rarely. The test result should decrease our uncertainty about whether the tested person has the disease or not, but it can't totally eliminate it. The best tests will greatly decrease our uncertainty, and poor ones won't change it much.
-
-If many assignments of positive/negative have been made under controlled conditions, e.g. when the underlying truth of positive or negative is known, then one can determine the **rate** of true/false positives/negatives. This rate corresponds to the probability of each entry in Table \@ref(tab:intro-fp-table) occurring.
-
-The probability of a false positive occurring is called the **false positive rate** and the probability of a false negative occurring is called the **false negative rate**.
-
-The probabilities of true assignments have different names. The probability of a true positive is called the **sensitivity** and the probability of a true negative is called the **specificity**. 
-
-The **base rate** of a characteristic is the probability that when we randomly select an object from the population of interest, then that selected object has the specified characteristic. This is commonly called the **prevalence** when the characteristic that we are interested in is a disease. 
+If many assignments of positive/negative have been made under controlled conditions, e.g. when the underlying truth of positive or negative is known, then a reliable probability can be formed to determine the **rate** of true/false positives/negatives. These rates corresponds to the probability of each entry in Table \@ref(tab:intro-fp-table) occurring. The probability of a false positive occurring is called the **false positive rate** and the probability of a false negative occurring is called the **false negative rate**. The probability of a true positive occurring is called the **sensitivity** and the probability of a true negative occurring is called the **specificity**.
 
 ## Example: diagnostic tests {#exm-test}
 
@@ -423,7 +417,7 @@ If a randomly selected individual from this population tests positive, then it i
 This phenomenon is caused by the very low **base rate** (prior probability) of the disease. This is the same as the risk of having the disease for people within the population, which was 1%. A randomly selected individual has a very low probability of having the disease prior to being tested. The test has very high sensitivity and so it is able to detect almost all of the true positives. The issue was that it tested many people who didn't have the disease, and so even a low error rate led to many false positives. Due to the **base rate** being so low, the number of true positives (99) was much smaller than the number of false positives (495). This meant that the positive results largely consisted of false positives.
 
 ```{block eval=FALSE, include=isDynamicOutput()}
-### Interactive disease testing example
+## Interactive disease testing
 
 The example above made the point that the base rate was an important factor in determining the proportion of true positive tests. This effect is demonstrated in the interactive tool below. By changing the base rate from low to high and vice versa, you may compare the number of true positive tests to the number of false positive ones as a function of the base rate of the disease. If the plots are not displaying correctly, then please refresh your page.
 
@@ -463,7 +457,7 @@ createBinaryTree(e,v,fw)
 
 
 ```{block eval=FALSE, include=isDynamicOutput()}
-### Interactive Doping Example
+## Interactive doping
 
 Below is an interactive tool for the doping example. If the plots are not displaying correctly, then please refresh your page.
 
