@@ -453,7 +453,7 @@ The answer to the question is that given a positive test result, we expect the a
 ```{block eval=FALSE, include=isDynamicOutput()}
 ## Interactive doping
 
-Below is an interactive tool for the doping example. If the plots are not displaying correctly, then please refresh your page.
+Below is an interactive tool for the doping example. You can explore the effect of changing the test sensitivity and specificity on the number of false positives and false negatives that the test makes for a hypothetical population of athletes. Even for the maximum settings in the sliders for these test properties there are still only twice as many true positives as there are false positives. If the plots are not displaying correctly, then please refresh your page.
 
 ```
 ```{r echo=FALSE}
