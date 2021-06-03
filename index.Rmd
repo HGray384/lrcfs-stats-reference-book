@@ -84,6 +84,8 @@ Mr Roy Mudie at LRCFS has been instrumental in developing the R Shiny applicatio
 
 Thanks also to Dr Pat Dugard, Ms Pauline Mack, Dr Joyce Klu, Dr Heather Doran, Dr Emma Comrie, Professor Lucina Hackman, and Professor Niamh Nic Daéid as members of an internal review team at LRCFS. This team provided feedback on the content and appearance of the book which has significantly improved its presentation, conciseness, and clarity.
 
+A special thanks goes to our anonymous research participants who volunteered a large portion of their time to give feedback on this book and the accompanying R Shiny application. This group spanned external practising and academic forensic scientists, research students, and members of the LRCFS Citizen's Jury. Their feedback helped to improve the technical precision of the content as well as showing us where to focus our efforts in order to make the materials more understandable and engaging.
+
 ### Software {-}
 
 This book was written using the **bookdown** package [@bookdown2016], which was built on top of R **Rmarkdown** [@rmarkdown2018] and **knitr** [@knitr2015]. This free and well-documented software has allowed this book to be developed hassle-free in a completely reproducible way. Thank you Yihui for your work to support open software and open science.
