@@ -14,26 +14,26 @@ library("plyr")
 
 ```
 
-When applying probability theory in the context of a legal case, it is important that the assertions from both sides of counsel are made precise. This is because they will be used to compare against each other as conditioning information in conditional probabilities. Innocent mistakes in proposing imprecise conditioning information can have large effects on the resulting value of the conditional probability. More importantly, such mistakes can lead to completely incorrect interpretations of conditional probabilities, such as incorrect beliefs about which events may have occurred and which did not.
+When applying probability theory in the context of a legal case, it is important that the hypotheses from both sides of counsel are made precise. This is because they will be used to compare against each other as conditioning information in conditional probabilities. Innocent mistakes in proposing imprecise conditioning information can have large effects on the resulting value of the conditional probability. More importantly, such mistakes can lead to incorrect interpretations of conditional probabilities, such as incorrect beliefs about which events may have occurred and which did not.
 
 In this chapter, we will define what is meant by a proposition, how propositions are useful for framing uncertainty about events, and how propositions are combined with probability to determine the probative value of evidence. 
 
 ## Facts-in-issue
 
-To motivate the use of propositions, we begin with a discussion about facts-in-issue. Facts-in-issue are the relevant facts of a specific case that are contested by each side of a legal dispute. In criminal trials in the UK, the facts-in-issue are the contested facts between the prosecution's and defence's version of events.
+To motivate the use of propositions, we begin with a discussion about facts-in-issue. Facts-in-issue are the relevant facts of a specific case that are contested by each side of a legal dispute. In criminal trials in the UK, the facts-in-issue are the contested facts between the prosecution's and defence's version of events, otherwise known as their hypotheses.
 
-There is epistemic uncertainty about the facts-in-issue and so relevant evidence about these issues is presented to the court. The fact finder then considers this evidence to determine the truth of the facts-in-issue, and ultimately the outcome of the case. This means that the language and presentation of facts-in-issue must be precise and accurate. They should be presented in such a way so as to allow the fact finder to clearly discriminate between the assertions of either side of counsel. For scientific evidence, the expert does this by formalising the facts-in-issue into what are known as propositions. 
+There is epistemic uncertainty about the facts-in-issue and so relevant evidence about these issues is presented to the court. The fact finder then considers this evidence to determine the truth of the facts-in-issue, and ultimately the outcome of the case. This means that the language and presentation of facts-in-issue must be precise and accurate. They should allow the fact finder to clearly discriminate between the hypotheses of either side of counsel. The expert scientist must also do so impartially without bias in favour of one side or the other. For scientific evidence, the expert does this by formalising the facts-in-issue into what are known as propositions. 
 
 ## Propositions
 
 A proposition is an assertion about a factual state of nature. This means that it is capable of being either true or false. Although not always correct, we will speak of propositions as not only **capable of being** either true or false, but **as** being either true or false. 
 
-The truth of propositions does not depend upon people's belief about them (unless the proposition is specifically about their belief). Consider the following:
+The truth of propositions does not depend upon any individual's or consensus belief about them (unless the proposition is specifically about their belief). Consider the following:
 
 1. The Earth orbits the Sun.
 2. The Earth is flat.
 
-Proposition 1 is true and proposition 2 is false, and we have scientific evidence to prove this. At a certain point of time in history, however, common belief about those propositions was false: people thought that the Sun orbited the Earth, and that the Earth was flat. It was true that the Earth orbits the Sun both before and after humans had enough evidence to believe it was true. 
+Proposition 1 is true and proposition 2 is false, and we have scientific evidence to prove this. At a certain time in history, however, common belief about those propositions was false: people thought that the Sun orbited the Earth, and that the Earth was flat. It was true that the Earth orbits the Sun both before and after humans had enough evidence to believe it was true. 
 
 Propositions can still evoke epistemic uncertainty; they are true or false but we might not know which. This means we can apply the tools of probability theory to them. Consider another example:
 
@@ -41,27 +41,29 @@ Propositions can still evoke epistemic uncertainty; they are true or false but w
 
 In this hypothetical poker game, the proposition is true if Player B is holding an ace and it is false if Player B is not holding an ace in this round. If you are Player B then you will know the truth of this and the proposition is trivial. However, if you are not Player B then you will not know the truth of this - you have epistemic uncertainty.
 
-To play this round well, you require a reasonable belief about this proposition (and others) in order to make decisions about checking, raising, or folding etc., adequately accounting for the uncertainty. Note that in this example you might **never** know the truth of this proposition. Player B might never turn over their cards nor reveal the answer. The proposition is still either true or false regardless of this.
+To play this round well, you require a reasonable belief about this proposition (and others) in order to make decisions which account for your uncertainty. Note that in this example you might **never** know the truth of this proposition. Player B might never turn over their cards nor reveal the answer. The proposition is still either true or false regardless of this.
 
-The truth of some propositions may change as situations change. Consider the following:
+The truth of some propositions may be conditional on other factors. Consider the following:
 
 4. Boris Johnson's Conservative party govern the UK. 
 
-At the time of writing this, the proposition is true. The UK still exists, the Conservative party exist under that same name and are led by Boris Johnson, and his party governs the UK. This proposition will not be true forever, and may not even be true by the time you are reading this. It is useful to be more specific when formulating propositions so that important factors which affect the truth of the proposition (e.g. time) are made explicit. Doing this makes propositions less ambiguous. Changing the previous proposition to:
+At the time of writing this, the proposition is true. The UK still exists, the Conservative party exist under that same name and are led by Boris Johnson, and his party governs the UK. This proposition will not be true forever, and may not even be true by the time you are reading this. It is useful to be more specific when formulating propositions so that important factors (e.g. time) are made explicit. Doing this makes propositions less ambiguous. Changing the previous proposition to:
 
-5. On 20th May 2020, Boris Johnson's Conservative party govern the UK 
+5. On 20th May 2020, Boris Johnson's Conservative party govern the UK,
 
-gives a more specific proposition whose truth is now clear to anyone with the knowledge of who governed the UK on that specific date. However, the proposition is now less general since it only refers to one specific day. Whether this reduced generality is worth the increased specificity or not depends on the question at hand. When case information is provided by investigators to forensic scientists, then the scientists have to balance these factors in order to formulate appropriate propositions for the case. 
+gives a more specific proposition whose truth is now clear to anyone with the knowledge of who governed the UK on that specific date. However, the proposition is now less general since it only refers to one specific day. Whether this reduced generality is worth the increased clarity or not depends on the question at hand. When case information is provided by investigators to forensic scientists, then the scientists have to balance these factors in order to formulate appropriate propositions for the case (if they are not given them). 
 
 ## Competing propositions
 
-When formulating propositions from facts-in-issue, the different sides of an adversarial judicial system make different assertions about the events which led to the same factual observation.
+When formulating propositions from facts-in-issue, the different sides of an adversarial judicial system form different hypotheses about the events which led to the same factual observation.
 
-For example, as part of a case there might be a DNA sample recovered from a crime scene which was found to match the DNA profile taken from a suspect after their arrest. The prosecution might assert that the defendant was at the location in which the DNA sample was recovered. The defence, on the other hand, might accept that this is the defendant's DNA but instead assert that it was indirectly transferred there, e.g. from physical contact with another individual who was provably at the crime scene. Both of these assertions would reasonably lead to the defendant's DNA matching the crime scene sample.
+For example, as part of a case there might be a DNA sample recovered from a crime scene which was found to match the DNA profile taken from a suspect after their arrest. The prosecution might assert that the defendant was at the location in which the DNA sample was recovered. The defence, on the other hand, might accept that this is the defendant's DNA but instead assert that it was indirectly transferred there, e.g. from physical contact with another individual who was provably at the crime scene. Both of these hypotheses would reasonably lead to the defendant's DNA matching the crime scene sample.
 
-Translating these assertions into propositions gives so-called **competing propositions**. Competing propositions typically come in pairs, one put forward by each side of legal counsel. They are often denoted as $H_p$ and $H_d$ to represent 'prosecution/defence hypothesis', and this is the notation used in this book from now.
+Translating these assertions into propositions gives so-called **competing propositions**. Competing propositions typically come in pairs, one put forward by each side of legal counsel. The standard notation that is used for these propositions is $H_p$ and $H_d$ to represent 'prosecution/defence hypothesis'.
 
-**Case scenario**: Police were called to the house of a known local drug dealer after reports by neighbours of a suspected gunshot heard from within the property. They arrived at the scene to find a middle-aged male, the known drug dealer, dead in a bedroom with gunshot wounds. A window at the back of the house on the ground floor was found to be smashed, with the glass having fallen towards the inside of the house. As part of the investigation, they found death-threats on the deceased's public social media account from two males. The males are known to police, having previously been involved in drug-related crimes. Both males are arrested at their known addresses, at which time Suspect 1 confesses to having broken in to the house but not having fired the weapon. He refuses to name any accomplices. Suspect 2 refuses to comment, despite glass-covered clothing being found within a plastic bag in a bin at his residence. After further testing, the clothing is found to be covered in gunshot-residue particles. No weapon is recovered.
+## Case scenario: forming propositions
+
+Police were called to the house of a known local drug dealer after reports by neighbours of a suspected gunshot heard from within the property. They arrived at the scene to find a middle-aged male, the known drug dealer, dead in a bedroom with gunshot wounds. A window at the back of the house on the ground floor was found to be smashed, with the glass having fallen towards the inside of the house. As part of the investigation, they found death-threats on the deceased's public social media account from two males. The males are known to police, having previously been involved in drug-related crimes. Both males are arrested at their known addresses, at which time Suspect 1 confesses to having broken in to the house but not having fired the weapon. He refuses to name any accomplices. Suspect 2 refuses to comment, despite glass-covered clothing being found within a plastic bag in a bin at his residence. After further testing, the clothing is found to be covered in gunshot-residue particles. No weapon is recovered.
 
 Here are three facts-in-issue of the many for this case at this preliminary stage. 
 
@@ -80,35 +82,33 @@ Fact-in-issue 3: whether or not the glass fragments found on Suspect 2's clothin
 - $H_p^3$: The glass fragments originate from the smashed window,
 - $H_d^3$: The glass fragments originate from a source other than the smashed window.
 
-In this example, we have extracted the information from the case scenario, formulated potential facts-in-issue, and then created potential competing propositions. The propositions isolate individual issues that appear in the case scenario and make a clear statement about the competing assertions for each issue. Using this process reduces complex case scenarios into individual unambiguous points of focus. This provides an anchor, around which the evidence can be assessed.
+In this example, we have extracted the information from the case scenario, formulated potential facts-in-issue, and then created potential competing propositions. The propositions isolate individual issues that appear in the case scenario and make a clear statement about the competing assertions for each issue. Using this process reduces complex case scenarios into individual unambiguous points of focus. This provides an anchor around which the evidence can be assessed.
 
-There are some key properties of these propositions which are worth exploring. Consider the second pair of competing propositions again:
+## Proposition properties
+
+There are some key properties of these propositions which we also saw when discussing probabilities: mutual exclusivity and exhaustivity. Consider the second pair of competing propositions again:
 
 - $H_p^2$: Suspect 2 fired the gun,
 - $H_d^2$: Suspect 2 did not fire the gun.
 
-One property of these propositions is that when one is true, the other is necessarily false (and vice versa); they cannot both be true. This is known as **mutual exclusivity**. Mutual exclusivity occurs when two propositions make assertions which have no logical overlap. Suspect 2 firing the gun and not firing the gun cannot both be true, they are completely separable assertions. However, mutually exclusive propositions can both be false. If the defence's proposition was instead that 'Suspect 1 fired the gun' (exonerating Suspect 2), then this excludes other possibly reasonable scenarios such as there being a third suspect who fired the gun and was not caught. 'Suspect 2 did not fire the gun' covers this alternative scenario. This is due to another property, **exhaustivity**.
+These propositions are mutually exclusive since when one is true then the other is necessarily false (and vice versa); they cannot both be true. This occurs when two propositions have no logical overlap. Suspect 2 firing the gun and not firing the gun cannot both be true, they do not overlap. However, mutually exclusive propositions can both be false. If the defence's proposition was instead that 'Suspect 1 fired the gun' (exonerating Suspect 2), then this excludes other possibly reasonable scenarios such as there being a third suspect who fired the gun and was not caught. 'Suspect 2 did not fire the gun' covers this alternative scenario.
 
-**Exhaustivity** means that the propositions cover the entire set of all possibilities for the event in question. This means that one of the competing propositions must be true -- there is no scenario in which both are false. We know that a gun was fired, so either Suspect 2 fired the gun or they did not. The proposition $H_p^2$ covers one specific event and $H_d^2$ covers everything else. 
+These propositions are also exhaustive since they cover the entire set of all possibilities for the event in question. This means that one of the competing propositions must be true -- there is no scenario in which both are false. We know that a gun was fired, so either Suspect 2 fired the gun or they did not. The proposition $H_p^2$ covers one specific event and $H_d^2$ covers everything else. When competing propositions are exhaustive and mutually exclusive then they cover all possible events and are logically separable, meaning that one of them must be true and the other is false. This *either one or the other* property makes competing propositions easier to evaluate.
 
-When competing propositions are exhaustive and mutually exclusive then they cover all possible events and are logically separable, meaning that one of them must be true and the other is false. This 'either one or the other' property makes such competing propositions easier to evaluate, since knowing the truth of one determines the truth of the other.
-
-All of the above propositions were guaranteed to be mutually exclusive and exhaustive because of the way we constructed them. First we specified $H_p$. Then, we **negated** $H_p$ to get $H_d$. This can also be phrased as saying we formed '$H_p$' and 'not $H_p$'. Take the glass propositions as an example:
+These propositions were guaranteed to be mutually exclusive and exhaustive because of the way they were constructed. First we specified $H_p$ then we **negated** $H_p$ to get $H_d$. The glass propositions provide another example:
 
 - $H_p^3$: The glass fragments originate from the smashed window,
 - $H_d^3$: The glass fragments originate from a source other than the smashed window.
 
-If $H_p^3$ is not true, then the glass fragments must originate from a source other than the smashed window, and so we get $H_d^3$. This makes the propositions necessarily mutually exclusive, '$H_p^3$' and 'not $H_p^3$' cannot both be true because they are logical negations. It also means that they are exhaustive, since $H_p^3$ or its negation must be true.
+If $H_p^3$ is not true, then the glass fragments must originate from a source other than the smashed window, and so we get $H_d^3$. This makes the propositions necessarily mutually exclusive and exhaustive.
 
 The logic of negating propositions is in line with the burden of proof in UK criminal cases. It is for the prosecution to prove beyond reasonable doubt that their assertion of criminal liability is true. The defence, in proving reasonable doubt about the prosecution assertions need only show that the opposite of the prosecution story has reasonable credibility. Negating prosecution propositions is one logical way of doing this.
 
-There are plenty of situations in which simply negating the prosecution proposition is inappropriate however, e.g. when the defendant has a genuine alternative narrative for events. In this situation, the following assertion might be used for $H_d$:
+There are many situations in which negating the prosecution proposition is inappropriate however, e.g. when the defendant has a genuine alternative narrative for events. In this situation, the following assertion might be used:
 
 - $H_d^{3^*}$: the glass fragments originate from a glass barrier at a shooting range that Suspect 2 has recently been performing construction work on.
 
-This proposition is still competing with $H_p^3$, and $H_p^3$ and $H_d^{3^*}$ are still mutually exclusive. However, they are no longer exhaustive. This is because all possible alternatives to $H_p^3$ are no longer considered by $H_d^{3^*}$. In other words, it is now possible for both $H_p^3$ and $H_d^{3^*}$ to be false. This could happen if the suspect lies or is mistaken about their alternative version of events.
-
-These properties of propositions are important when we begin to consider probabilities associated with them in Section \@ref(probative-value). Before we consider probability though, we first look at different categories of propositions for criminal investigations. 
+This proposition is still competing with $H_p^3$, and $H_p^3$ and $H_d^{3^*}$ are still mutually exclusive. However, they are no longer exhaustive. This is because all possible alternatives to $H_p^3$ are no longer considered by $H_d^{3^*}$. It is now possible for both $H_p^3$ and $H_d^{3^*}$ to be false. This could happen if the suspect lies or is mistaken about their alternative version of events.
 
 ```{block eval=FALSE, include=isDynamicOutput()}
 ## Example: exhaustivity and mutual exclusivity
@@ -157,6 +157,8 @@ propsDf %>%
 
 ```
 
+## Offense level propositions
+
 **Offence level** propositions directly refer to a criminal offence. From Table \@ref(tab:propositions-table) we have:
 
 - $H_p^1$: The defendant committed murder,
@@ -165,6 +167,8 @@ propsDf %>%
 We saw these propositions in the case scenario of the previous Section. These competing propositions refer to the **ultimate issue** in the case, which is usually the issue for which the fact-finder gives their verdict. Others, such as $H_p^2$ and $H_d^2$ might not always be the ultimate issue of a case, but they still determine criminal liability. For this reason, offence level propositions are at the top of the hierarchy. 
 
 Offence level propositions are considered by the fact finder in a case and rarely the forensic scientist. This is because propositions about criminal offences fall outside the remit of an expert witness. There will be other non-scientific evidence in the case that will need to be considered too. The expert can indirectly assist the court in finding the truth of offence level propositions by giving evidence related to propositions which fall within their expertise.
+
+## Activity level propositions
 
 **Activity level** propositions relate to activities and do not assert criminal liability. This makes them one step below the offence-level propositions in the hierarchy; the activity may have been criminal but it also may not have been. In Table \@ref(tab:propositions-table) we have:
 
@@ -180,6 +184,8 @@ Forensic scientists do consider activity level propositions where scientific fin
 
 Finding gunshot residue particles on the defendant's clothing might not be enough information for the scientist to assist the court on these propositions. They would have to consider other explanations for the defendant having gunshot residue on their clothes. For example, if the defendant was in the military, part of a shooting club, or had any other reasonable explanation for having this residue on their clothing then this would be important information for the scientist. They might then require further information about the last time the defendant was in contact with firearms. The amount of particles found on the clothing, and the location in which they were found (e.g. cuffs), might then be considered in light of the defendant's response. Results from the scientific literature about the background abundance and transfer and persistence of gunshot residue particles might also be required in addition to the scientific findings from the case. 
 
+## Source level propositions
+
 **Source level** propositions relate to the origin of traces and impressions found, e.g. at a crime scene. The source level makes attributions such as blood to an individual, fibres to a garment of clothing, footwear marks to a piece of footwear, etc. These propositions are relatively simple compared to the activity level since they do not comment on questions such as "how?" or "why?" the traces and impressions may have come to be where they were recovered from. The answers to questions of activity are often the more consequential than questions of source because they are logically closer to questions about offences. For this reason, the source level is placed below the activity level in the hierarchy.
 
 Consider the competing propositions from Table \@ref(tab:propositions-table):
@@ -194,6 +200,8 @@ Although source level propositions are below the activity level in the hierarchy
 - $H_p^{5+}$: the defendant was present when the glass was smashed. 
 
 In other words, the truth of the source level proposition could have a logical domino effect that leads to the fact-finder being sure of the truth of important activity level propositions. 
+
+## Sub-source level propositions
 
 The **sub-source level** is a particular version of the source level. It makes source attributions of more general traces, such as DNA to an individual. The difference between source and sub-source is that the source level states the specific cellular material (e.g. blood) that DNA is recovered from, whereas sub-source simply states that DNA has been found. This is the result of highly sensitive modern measurement technologies. Taking swabs of items of interest at a crime scene can detect very low levels of DNA even though there was no obvious biological material that was swabbed. The sub-source level is less-informative than the source level because low levels of DNA can easily be transferred between people and surfaces with minimal, and sometimes no, direct contact. 
 
