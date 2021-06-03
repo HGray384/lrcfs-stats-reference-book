@@ -161,10 +161,15 @@ propsDf %>%
 
 **Offence level** propositions directly refer to a criminal offence. From Table \@ref(tab:propositions-table) we have:
 
-- $H_p^1$: The defendant committed murder,
-- $H_d^1$: The defendant did not commit murder.
+* $H_p^1$: The defendant committed murder,
+* $H_d^1$: The defendant did not commit murder.
 
-We saw these propositions in the case scenario of the previous Section. These competing propositions refer to the **ultimate issue** in the case, which is usually the issue for which the fact-finder gives their verdict. Others, such as $H_p^2$ and $H_d^2$ might not always be the ultimate issue of a case, but they still determine criminal liability. For this reason, offence level propositions are at the top of the hierarchy. 
+We saw these propositions in the case scenario. These competing propositions refer to the **ultimate issue** in the case, which is usually the issue for which the fact-finder gives their verdict. Others, such as 
+
+* $H_p^2$: The defendant assaulted the claimant,
+* $H_d^2$: The defendant did not assault the claimant,
+
+might not always be the ultimate issue of a case, but they still determine criminal liability. For this reason, offence level propositions are at the top of the hierarchy. 
 
 Offence level propositions are considered by the fact finder in a case and rarely the forensic scientist. This is because propositions about criminal offences fall outside the remit of an expert witness. There will be other non-scientific evidence in the case that will need to be considered too. The expert can indirectly assist the court in finding the truth of offence level propositions by giving evidence related to propositions which fall within their expertise.
 
@@ -182,7 +187,7 @@ Forensic scientists do consider activity level propositions where scientific fin
 - $H_p^3$: The defendant fired the gun,
 - $H_d^3$: The defendant did not fire the gun. 
 
-Finding gunshot residue particles on the defendant's clothing might not be enough information for the scientist to assist the court on these propositions. They would have to consider other explanations for the defendant having gunshot residue on their clothes. For example, if the defendant was in the military, part of a shooting club, or had any other reasonable explanation for having this residue on their clothing then this would be important information for the scientist. They might then require further information about the last time the defendant was in contact with firearms. The amount of particles found on the clothing, and the location in which they were found (e.g. cuffs), might then be considered in light of the defendant's response. Results from the scientific literature about the background abundance and transfer and persistence of gunshot residue particles might also be required in addition to the scientific findings from the case. 
+Finding gunshot residue particles on the defendant's clothing might not be enough information for the scientist to assist the court on these propositions. They might require further information about relevant case circumstances in addition to results from the scientific literature about the background abundance and transfer and persistence of gunshot residue particles. 
 
 ## Source level propositions
 
@@ -214,7 +219,7 @@ DNA found on clothing may be explained by direct contact and indirect transfer, 
 
 <!-- The hierarchy of propositions and the degree to which the scientist can aid the court in addressing them using science alone is represented in the Figure [...]. -->
 
-It's worth mentioning that the hierarchy of propositions is a general conceptual framework which is helpful when considering different propositions. Individual case circumstances will determine how important each level of proposition is and the degree to which the scientist can consider them. In some cases, source level propositions may effectively address the offence level propositions based on the case circumstances and witness testimony.
+The hierarchy of propositions is a general conceptual framework which is helpful when considering different propositions. Individual case circumstances will determine how important each level of proposition is and the degree to which the scientist can consider them. In some cases, source level propositions may effectively address the offence level propositions based on the case circumstances and witness testimony.
 
 
 ```{block eval=FALSE, include=isDynamicOutput()}
