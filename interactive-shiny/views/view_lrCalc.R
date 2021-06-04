@@ -16,12 +16,13 @@ tabLRCalc = tabItem(tabName = "tabLRCalc",
                                  p("If the probability of \\(E\\) conditioned on \\(H_p\\) is two times as large as the probability of \\(E\\) conditioned on \\(H_d\\), say 0.5 compared to 0.25, then the LR is 2."),
                                  p("If the probability of \\(E\\) conditioned on \\(H_p\\) is only one quarter the size of the probability of \\(E\\) conditioned on \\(H_d\\), say 0.1 compared to 0.4, then the LR is 0.25."),
                                  p("The LR determines how much more likely the recovered evidence was assuming the prosecution hypothesis to be true compared to when the defence hypothesis is true."),
-                                 p("Fix each of the conditional probabilities in the calculator below to see the resulting LR.")
+                                 p("Fix each of the conditional probabilities in the calculator below to see the resulting LR."),
+                                 p("Values for these terms can also be greater than 1, and this is because the conditional probabilities are technically conditional 'likelihoods'. The technical details of this are beyond the scope of this application, the main message is that the LR is the ratio of two non-negative values. ")
                              )
                     ),
                     fluidRow(
                       box(title="LR calculator", width=12,
-                          p("Please fix the conditional probabilities to be between 0 and 1. You can also see the mathematical expression for computing the LR."),
+                          p("Enter values for the conditional probabilities below. You may try values greater than 1 to test more general likelihoods. You can also see the mathematical expression for computing the LR."),
                           column(width=6,
                                  numericInput("lrCalc_probHp", "Probability of \\(E\\) conditioned on \\(H_p\\)", min=0, max=1,
                                              value=0.1, step=0.01)

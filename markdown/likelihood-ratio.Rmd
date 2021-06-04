@@ -14,7 +14,7 @@ library("DiagrammeR")
 source("./code/useful-variables.R")
 ```
 
-Using the theory of probability and propositions, we have seen how uncertainty can be described and framed around the key facts of a criminal case. The final idea is to evaluate the uncertainty surrounding evidence in a way which satisfies probability theory, so that it remains logically consistent, and also so that it assists the court in determining the truth of key propositions. This is achieved using the likelihood ratio, which has been mentioned in previous chapters. 
+Using the theory of probability and propositions, we have seen how uncertainty can be described and framed around the key facts of a criminal case. The final idea is to evaluate the uncertainty surrounding evidence in a way which satisfies probability theory, so that it remains logically consistent, and also so that it assists the court in determining the truth of key propositions. This is achieved using the likelihood ratio. 
 
 In this chapter, we focus on the likelihood ratio in detail. We revisit how it relates to probabilities, propositions, and evidence, how it is used to quantify probative value, what factors can affect its robustness, and how it is categorised and communicated to the court.
 
@@ -27,7 +27,7 @@ $$\text{LR}=\frac{\text{probability of }E\text{ assuming }H_p \text{ is true}}{\
 
 By assuming each of the competing propositions to be true, we can see how much more likely $E$ was to occur in the prosecution's version of events compared to the defence's.
 
-Since each term in the LR is a probability, their value must lie between 0 and 1. This means that the LR itself must be between 0 and $\infty$. Values of the LR which are greater than 1 indicate relative support in favour of $H_p$ compared to $H_d$, since it means that the probability of $E$ assuming that $H_p$ is true is greater than the probability of $E$ assuming $H_d$ is true. Values of the LR which are less than 1 indicate relative support in favour of $H_d$ compared to $H_p$, since it means that the probability of $E$ assuming that $H_d$ is true is greater than the probability of $E$ assuming $H_p$ is true. Values of the LR which are equal to 1 indicate that evidence $E$ provides equal support for $H_p$ and $H_d$. This is shown in Table \@ref(tab:lr-meaning-table).
+Each term in the LR is technically known as a **likelihood**, whose value is a number greater than 0. We use the word 'probability' in the equation above and in our general discussion of LRs to avoid a technical detail that is outside the scope of this book. The LR itself is a value greater than 0. Values of the LR which are greater than 1 indicate relative support in favour of $H_p$ compared to $H_d$, since it means that the probability of $E$ assuming that $H_p$ is true is greater than the probability of $E$ assuming $H_d$ is true. Values of the LR which are less than 1 indicate relative support in favour of $H_d$ compared to $H_p$, since it means that the probability of $E$ assuming that $H_d$ is true is greater than the probability of $E$ assuming $H_p$ is true. Values of the LR which are equal to 1 indicate that evidence $E$ provides equal support for $H_p$ and $H_d$. This is shown in Table \@ref(tab:lr-meaning-table).
 
 ```{r lr-meaning-df, include=FALSE}
 lrDf <- tibble("LR" = c("less than 1",
@@ -98,53 +98,53 @@ vsDf %>%
 
 
 ```{block eval=FALSE, include=isDynamicOutput()}
-### LR calculator {#lr-calc}
+## LR calculator {#lr-calc}
 
-The LR is determined by the values of its underlying conditional probabilities. Type probability values into the calculator below to see how they affect the resulting LR.
+The LR is determined by the values of its underlying conditional probabilities (likelihoods). Type values into the calculator below to see how they affect the resulting LR. You may try values greater than 1 for general likelihoods but the technical details for these are beyond the scope of this book. The main message is that the LR is a ratio of two non-negative values. 
 ```
 ```{r echo=FALSE, include=isDynamicOutput()}
   knitr::include_app(getInteractiveLink("tabLRCalc",NULL,TRUE), height = '460px')
 ```
 
 
-```{block eval=FALSE, include=isDynamicOutput()}
-### LR visualisation
+<!-- ```{block eval=FALSE, include=isDynamicOutput()} -->
+<!-- ### LR visualisation -->
 
-Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities. Hover your mouse over the graph to see the values of the conditional probabilities and the resulting LR. 
-```
-```{r lr-function, echo=FALSE, warning=FALSE, include=isDynamicOutput(), fig.cap="A heatmap of the LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue (above the diagonal) is support in favour of $H_p$ compared to $H_d$, and orange (below the diagonal) is support for $H_d$ compared to $H_p$. White (along the diagonal) means equal support for both.", out.width = '100%', fig.align = 'center'}
-gridVals <- 101
-prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1]
-vars <- expand.grid(prob1, prob2)
-lrDf <- tibble(prob1 = vars$Var1, prob2 = vars$Var2)%>%
-  mutate(lr = prob1/prob2)
+<!-- Figure \@ref(fig:lr-function) shows how the value of the LR changes based on the values of these probabilities. Hover your mouse over the graph to see the values of the conditional probabilities and the resulting LR.  -->
+<!-- ``` -->
+<!-- ```{r lr-function, echo=FALSE, warning=FALSE, include=isDynamicOutput(), fig.cap="A heatmap of the LR values as its underlying probabilities vary. Values are coloured by their support for either proposition: blue (above the diagonal) is support in favour of $H_p$ compared to $H_d$, and orange (below the diagonal) is support for $H_d$ compared to $H_p$. White (along the diagonal) means equal support for both.", out.width = '100%', fig.align = 'center'} -->
+<!-- gridVals <- 101 -->
+<!-- prob1 <- prob2 <- seq(0, 1, length.out = gridVals)[-1] -->
+<!-- vars <- expand.grid(prob1, prob2) -->
+<!-- lrDf <- tibble(prob1 = vars$Var1, prob2 = vars$Var2)%>% -->
+<!--   mutate(lr = prob1/prob2) -->
 
-graph = ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) +
-  geom_tile(aes(text = paste('probability of E assuming H<sub>p</sub> is true: ', prob1,
-                             '<br>probability of E assuming H<sub>d</sub> is true:', prob2,
-                             '<br>LR: ',lr))) +
-  xlab("probability of E assuming H<sub>d</sub> is true") +
-  ylab("probability of E assuming H<sub>p</sub> is true") +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  scale_fill_gradientn(colors = c(colPal[7],
-                                  colPal[2],
-                                  "white",
-                                  colPal[3],
-                                  colPal[6]),
-                       breaks = c(0.01, 0.1,
-                                  1,10, 100),
-                       labels=c(0.01, 0.1,
-                                  1,10, 100),
-                       name="LR", trans = "log"
-                       # values = c(0, 0.4, 
-                       #            0.5, 
-                       #            0.6, 1)
-  )
+<!-- graph = ggplot(lrDf, aes(x=prob2, y=prob1, fill=lr)) + -->
+<!--   geom_tile(aes(text = paste('probability of E assuming H<sub>p</sub> is true: ', prob1, -->
+<!--                              '<br>probability of E assuming H<sub>d</sub> is true:', prob2, -->
+<!--                              '<br>LR: ',lr))) + -->
+<!--   xlab("probability of E assuming H<sub>d</sub> is true") + -->
+<!--   ylab("probability of E assuming H<sub>p</sub> is true") + -->
+<!--   scale_x_continuous(expand = c(0, 0)) + -->
+<!--   scale_y_continuous(expand = c(0, 0)) + -->
+<!--   scale_fill_gradientn(colors = c(colPal[7], -->
+<!--                                   colPal[2], -->
+<!--                                   "white", -->
+<!--                                   colPal[3], -->
+<!--                                   colPal[6]), -->
+<!--                        breaks = c(0.01, 0.1, -->
+<!--                                   1,10, 100), -->
+<!--                        labels=c(0.01, 0.1, -->
+<!--                                   1,10, 100), -->
+<!--                        name="LR", trans = "log" -->
+<!--                        # values = c(0, 0.4,  -->
+<!--                        #            0.5,  -->
+<!--                        #            0.6, 1) -->
+<!--   ) -->
 
-ggplotly(graph, tooltip = "text")
-  
-```
+<!-- ggplotly(graph, tooltip = "text") -->
+
+<!-- ``` -->
 
 
 ## Example: DNA match
@@ -161,7 +161,7 @@ To obtain the LR, we need to obtain values for the above conditional probabiliti
 
 The probability of obtaining a match assuming that the suspect is the source is usually set to 1; it is considered to be certain that a match would be obtained if the suspect were truly the source. This is reasonable although it is not strictly true. There is always the risk of a false positive or other laboratory or technical errors occurring, but in practice it is typically assumed that the risks of these errors are negligible, especially for high-quality single donor full profiles. If the questioned profile is not high quality, or another factor affecting the integrity of the match is present for a given case, then the expert might assign a value less than 1 to the probability of a match assuming the suspect is the source.
 
-The probability of obtaining a match assuming that someone other than the suspect is the source is more complex to assign a value to. It requires the probability of a match if we compare the questioned profile with that from a person other than the suspect plucked at random from the population to which the suspect belongs. This is known as the **random match probability** (RMP). The RMP reflects how common the recovered profile is in the relevant population for the case. The more common the profile, the higher the RMP and the lower the LR when the formula is applied; The LR is inversely related to the RMP. The logic behind this is the following: the more common a characteristic is in a population, the worse that characteristic is at discriminating between source level propositions. More common DNA profiles are worse at discriminating between source-level propositions and so they result in smaller LRs when compared to uncommon profiles. Figure \@ref(fig:freq-tree-rmp) displays the expected frequency tree for a RMP of 1 in 40 million in a population of 40 million and 1 people (which includes the guilty individual).
+The probability of obtaining a match assuming that someone other than the suspect is the source is more complex to assign a value to. It requires the probability of a match if we compare the questioned profile with that from a person other than the suspect selected at random from the population to which the suspect belongs. This is known as the **random match probability** (RMP). The RMP reflects how common the recovered profile is in the relevant population for the case. The more common the profile, the higher the RMP and the lower the LR when the formula is applied; The LR is inversely related to the RMP. The logic behind this is the following: the more common a characteristic is in a population, the worse that characteristic is at discriminating between source level propositions. More common DNA profiles are worse at discriminating between source-level propositions and so they result in smaller LRs when compared to uncommon profiles. Figure \@ref(fig:freq-tree-rmp) displays the expected frequency tree for a RMP of 1 in 40 million in a population of 40 million and 1 people (which includes the guilty individual).
 
 ```{r freq-tree-rmp, echo=FALSE,fig.cap="An expected frequency tree for the RMP. Out of 40 million innocent people, 1 DNA profile matches. The RMP is 1 in 40 million. ", out.width = '80%', fig.align = 'center'}
 e <- c(1, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7)
@@ -365,8 +365,6 @@ Many case circumstances are more complicated than either of the simple diagrams 
 
 The LR is based upon two underlying conditional probabilities. Each of these probabilities has its own degree of reliability, which depends upon factors listed in Section \@ref(reliable-probabilities). The degree to which these probabilities are reliable determines the overall robustness of an LR. The more reliable each of the probabilities is, the more robust the LR that is produced. It is worth noting that an LR which is not robust might still be the best available LR in the case circumstances, e.g. if there is limited data and expertise with which to inform the probability assignments. 
 
-Any critical assessment of an LR is a critical assessment of its underlying probabilities. If an expert gives an LR as an order of magnitude, then the underlying probability assignments should be still consistent with this. For example, if the LR is between 100-1000, then the conditional probabilities which form this LR must be consistent with this value. Using this range of values for the LR, the greatest possible value for the probability of $E$ assuming $H_d$ would lie between 0.001-0.01. Otherwise, in order to make an LR or 100-1000, the probability of $E$ assuming $H_p$ would need to be greater than 1 which is impossible for a probability. You can explore these values as well as others using the LR calculator from Section \@ref(lr-calc). Notice how if you fix the probability of $E$ assuming $H_d$ to be 0.01 then it is impossible to get an LR of more than 100.
-
 Assessing the robustness of an LR is aided by making a distinction between types of information that the expert uses when constructing conditional probabilities. In the Judicial Statistics Primer [@statsprimer2020] this information is divided into two categories:
 
 -[S]: knowledge derived from robust systematic studies, ideally published, where the relevant features have been measured and studied statistically
@@ -379,7 +377,7 @@ The robustness of an LR that has been informed by the [E] category can be assess
 
 The robustness of a particular LR can also be empirically assessed by performing a sensitivity analysis. This involves making reasonable changes to the probabilities underlying the LR and observing how the LR varies with these changes. The changes in the probabilities are made to reflect uncertainty that might reasonably have been unaccounted for. This could include making minor adjustments to the data by which the probability was informed, using a range of reasonable values to inform the probability where previously a single value was used, or perhaps changing a key assumption that was made in the original probability assignment. A sensitivity analysis shows how sensitive the LR is to the method or data which was used to calculate the LR. An LR whose value does not meaningfully vary with reasonable changes to its underlying models and assumptions is more robust than one which does vary. Exactly what is meant by 'meaningful changes' will depend on the case circumstances and might be decided by the expert.
 
-There are two other ways in which an expert may assign more robust LRs. The first is by assigning the LR to an interval of values rather than a single value. This might be done in situations in which the expert is unable to assign precise values for some sources of uncertainty, for example where relevant data is limited. The intervals shown in Table \@ref(tab:verbal-scale-table) are used for this purpose as well as for consistency of language. The second method is by assigning LRs conservatively in favour of the defence. This means assigning the LR to a minimum reasonable value, e.g. the smallest value from an interval which may have resulted from an interval assignment or sensitivity analysis. Doing so ensures that the LR is protected from overestimation that might unreasonably be biased against the accused.
+There are two other ways in which an expert may assign more robust LRs. The first is by assigning the LR to an interval of values rather than a single value. This might be done in situations in which the expert is unable to assign precise values for some sources of uncertainty, for example where relevant data is limited. The intervals shown in Table \@ref(tab:verbal-scale-table) are used for this purpose as well as for consistency of language. The second method is by assigning LRs conservatively. This means assigning the LR to a value that is closer to 1, e.g. if there is a reasonable interval for the LR then a value thhat is closer to 1 is favoured. Taking this conservative approach ensures that the LR is protected from overestimation or underestimation that might unreasonably be biased against the prosecution or defence.
 
 ## Communication
 
