@@ -8,11 +8,10 @@ tabHome = tabItem(tabName = "tabHome",
                         p(HTML("If you would like to learn more about the ideas introduced here then you can read about them in our <a href='https://lrcfs.dundee.ac.uk/lr-book/'>interactive probability and statistics book</a>.")),
                         p("We hope that you enjoy learning using this app.")
                     )
-                  )
-                  ,
+                  ),
                   fluidRow(
                     box(title="Information for research participants", width = 12,
-                        p("If you are a research participant in our study, then please follow the instructions given in the survey. The text boxes at the top of each tab may be minimised to reduce screen clutter by clicking the button in their top right-hand corner."),
+                        p("If you are a research participant in our study, then please follow the instructions given in the survey. The text boxes at the top of each tab may be minimised to reduce screen clutter by clicking the button in their top right-hand corner.")
                     )
                   ),
                   fluidRow(

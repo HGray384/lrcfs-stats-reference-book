@@ -5,7 +5,7 @@ tabDoubleCoinTree = tabItem(tabName = "tabDoubleCoinTree",
                                   p("In the previous example using a single coin toss, we introduced probability as a degree of belief on a scale from 0 to 1 and saw how it could be applied to calculate the expected number of heads. In this example, we will toss two coins and see how probabilities can be used to calculate expected outcomes of both tosses. "),
                                   p("Suppose that we now have two double sided coins, coin 1 and coin 2, each of which has the same probability of resulting in heads. First we toss coin 1 and view the result and then we toss coin 2. The possible outcomes of coin 1/coin 2 are heads/heads, heads/tails, tails/heads, heads/heads. The probabilities for these outcomes are called joint probabilities."),
                                   p("Joint probabilities describe the probability of multiple events occurring together. In this example the joint probabilities of interest are the outcome of coin 1 and coin 2."),
-                                  p("The right-hand slider in the panel below controls the probability of heads, which is the same for both coins. The slider on the left represents the number of times we toss both coins, e.g. 200 tosses means that we toss coin 1 and coin 2 and repeat this 200 times."),
+                                  p("The right-hand slider in the panel below controls the probability of heads, which is the same for both coins. The slider on the left represents the number of times we toss both coins, e.g. 200 tosses means that we toss coin 1 and coin 2 and repeat this 200 times.")
                               )
                               # box(title="Activities", width=6,
                               #     p("Here are some activities to try with this example:"),
@@ -21,11 +21,11 @@ tabDoubleCoinTree = tabItem(tabName = "tabDoubleCoinTree",
                               box(title="Number of double coin tosses and probability of heads", width=12,
                                   column(width=6,
                                          sliderInput("doubleCoinTree_coinTosses", "Number of Double Coin Tosses", 
-                                                     min=0, max=500, step=20, value = 200),
+                                                     min=0, max=500, step=20, value = 200)
                                   ),
                                   column(width=6,
                                          sliderInput("doubleCoinTree_headsProbability", "Probability of Heads", 
-                                                     min=0, max=1, step=0.1, value = 0.5),
+                                                     min=0, max=1, step=0.1, value = 0.5)
                                   )
                               )
                             ),
