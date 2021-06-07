@@ -57,8 +57,6 @@ Or, if you use RStudio, install the `bookdown` package as above and then open [s
 
 Following these instructions will build the book but will not load the interactive examples from the `shiny` application. To do this you must follow the instructions in the next two sections below.
 
-You can also build the book in both pdf and word formats. To do this, comment/uncomment the relevant code snippets in the [build.sh](build.sh) file.
-
 ## Running the shiny application in development version
 
 Part of the code in this repository contains a shiny application with interactive probability and statistics examples. To run this application and its graphical user interface, first install R `shiny` using 
