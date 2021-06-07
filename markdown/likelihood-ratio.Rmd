@@ -204,7 +204,7 @@ When the LR is less than 1, the evidence provides more support for $H_d$ than $H
 
 Recall the example of detecting doping athletes from Section \@ref(exm-doping).
 
-The test returns positive for 95 out of every 100 doping athletes (95% sensitivity). The test returns negative for 95 out of every 100 non-doping athletes (95% specificity). It was speculated that 2 out of every 100 athletes are doping (2% base rate). We used these numbers to work out the probability of an athlete doping given that they tested positive as around 28%.
+The test returns positive for 95 out of every 100 doping athletes (0.95 sensitivity). The test returns negative for 95 out of every 100 non-doping athletes (0.95 specificity). It was speculated that 2 out of every 100 athletes are doping (0.02 base rate). We used these numbers to work out the probability of an athlete doping given that they tested positive as around 0.28.
 
 A related question is this: How much more likely are we to see a positive test result when the athlete is doping compared to when the athlete is not doping? This question is important as it tells us how informative a positive test result is. This is the type of question that an LR is used to address. 
 
@@ -218,6 +218,8 @@ Competing propositions:
 Evidence: 
 
 - $E$: a positive test result.
+
+## Doping LR
 
 The likelihood ratio is given by
 $$\text{LR} = \frac{\text{probability of a positive test result assuming the athlete is doping}}{\text{probability of a positive test result assuming the athlete is not doping}}.$$
@@ -242,9 +244,11 @@ The likelihood ratio in this example is equal to $\frac{\text{sensitivity}}{1-\t
 
 All of these expressions comment on the relative probability of observing a positive test result under the assumptions of the athlete doping and not doping. They do **not** state a value for the probabilities of the athlete doping or not, and they do **not** state that the athlete is 19 times more likely to be doping than not (this is an example of the prosecutor's fallacy from Section \@ref(prosecutor-fallacy)). 
 
+## Doping posterior odds
+
 Now let's look at the posterior odds: what are the odds of the athlete doping versus not doping given a positive result of the test?
 
-From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of a randomly selected athlete doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and also expressed as odds of $1:49$, or 49 to 1 against doping. These prior odds represent the base rate of 2% after converting from a probability to odds.
+From Figure \@ref(fig:freq-tree-lr-doping) we can extract the odds of a randomly selected athlete doping, versus not, prior to being tested. This is given by $\frac{200}{9800}$, which can be simplified to $\frac{1}{49}$ and also expressed as odds of $1:49$, or 49 to 1 against doping. These prior odds represent a conversion of the base rate of 0.02 to odds format.
 
 Using Bayes' rule and the LR, the posterior odds are
 \begin{align}
@@ -252,14 +256,14 @@ Using Bayes' rule and the LR, the posterior odds are
   \text{posterior odds} &= 19 \times \frac{1}{49}, \\
   \text{posterior odds} &= \frac{19}{49},
 \end{align}
-corresponding to posterior odds of $19:49$, or 49 to 19 against doping given a positive test result. Converting this back to probability gives $\frac{19}{19+49}=0.2794118$, about 28%. This is the same as the answer in Section \@ref(exm-doping).
+corresponding to posterior odds of $19:49$, or 49 to 19 against doping given a positive test result. Converting this back to probability gives $\frac{19}{19+49}=0.2794118$, about 0.28. This is the same as the answer in Section \@ref(exm-doping).
 
 Notice that the likelihood ratio for a positive test gave support in favour of $H_p$ (the athlete doping) but the posterior odds were still in favour of $H_d$ (the athlete not doping). This was because the prior odds were more heavily in favour of $H_d$ than the factor by which the LR supported $H_p$. Committing the prosecutor's fallacy here would not only give an inaccurate answer for the posterior odds of doping, but it would mistake the odds as being in favour of $H_p$ when they are actually in favour of $H_d$. This is an important point; the likelihood ratio alone does not tell us anything about the posterior odds in favour of a proposition, it only tells us the relative size of the posterior odds compared to the prior odds. For the fact finder, this confirms that LRs should be used to **update** beliefs about competing propositions (as well as using other evidence), and not **as** beliefs about competing propositions.
 
 ```{block eval=FALSE, include=isDynamicOutput()}
-### Interactive Doping LR Example
+## Interactive doping LR
 
-The example above shows that even in cases when the LR supports one proposition over the other, the posterior odds can still be heavily against the favoured proposition being true. The result depends on the base rate and the characteristics of the test that is being applied. In the doping example, the base rate of doping athletes is low and so even a positive test result from a test with 95% sensitivity and specificity still results in posterior odds which favour the athlete not doping. 
+The example above shows that even in cases when the LR supports one proposition over the other, the posterior odds can still be heavily against the favoured proposition being true. The result depends on the base rate and the characteristics of the test that is being applied. In the doping example, the base rate of doping athletes is low and so even a positive test result from a test with 0.95 sensitivity and specificity still results in posterior odds which favour the athlete not doping. 
 
 Below is an interactive tool to further explore the doping example. Change the sensitivity and specificity of the test and read the descriptions and calculations for the prior odds, LR, and posterior odds to put their values into context. See if you can find a combination of sensitivity and specificity which results in posterior odds that favour a randomly selected athlete to be doping.
 
