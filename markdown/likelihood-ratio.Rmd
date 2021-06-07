@@ -27,7 +27,7 @@ $$\text{LR}=\frac{\text{probability of }E\text{ assuming }H_p \text{ is true}}{\
 
 By assuming each of the competing propositions to be true, we can see how much more likely $E$ was to occur in the prosecution's version of events compared to the defence's.
 
-Each term in the LR is technically known as a **likelihood**, whose value is a number greater than 0. We use the word 'probability' in the equation above and in our general discussion of LRs to avoid a technical detail that is outside the scope of this book. The LR itself is a value greater than 0. Values of the LR which are greater than 1 indicate relative support in favour of $H_p$ compared to $H_d$, since it means that the probability of $E$ assuming that $H_p$ is true is greater than the probability of $E$ assuming $H_d$ is true. Values of the LR which are less than 1 indicate relative support in favour of $H_d$ compared to $H_p$, since it means that the probability of $E$ assuming that $H_d$ is true is greater than the probability of $E$ assuming $H_p$ is true. Values of the LR which are equal to 1 indicate that evidence $E$ provides equal support for $H_p$ and $H_d$. This is shown in Table \@ref(tab:lr-meaning-table).
+Each term in the LR is technically a **likelihood**, whose value is a number greater than 0. We use the word 'probability' in the equation above and in our general discussion of LRs to avoid a technical detail that is outside the scope of this book. The LR itself is a value greater than 0. Values of the LR which are greater than 1 indicate relative support in favour of $H_p$ compared to $H_d$, since it means that the probability of $E$ assuming that $H_p$ is true is greater than the probability of $E$ assuming $H_d$ is true. Values of the LR which are less than 1 indicate relative support in favour of $H_d$ compared to $H_p$, since it means that the probability of $E$ assuming that $H_d$ is true is greater than the probability of $E$ assuming $H_p$ is true. Values of the LR which are equal to 1 indicate that evidence $E$ provides equal support for $H_p$ and $H_d$. This is shown in Table \@ref(tab:lr-meaning-table).
 
 ```{r lr-meaning-df, include=FALSE}
 lrDf <- tibble("LR" = c("less than 1",
@@ -100,7 +100,7 @@ vsDf %>%
 ```{block eval=FALSE, include=isDynamicOutput()}
 ## LR calculator {#lr-calc}
 
-The LR is determined by the values of its underlying conditional probabilities (likelihoods). Type values into the calculator below to see how they affect the resulting LR. You may try values greater than 1 for general likelihoods but the technical details for these are beyond the scope of this book. The main message is that the LR is a ratio of two non-negative values. 
+The LR is determined by the values of its underlying conditional probabilities (likelihoods). Type values into the calculator below to see how they affect the resulting LR. You may also try values greater than 1 for general likelihoods.
 ```
 ```{r echo=FALSE, include=isDynamicOutput()}
   knitr::include_app(getInteractiveLink("tabLRCalc",NULL,TRUE), height = '460px')
@@ -265,7 +265,7 @@ Notice that the likelihood ratio for a positive test gave support in favour of $
 
 The example above shows that even in cases when the LR supports one proposition over the other, the posterior odds can still be heavily against the favoured proposition being true. The result depends on the base rate and the characteristics of the test that is being applied. In the doping example, the base rate of doping athletes is low and so even a positive test result from a test with 0.95 sensitivity and specificity still results in posterior odds which favour the athlete not doping. 
 
-Below is an interactive tool to further explore the doping example. Change the sensitivity and specificity of the test and read the descriptions and calculations for the prior odds, LR, and posterior odds to put their values into context. See if you can find a combination of sensitivity and specificity which results in posterior odds that favour a randomly selected athlete to be doping.
+Below is an interactive tool to further explore the doping example. Change the sensitivity and specificity of the test and read the descriptions and calculations for the prior odds, LR, and posterior odds to put their values into context. See if you can find a combination of sensitivity and specificity which results in posterior odds that favour a randomly selected athlete to be doping. More interactive examples can be found in our [interactive application](https://lrcfs.dundee.ac.uk/apps/interactive-lr/).
 
 ```
 ```{r echo=FALSE}
