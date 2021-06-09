@@ -9,10 +9,21 @@ tabDiseaseTest = tabItem(tabName = "tabDiseaseTest",
                                p("Change the base rate of the disease using the slider below and see how that affects the number of mistakes the test makes for a population of 10,000 people.")
                            )
                          ),
+                         fluidRow(class="hideIfEmbedded",
+                                  box(title="Try it", width = 12, collapsible = TRUE, collapsed = TRUE,
+                                      p("In the box below you can control the base rate of the disease. You can see the effects of the changes in the expected frequency tree below."),
+                                      p("Try the following activities, you can see the answers at the bottom of the page."),
+                                      tags$div(
+                                        tags$ol(
+                                          tags$li("What is the number of incorrect positive test results when the base rate is 0.05? These are also known as false positives."),
+                                          tags$li("Increase the base rate from 0.05 to 0.95. How does the number of false positives change?"),
+                                          tags$li("What does the above result mean for testing everybody for a rare disease?")
+                                        )
+                                      )
+                                  )
+                         ),
                          fluidRow(
                            box(title = "Disease and Test Information",
-                               p("In this box you can control the base rate of the disease and view the sensitivity and specificity of the test. You can see the effects of the changes that you make in the box opposite."),
-                               p("One interesting result occurs when the disease is very rare. How many positive results are returned then? What proportion of those positive results are correct? Can you tell why this happens?"),
                                sliderInput("diseasePrevalence", h3("Base Rate of Disease"), min=0.05, max=0.95, step=0.05, value = 0.2),
                                br(),
                                h3("Test sensitivity: 0.95"),
@@ -27,5 +38,16 @@ tabDiseaseTest = tabItem(tabName = "tabDiseaseTest",
                                p("This tree shows the test results for a population of people for the base rate and test details given in the box opposite."),
                                plotOutput("display_diseaseTree_tree")
                            )
+                         ),
+                         fluidRow(class="hideIfEmbedded",
+                                  box(title="Try it: answers", width = 12, collapsible = TRUE, collapsed = TRUE,
+                                      tags$div(
+                                        tags$ol(
+                                          tags$li("475. This can be read from the expected frequency tree as the number of people of test positive despite not having the disease."),
+                                          tags$li("The number of false positives decreases from 475 to 25 as the base rate increases from 0.05 to 0.95."),
+                                          tags$li("This means that there will be a large number of false positives.")
+                                        )
+                                      )
+                                  )
                          )
 )
