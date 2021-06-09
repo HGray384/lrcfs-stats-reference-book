@@ -11,7 +11,7 @@ tabDiseaseTest = tabItem(tabName = "tabDiseaseTest",
                          ),
                          fluidRow(class="hideIfEmbedded",
                                   box(title="Try it", width = 12, collapsible = TRUE, collapsed = TRUE,
-                                      p("In the box below you can control the base rate of the disease. You can see the effects of the changes in the expected frequency tree below."),
+                                      p("In the box below you can control the base rate of the disease. You can see the effects of the changes in the tree diagram below."),
                                       p("Try the following activities, you can see the answers at the bottom of the page."),
                                       tags$div(
                                         tags$ol(
