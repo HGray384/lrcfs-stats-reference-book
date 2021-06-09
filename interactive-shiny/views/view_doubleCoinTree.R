@@ -17,6 +17,20 @@ tabDoubleCoinTree = tabItem(tabName = "tabDoubleCoinTree",
                               #     p("The joint probabilities can be obtained by multiplication in this way because the outcomes of coin 1 and coin 2 are independent. This means that the outcome of coin 1 did not affect the probabilities of the outcomes of coin 2. If outcomes are not independent then the joint probabilities cannot be calculated using just the probabilities of either coin.")
                               # )
                             ),
+                            fluidRow(class="hideIfEmbedded",
+                                     box(title="Try it", width=12, collapsible = TRUE, collapsed = TRUE,
+                                         p("Try the following activities, you can see the answers at the bottom of the page."),
+                                         tags$div(
+                                           tags$ol(
+                                             tags$li("Fix the slider at 400 tosses with probability of heads of 0.5. What is the probability of a double tails? This is the joint probability of two tails."),
+                                             tags$li("Change the probability of heads to 0.2. What is the joint probability of double tails now?"),
+                                             tags$li("How is joint probability of a double tails calculated?"),
+                                             tags$li("Are the joint probabilities for double heads and heads/tails calculated in the same way? Do you know what statistical property this shows?")
+                                           )
+                                         )
+                                     )
+                                     
+                            ),
                             fluidRow(
                               box(title="Number of double coin tosses and probability of heads", width=12,
                                   column(width=6,
@@ -38,5 +52,18 @@ tabDoubleCoinTree = tabItem(tabName = "tabDoubleCoinTree",
                                   p("This tree displays the expected frequency of each outcome for a certain number of double tosses."),
                                   plotOutput("display_doubleCoinTree_tree_freq")
                               )
+                            ),
+                            fluidRow(class="hideIfEmbedded",
+                              box(title="Try it: answers", width = 12, collapsible = TRUE, collapsed = TRUE,
+                                  tags$div(
+                                    tags$ol(
+                                      tags$li("0.25. This can be seen by reading the value for Tails/Tails from the probability tree."),
+                                      tags$li("0.64. This can be seen by reading the value for Tails/Tails from the probability tree."),
+                                      tags$li("It is calculated by multiplying the probability of tails by itself. You can check this using a calculator."),
+                                      tags$li("Yes, they are calculated in the same way - by multiplying the probbailities of each outcome together. This property is known as statistical independence.")
+                                    )
+                                  )
+                              )
                             )
+                    
 )
