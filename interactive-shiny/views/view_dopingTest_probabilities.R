@@ -8,6 +8,20 @@ tabDopingTest_probabilities = tabItem(tabName = "tabDopingTest_probabilities",
                               p("Change the sensitivity and specificity of the test using the slider below and see how that affects the number of mistakes the test makes for a population of 10,000 athletes.")
                           )
                         ),
+                        fluidRow(class="hideIfEmbedded",
+                                 box(title="Try it", width = 12, collapsible = TRUE, collapsed = TRUE,
+                                     p("Below you can control the sensitivity and specificity of the doping test. You can see the effects of the changes in the tree diagram below."),
+                                     p("Try the following activities, you can see the answers at the bottom of the page."),
+                                     tags$div(
+                                       tags$ol(
+                                         tags$li("What is the number of incorrect negative test results when the sensitivity is 0.99? These are also known as false negatives."),
+                                         tags$li("Decrease the sensitivity from 0.99 gradually. How does the number of false negatives change? Which side of the tree diagram is affected?"),
+                                         tags$li("Set the specificity to 0.99 and decrease it gradually. How does the number of false positives change? Which side of the tree diagram is affected?"),
+                                         tags$li("Use the above results to decide whether a high sensitivity alone is enough to control the number of false results the test makes.")
+                                       )
+                                     )
+                                 )
+                        ),
                         fluidRow(
                           box(title="Doping Test Properties", width=12,
                               p("In this box you can control the sensitivity and specificity of the test. You can see the effects of the changes that you make in the text description and tree diagram below."),
@@ -33,5 +47,17 @@ tabDopingTest_probabilities = tabItem(tabName = "tabDopingTest_probabilities",
                           box(title="Doping status and test results",
                               plotOutput("display_dopingTest_probabilities_tree")
                           )
+                        ),
+                        fluidRow(class="hideIfEmbedded",
+                                 box(title="Try it: answers", width = 12, collapsible = TRUE, collapsed = TRUE,
+                                     tags$div(
+                                       tags$ol(
+                                         tags$li("2. This can be seen by setting the sensitivity to the correct number and seeing the number of negative test results returned to athletes who are doping."),
+                                         tags$li("The number of false negatives increases as the sensitivity decreases. This affects the left-hand side of the tree, which shows the doping athletes."),
+                                         tags$li("The number of false positives increases as the specificity decreases. This affects the right-hand side of the tree, which shows the non-doping athletes."),
+                                         tags$li("High sensitivity alone is not enough to control the number of false results, since it does not affect the number of false positives. Both a high sensitivity and a high specificity are required. The base rate also has an effect and this is shown in the Disease Test example.")
+                                       )
+                                     )
+                                 )
                         )
 )
