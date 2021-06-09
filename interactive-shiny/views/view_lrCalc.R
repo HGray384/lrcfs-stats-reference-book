@@ -17,7 +17,7 @@ tabLRCalc = tabItem(tabName = "tabLRCalc",
                                  p("If the probability of \\(E\\) conditioned on \\(H_p\\) is only one quarter the size of the probability of \\(E\\) conditioned on \\(H_d\\), say 0.1 compared to 0.4, then the LR is 0.25."),
                                  p("The LR determines how much more likely the recovered evidence was assuming the prosecution hypothesis to be true compared to when the defence hypothesis is true."),
                                  p("Fix each of the conditional probabilities in the calculator below to see the resulting LR."),
-                                 p("Values for these terms can also be greater than 1, and this is because the conditional probabilities are technically conditional 'likelihoods'. The technical details of this are beyond the scope of this application, the main message is that the LR is the ratio of two non-negative values. ")
+                                 p("Values for these terms can also be greater than 1, and this is because the conditional probabilities are technically 'likelihoods'. The technical details of this are beyond the scope of this application, the key point is that the LR is the ratio of two non-negative values. ")
                              )
                     ),
                     fluidRow(
