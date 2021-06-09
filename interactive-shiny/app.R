@@ -11,10 +11,6 @@ library("ggplot2")
 library("igraph")
 library("tidyverse")
 library("ggthemes")
-# library(kableExtra)
-# library(learnr)
-
-
 
 #Load a global config file for easy access to application variables (APP_NAME_SHORT, APP_VER etc are set in here)
 source("appConfig.R")
