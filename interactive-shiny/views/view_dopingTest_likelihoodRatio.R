@@ -2,7 +2,7 @@ tabDopingTest_likelihoodRatio = tabItem(tabName = "tabDopingTest_likelihoodRatio
                         fluidRow(class="hideIfEmbedded",
                           box(title="Doping Testing Example with Likelihood Ratio", width=12, collapsible = TRUE,
                               p("This example continues on from the previous doping test example. Athletes are doping and a test is used to try to detect them."),
-                              p("In this example we will see how the base rate of the disease and the sensitivity and specificity of the test affect the key components of Bayes' rule: the prior odds, the likelihood ratio, and the posterior odds."),
+                              p("In this example we will see how the base rate of doping and the sensitivity and specificity of the test affect the key components of Bayes' rule: the prior odds, the likelihood ratio, and the posterior odds."),
                               p("Bayes' rule is a rule of probability that determines how to update beliefs based upon learning new information. In this example, the belief is about whether an athlete is doping or not and the new information which updates that belief is the result of the doping test."),
                               p("The belief before learning the test result can be expressed as prior odds: the relative size of the probability that the athlete is doping compared to not doping."),
                               p("The belief after learning the test result can be expressed as posterior odds: the relative size of the probability that the athlete is doping compared to not doping conditional on the result of the test."),
