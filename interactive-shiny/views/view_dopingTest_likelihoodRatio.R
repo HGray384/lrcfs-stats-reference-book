@@ -11,6 +11,21 @@ tabDopingTest_likelihoodRatio = tabItem(tabName = "tabDopingTest_likelihoodRatio
                               p("Change the sensitivity and specificity of the test using the slider below and see how that affects the components of Bayes' rule in this population of 10,000 athletes. There is a text description to help explain the mathematical calculations.")
                           )
                         ),
+                        fluidRow(class="hideIfEmbedded",
+                          box(title="Try it", width=12, collapsible = TRUE, collapsed = TRUE,
+                              p("Below you can control the sensitivity and specificity of the doping test. You can see the effects of the changes in the calculations below."),
+                              p("Try the following activities, you can see the answers at the bottom of the page."),
+                              tags$div(
+                                tags$ol(
+                                  tags$li("Read through the calculations and descriptions below for the prior odds. In this example, is doping rare or common?"),
+                                  tags$li("Set both the sensitivity and specificity of the doping test to 0.9 and read through the calculations and description of the LR. What is the value of the LR? What does this value mean?"),
+                                  tags$li("Keep the same sensitivity and specificity above and read through the calculations and description for the posterior odds. What is the value? What does this mean for a randomly selected athlete who tests positive?"),
+                                  tags$li("What do the above two steps highlight about the interpretation of the LR?"),
+                                  tags$li("See if you can find values for the sensitivity and specificity which result in posterior odds that are greater than 1. Why is this important?")
+                                )
+                              )
+                          )
+                        ),
                         fluidRow(
                           box(title="Doping Test Properties", width=12,
                               p("In this box you can control the sensitivity and specificity of the test. You can see the effects of the changes that you make in the text description and calculations below."),
@@ -59,6 +74,19 @@ tabDopingTest_likelihoodRatio = tabItem(tabName = "tabDopingTest_likelihoodRatio
                           ),
                           box(title="Posterior Odds Calculation", width=6,
                               uiOutput("display_dopingTest_likelihoodratio_posteriorOddsCalcs")
+                          )
+                        ),
+                        fluidRow(class="hideIfEmbedded",
+                          box(title="Try it: answers", width=12, collapsible = TRUE, collapsed = TRUE,
+                              tags$div(
+                                tags$ol(
+                                  tags$li("The base rate is 0.02, implying prior odds of 0.0204. This means that a randomly selected athlete is 0.0204 times as probable to be doping compared to not doping. This means that doping is rare."),
+                                  tags$li("The LR is 9. This means that a positive test is 9 times as probable when an athlete is doping compared to when they are not doping."),
+                                  tags$li("The posterior odds are 0.1837. This means that a randomly selected athlete who tests positive is 0.1837 times as likely to be doping compared to not be doping. Since this number is less than 1, the athlete is more likely to not be doping."),
+                                  tags$li("In the steps above, an LR above 1 still resulted in posterior odds less than 1 (due to doping being rare). This shows that LRs needs to be carefully considered and not mistakenly confused with posterior odds."),
+                                  tags$li("Posterior odds greater than 1 are important because this is the value at which an athlete who tests positive is more likely to be doping than not doping.")
+                                )
+                              )
                           )
                         )
 )
