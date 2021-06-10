@@ -96,12 +96,12 @@ output$display_dopingTest_likelihoodratio_priorOddsCalcs = renderUI({
 
 
 output$display_dopingTest_likelihoodratio_likelihoodRatioInfo = renderUI({
-  
+  likelihoodRatio = formatNumberForDisplay(dopingTest_likelihoodratio_likelihoodRatio())
   tagList(
     p(paste0("The box opposite contains the calculations for the LR for a positive test result. The LR compares the probability of obtaining a positive test result conditioned on the athlete doping with the probability of a positive test result conditioned on the athlete not doping.")),
     p(paste0("The probability of a positive test result conditioned on the athlete doping is just the sensitivity, ", input$doping_like_Sensitivity, ".")),
-    p(paste0("The probability of a positive test result conditioned on the athlete not doping is equal to 1 minus the probability of a negative test result conditioned on the athlete not doping since these two probabilities are mutually exclusive and exhaustive. This means that is equal to 1 minus the specificity, ", input$doping_like_Specificity), "."),
-    p(paste0("Comparing the size of these two probabilities gives the LR."))
+    p(paste0("The probability of a positive test result conditioned on the athlete not doping is equal to 1 minus the probability of a negative test result conditioned on the athlete not doping since these two probabilities are mutually exclusive and exhaustive. This means that itis equal to 1 minus the specificity, ", input$doping_like_Specificity), "."),
+    p(paste0("This LR means that a positive test is ", formatNumberForDisplay(likelihoodRatio), " times more probable when the athlete is doping compared to when they are not doping."))
   )
   
   
