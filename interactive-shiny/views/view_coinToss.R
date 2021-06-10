@@ -1,5 +1,5 @@
 tabCoinToss = tabItem(tabName = "tabCoinToss",
-                      fluidRow(
+                      fluidRow(class="hideIfEmbedded",
                               box(title="Single Coin Toss - Samples", width=12, collapsible = TRUE,
                                   p("In this example we consider both the expected outcomes of the coin toss as well as actual outcomes of the tosses."),
                                   p("When we assign a probability of a coin toss resulting in a head, we have an expectation for the number of heads that will be acheived for a certain number of tosses. However, this number of heads is not guaranteed to occur when the coin is actually tossed."),
@@ -7,6 +7,19 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
                                   p("Use the sliders below to change the number of tosses and the probability of heads for the coin to generate a sample of tosses and view the results in the graphs below."),
                                   p("The outcomes for the sample have been added to a new tree diagram which represents the sample number (also known as the sample frequency) of heads and tails.")
                               )
+                      ),
+                      fluidRow(class="hideIfEmbedded",
+                               box(title = "Try it", width=12, collapsible = TRUE, collapsed = TRUE,
+                                   p("Try the following activities, you can see the answers at the bottom of the page."),
+                                   tags$div(
+                                     tags$ol(
+                                       tags$li("Set the number of tosses to around 50 and the probability of heads to be 0.5. Compare the expected number of heads/tails to the sample number of heads/tails. Why are these numbers different?"),
+                                       tags$li("Now set the number of tosses to 500. Look at the graph which shows the sample proportion of heads/tails with each toss. Can you tell how the sample proportion of heads is calculated?"),
+                                       tags$li("Look at the graph which shows the sample proportion of heads/tails with each toss again. What happens to the lines on the graph between 1-100 tosses compared to the lines on the graph between 400-500 tosses?"),
+                                       tags$li("Repeat activity 2 above for a probability of heads of 0.8. Can you tell why you view this behaviour for the lines between tosses 0-100 compared to tosses 400-500?"),
+                                       )
+                                   )  
+                               )
                       ),
                       fluidRow(
                               box(title="Number of tosses and probability of heads", width=12,
@@ -61,5 +74,17 @@ tabCoinToss = tabItem(tabName = "tabCoinToss",
                                   actionButton("coinToss_resetTotals", "Reset Totals")
                                   
                               )
+                      ),
+                      fluidRow(class="hideIfEmbedded",
+                               box(title = "Try it: answers", width=12, collapsible = TRUE, collapsed = TRUE,
+                                   tags$div(
+                                     tags$ol(
+                                       tags$li("These numbers are different because the expectations from a theoretical probability model cannot determine precise outcomes from the real-world process that they attempt to model (in this case, coin toss outcomes)."),
+                                       tags$li("The sample proportion of heads is calculated by dividing the sample number of heads by the total number of tosses."),
+                                       tags$li("The lines between 0-100 tosses vary greatly, whilst the lines from 400-500 tosses are more stable."),
+                                       tags$li("This behaviour occurs because for smaller sample sizes, the sample proportion of heads can be greatly affected by small random sequences of many heads or many tails (and you can see how many of these sequences occur in the Coin Tosses visualisation graph). Over many samples, the sample proportion of heads is less affected by small sequences of many heads or many tails. As a result, for larger sample sizes the sample proportion of heads is more stable and gets closer to the probability of heads."),
+                                     )
+                                   )  
+                               )
                       )
 )
