@@ -66,7 +66,7 @@ Please email Professor Niamh Nic Daéid [n.nicdaeid@dundee.ac.uk] with your feed
 
 If you don't know what 'Github' is, then skip this section.
 
-All of the code to generate this book (and its content) can be found [here on the LRCFS Github](https://github.com/LRCFS/lrcfs-stats-reference-book). Please note that the code repository will not be accessible until the book is officially released.
+All of the code to generate this book (and its content) can be found [here on the LRCFS Github](https://github.com/LRCFS/lrcfs-stats-reference-book). 
 
 Please use the Issue function to raise any problems or suggested content changes. If your change is minor and you can do it quickly yourself (e.g. a spelling correction, a minor rewording, etc.) then feel free to make a Pull request.
 
@@ -96,15 +96,15 @@ Interactive questions in this book have been made using a self-hosted instance o
 
 ## Updates and versions {-}
 
-### About this version (2nd draft) {-}
+### About this version (version 1.0) {-}
 
-The book is currently in its second draft. This means that the content has received and implemented edits from an internal review team and is still under development.
+The book is currently in its version 1.0 release. This means that we have incorporated feedback from external stakeholders and that all content and code is now publicly available.
 
 ### Planned versions {-}
 
-Major versions in planning:
+Versions in planning:
 
-- Version 1, after survey feedback from LRCFS members and external practitioners
+- Version 1.1 - incorporating feedback and continual improvements
 
 ### Update history {-}
 
@@ -119,6 +119,10 @@ Major versions in planning:
 03/2021 - Interactive questions and summary sections added
 
 04/2021 - Research study launched
+
+06/2021 - Feedback from research study included
+
+06/2021 - Version 1.0 launched
 
 ### Future content {-}
 
