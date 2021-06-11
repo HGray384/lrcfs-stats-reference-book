@@ -9,13 +9,13 @@ tabHome = tabItem(tabName = "tabHome",
                         p("We hope that you enjoy learning using this app.")
                     )
                   ),
-                  fluidRow(
-                    box(title="Information for research participants", width = 12,
-                        p("If you are a research participant in our study, then please follow the instructions given in the survey. The text boxes at the top of each tab may be minimised to reduce screen clutter by clicking the button in their top right-hand corner.")
-                    )
-                  ),
+                  # fluidRow(
+                  #   box(title="Information for research participants", width = 12,
+                  #       p("If you are a research participant in our study, then please follow the instructions given in the survey. The text boxes at the top of each tab may be minimised to reduce screen clutter by clicking the button in their top right-hand corner.")
+                  #   )
+                  # ),
                   fluidRow(
                     box(title = "Development information", width = 12,
-                        p(HTML("This application is being developed by Mr Roy Mudie (Application Specialist) and Dr Harry Gray (Harding Fellow) at the Leverhulme Research Centre for Forensic Science (LRCFS). The principal investigator for this project is Professor Niamh Nic Da&eacute;id."))                      )
+                        p(HTML("This application was developed by Mr Roy Mudie (Application Specialist) and Dr Harry Gray (Harding Fellow) at the Leverhulme Research Centre for Forensic Science (LRCFS). The principal investigator for this project is Professor Niamh Nic Da&eacute;id."))                      )
                   )
 )
