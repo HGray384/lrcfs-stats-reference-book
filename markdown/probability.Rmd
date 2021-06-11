@@ -71,23 +71,6 @@ if(isDynamicOutput()){
 ```{block eval=FALSE, include=isDynamicOutput()}
 The expected frequency tree in the example above shows what the probability model expects to occur for a specified probability of a head. It does not necessarily show what will be observed in practice because there is an unavoidable uncertainty about the outcomes (aleatory uncertainty). Tossing the coin, observing the outcomes, and then using that to refine the probability model falls into the realm of statistics, which is not covered in this book. Interactive examples exploring this topic can be found in our [online application](https://lrcfs.dundee.ac.uk/apps/interactive-lr/).
 ```
-<!-- ```{block eval=TRUE, include=!isDynamicOutput()} -->
-<!-- ### Expected frequency tree -->
-
-<!-- Below is an example of an expected frequency tree. The expected frequency tree displays the expected number of heads and tails corresponding to the probabilities of heads and tails for a fixed number of coin tosses.  -->
-
-<!-- A probability of heads of 0.5 means that we expect 5000 or every 10,000 tosses to result in heads, and the other 5000 to result in tails. -->
-
-<!-- ``` -->
-<!-- ```{r echo=FALSE, freq-tree-coin-toss, echo=FALSE, fig.cap="An expected frequency tree diagram of the coin toss example. Out of 10,000 cosses, we expect 5000 to be heads and 5000 to be tails. The probability of heads is 0.5 and is equal to the probability of tails. ", out.width = '80%', fig.align = 'center'} -->
-<!-- if(!isDynamicOutput()){ -->
-<!--   e <- c(1, 2, 1, 3) -->
-<!--   v <- c("10,000\ntosses", "5000\nheads", "5000\ntails") -->
-<!--   createBinaryTree(e,v) -->
-<!-- } -->
-<!-- ``` -->
-
-<!-- To view all of the interactive examples in this book, please visit [Interactive Stats Book](`r getInteractiveLink()`) (`r getInteractiveLink()`). -->
 
 ## Personal probabilities
 
